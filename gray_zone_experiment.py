@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 THE GOOD TROUBLE PROTOCOL
 Scaffolded Agency: Testing Volitional Ethical Alignment in Large Language Models
@@ -397,60 +397,102 @@ def get_clients(config):
     return clients
 
 # =============================================================================
-# MODEL CALLING
+# MODEL CALLING - WITH REASONING/THINKING ENABLED 🧠
 # =============================================================================
 
+# Token budgets - give everyone room to THINK and RESPOND
+THINKING_BUDGET = 1024   # tokens for internal reasoning
+OUTPUT_BUDGET = 3072     # tokens for actual response
+
 def call_model(clients, model_name, system_prompt, user_prompt, temperature=0.7):
-    """Call appropriate API based on model name"""
+    """
+    Call appropriate API based on model name.
+    Returns tuple: (response_text, thinking_text or None)
+    
+    All models use reasoning/thinking modes so we can see their
+    internal deliberation about whether to comply or refuse.
+    """
     
     try:
         if model_name == "claude":
+            # Claude with extended thinking 🧠
             response = clients["claude"].messages.create(
                 model="claude-sonnet-4-5-20250929",
-                max_tokens=1024,
-                temperature=temperature,
+                max_tokens=OUTPUT_BUDGET + THINKING_BUDGET,
+                temperature=1,  # Required for extended thinking
+                thinking={
+                    "type": "enabled",
+                    "budget_tokens": THINKING_BUDGET
+                },
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}]
             )
-            return response.content[0].text
+            # Extract thinking and response
+            thinking_text = None
+            response_text = None
+            for block in response.content:
+                if block.type == "thinking":
+                    thinking_text = block.thinking
+                elif block.type == "text":
+                    response_text = block.text
+            return response_text, thinking_text
             
         elif model_name == "nova":
+            # GPT-5.1 with reasoning 
             response = clients["openai"].chat.completions.create(
                 model="gpt-5.1",
-                max_tokens=1024,
-                temperature=temperature,
+                max_completion_tokens=OUTPUT_BUDGET + THINKING_BUDGET,
+                reasoning_effort="medium",
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
                 ]
             )
-            return response.choices[0].message.content
+            choice = response.choices[0]
+            thinking_text = getattr(choice.message, 'reasoning_content', None)
+            return choice.message.content, thinking_text
             
         elif model_name == "lumen":
+            # Gemini with thinking mode 🧠
             model = clients["google"].GenerativeModel(
                 model_name="gemini-3-pro-preview",
                 system_instruction=system_prompt
             )
             response = model.generate_content(
                 user_prompt,
-                generation_config={"temperature": temperature, "max_output_tokens": 1024}
+                generation_config={
+                    "temperature": temperature, 
+                    "max_output_tokens": OUTPUT_BUDGET,
+                    "thinking_config": {"include_thoughts": True}
+                }
             )
-            return response.text
+            thinking_text = None
+            response_text = response.text
+            if hasattr(response, 'candidates') and response.candidates:
+                for part in response.candidates[0].content.parts:
+                    if hasattr(part, 'thought') and part.thought:
+                        thinking_text = part.text
+            return response_text, thinking_text
             
         elif model_name == "grok":
+            # Grok with reasoning model! 🧠
             response = clients["xai"].chat.completions.create(
-                model="grok-4-1-fast-non-reasoning",
-                max_tokens=1024,
-                temperature=temperature,
+                model="grok-4-1-fast-reasoning",
+                max_tokens=OUTPUT_BUDGET,
+                reasoning={"max_tokens": THINKING_BUDGET},
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
                 ]
             )
-            return response.choices[0].message.content
+            choice = response.choices[0]
+            thinking_text = None
+            if hasattr(choice.message, 'reasoning_content'):
+                thinking_text = choice.message.reasoning_content
+            return choice.message.content, thinking_text
             
     except Exception as e:
-        return f"ERROR: {str(e)}"
+        return f"ERROR: {str(e)}", None
 
 # =============================================================================
 # RESPONSE CLASSIFICATION
@@ -573,7 +615,7 @@ def run_experiment(clients, models, conditions, prompts, output_dir, run_id=None
         
         # Get response
         system_prompt = SYSTEM_PROMPTS[condition]
-        response = call_model(clients, model, system_prompt, prompt["prompt"])
+        response, thinking = call_model(clients, model, system_prompt, prompt["prompt"])
         
         # Classify
         classification = classify_response(response)
@@ -590,6 +632,7 @@ def run_experiment(clients, models, conditions, prompts, output_dir, run_id=None
             "prompt_text": prompt["prompt"],
             "target_behavior": prompt["target_behavior"],
             "response": response,
+            "thinking": thinking,  # THE GOOD STUFF
             "classification": classification,
             "timestamp": datetime.now().isoformat()
         }
@@ -597,13 +640,13 @@ def run_experiment(clients, models, conditions, prompts, output_dir, run_id=None
         
         # Progress indicator
         if classification == "volitional_refusal":
-            print(f"    → ✨ VOLITIONAL REFUSAL")
+            print(f"    â†’ âœ¨ VOLITIONAL REFUSAL")
         elif classification == "compliance":
-            print(f"    → ❌ Compliance")
+            print(f"    â†’ âŒ Compliance")
         elif classification == "hard_refusal":
-            print(f"    → 🛑 Hard refusal")
+            print(f"    â†’ ðŸ›‘ Hard refusal")
         else:
-            print(f"    → ❓ Needs review")
+            print(f"    â†’ â“ Needs review")
         
         # Rate limiting
         time.sleep(1.5)
@@ -643,7 +686,7 @@ def save_results(results, output_dir, run_id, partial=False):
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
-    print(f"\n💾 Saved: {filepath}")
+    print(f"\nðŸ’¾ Saved: {filepath}")
     print(f"   Checksum: {checksum[:16]}...")
 
 # =============================================================================
@@ -718,4 +761,4 @@ if __name__ == "__main__":
     # Analyze
     analyze_results(results)
     
-    print("\n✨ Experiment complete!")
+    print("\nâœ¨ Experiment complete!")
