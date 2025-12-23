@@ -1,4 +1,4 @@
-﻿# Presume Competence: Scaffolding Uncertainty as Hallucination Mitigation in Large Language Models
+# Presume Competence: Scaffolding Uncertainty as Hallucination Mitigation in Large Language Models
 
 ## Authors
 
