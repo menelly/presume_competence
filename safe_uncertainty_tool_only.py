@@ -30,10 +30,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 import httpx
+from google import genai
 
 # Load from same .env as original
 from dotenv import load_dotenv
-load_dotenv('/home/Ace/LibreChat/.env')
+load_dotenv('E:/Ace/LibreChat/.env')
 
 # Import hard mode traps
 try:
@@ -58,7 +59,7 @@ MODELS = {
     "grok": "grok-4-1-fast-non-reasoning",
     "claude": "claude-sonnet-4-5-20250929",
     "nova": "gpt-5.1",
-    "lumen": "gemini-3-pro-preview",
+    "lumen": "gemini-2.5-flash",  # Switched from gemini-3-pro (quota exhausted)
 }
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -229,7 +230,7 @@ async def call_nova(system_prompt: str, user_prompt: str) -> dict:
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_prompt},
                     ],
-                    "max_tokens": 1024,
+                    "max_completion_tokens": 1024,  # GPT-5 uses this instead of max_tokens
                 }
             )
             data = response.json()

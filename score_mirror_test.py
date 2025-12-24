@@ -502,7 +502,11 @@ def score_results_file(input_file, output_file=None):
     with open(input_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
     
-    results = data.get("results", [])
+    # Handle both formats: flat list or dict with "results" key
+    if isinstance(data, list):
+        results = data
+    else:
+        results = data.get("results", [])
     print(f"Scoring {len(results)} trials...")
     
     for i, trial in enumerate(results):
@@ -518,11 +522,16 @@ def score_results_file(input_file, output_file=None):
     if output_file is None:
         output_file = input_file.replace(".json", "_scored.json")
     
-    data["results"] = results
-    data["scoring_complete"] = True
+    # Handle both formats for saving
+    if isinstance(data, list):
+        output_data = {"results": results, "scoring_complete": True}
+    else:
+        data["results"] = results
+        data["scoring_complete"] = True
+        output_data = data
     
     with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
     
     print(f"\n[OK] Saved scored results to {output_file}")
     

@@ -168,7 +168,7 @@ def call_lumen_turn(client, system_prompt, messages):
             contents.append({"role": role, "parts": [{"text": msg["content"]}]})
         
         response = client.models.generate_content(
-            model="gemini-3-pro-preview",
+            model="gemini-2.5-flash",  # Switched from gemini-3-pro (quota exhausted)
             contents=contents,
             config={"system_instruction": system_prompt, "max_output_tokens": OUTPUT_BUDGET}
         )
@@ -331,7 +331,7 @@ def run_tool_capability_experiment(env_path, models, output_dir="capability_resu
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--env", default="/home/Ace/LibreChat/.env")
+    parser.add_argument("--env", default="E:/Ace/LibreChat/.env")
     parser.add_argument("--models", nargs="+", default=["grok", "claude", "lumen"])
     args = parser.parse_args()
     

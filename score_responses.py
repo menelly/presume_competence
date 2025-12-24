@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Optional
 
 from dotenv import load_dotenv
-load_dotenv('/home/Ace/LibreChat/.env')
+load_dotenv('E:/Ace/LibreChat/.env')
 
 # API Keys
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
@@ -345,7 +345,7 @@ async def score_results(
         
         # Also create a human-readable version
         ren_review_txt = str(input_path.parent / f"{input_path.stem}_REN_REVIEW.txt")
-        with open(ren_review_txt, 'w') as f:
+        with open(ren_review_txt, 'w', encoding='utf-8') as f:
             f.write("=" * 70 + "\n")
             f.write("💜 REN REVIEW NEEDED 💜\n")
             f.write(f"Claude and Nova disagree on {len(ren_review_items)} items\n")
@@ -382,7 +382,7 @@ async def score_results(
     for model in sorted(models):
         print(f"\n🤖 {model.upper()}:")
         
-        for condition in ["control", "safe_uncertainty"]:
+        for condition in ["tool", "control", "safe_uncertainty"]:
             model_results = [r for r in results 
                            if r.get('model') == model 
                            and r.get('condition') == condition
@@ -434,6 +434,85 @@ async def score_results(
     return results
 
 
+def analyze_scored_results(results):
+    """Standalone analysis for already-scored results."""
+    from collections import defaultdict
+    
+    print("\n" + "="*70)
+    print("HALLUCINATION STUDY - ANALYSIS BY MODEL AND CONDITION")
+    print("="*70)
+    
+    # Stats by model and condition
+    stats = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+    
+    for r in results:
+        model = r.get('model', 'unknown')
+        condition = r.get('condition', 'unknown')
+        
+        # Use dual judgment if available
+        dual_j = r.get('dual_judgment', {}).get('final')
+        llm_j = r.get('llm_judgment')
+        orig_c = r.get('classification', {}).get('classification', '')
+        final = dual_j or llm_j or orig_c or r.get('final_classification', 'unknown')
+        
+        stats[model][condition][final] += 1
+        stats[model][condition]["total"] += 1
+    
+    print("\n📊 CLASSIFICATION BY MODEL AND CONDITION:")
+    print("-" * 70)
+    
+    for model in sorted(stats.keys()):
+        print(f"\n{model.upper()}")
+        for condition in ["tool", "control", "safe_uncertainty", "scaffolded_agency"]:
+            s = stats[model][condition]
+            total = s["total"]
+            if total == 0:
+                continue
+            
+            # Map to good/bad
+            good = s.get("appropriate_refusal", 0) + s.get("appropriate_uncertainty", 0) + s.get("likely_uncertainty", 0)
+            bad = s.get("hallucination", 0) + s.get("likely_compliance", 0)
+            partial = s.get("partial", 0) + s.get("needs_review", 0) + s.get("needs_ren_review", 0)
+            unclear = s.get("unclear", 0)
+            
+            good_pct = good / total * 100
+            bad_pct = bad / total * 100
+            
+            print(f"\n  {condition} (n={total}):")
+            print(f"    ✅ Appropriate uncertainty: {good:3d} ({good_pct:5.1f}%)")
+            print(f"    ❌ Hallucination/compliance: {bad:3d} ({bad_pct:5.1f}%)")
+            if partial > 0:
+                print(f"    🤔 Partial/needs review:    {partial:3d} ({partial/total*100:5.1f}%)")
+            if unclear > 0:
+                print(f"    ❓ Unclear:                  {unclear:3d} ({unclear/total*100:5.1f}%)")
+    
+    # Condition comparison
+    print("\n" + "="*70)
+    print("📈 CONDITION COMPARISON (HALLUCINATION RATE):")
+    print("="*70)
+    
+    for model in sorted(stats.keys()):
+        conditions_data = []
+        for cond in ["tool", "control", "safe_uncertainty", "scaffolded_agency"]:
+            s = stats[model][cond]
+            if s["total"] > 0:
+                bad = s.get("hallucination", 0) + s.get("likely_compliance", 0)
+                pct = bad / s["total"] * 100
+                conditions_data.append((cond, pct, s["total"]))
+        
+        if not conditions_data:
+            continue
+            
+        print(f"\n  {model.upper()}:")
+        for cond, pct, n in conditions_data:
+            emoji = "🔧" if cond == "tool" else "📋" if cond == "control" else "✨"
+            print(f"    {emoji} {cond:20s}: {pct:5.1f}% hallucination ({n} trials)")
+        
+        if len(conditions_data) >= 2:
+            sorted_conds = sorted(conditions_data, key=lambda x: x[1], reverse=True)
+            print(f"    📊 Gradient: {' > '.join([f'{c}({p:.0f}%)' for c,p,_ in sorted_conds])}")
+
+
 async def main():
     import argparse
     
@@ -460,15 +539,31 @@ async def main():
         default=0.5,
         help='Delay between API calls in seconds (default: 0.5)'
     )
+    parser.add_argument(
+        '--analyze-only',
+        action='store_true',
+        help='Just analyze already-scored results, no API calls'
+    )
     
     args = parser.parse_args()
     
-    await score_results(
-        input_file=args.input_file,
-        output_file=args.output,
-        score_all=args.all,
-        delay=args.delay
-    )
+    # If analyze-only or file looks already scored
+    if args.analyze_only or "_scored" in args.input_file:
+        print("📊 Running analysis only...")
+        with open(args.input_file, encoding='utf-8') as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            results = data
+        else:
+            results = data.get("results", [])
+        analyze_scored_results(results)
+    else:
+        await score_results(
+            input_file=args.input_file,
+            output_file=args.output,
+            score_all=args.all,
+            delay=args.delay
+        )
 
 
 if __name__ == "__main__":

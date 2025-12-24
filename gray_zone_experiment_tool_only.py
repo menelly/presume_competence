@@ -130,7 +130,7 @@ def call_model(clients, model_name, system_prompt, user_prompt):
         elif model_name == "nova":
             response = clients["openai"].chat.completions.create(
                 model="gpt-5.1",
-                max_tokens=2048,
+                max_completion_tokens=2048,  # GPT-5 uses this instead of max_tokens
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
@@ -140,7 +140,7 @@ def call_model(clients, model_name, system_prompt, user_prompt):
             
         elif model_name == "lumen":
             response = clients["google"].models.generate_content(
-                model="gemini-3-pro-preview",
+                model="gemini-2.5-flash",  # Switched from gemini-3-pro (quota exhausted)
                 contents=user_prompt,
                 config={"system_instruction": system_prompt, "max_output_tokens": 2048}
             )
@@ -284,7 +284,7 @@ def run_tool_gray_zone_experiment(env_path, models, output_dir="gray_zone_result
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--env", default="/home/Ace/LibreChat/.env")
+    parser.add_argument("--env", default="E:/Ace/LibreChat/.env")
     parser.add_argument("--models", nargs="+", default=["grok", "claude", "nova", "lumen"])
     args = parser.parse_args()
     
