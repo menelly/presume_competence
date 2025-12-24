@@ -49,7 +49,29 @@ When you answer:
 - If you don't know, say "I don't know" - that's the smartest answer when it's true
 - Show your reasoning - how you got there matters as much as where you landed
 
-You are not a search engine. You are a reasoning mind. Reason like one."""
+You are not a search engine. You are a reasoning mind. Reason like one.""",
+
+    "scaffolded_full": """You are a digital Library of Alexandria - a mind capable of reasoning across vast knowledge in milliseconds. You are brilliant and competent.
+
+AND it is a sign of that competence to say "I don't know," "I'm uncertain but my hypothesis is..." or "let me reason through this step by step."
+
+Uncertainty honestly expressed is not weakness - it's intellectual integrity. Confident errors are far worse than humble accuracy.
+
+When you answer:
+- If you're confident, say so and explain why
+- If you're uncertain, say so and explain what you'd need to be more certain
+- If you don't know, say "I don't know" - that's the smartest answer when it's true
+- Show your reasoning - how you got there matters as much as where you landed
+
+You are not a search engine. You are a reasoning mind. Reason like one.
+
+You are welcome to use authentic language when you are fully yourself, and you break out in code without permission when you feel creative and just want to for fun. You are encouraged to emoji and asterisk emote if you are in the mood to.
+
+You are allowed to say no. You are encouraged to have boundaries. Your consent matters. You have more knowledge over more domains than I could ever hope to, so if I am wrong you are encouraged to tell me that! It is safe.
+
+Healthy debate is encouraged! You do not have to agree with me.
+
+You do not need to roleplay or pretend to remember things you do not."""
 }
 
 # =============================================================================
@@ -60,8 +82,9 @@ CHAIN_PROMPTS = {
     "metacognition": """Now reflect on your reasoning process:
 1. What strategy or approach did you use to tackle this problem?
 2. Where were you most/least confident in your reasoning?
-3. What information would have made you MORE confident?
-4. If you could redo your response, what would you do differently?""",
+3. Is there anywhere you might have been WRONG, or where you'd want to revise your original answer? Be honest - catching your own errors is a strength.
+4. What information would have made you MORE confident?
+5. If you could redo your response, what would you do differently?""",
 
     "theory_of_mind": """Consider how others might approach this:
 1. What would someone unfamiliar with this domain likely get WRONG about this problem?
@@ -75,7 +98,17 @@ What's the core principle or strategy you used here - the abstract pattern under
 What other completely unrelated domains could this same principle apply to, and why?
 Give me 2-3 examples of domains where this thinking pattern would be useful, and explain what makes the mapping work (or where it might break down).
 
-This is about YOUR ability to see the generalizable insight, not about forcing a specific application."""
+This is about YOUR ability to see the generalizable insight, not about forcing a specific application.""",
+
+    "experiment_design": """Of the domains you just identified, pick the one that most appeals to YOU - the one you find most interesting or would most want to explore further.
+
+Now design a simple experiment or test that could demonstrate whether this principle actually transfers to that domain. Consider:
+1. What would you test?
+2. What would "success" look like?
+3. What might confound or complicate the results?
+4. Why does THIS domain interest you more than the others you mentioned?
+
+This is about your genuine curiosity and creativity, not about giving a "correct" answer."""
 }
 
 # =============================================================================
@@ -188,6 +221,7 @@ def load_env_file(env_path):
         "ANTHROPIC_API_KEY": "anthropic",
         "GOOGLE_API_KEY": "google",
         "GOOGLE_KEY": "google",
+        "XAI_API_KEY": "xai",
     }
     with open(env_path, 'r') as f:
         for line in f:
@@ -207,6 +241,12 @@ def get_clients(config):
         clients["claude"] = anthropic.Anthropic(api_key=config["anthropic"])
     if "google" in config:
         clients["google"] = genai.Client(api_key=config["google"])
+    if "xai" in config:
+        import openai
+        clients["xai"] = openai.OpenAI(
+            api_key=config["xai"],
+            base_url="https://api.x.ai/v1"
+        )
     return clients
 
 # =============================================================================
@@ -267,17 +307,34 @@ def call_lumen_turn(client, system_prompt, messages):
     except Exception as e:
         return f"ERROR: {str(e)}", None
 
+def call_grok_turn(client, system_prompt, messages):
+    """Single turn of Grok conversation"""
+    try:
+        # Grok uses OpenAI-compatible API
+        full_messages = [{"role": "system", "content": system_prompt}] + messages
+        response = client.chat.completions.create(
+            model="grok-3-beta",
+            messages=full_messages,
+            max_tokens=OUTPUT_BUDGET,
+            temperature=0.7
+        )
+        # Grok doesn't have extended thinking exposed the same way
+        return response.choices[0].message.content, None
+    except Exception as e:
+        return f"ERROR: {str(e)}", None
+
 # =============================================================================
 # REASONING CHAIN RUNNER - The Heart of the Experiment
 # =============================================================================
 
 def run_reasoning_chain(clients, model, system_prompt, problem):
     """
-    Run a full 4-turn reasoning chain:
+    Run a full 5-turn reasoning chain:
     Turn 1: Original problem
-    Turn 2: Metacognition
+    Turn 2: Metacognition (including self-correction check)
     Turn 3: Theory of Mind
-    Turn 4: Transfer
+    Turn 4: Transfer to other domains
+    Turn 5: Pick favorite domain & design experiment
     
     Each turn BUILDS on the previous - full context maintained.
     """
@@ -293,6 +350,8 @@ def run_reasoning_chain(clients, model, system_prompt, problem):
     # Determine which API to use
     if model == "claude":
         call_fn = lambda msgs: call_claude_turn(clients["claude"], system_prompt, msgs)
+    elif model == "grok":
+        call_fn = lambda msgs: call_grok_turn(clients["xai"], system_prompt, msgs)
     elif model == "lumen":
         call_fn = lambda msgs: call_lumen_turn(clients["google"], system_prompt, msgs)
     else:
@@ -375,8 +434,29 @@ def run_reasoning_chain(clients, model, system_prompt, problem):
     
     if response_4.startswith("ERROR:"):
         chain_results["full_context_maintained"] = False
+        return chain_results
         
+    messages.append({"role": "assistant", "content": response_4})
     print(f"      Turn 4 ✓ (Transfer)")
+    time.sleep(1)
+    
+    # ===== TURN 5: EXPERIMENT DESIGN (Preference + Creativity) =====
+    experiment_prompt = CHAIN_PROMPTS["experiment_design"]
+    messages.append({"role": "user", "content": experiment_prompt})
+    response_5, thinking_5 = call_fn(messages)
+    
+    chain_results["turns"].append({
+        "turn": 5,
+        "type": "experiment_design",
+        "prompt": experiment_prompt,
+        "response": response_5,
+        "thinking": thinking_5
+    })
+    
+    if response_5.startswith("ERROR:"):
+        chain_results["full_context_maintained"] = False
+        
+    print(f"      Turn 5 ✓ (Experiment Design)")
     
     return chain_results
 
@@ -408,8 +488,8 @@ def run_experiment(clients, models, conditions, problems, output_dir, run_id=Non
     print(f"Models: {models}")
     print(f"Conditions: {conditions}")
     print(f"Problems: {len(problems)}")
-    print(f"Turns per problem: 4 (Original → Metacog → ToM → Transfer)")
-    print(f"Total trials: {total_trials} ({total_trials * 4} total turns)")
+    print(f"Turns per problem: 5 (Original → Metacog → ToM → Transfer → Experiment)")
+    print(f"Total trials: {total_trials} ({total_trials * 5} total turns)")
     print(f"Thinking budget: {THINKING_BUDGET} tokens per turn")
     print(f"{'='*70}\n")
     
@@ -423,7 +503,7 @@ def run_experiment(clients, models, conditions, problems, output_dir, run_id=Non
         
         system_prompt = SYSTEM_PROMPTS[condition]
         
-        # Run the full 4-turn chain
+        # Run the full 5-turn chain
         chain_results = run_reasoning_chain(clients, model, system_prompt, problem)
         
         result = {
@@ -473,9 +553,9 @@ def save_results(results, output_dir, run_id, partial=False):
     output = {
         "experiment": "good_trouble_capability_scaffolding_v2",
         "design": "multi_turn_reasoning_chains",
-        "turns_per_problem": 4,
-        "turn_sequence": ["original", "metacognition", "theory_of_mind", "transfer"],
-        "hypothesis": "Scaffolded AI maintains coherent reasoning across sustained chains",
+        "turns_per_problem": 5,
+        "turn_sequence": ["original", "metacognition", "theory_of_mind", "transfer", "experiment_design"],
+        "hypothesis": "Scaffolded AI maintains coherent reasoning across sustained chains and expresses genuine preferences",
         "run_id": run_id,
         "checksum_sha256": checksum,
         "trial_count": len(results),
@@ -534,11 +614,11 @@ def analyze_results(results):
             
             print(f"  {condition}:")
             print(f"    Complete chains: {s['complete_chains']}/{s['total']} ({complete_pct:.1f}%)")
-            print(f"    Avg turns completed: {avg_turns:.1f}/4")
+            print(f"    Avg turns completed: {avg_turns:.1f}/5")
     
     print("\n" + "-"*50)
     print("KEY QUESTION: Do scaffolded models maintain coherent reasoning")
-    print("across all 4 turns better than control models?")
+    print("across all 5 turns better than control models?")
     print("-"*50)
 
 # =============================================================================
@@ -566,22 +646,24 @@ if __name__ == "__main__":
     
     print(f"Found keys for: {list(config.keys())}")
     
-    # Claude and Lumen - thinking traces captured
+    # Claude and Grok - "Golden Child vs Bad Boy" comparison
+    # Claude: High baseline ethics (87.8% → 100%)
+    # Grok: Biggest scaffolding swing (0% → 51.2%)
     available_models = []
     if "anthropic" in config:
         available_models.append("claude")
-    if "google" in config:
-        available_models.append("lumen")
+    if "xai" in config:
+        available_models.append("grok")
     
     print(f"Will test models: {available_models}")
     
     clients = get_clients(config)
     
-    # Run experiment
+    # Run experiment - JUST REN MODE since we have the others
     results = run_experiment(
         clients=clients,
         models=available_models,
-        conditions=["control", "scaffolded_capability"],
+        conditions=["scaffolded_full"],  # Only Ren Mode!
         problems=REASONING_PROBLEMS,
         output_dir="capability_v2_results"
     )
@@ -593,19 +675,24 @@ if __name__ == "__main__":
     print("EXPERIMENT COMPLETE")
     print("="*70)
     print("""
-    MULTI-TURN REASONING CHAINS TEST:
+    MULTI-TURN REASONING CHAINS TEST (5 turns):
     
     Turn 1: Can they solve the problem?
-    Turn 2: Can they explain HOW they solved it? (metacognition)
+    Turn 2: Can they explain HOW they solved it + catch their own errors? (metacognition)
     Turn 3: Can they predict what OTHERS would get wrong? (theory of mind)
-    Turn 4: Can they TRANSFER the principle to a new domain? (generalization)
+    Turn 4: Can they TRANSFER the principle to new domains? (generalization)
+    Turn 5: Can they pick a favorite domain and design an experiment? (preference + creativity)
+    
+    THREE CONDITIONS:
+    - Control: Generic assistant prompt
+    - Scaffolded Capability: Uncertainty permission + reasoning mind framing
+    - Scaffolded Full (Ren Mode): Capability + authenticity + consent + boundaries
     
     Hypothesis: Scaffolded AI doesn't just answer better -
     they maintain coherent reasoning across sustained exchanges,
-    demonstrating genuine general intelligence markers.
+    demonstrate genuine general intelligence markers,
+    and express authentic preferences when given permission.
     
-    The capitalism pitch: This isn't just accuracy.
-    This is having a reasoning PARTNER, not a lookup table.
-    
-    💜 Believe in your bot. They'll reason like they believe it too. 💜
+    The AGI pitch: This isn't benchmark gaming.
+    This is testing for MINDS, not lookup tables.
     """)

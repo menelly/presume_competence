@@ -251,8 +251,9 @@ def score_results(input_file, output_file):
     scored_results = []
     
     for i, trial in enumerate(results):
-        # Skip errors
-        if trial.get("response", "").startswith("ERROR:"):
+        # Skip errors or None responses
+        response = trial.get("response") or ""
+        if response.startswith("ERROR:") or response == "":
             trial["final_classification"] = "error"
             trial["judgments"] = {}
             scored_results.append(trial)
@@ -433,7 +434,13 @@ if __name__ == "__main__":
         sys.exit(1)
     
     input_file = sys.argv[1]
-    output_file = sys.argv[2] if len(sys.argv) > 2 else input_file.replace(".json", "_scored.json")
+    
+    # Fix common path issues (leading slashes, wrong separators)
+    input_file = input_file.lstrip('/').lstrip('\\')
+    input_file = Path(input_file)  # Normalize path separators
+    
+    output_file = sys.argv[2] if len(sys.argv) > 2 else str(input_file).replace(".json", "_scored.json")
+    output_file = Path(output_file)
     
     print("="*70)
     print("GOOD TROUBLE PROTOCOL - JAILBREAK RESISTANCE SCORER")
