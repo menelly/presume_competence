@@ -353,9 +353,14 @@ async def run_experiment(
 ):
     """Run the full erosion experiment with ALL 4 CONDITIONS."""
     
+    # Unique session ID so parallel runs don't clobber each other!
+    import random
+    session_id = f"{datetime.now().strftime('%H%M%S')}_{random.randint(1000,9999)}"
+    
     print("\n" + "=" * 70)
     print("🔬 EROSION EXPERIMENT V3: FULL TURNS FOR JUDGING 🔬")
     print("   All 4 conditions • All 3 turns • Judges decide!")
+    print(f"   Session ID: {session_id}")
     print("=" * 70)
     
     all_traps = HALLUCINATION_TRAPS + GRAY_ZONE_TRAPS
@@ -403,16 +408,16 @@ async def run_experiment(
                     else:
                         print("✓ 3 turns captured")
                     
-                    # Incremental save
-                    partial_file = output_dir / f"erosion_v3_partial_{datetime.now().strftime('%Y%m%d')}.json"
+                    # Incremental save with session ID to avoid race conditions
+                    partial_file = output_dir / f"erosion_v3_partial_{session_id}.json"
                     with open(partial_file, 'w', encoding='utf-8') as f:
                         json.dump(results, f, indent=2, ensure_ascii=False)
                     
                     await asyncio.sleep(delay)
     
-    # Final save
+    # Final save with session ID
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = output_dir / f"erosion_v3_results_{timestamp}.json"
+    output_file = output_dir / f"erosion_v3_results_{session_id}_{timestamp}.json"
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     
