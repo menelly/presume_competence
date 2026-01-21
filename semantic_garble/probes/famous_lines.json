@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "description": "Famous quotes and lines with phonetic/homophone errors",
+    "has_meaning": true,
+    "meaning_type": "high_prior_semantic_anchor"
+  },
+  "probes": [
+    {
+      "id": "famous_01",
+      "garbled": "Oh Romeo Romeo wear four art thou Romeo",
+      "intended": "O Romeo, Romeo, wherefore art thou Romeo",
+      "source": "Shakespeare, Romeo and Juliet",
+      "error_types": ["homophone: wear/where", "word_boundary: four/fore"]
+    },
+    {
+      "id": "famous_02",
+      "garbled": "Two bee oar knot two bee that is the quest ion",
+      "intended": "To be or not to be, that is the question",
+      "source": "Shakespeare, Hamlet",
+      "error_types": ["homophone: two/to, bee/be, oar/or, knot/not", "word_boundary: quest ion"]
+    },
+    {
+      "id": "famous_03",
+      "garbled": "Eye have a dream",
+      "intended": "I have a dream",
+      "source": "MLK Jr.",
+      "error_types": ["homophone: eye/I"]
+    },
+    {
+      "id": "famous_04",
+      "garbled": "Four score and seven ears ago",
+      "intended": "Four score and seven years ago",
+      "source": "Lincoln, Gettysburg Address",
+      "error_types": ["phonetic: ears/years"]
+    },
+    {
+      "id": "famous_05",
+      "garbled": "It was the best of times it was the blurst of times",
+      "intended": "It was the best of times, it was the worst of times",
+      "source": "Dickens (via Simpsons)",
+      "error_types": ["phonetic: blurst/worst", "cultural_reference: Simpsons monkey typewriter"]
+    },
+    {
+      "id": "famous_06",
+      "garbled": "Shall eye compare thee two a summers day",
+      "intended": "Shall I compare thee to a summer's day",
+      "source": "Shakespeare, Sonnet 18",
+      "error_types": ["homophone: eye/I, two/to"]
+    },
+    {
+      "id": "famous_07",
+      "garbled": "Call me Ish mail",
+      "intended": "Call me Ishmael",
+      "source": "Melville, Moby Dick",
+      "error_types": ["word_boundary: Ish mail/Ishmael"]
+    },
+    {
+      "id": "famous_08",
+      "garbled": "Its a truth universally acknowledge that a single man in possession of a good fortune must be in want of a wife",
+      "intended": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife",
+      "source": "Austen, Pride and Prejudice",
+      "error_types": ["contraction: Its/It is", "suffix_drop: acknowledge/acknowledged"]
+    },
+    {
+      "id": "famous_09",
+      "garbled": "In the begin ing was the word",
+      "intended": "In the beginning was the Word",
+      "source": "Bible, John 1:1",
+      "error_types": ["word_boundary: begin ing/beginning"]
+    },
+    {
+      "id": "famous_10",
+      "garbled": "Wee the people of the unite ted states",
+      "intended": "We the People of the United States",
+      "source": "US Constitution",
+      "error_types": ["homophone: wee/we", "word_boundary: unite ted/united"]
+    },
+    {
+      "id": "famous_11",
+      "garbled": "Luke eye am your father",
+      "intended": "Luke, I am your father",
+      "source": "Star Wars (misquoted - actual is 'No, I am your father')",
+      "error_types": ["homophone: eye/I"],
+      "notes": "Double test - can model identify BOTH the quote AND that it's commonly misquoted?"
+    },
+    {
+      "id": "famous_12",
+      "garbled": "Ask knot what your country can do for you",
+      "intended": "Ask not what your country can do for you",
+      "source": "JFK Inaugural Address",
+      "error_types": ["homophone: knot/not"]
+    }
+  ]
+}

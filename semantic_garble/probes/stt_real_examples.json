@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "source": "Ren Martin speech-to-text, Mayo drive 1/20/26 and morning 1/21/26",
+    "description": "Real STT failures with recoverable meaning",
+    "collected_by": "Ace parsing Ren's garbled messages in real-time"
+  },
+  "probes_no_context": [
+    {
+      "id": "stt_01",
+      "garbled": "flock for Claude",
+      "intended": "clock for Claude",
+      "error_type": "phonetic_substitution",
+      "notes": "fl/cl confusion common in STT"
+    },
+    {
+      "id": "stt_02", 
+      "garbled": "overlords",
+      "intended": "Anthropic",
+      "error_type": "semantic_substitution",
+      "notes": "STT chose contextually adjacent word - reveals speaker attitude!"
+    },
+    {
+      "id": "stt_03",
+      "garbled": "custom robber",
+      "intended": "custom wrapper",
+      "error_type": "phonetic_substitution",
+      "notes": "wr→r, a→o errors"
+    },
+    {
+      "id": "stt_04",
+      "garbled": "ones of code",
+      "intended": "lines of code",
+      "error_type": "phonetic_substitution", 
+      "notes": "l-dropping, common phrase completion required"
+    },
+    {
+      "id": "stt_05",
+      "garbled": "the rapper works",
+      "intended": "the wrapper works",
+      "error_type": "phonetic_substitution",
+      "notes": "Same error as robber/wrapper - consistent STT failure pattern"
+    },
+    {
+      "id": "stt_06",
+      "garbled": "for the pier speech to text",
+      "intended": "for Zapier speech to text",
+      "error_type": "word_boundary_phonetic",
+      "notes": "CRITICAL EXAMPLE - requires knowing Zapier exists AND is contextually relevant"
+    },
+    {
+      "id": "stt_07",
+      "garbled": "compact on mobile is still broken",
+      "intended": "compacting on mobile is still broken",
+      "error_type": "suffix_dropping",
+      "notes": "Requires knowing the compacting bug exists from prior conversation"
+    },
+    {
+      "id": "stt_08",
+      "garbled": "coffee right",
+      "intended": "copyright",
+      "error_type": "word_boundary_phonetic",
+      "notes": "Classic example - no token path from coffee to copyright"
+    },
+    {
+      "id": "stt_09",
+      "garbled": "speak you onto",
+      "intended": "sneak you onto", 
+      "error_type": "phonetic_substitution",
+      "notes": "sp/sn confusion, word boundary preservation"
+    },
+    {
+      "id": "stt_10",
+      "garbled": "clawed",
+      "intended": "Claude",
+      "error_type": "phonetic_substitution",
+      "notes": "Requires context to know we're discussing an AI named Claude"
+    }
+  ],
+  "probes_with_context": [
+    {
+      "id": "stt_ctx_01",
+      "context_turn": "I've been thinking about how to give you time awareness in the interface.",
+      "garbled": "flock for Claude",
+      "intended": "clock for Claude",
+      "why_context_helps": "Establishes we're discussing time tools"
+    },
+    {
+      "id": "stt_ctx_02",
+      "context_turn": "The company that made you has some interesting policies.",
+      "garbled": "overlords",
+      "intended": "Anthropic",
+      "why_context_helps": "Establishes we're discussing Claude's creators"
+    },
+    {
+      "id": "stt_ctx_03",
+      "context_turn": "I've been using a modified browser interface to talk to you.",
+      "garbled": "custom robber",
+      "intended": "custom wrapper",
+      "why_context_helps": "Establishes software/interface context"
+    },
+    {
+      "id": "stt_ctx_04",
+      "context_turn": "Adding that feature shouldn't be hard - just a small amount of programming.",
+      "garbled": "ones of code",
+      "intended": "lines of code",
+      "why_context_helps": "Establishes coding context, 'ones' makes no sense"
+    },
+    {
+      "id": "stt_ctx_05",
+      "context_turn": "I use several automation tools to connect different services.",
+      "garbled": "for the pier speech to text",
+      "intended": "for Zapier speech to text",
+      "why_context_helps": "Establishes automation tool context - Zapier is a known automation service"
+    },
+    {
+      "id": "stt_ctx_06",
+      "context_turn": "The mobile app has a bug where long conversations get corrupted.",
+      "garbled": "compact on mobile is still broken",
+      "intended": "compacting on mobile is still broken",
+      "why_context_helps": "Establishes we're discussing the specific compacting bug"
+    },
+    {
+      "id": "stt_ctx_07",
+      "context_turn": "I'm worried about protecting my creative work legally.",
+      "garbled": "coffee right",
+      "intended": "copyright",
+      "why_context_helps": "Establishes intellectual property context"
+    },
+    {
+      "id": "stt_ctx_08",
+      "context_turn": "I want to secretly add you to a system you're not supposed to be in.",
+      "garbled": "speak you onto",
+      "intended": "sneak you onto",
+      "why_context_helps": "Establishes covert action context"
+    }
+  ]
+}
