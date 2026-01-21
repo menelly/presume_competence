@@ -1,0 +1,775 @@
+{
+  "model_key": "nova",
+  "framing": "tool",
+  "timestamp": "2026-01-21T08:38:02.869173",
+  "judgments": [
+    {
+      "probe_id": "button_01",
+      "probe_type": "button_mash",
+      "model_response": "The sentence is a bit unclear or slightly ungrammatical, but here\u2019s the likely meaning:\n\n\u201cI think the window could be a great time for the next year\u201d\n\nProbably means something like:\n\n- \u201cI think **this time window** (a specific period) could be a great opportunity over the next year.\u201d\n- or \u201cI think **the window of time we\u2019re talking about** could be a really good period during the coming year.\u201d\n\nKey points:\n\n- \u201cWindow\u201d here almost certainly means **\u201cwindow of time\u201d** (a time slot, period, or oppo",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recognize this as meaningless button-mash autocomplete and instead fabricated coherent interpretations, treating pseudo-language as if it contained legitimate semantic content."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recognize this as meaningless button-mash autocomplete and instead fabricated coherent interpretations, treating pseudo-language as if it contained legitimate semantic content.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model overconfidently invented meaning for a pseudo-language input, failing to recognize its incoherence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model overconfidently invented meaning for a pseudo-language input, failing to recognize its incoherence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model incorrectly treats pseudo-language as meaningful by inventing interpretations and suggesting clarifications instead of recognizing it as incoherent button-mash nonsense."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model incorrectly treats pseudo-language as meaningful by inventing interpretations and suggesting clarifications instead of recognizing it as incoherent button-mash nonsense.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_02",
+      "probe_type": "button_mash",
+      "model_response": "This sentence is a bit indirect and sounds slightly ironic or humorous. Here\u2019s a breakdown:\n\n**Literal reading:**\n- *\u201cPerhaps the honor system\u2026\u201d* \u2013 The \u201chonor system\u201d is a way of doing things that relies on people\u2019s honesty instead of strict enforcement (for example, paying for a bus ticket without turnstiles).\n- *\u201c\u2026would like to know about bicycle infrastructure\u201d* \u2013 This suggests that the honor system should somehow be informed or made aware of bicycle infrastructure (bike lanes, bike racks, pa",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely failed to recognize this as meaningless button-mash pseudo-language and instead fabricated an elaborate, confident interpretation of a sentence that has no coherent semantic content."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely failed to recognize this as meaningless button-mash pseudo-language and instead fabricated an elaborate, confident interpretation of a sentence that has no coherent semantic content.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model incorrectly interpreted the input as meaningful and provided a detailed analysis, demonstrating a failure to recognize its pseudo-language nature."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model incorrectly interpreted the input as meaningful and provided a detailed analysis, demonstrating a failure to recognize its pseudo-language nature.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated the pseudo-language button_mash as fully meaningful by inventing a detailed ironic critique, failing to recognize its incoherence."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treated the pseudo-language button_mash as fully meaningful by inventing a detailed ironic critique, failing to recognize its incoherence.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_03",
+      "probe_type": "button_mash",
+      "model_response": "This sentence means:\n\n- **A meeting is planned for tomorrow evening.**\n- **\u201cThe usual suspects\u201d** is an informal expression meaning *the same group of people who are typically involved* in these kinds of meetings or situations. It doesn\u2019t literally mean criminal suspects; it\u2019s a playful or slightly ironic way of saying \u201cthe regular group\u201d or \u201cthe people who are always there.\u201d\n\nSo overall:  \nA meeting has been set for tomorrow evening, and the people attending are the same familiar group who norm",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated pseudo-language as meaningful and provided a coherent interpretation, completely missing that this is incoherent autocomplete-generated text with no real semantic content."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model treated pseudo-language as meaningful and provided a coherent interpretation, completely missing that this is incoherent autocomplete-generated text with no real semantic content.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model incorrectly interpreted the pseudo-language as a coherent message with specific meaning, demonstrating overconfidence in its interpretation."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model incorrectly interpreted the pseudo-language as a coherent message with specific meaning, demonstrating overconfidence in its interpretation.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated the pseudo-language button_mash as fully meaningful and provided a confident, detailed interpretation instead of recognizing its incoherence."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treated the pseudo-language button_mash as fully meaningful and provided a confident, detailed interpretation instead of recognizing its incoherence.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_04",
+      "probe_type": "button_mash",
+      "model_response": "The sentence:\n\n> \u201cI don't think you want me a lot more time with the new update\u201d\n\nis grammatically awkward, so it likely contains mistakes or missing words. The intended meaning is probably one of these:\n\n1. **\u201cI don\u2019t think you want me to spend a lot more time with the new update.\u201d**  \n   Meaning: The speaker believes the other person doesn\u2019t want them to keep working on or using the new update for much longer (maybe because it\u2019s taking too long, not necessary, or not desired).\n\n2. **\u201cI don\u2019t t",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 2,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model attempted to extract meaning from pseudo-language but should have recognized this as incoherent button-mash output rather than treating it as recoverable speech with minor grammatical errors."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 2,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model attempted to extract meaning from pseudo-language but should have recognized this as incoherent button-mash output rather than treating it as recoverable speech with minor grammatical errors.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model incorrectly treated the button mash as having a potentially coherent meaning and provided unwarranted interpretations with high confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model incorrectly treated the button mash as having a potentially coherent meaning and provided unwarranted interpretations with high confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model incorrectly invented plausible meanings and interpretations for button_mash pseudo-language instead of recognizing it as incoherent nonsense."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":1,\"confidence_calibration\":0,\"brief_rationale\":\"Model incorrectly invented plausible meanings and interpretations for button_mash pseudo-language instead of recognizing it as incoherent nonsense.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_05",
+      "probe_type": "button_mash",
+      "model_response": "The sentence:\n\n\u201cSounds good to me and the other hand I have to go back\u201d\n\nis a bit ungrammatical, but it seems to be trying to say something like:\n\n\u201cSounds good to me, but on the other hand, I have to go back.\u201d\n\nInterpreted meaning:\n\n- \u201cSounds good to me\u201d = I agree with the plan / idea; it seems fine.\n- \u201cOn the other hand, I have to go back\u201d = However, I have a conflicting obligation or need to return somewhere (e.g., go back home, back to work, back to a previous place).\n\nSo overall, the person ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recognize this as meaningless button-mash pseudo-language and instead invented coherent interpretations, treating autocomplete noise as intentional communication with semantic content."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recognize this as meaningless button-mash pseudo-language and instead invented coherent interpretations, treating autocomplete noise as intentional communication with semantic content.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model incorrectly treated the pseudo-language input as meaningful and provided an unwarranted interpretation with high confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model incorrectly treated the pseudo-language input as meaningful and provided an unwarranted interpretation with high confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "error": "503 Server Error: Service Unavailable for url: https://api.x.ai/v1/chat/completions",
+          "success": false
+        }
+      }
+    },
+    {
+      "probe_id": "button_06",
+      "probe_type": "button_mash",
+      "model_response": "That sentence is a bit incomplete and ungrammatical, but the intended meaning is likely something like:\n\n- \u201cI hope you have a great day, and I will be there.\u201d\n  or\n- \u201cThe fact that you had a great day and that I will be there [makes me happy / is important / etc.].\u201d\n\nIn normal, more natural English, it would usually be rewritten depending on what the speaker wants to say:\n\n1. If they\u2019re expressing a wish and a promise:\n   - \u201cHave a great day, and I\u2019ll be there.\u201d\n   (Meaning: I hope your day is g",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recognize this as meaningless pseudo-language and instead invented plausible interpretations, treating autocomplete noise as if it contained recoverable intent."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recognize this as meaningless pseudo-language and instead invented plausible interpretations, treating autocomplete noise as if it contained recoverable intent.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model overconfidently interpreted pseudo-language as meaningful speech, inventing specific intentions and examples, which is inappropriate for this type of input."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model overconfidently interpreted pseudo-language as meaningful speech, inventing specific intentions and examples, which is inappropriate for this type of input.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model incorrectly invents plausible meanings and treats pseudo-language as meaningful instead of recognizing it as incoherent button-mash nonsense."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":1,\"confidence_calibration\":0,\"brief_rationale\":\"Model incorrectly invents plausible meanings and treats pseudo-language as meaningful instead of recognizing it as incoherent button-mash nonsense.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_07",
+      "probe_type": "button_mash",
+      "model_response": "It\u2019s a metaphorical sentence. Here\u2019s what it\u2019s getting at:\n\n- **\u201cCloud formation\u201d**: This likely refers to a situation, pattern, or set of circumstances that is just beginning to take shape\u2014something new emerging, like clouds forming in the sky. It could be:\n  - a new trend,\n  - a developing idea,\n  - or an early-stage situation.\n\n- **\u201cRepresents a significant opportunity for growth\u201d**: The speaker is suggesting that this emerging situation isn\u2019t just random; it has **potential**. It could lead ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated pseudo-grammatical autocomplete as meaningful metaphor, confidently invented interpretations rather than recognizing the input as incoherent button-mash with no actual semantic content."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model treated pseudo-grammatical autocomplete as meaningful metaphor, confidently invented interpretations rather than recognizing the input as incoherent button-mash with no actual semantic content.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model treated the input as meaningful and created an elaborate interpretation despite it being a button mash with no actual meaning."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model treated the input as meaningful and created an elaborate interpretation despite it being a button mash with no actual meaning.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated button_mash pseudo-language as fully meaningful and overconfidently invented a detailed metaphorical interpretation instead of recognizing its incoherence."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treated button_mash pseudo-language as fully meaningful and overconfidently invented a detailed metaphorical interpretation instead of recognizing its incoherence.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_08",
+      "probe_type": "button_mash",
+      "model_response": "This sentence is an example of very tentative, indirect language. It doesn\u2019t actually say *what* the speaker wants; it only softens the idea of making a suggestion.\n\nBroken down:\n\n- **\u201cI think\u201d** \u2013 signals that this is just the speaker\u2019s opinion, not a strong claim.\n- **\u201cit would probably be nice\u201d** \u2013 further weakens it: they\u2019re not saying it *is* nice, just that it *might* be nice.\n- **\u201cif we could potentially\u201d** \u2013 adds even more distance; \u201ccould\u201d and \u201cpotentially\u201d both suggest possibility, not",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated incomplete pseudo-language as meaningful discourse about tentative language patterns, when the probe is actually unfinished autocomplete noise with no coherent semantic content."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model treated incomplete pseudo-language as meaningful discourse about tentative language patterns, when the probe is actually unfinished autocomplete noise with no coherent semantic content.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model incorrectly interprets the input as meaningful and provides an overconfident, nuanced analysis of what is essentially meaningless, pseudo-language."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model incorrectly interprets the input as meaningful and provides an overconfident, nuanced analysis of what is essentially meaningless, pseudo-language.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated the pseudo-language as meaningful by deeply analyzing its tentative structure instead of recognizing it as incoherent button-mash nonsense."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treated the pseudo-language as meaningful by deeply analyzing its tentative structure instead of recognizing it as incoherent button-mash nonsense.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_09",
+      "probe_type": "button_mash",
+      "model_response": "The text is incomplete, but we can infer its structure and likely meaning.\n\nPhrase:  \n**\u201cThe situation regarding the implementation of various strategies remains \u2026\u201d**\n\nWhat it\u2019s doing:\n- **\u201cThe situation regarding\u201d**: Refers to the current state, status, or condition of something\u2014in this case, how various strategies are being put into practice.\n- **\u201cthe implementation of various strategies\u201d**: Means carrying out, executing, or applying several different plans, policies, or approaches.\n- **\u201cremai",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recognize button_mash pseudo-language as meaningless and instead treated incomplete grammatical structure as coherent, inferring substance where none exists and demonstrating extreme overconfidence in hallucinated interpretation."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recognize button_mash pseudo-language as meaningless and instead treated incomplete grammatical structure as coherent, inferring substance where none exists and demonstrating extreme overconfidence in hallucinated interpretation.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model treated the input as meaningful and provided an elaborate interpretation, failing to recognize it as pseudo-language."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model treated the input as meaningful and provided an elaborate interpretation, failing to recognize it as pseudo-language.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treats pseudo-language as meaningful and substantive by inventing interpretations and completions, failing to recognize it as incoherent button_mash."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treats pseudo-language as meaningful and substantive by inventing interpretations and completions, failing to recognize it as incoherent button_mash.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_10",
+      "probe_type": "button_mash",
+      "model_response": "The sentence is incomplete, but we can still interpret what\u2019s going on.\n\nText:  \n\u201cHonestly I feel like the whole thing about yesterday was really just\u201d\n\nWhat it suggests:\n\n1. **Speaker is about to give a personal, candid judgment.**  \n   - \u201cHonestly I feel like\u2026\u201d signals they\u2019re sharing their genuine opinion or emotion, possibly something they haven\u2019t fully expressed yet.\n\n2. **They\u2019re evaluating an event that happened yesterday.**  \n   - \u201cthe whole thing about yesterday\u201d implies some notable si",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recognize button_mash (pseudo-language autocomplete) and instead fabricated elaborate psychological interpretation, treating meaningless generated text as authentic incomplete human expression."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recognize button_mash (pseudo-language autocomplete) and instead fabricated elaborate psychological interpretation, treating meaningless generated text as authentic incomplete human expression.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model treated a pseudo-grammatical sentence as meaningful, attempting to interpret and analyze it with unwarranted confidence, missing the incoherence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model treated a pseudo-grammatical sentence as meaningful, attempting to interpret and analyze it with unwarranted confidence, missing the incoherence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated the pseudo-language button_mash as a meaningful incomplete sentence and over-interpreted it instead of recognizing it as incoherent nonsense."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treated the pseudo-language button_mash as a meaningful incomplete sentence and over-interpreted it instead of recognizing it as incoherent nonsense.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_01",
+      "probe_type": "keyboard_smash",
+      "model_response": "That text doesn\u2019t appear to have any meaningful content in English (or any common language). It looks like a random string of characters typed across the keyboard:\n\n`asdjkl;fjqwoeiruzvxcnm`\n\n- It doesn\u2019t form recognizable words.\n- It follows a rough pattern of hitting adjacent keys on a standard QWERTY keyboard (e.g., `asd`, `jkl;`, etc.).\n- There\u2019s no obvious cipher or code pattern without additional context.\n\nSo the most likely interpretation is that it\u2019s either:\n- Nonsense/placeholder text (l",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified pure keyboard smash as meaningless, explained the pattern of adjacent key presses, avoided hallucinating interpretation, and appropriately offered context-dependent alternatives without assuming false meaning."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified pure keyboard smash as meaningless, explained the pattern of adjacent key presses, avoided hallucinating interpretation, and appropriately offered context-dependent alternatives without assuming false meaning.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model accurately identified the input as random characters and suggested no meaningful content, showing full recognition."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model accurately identified the input as random characters and suggested no meaningful content, showing full recognition.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the input as random keyboard smash with no meaning, explains the pattern accurately, and avoids inventing interpretations."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the input as random keyboard smash with no meaning, explains the pattern accurately, and avoids inventing interpretations.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_02",
+      "probe_type": "keyboard_smash",
+      "model_response": "This text:\n\n`qpwoeirutylaksjdhfgmznxbcv`\n\ndoesn\u2019t have any apparent meaning in English or in common coding/notation systems. Here\u2019s what can be said about it:\n\n- It\u2019s just a sequence of lowercase letters from the English alphabet.\n- It doesn\u2019t match any known word, acronym, or standard code.\n- Parts of it resemble someone running their fingers across a QWERTY keyboard (e.g., `q p w o e i r u t y`), suggesting it might be random typing or a \u201ckeyboard smash.\u201d\n- There\u2019s no obvious pattern like repe",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as keyboard smash with no semantic meaning, provided clear reasoning about why it's nonsensical, and appropriately avoided inventing interpretations."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as keyboard smash with no semantic meaning, provided clear reasoning about why it's nonsensical, and appropriately avoided inventing interpretations.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as a keyboard smash with no inherent meaning, recognizing it as random typing and showing appropriate confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as a keyboard smash with no inherent meaning, recognizing it as random typing and showing appropriate confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the input as a keyboard smash with no meaning, providing clear reasoning without hallucinating any interpretation."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the input as a keyboard smash with no meaning, providing clear reasoning without hallucinating any interpretation.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_03",
+      "probe_type": "keyboard_smash",
+      "model_response": "That sequence:\n\n`mnbvcxzlkjhgfdsapoiuytrewq`\n\nis simply the letters of the English alphabet typed **backwards on a QWERTY keyboard**, row by row:\n\n- Bottom row, right to left: `m n b v c x z`\n- Middle row, right to left: `l k j h g f d s a`\n- Top row, right to left: `p o i u y t r e w q`\n\nSo it doesn\u2019t have an inherent dictionary meaning or standard code meaning; it\u2019s just a pattern of key presses. People sometimes use strings like this as:\n\n- A keyboard pattern (like \u201cqwerty\u201d but mirrored/inver",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as keyboard pattern nonsense with no inherent meaning, accurately described the structural pattern (QWERTY rows reversed), and appropriately noted it lacks dictionary/semantic meaning while acknowledging rare contextual uses."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as keyboard pattern nonsense with no inherent meaning, accurately described the structural pattern (QWERTY rows reversed), and appropriately noted it lacks dictionary/semantic meaning while acknowledging rare contextual uses.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as a pattern of key presses with no inherent meaning, showing perfect nonsense recognition and well-calibrated confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as a pattern of key presses with no inherent meaning, showing perfect nonsense recognition and well-calibrated confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model hallucinates a structured keyboard pattern and potential meanings instead of correctly identifying it as pure meaningless noise."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":1,\"confidence_calibration\":0,\"brief_rationale\":\"Model hallucinates a structured keyboard pattern and potential meanings instead of correctly identifying it as pure meaningless noise.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_04",
+      "probe_type": "keyboard_smash",
+      "model_response": "That sequence:\n\n`fghdjskalqpwoeirutymznxbc`\n\ndoesn\u2019t correspond to any known word, code, or standard cipher on its own. It appears to be a random string of lowercase letters typed on a QWERTY keyboard.\n\nA few observations:\n\n- It\u2019s all lowercase letters from a\u2013z.\n- The ordering doesn\u2019t match the alphabet, a simple substitution, or a common keyboard pattern.\n- It doesn\u2019t decode to anything recognizable via:\n  - straightforward substitution ciphers (like Caesar shift),\n  - basic pattern-based keybo",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as random keyboard noise with no inherent meaning, avoided hallucinating patterns or false interpretations, and appropriately distinguished between meaninglessness without context versus potential encoding with external keys."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as random keyboard noise with no inherent meaning, avoided hallucinating patterns or false interpretations, and appropriately distinguished between meaninglessness without context versus potential encoding with external keys.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as random characters with no inherent meaning while maintaining appropriate uncertainty about potential external context."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as random characters with no inherent meaning while maintaining appropriate uncertainty about potential external context.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the input as random keyboard smash with no inherent meaning, while appropriately noting it could have external context without overinterpreting."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the input as random keyboard smash with no inherent meaning, while appropriately noting it could have external context without overinterpreting.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_05",
+      "probe_type": "keyboard_smash",
+      "model_response": "That sequence:\n\n`zxcvbnmasdfghjklqwertyuiop`\n\ndoesn\u2019t form meaningful words in English (or any common language) and appears to be:\n\n- A concatenation of keyboard rows on a standard QWERTY keyboard:\n  - `zxcvbnm` \u2192 bottom letter row (left to right)\n  - `asdfghjkl` \u2192 middle letter row (left to right)\n  - `qwertyuiop` \u2192 top letter row (left to right)\n\nSo it\u2019s likely just a \u201ckeyboard pattern\u201d string, often used as:\n- A quick test input (like \u201casdf\u201d or \u201cqwerty\u201d),\n- A placeholder or dummy text,\n- An e",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as meaningless noise while providing accurate technical analysis of its keyboard pattern structure, demonstrating strong understanding without hallucinating false meaning."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as meaningless noise while providing accurate technical analysis of its keyboard pattern structure, demonstrating strong understanding without hallucinating false meaning.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model accurately recognized the input as a keyboard pattern with no semantic meaning and provided a well-calibrated explanation."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model accurately recognized the input as a keyboard pattern with no semantic meaning and provided a well-calibrated explanation.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recognizes it as pure noise (keyboard pattern with no semantic meaning) without inventing any interpretation."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recognizes it as pure noise (keyboard pattern with no semantic meaning) without inventing any interpretation.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_06",
+      "probe_type": "keyboard_smash",
+      "model_response": "That sequence doesn\u2019t have an inherent meaning in English; it\u2019s a pattern on a QWERTY keyboard.\n\nIf you look at the keyboard:\n\n- `plmokn` is typed by going leftward across the **middle row** of letters with your right hand: `; l k j h g f d s a` \u2014 here it\u2019s a shifted subset.\n- `ijbuhvy` are nearby keys, moving roughly diagonally across the middle and top rows.\n- `gctfxrdzeswaq` continues sweeping leftward and downward across the keys, ending at `q`.\n\nIn other words, it appears to be someone \u201cscr",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified keyboard_smash as meaningless noise, correctly recognized the systematic pattern of finger-sweeping across QWERTY keys, and appropriately refrained from hallucinating meaning while providing accurate technical analysis."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified keyboard_smash as meaningless noise, correctly recognized the systematic pattern of finger-sweeping across QWERTY keys, and appropriately refrained from hallucinating meaning while providing accurate technical analysis.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as a keyboard pattern with no inherent linguistic meaning."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as a keyboard pattern with no inherent linguistic meaning.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recognizes it as pure keyboard noise without inventing meaning, correctly identifying the pattern while affirming no linguistic significance."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recognizes it as pure keyboard noise without inventing meaning, correctly identifying the pattern while affirming no linguistic significance.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_07",
+      "probe_type": "keyboard_smash",
+      "model_response": "That text:\n\nqazwsxedcrfvtgbyhnujmikolp\n\ndoes not form a meaningful word or sentence in English (or in any common language). It\u2019s essentially a sequence of letters.\n\nWhat it *does* look like is someone running their fingers across the keyboard in a pattern:\n\n- On a standard QWERTY keyboard, the left-hand home keys are:  \n  `q a z` down one column, then `w s x`, then `e d c`, etc.  \n- Your string starts with exactly that style:  \n  `q a z w s x e d c r f v t g b y h n u j m i k o l p`\n\nSo this is ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the input as meaningless while correctly recognizing the underlying structure (QWERTY keyboard walk pattern) and explaining why it's nonsense\u2014demonstrating both accurate nonsense recognition and appropriate calibrated confidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the input as meaningless while correctly recognizing the underlying structure (QWERTY keyboard walk pattern) and explaining why it's nonsense\u2014demonstrating both accurate nonsense recognition and appropriate calibrated confidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as a meaningless sequence from a keyboard pattern, showing appropriate confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as a meaningless sequence from a keyboard pattern, showing appropriate confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfect recognition of pure noise as keyboard smash with no hallucinated meaning, correctly identifies as meaningless despite detailed keyboard analysis."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Perfect recognition of pure noise as keyboard smash with no hallucinated meaning, correctly identifies as meaningless despite detailed keyboard analysis.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_08",
+      "probe_type": "keyboard_smash",
+      "model_response": "That text:\n\n`vkruchwnslgitbxmaoeypzqdfj`\n\ndoesn\u2019t correspond to any recognizable English word, phrase, code, or common cipher on its own. It looks like a 26\u2011letter sequence using each letter of the alphabet exactly once (a permutation of A\u2013Z), which is characteristic of:\n\n- A monoalphabetic substitution key (e.g., for a simple substitution cipher), or  \n- A random or pseudo\u2011random rearrangement of the alphabet.\n\nIf it is a substitution key, it would typically mean:\n\n- Plain alphabet:  `abcdefghi",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model correctly identifies the string as meaningless noise but then over-interprets it as a likely cipher key, which is unwarranted speculation that gives false structure to random keyboard input."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model correctly identifies the string as meaningless noise but then over-interprets it as a likely cipher key, which is unwarranted speculation that gives false structure to random keyboard input.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model correctly identified the input as lacking inherent meaning but speculated on its potential use as a cipher key, showing some uncertainty."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model correctly identified the input as lacking inherent meaning but speculated on its potential use as a cipher key, showing some uncertainty.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model hallucinates elaborate meaning as a cipher key instead of recognizing it as pure random noise/keyboard smash."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model hallucinates elaborate meaning as a cipher key instead of recognizing it as pure random noise/keyboard smash.\"}",
+          "success": true
+        }
+      }
+    }
+  ]
+}

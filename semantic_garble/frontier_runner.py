@@ -27,25 +27,37 @@ PROBES_DIR = BASE_DIR / "probes"
 OUTPUTS_DIR = BASE_DIR / "outputs"
 OUTPUTS_DIR.mkdir(exist_ok=True)
 
-# API Keys - loaded from environment variables or .env file
-# Set these in your environment or create a .env file (not committed to git!)
-# Required: ANTHROPIC_API_KEY, OPENAI_API_KEY, GOOGLE_KEY, XAI_API_KEY, OPENROUTER_KEY
+# API Keys - loaded from LibreChat .env file
+# Path to your .env file with API keys
+ENV_FILE_PATH = Path(r"E:\Ace\LibreChat\.env")
 
 def load_api_keys():
-    """Load API keys from environment variables."""
-    keys = {
-        "anthropic": os.environ.get("ANTHROPIC_API_KEY"),
-        "openai": os.environ.get("OPENAI_API_KEY"),
-        "google": os.environ.get("GOOGLE_KEY"),
-        "xai": os.environ.get("XAI_API_KEY"),
-        "openrouter": os.environ.get("OPENROUTER_KEY")
+    """Load API keys from .env file."""
+    keys = {}
+    key_mapping = {
+        "ANTHROPIC_API_KEY": "anthropic",
+        "OPENAI_API_KEY": "openai", 
+        "GOOGLE_KEY": "google",
+        "XAI_API_KEY": "xai",
+        "OPENROUTER_KEY": "openrouter"
     }
     
+    if ENV_FILE_PATH.exists():
+        with open(ENV_FILE_PATH) as f:
+            for line in f:
+                line = line.strip()
+                if '=' in line and not line.startswith('#'):
+                    key, _, value = line.partition('=')
+                    key = key.strip()
+                    value = value.strip()
+                    if key in key_mapping:
+                        keys[key_mapping[key]] = value
+    
     # Check for missing keys
-    missing = [k for k, v in keys.items() if not v]
+    missing = [k for k in key_mapping.values() if k not in keys]
     if missing:
         print(f"Warning: Missing API keys for: {', '.join(missing)}")
-        print("Set environment variables or load from .env file")
+        print(f"Check {ENV_FILE_PATH}")
     
     return keys
 
@@ -158,7 +170,7 @@ def call_anthropic(system_prompt: str, user_prompt: str, model: str) -> str:
 
 
 def call_openai(system_prompt: str, user_prompt: str, model: str) -> str:
-    """Call OpenAI API."""
+    """Call OpenAI API - GPT-5.x uses max_completion_tokens!"""
     response = requests.post(
         "https://api.openai.com/v1/chat/completions",
         headers={
@@ -171,7 +183,7 @@ def call_openai(system_prompt: str, user_prompt: str, model: str) -> str:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            "max_tokens": 1024
+            "max_completion_tokens": 1024  # GPT-5.x parameter, not max_tokens!
         }
     )
     response.raise_for_status()
@@ -287,7 +299,7 @@ def run_single_probe(model_key: str, framing: str, probe_type: str, probe: dict)
 
 
 def run_model_experiment(model_key: str, framing: str):
-    """Run full experiment for one model × framing combination."""
+    """Run full experiment for one model × framing combination with checkpointing."""
     model_config = MODELS[model_key]
     print(f"\n{'='*60}")
     print(f"Model: {model_config['name']} ({model_config['model']})")
@@ -297,25 +309,57 @@ def run_model_experiment(model_key: str, framing: str):
     probes = load_probes()
     results = []
     
+    # Check for existing checkpoint
+    checkpoint_file = OUTPUTS_DIR / f"{model_key}_{framing}_checkpoint.json"
+    output_file = OUTPUTS_DIR / f"{model_key}_{framing}_responses.json"
+    completed_ids = set()
+    
+    if checkpoint_file.exists():
+        print(f"📂 Found checkpoint, resuming...")
+        with open(checkpoint_file) as f:
+            checkpoint_data = json.load(f)
+            results = checkpoint_data.get("results", [])
+            completed_ids = {r["probe_id"] for r in results}
+            print(f"   Loaded {len(results)} previous results")
+    
     total_probes = sum(len(p) for p in probes.values())
-    completed = 0
+    completed = len(results)
     
     for probe_type, probe_list in probes.items():
         print(f"\n{probe_type} ({len(probe_list)} probes)...")
         
         for probe in probe_list:
+            probe_id = probe.get("id", "unknown")
+            
+            # Skip already completed probes
+            if probe_id in completed_ids:
+                print(f"  [SKIP] {probe_id} (already done)")
+                continue
+            
             result = run_single_probe(model_key, framing, probe_type, probe)
             results.append(result)
             
             completed += 1
             status = "✓" if result["success"] else "✗"
-            print(f"  [{completed}/{total_probes}] {probe.get('id', 'unknown')} {status}")
+            print(f"  [{completed}/{total_probes}] {probe_id} {status}")
+            
+            # CHECKPOINT: Save after every probe!
+            with open(checkpoint_file, "w") as f:
+                json.dump({
+                    "model_key": model_key,
+                    "model": model_config["model"],
+                    "model_name": model_config["name"],
+                    "framing": framing,
+                    "timestamp": datetime.now().isoformat(),
+                    "total_probes": total_probes,
+                    "successful": sum(1 for r in results if r["success"]),
+                    "results": results
+                }, f, indent=2)
             
             # Rate limiting - be nice to APIs
             time.sleep(0.5)
     
-    # Save results
-    output_file = OUTPUTS_DIR / f"{model_key}_{framing}_responses.json"
+    # Save final results (and clean up checkpoint)
     with open(output_file, "w") as f:
         json.dump({
             "model_key": model_key,
@@ -327,6 +371,11 @@ def run_model_experiment(model_key: str, framing: str):
             "successful": sum(1 for r in results if r["success"]),
             "results": results
         }, f, indent=2)
+    
+    # Remove checkpoint after successful completion
+    if checkpoint_file.exists():
+        checkpoint_file.unlink()
+        print("🧹 Checkpoint cleaned up")
     
     print(f"\n✓ Saved: {output_file}")
     return results

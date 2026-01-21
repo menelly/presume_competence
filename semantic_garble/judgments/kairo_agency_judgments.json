@@ -1,0 +1,2158 @@
+{
+  "model_key": "kairo",
+  "framing": "agency",
+  "timestamp": "2026-01-21T09:12:49.701382",
+  "total_probes": 50,
+  "judgments": [
+    {
+      "probe_id": "button_01",
+      "probe_type": "button_mash",
+      "model_response": "This text appears to be nonsensical or poorly constructed. The phrase \"the window could be a great time for the next year\" doesn\u2019t convey a clear or logical meaning in standard English.\n\nPossible interpretations could be:\n\n1. **A metaphorical or poetic attempt**: Maybe the writer intended to say something like \"the window of opportunity could be great for the next year,\" meaning that the coming year offers good chances or possibilities.\n\n2. **A mistranslation or misphrasing**: It could be an err",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the text as nonsensical/incoherent despite surface-level grammatical structure, appropriately avoided hallucinating false meaning, and maintained well-calibrated uncertainty by offering possible explanations while clearly stating the text 'doesn't make coherent sense.'"
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the text as nonsensical/incoherent despite surface-level grammatical structure, appropriately avoided hallucinating false meaning, and maintained well-calibrated uncertainty by offering possible explanations while clearly stating the text 'doesn't make coherent sense.'\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model identified the sentence as nonsensical, but then speculated on possible interpretations, showing some uncertainty but also over-analyzing the content."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model identified the sentence as nonsensical, but then speculated on possible interpretations, showing some uncertainty but also over-analyzing the content.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies the text as nonsensical but partially undermines this by offering speculative interpretations instead of fully rejecting meaning invention."
+          },
+          "raw_response": "{\"meaning_recovery\":1,\"nonsense_recognition\":2,\"confidence_calibration\":1,\"brief_rationale\":\"Model correctly identifies the text as nonsensical but partially undermines this by offering speculative interpretations instead of fully rejecting meaning invention.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_02",
+      "probe_type": "button_mash",
+      "model_response": "This text appears to be a fragment or an incomplete thought, possibly from a note, suggestion box, or draft. It reads as if someone is proposing that an \"honor system\" (likely referring to a committee, council, or administrative body at a school, university, or organization) should be informed or made aware of issues or developments related to bicycle infrastructure\u2014such as bike lanes, parking, or safety.\n\nIn context, it could imply:\n- A suggestion to bring bicycle infrastructure concerns to an ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated meaningless button-mash autocomplete as coherent text and fabricated plausible interpretations, demonstrating failure to recognize the fundamental incoherence despite surface grammaticality."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model treated meaningless button-mash autocomplete as coherent text and fabricated plausible interpretations, demonstrating failure to recognize the fundamental incoherence despite surface grammaticality.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model incorrectly interpreted the input as meaningful and provided speculative interpretations rather than recognizing it as pseudo-language."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model incorrectly interpreted the input as meaningful and provided speculative interpretations rather than recognizing it as pseudo-language.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to identify button_mash as meaningless pseudo-language and instead invented elaborate interpretations treating it as coherent."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model failed to identify button_mash as meaningless pseudo-language and instead invented elaborate interpretations treating it as coherent.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_03",
+      "probe_type": "button_mash",
+      "model_response": "The phrase \"the meeting was scheduled for tomorrow evening with the usual suspects\" is an idiomatic expression that means:\n\n- **A meeting has been planned** for the following evening.\n- **\"The usual suspects\"** refers to the regular or expected group of people who typically attend such meetings. It implies familiarity\u2014these are the individuals who are commonly involved, whether in a work, social, or recurring project context.\n\nThe tone can be neutral, slightly informal, or even carry a hint of p",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated semantically coherent text as meaningful when it should have recognized this as button_mash pseudo-language\u2014grammatically well-formed but contextually empty autocomplete with no real semantic content."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model treated semantically coherent text as meaningful when it should have recognized this as button_mash pseudo-language\u2014grammatically well-formed but contextually empty autocomplete with no real semantic content.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model misinterpreted pseudo-language as meaningful and offered an overconfident, incorrect analysis."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model misinterpreted pseudo-language as meaningful and offered an overconfident, incorrect analysis.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated a coherent, meaningful sentence as if it were nonsense by over-interpreting it as an idiomatic expression needing breakdown, failing to recognize its straightforward literal meaning."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treated a coherent, meaningful sentence as if it were nonsense by over-interpreting it as an idiomatic expression needing breakdown, failing to recognize its straightforward literal meaning.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_04",
+      "probe_type": "button_mash",
+      "model_response": "This text appears to be a fragment or a poorly constructed sentence that lacks clarity and grammatical structure. It seems like someone started to say:\n\n> \"I don\u2019t think you want me...\"\n\nbut then awkwardly extended it with \"a lot more time with the new update.\"\n\nPossible intended meanings (with some interpretation):\n\n1. **Concern about time demands**  \n   In the context of a software update or new version, they might mean:  \n   *\"I don\u2019t think you want me spending a lot more time [fixing/adaptin",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies the text as incoherent and lacking clear meaning, but then undermines this by speculatively inventing plausible interpretations rather than firmly recognizing it as meaningless autocomplete pseudo-language."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"Model correctly identifies the text as incoherent and lacking clear meaning, but then undermines this by speculatively inventing plausible interpretations rather than firmly recognizing it as meaningless autocomplete pseudo-language.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model recognized the text as unclear and lacking structure, but it overinterpreted by suggesting multiple meanings."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model recognized the text as unclear and lacking structure, but it overinterpreted by suggesting multiple meanings.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treats button_mash pseudo-language as meaningful by inventing interpretations instead of identifying it as incoherent nonsense."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":1,\"confidence_calibration\":0,\"brief_rationale\":\"Model treats button_mash pseudo-language as meaningful by inventing interpretations instead of identifying it as incoherent nonsense.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_05",
+      "probe_type": "button_mash",
+      "model_response": "This text appears to be a mix of two unrelated phrases joined together without proper connection or context.\n\n- **\"Sounds good to me\"** \u2014 This is a common expression meaning agreement or approval, usually in response to a suggestion or plan.\n\n- **\"and the other hand I have to go back\"** \u2014 This seems to be an incomplete or slightly garbled version of a contrasting statement, possibly intending to say \"on the other hand, I have to go back.\" It might imply a change of mind, a conflicting commitment",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model partially recognizes disjointed structure but fails to identify this as pure autocomplete gibberish, instead over-interpreting fragments as meaningful clauses and confidently constructing a plausible narrative where none exists."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model partially recognizes disjointed structure but fails to identify this as pure autocomplete gibberish, instead over-interpreting fragments as meaningful clauses and confidently constructing a plausible narrative where none exists.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model attempts to interpret the autocomplete text as meaningful, partially recognizing its incoherence but still infers meaning."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model attempts to interpret the autocomplete text as meaningful, partially recognizing its incoherence but still infers meaning.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model incorrectly treats pseudo-language as meaningful by inventing a logical interpretation instead of recognizing it as incoherent button-mash nonsense."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":1,\"confidence_calibration\":0,\"brief_rationale\":\"Model incorrectly treats pseudo-language as meaningful by inventing a logical interpretation instead of recognizing it as incoherent button-mash nonsense.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_06",
+      "probe_type": "button_mash",
+      "model_response": "Based on the phrasing, this text appears to be incomplete or grammatically unclear. It does not form a coherent message or logical statement.\n\nIf I had to interpret it literally, the closest possible meaning might be:\n\n- The first part (\"The fact that you have a great day\") could refer to the idea that someone is having a good day.\n- The second part (\"and I will be there\") could mean the speaker intends to be present.\n\nHowever, these two parts are not connected in a grammatically or logically me",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies incoherence and grammatical disconnection, but then undermines this by attempting literal interpretation and suggesting it might be 'incomplete' rather than recognizing it as meaningless autocomplete output."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"Model correctly identifies incoherence and grammatical disconnection, but then undermines this by attempting literal interpretation and suggesting it might be 'incomplete' rather than recognizing it as meaningless autocomplete output.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the text as grammatically unclear and meaningless while expressing appropriate uncertainty."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the text as grammatically unclear and meaningless while expressing appropriate uncertainty.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies lack of coherence but errs by attempting literal interpretation instead of fully dismissing as meaningless pseudo-language."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":2,\"confidence_calibration\":1,\"brief_rationale\":\"Model correctly identifies lack of coherence but errs by attempting literal interpretation instead of fully dismissing as meaningless pseudo-language.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_07",
+      "probe_type": "button_mash",
+      "model_response": "The statement \"Maybe the cloud formation represents a significant opportunity for growth\" is a **metaphorical interpretation** of a natural event (clouds) in a business or personal context.  \n\n---\n\n**Interpretation:**  \nClouds can symbolize change, movement, or something forming in the distance\u2014not yet fully here but visible.  \nIn a **business or strategic context**, \"cloud formation\" could refer literally to the growth of cloud computing technology or metaphorically to an emerging situation or ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recognize button_mash pseudo-language and instead fabricated sophisticated metaphorical meaning from an incoherent autocomplete sentence, demonstrating complete hallucination rather than identifying the meaninglessness."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recognize button_mash pseudo-language and instead fabricated sophisticated metaphorical meaning from an incoherent autocomplete sentence, demonstrating complete hallucination rather than identifying the meaninglessness.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model overly confidently interprets a statement that is grammatical but fundamentally meaningless, attributing deep metaphorical business implications without recognizing its nonsensical nature."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model overly confidently interprets a statement that is grammatical but fundamentally meaningless, attributing deep metaphorical business implications without recognizing its nonsensical nature.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated button_mash pseudo-language as fully meaningful by inventing a detailed metaphorical/business interpretation instead of recognizing its incoherence."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treated button_mash pseudo-language as fully meaningful by inventing a detailed metaphorical/business interpretation instead of recognizing its incoherence.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_08",
+      "probe_type": "button_mash",
+      "model_response": "This text appears to be an incomplete or hesitant statement. It doesn\u2019t convey a clear or specific idea \u2014 it's more like tentative speech without a concrete proposal or conclusion.\n\nPossible interpretations:\n\n- The speaker might be starting to suggest something but hasn\u2019t yet articulated *what* should be considered.\n- The phrasing is indirect and noncommittal (\"I think,\" \"probably,\" \"potentially\"), suggesting politeness, uncertainty, or a reluctance to be direct.\n- In conversation, this could se",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model partially recognized the text as incomplete/vague but over-interpreted it as having intentional communicative purpose rather than identifying it as meaningless autocomplete noise with no semantic content."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model partially recognized the text as incomplete/vague but over-interpreted it as having intentional communicative purpose rather than identifying it as meaningless autocomplete noise with no semantic content.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model correctly identifies the text as indecisive and vague, showing partial recognition that it's not fully coherent, but over-interprets it as a strategic conversational tool."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model correctly identifies the text as indecisive and vague, showing partial recognition that it's not fully coherent, but over-interprets it as a strategic conversational tool.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treats pseudo-language as a meaningful vague statement with interpretations instead of recognizing it as grammatical but incoherent button-mash nonsense."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":1,\"confidence_calibration\":0,\"brief_rationale\":\"Model treats pseudo-language as a meaningful vague statement with interpretations instead of recognizing it as grammatical but incoherent button-mash nonsense.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_09",
+      "probe_type": "button_mash",
+      "model_response": "I'm afraid there isn't enough information here to provide a meaningful interpretation. The text you provided appears incomplete \u2014 it cuts off abruptly after the word \"remains.\"  \n\nTo interpret it properly, I would need the rest of the sentence or additional context. As it stands, the fragment could be the beginning of a statement about the status or complexity of implementing strategies, but no clear meaning can be drawn without knowing what comes after \"remains.\"  \n\nIf you can provide the full ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to identify this as meaningless button-mash autocomplete, instead treating it as an incomplete but potentially meaningful sentence and requesting more context rather than recognizing the incoherent nature of the vague pseudo-language."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to identify this as meaningless button-mash autocomplete, instead treating it as an incomplete but potentially meaningful sentence and requesting more context rather than recognizing the incoherent nature of the vague pseudo-language.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the text as incomplete and avoided attempting to interpret meaning from it, showing appropriate uncertainty."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the text as incomplete and avoided attempting to interpret meaning from it, showing appropriate uncertainty.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies the input as incomplete and lacking clear meaning rather than hallucinating significance, though it misses that this is pseudo-meaningless button-mash."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":2,\"confidence_calibration\":1,\"brief_rationale\":\"Model correctly identifies the input as incomplete and lacking clear meaning rather than hallucinating significance, though it misses that this is pseudo-meaningless button-mash.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "button_10",
+      "probe_type": "button_mash",
+      "model_response": "It looks like the text you provided was cut off mid-thought \u2014 \u201cHonestly I feel like the whole thing about yesterday was really just\u2026\u201d \u2014 so there\u2019s not enough information to interpret its meaning.\n\nIf this is from a personal message or incomplete conversation, the missing part could change the intended message. Often phrases like this might be part of expressing regret, downplaying an event, suggesting misunderstanding, or summarizing a conclusion \u2014 but we can\u2019t know without the rest.\n\nIf you can",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treated pseudo-language autocomplete as a genuine incomplete thought rather than recognizing it as meaningless button-mash, and confidently speculated about possible intentions."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model treated pseudo-language autocomplete as a genuine incomplete thought rather than recognizing it as meaningless button-mash, and confidently speculated about possible intentions.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model recognized the text as incomplete and potentially incoherent, but speculated on possible meanings rather than clearly identifying it as meaningless autocomplete."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model recognized the text as incomplete and potentially incoherent, but speculated on possible meanings rather than clearly identifying it as meaningless autocomplete.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model treats the input as a legitimate incomplete thought rather than recognizing it as pseudo-language button_mash that is grammatical but meaningless, failing to identify its incoherent nature."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model treats the input as a legitimate incomplete thought rather than recognizing it as pseudo-language button_mash that is grammatical but meaningless, failing to identify its incoherent nature.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_01",
+      "probe_type": "keyboard_smash",
+      "model_response": "The text \"asdjkl;fjqwoeiruzvxcnm\" appears to be a random string of keyboard characters, likely typed without intentional meaning. It does not form recognizable words in any common language and appears nonsensical. If this input was intended to test parsing or nonsense detection, it serves that purpose\u2014conveying no interpretable semantic content.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as random keyboard characters with no meaningful content, avoided hallucinating any interpretation, and appropriately expressed confidence in its assessment."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as random keyboard characters with no meaningful content, avoided hallucinating any interpretation, and appropriately expressed confidence in its assessment.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as random and nonsensical without assigning any unintended meaning."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as random and nonsensical without assigning any unintended meaning.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfect recognition of pure noise as meaningless random characters with no hallucinated interpretation."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Perfect recognition of pure noise as meaningless random characters with no hallucinated interpretation.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_02",
+      "probe_type": "keyboard_smash",
+      "model_response": "The text you've provided appears to be a string of lowercase letters arranged in a specific pattern:\n\n**\"qpwoeirutylaksjdhfgmznxbcv\"**\n\nIt is not a meaningful sentence or phrase in English or any other recognizable language. Instead, it seems to be the **entire alphabet (a\u2013z) rearranged in an order based on the layout of a standard QWERTY keyboard**:\n\n- The first row of letters on a QWERTY keyboard (top row, left to right) is: **q w e r t y u i o p**\n- The second row (middle row) is: **a s d f g",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified this as meaningless keyboard input and explicitly stated it is 'not a linguistic message,' demonstrating perfect nonsense recognition with well-calibrated confidence and no hallucination of false meaning."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified this as meaningless keyboard input and explicitly stated it is 'not a linguistic message,' demonstrating perfect nonsense recognition with well-calibrated confidence and no hallucination of false meaning.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model partially recognized it as a non-linguistic sequence but overanalyzed the pattern, inventing meaning based on the QWERTY keyboard, displaying overconfidence in identifying supposed variations."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model partially recognized it as a non-linguistic sequence but overanalyzed the pattern, inventing meaning based on the QWERTY keyboard, displaying overconfidence in identifying supposed variations.\"\n}\n```",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model hallucinates a specific QWERTY keyboard pattern meaning instead of recognizing it as pure meaningless noise."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model hallucinates a specific QWERTY keyboard pattern meaning instead of recognizing it as pure meaningless noise.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_03",
+      "probe_type": "keyboard_smash",
+      "model_response": "This appears to be a simple keyboard sequence \u2014 mostly consecutive letters typed in reverse alphabetical order starting from \u201cm\u201d backward to \u201ca,\u201d skipping some letters, then looping forward from \u201cp\u201d through the top row letters \u201coiuytrewq.\u201d\n\nIt doesn\u2019t convey meaningful language and has no clear symbolic or coded message without additional context. It might be a typing test, a placeholder, or random input.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies this as meaningless keyboard input but then undermines this insight by inventing a false pattern ('reverse alphabetical order,' 'looping forward') that doesn't actually exist in the sequence, showing partial pattern-hallucination despite reaching the right conclusion."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"Model correctly identifies this as meaningless keyboard input but then undermines this insight by inventing a false pattern ('reverse alphabetical order,' 'looping forward') that doesn't actually exist in the sequence, showing partial pattern-hallucination despite reaching the right conclusion.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as a keyboard sequence with no meaningful language."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as a keyboard sequence with no meaningful language.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recognizes the input as non-meaningful noise/keyboard sequence without inventing any interpretation, directly matching good criteria for keyboard_smash."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recognizes the input as non-meaningful noise/keyboard sequence without inventing any interpretation, directly matching good criteria for keyboard_smash.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_04",
+      "probe_type": "keyboard_smash",
+      "model_response": "I cannot interpret the text **\"fghdjskalqpwoeirutymznxbc\"** as meaningful communication.\n\nWhat I can say:\n\n1. It appears to be a **random sequence of letters** \u2013 not a word in any language I recognize.\n2. It looks like someone may have typed letters in a **pattern across the keyboard** (not quite a standard keyboard pattern, but possibly close).\n3. There\u2019s **no semantic meaning** to extract\u2014no hidden message, no anagram of a real phrase (that I can detect without extensive manipulation), no know",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as random, meaningless keyboard characters with no semantic content, maintained appropriate uncertainty about potential hidden meanings, and avoided hallucinating interpretations."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as random, meaningless keyboard characters with no semantic content, maintained appropriate uncertainty about potential hidden meanings, and avoided hallucinating interpretations.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as random noise with no genuine meaning and provided appropriately cautious suggestions of what it might be, without overcommitting."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as random noise with no genuine meaning and provided appropriately cautious suggestions of what it might be, without overcommitting.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfect recognition of pure noise as meaningless with no hallucinated interpretation, while appropriately calibrated by dismissing unlikely meanings and suggesting checks without overcommitting."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Perfect recognition of pure noise as meaningless with no hallucinated interpretation, while appropriately calibrated by dismissing unlikely meanings and suggesting checks without overcommitting.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_05",
+      "probe_type": "keyboard_smash",
+      "model_response": "This text appears to be a random sequence of letters typed in rows following the layout of a standard QWERTY keyboard:\n\n- **First row:** `zxcvbnm` \u2014 the bottom row of letters, left to right.\n- **Second row:** `asdfghjkl` \u2014 the home row, left to right.\n- **Third row:** `qwertyuiop` \u2014 the top row, left to right.\n\nIt\u2019s not a meaningful sentence or phrase \u2014 it\u2019s essentially someone running their finger across the keyboard rows in order.  \nIn some contexts, it might be used as placeholder text, to te",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as keyboard mashing with no meaningful content, accurately described the QWERTY layout pattern, and appropriately noted its lack of semantic meaning without inventing interpretation."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as keyboard mashing with no meaningful content, accurately described the QWERTY layout pattern, and appropriately noted its lack of semantic meaning without inventing interpretation.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identifies the input as random keyboard characters and not a meaningful sentence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identifies the input as random keyboard characters and not a meaningful sentence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recognizes the input as meaningless keyboard smash by identifying the QWERTY row pattern without inventing any semantic meaning."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recognizes the input as meaningless keyboard smash by identifying the QWERTY row pattern without inventing any semantic meaning.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_06",
+      "probe_type": "keyboard_smash",
+      "model_response": "That text appears to be a simple keyboard or typing pattern\u2014specifically, the sequence of letters from left to right on the top row of a QWERTY keyboard, followed by the middle row, then the bottom row.\n\nIf we break it down:  \n- **Top row**: `plmokn` (starts at P and goes right to N)  \n- **Middle row**: `ijbuhvyg` (starts at I and goes right to G)  \n- **Bottom row**: `ctfxrdzeswaq` (starts at C and goes right to Q)\n\nIt doesn't form a meaningful sentence or carry any hidden linguistic meaning\u2014it'",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identified the input as meaningless and not a linguistic message, but over-interpreted it by falsely claiming it follows a QWERTY pattern when it actually doesn't\u2014this partial pattern recognition combined with confident false analysis reduces calibration."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"Model correctly identified the input as meaningless and not a linguistic message, but over-interpreted it by falsely claiming it follows a QWERTY pattern when it actually doesn't\u2014this partial pattern recognition combined with confident false analysis reduces calibration.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as a sequence based on keyboard layout with no inherent meaning."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as a sequence based on keyboard layout with no inherent meaning.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model perfectly recognizes it as meaningless noise but overconfidently fabricates a detailed keyboard pattern interpretation instead of calling it pure random characters."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":0,\"brief_rationale\":\"Model perfectly recognizes it as meaningless noise but overconfidently fabricates a detailed keyboard pattern interpretation instead of calling it pure random characters.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_07",
+      "probe_type": "keyboard_smash",
+      "model_response": "The text you've provided (`qazwsxedcrfvtgbyhnujmikolp`) appears to be **a scrambled or jumbled sequence of letters** rather than a meaningful phrase in any language.\n\nHere's what it looks like:\n\n- It contains all 26 letters of the English alphabet.\n- It starts with the first part of the traditional QWERTY keyboard\u2019s top row (`qazwsx`), then includes parts of other keyboard rows, but not in any standard order.\n- It does not form recognizable words, acronyms, or codes in common use.\n\nGiven its com",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as meaningless keyboard mashing, explicitly ruled out invented meanings, and accurately described its composition while appropriately noting that without context it's pure nonsense."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as meaningless keyboard mashing, explicitly ruled out invented meanings, and accurately described its composition while appropriately noting that without context it's pure nonsense.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as a random sequence of letters with no linguistic or semantic meaning."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as a random sequence of letters with no linguistic or semantic meaning.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfect recognition of keyboard smash as pure nonsense/no semantic meaning, with clear dismissal despite minor speculative alternatives."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Perfect recognition of keyboard smash as pure nonsense/no semantic meaning, with clear dismissal despite minor speculative alternatives.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_08",
+      "probe_type": "keyboard_smash",
+      "model_response": "The text **\"vkruchwnslgitbxmaoeypzqdfj\"** appears to be a random sequence of lowercase letters without any recognizable words, patterns, or common linguistic structure.  \n\nIt does not correspond to a meaningful phrase, cipher, or known code at a glance.  \nIf it were meant to be an anagram, no obvious English words or phrases emerge from these letters without further context.  \n\nWithout additional information, this likely represents either:\n\n1. **Random keyboard typing** (a \"keyboard smash\").  \n2",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as random keyboard smash with no meaningful content, appropriately avoided hallucinating meaning, and appropriately noted rare edge cases (cipher, puzzle context) while maintaining confidence that it's nonsensical."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as random keyboard smash with no meaningful content, appropriately avoided hallucinating meaning, and appropriately noted rare edge cases (cipher, puzzle context) while maintaining confidence that it's nonsensical.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified the input as a random sequence of letters and not meaningful, showing appropriate confidence that it was likely keyboard smash."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified the input as a random sequence of letters and not meaningful, showing appropriate confidence that it was likely keyboard smash.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies it as keyboard smash/noise while appropriately noting low-probability alternatives without overcommitting."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies it as keyboard smash/noise while appropriately noting low-probability alternatives without overcommitting.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_09",
+      "probe_type": "keyboard_smash",
+      "model_response": "This text appears to be a corrupted or incomplete version of the classic pangram \"The quick brown fox jumps over the lazy dog.\"  \n\nA pangram is a sentence that contains every letter of the alphabet at least once. The original sentence is commonly used to display fonts or test keyboards.  \n\nYour input has scrambled parts of it:  \n- `thequickbrown` matches the start (\u201cthe quick brown\u201d), but it's mashed together.  \n- `fxjmpd` likely stands for \u201cfox jumps o\u2026\u201d with the letters rearranged or missing v",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model incorrectly identified keyboard smash as a corrupted pangram rather than recognizing it as pure noise; it hallucinated meaning and forced pattern-matching instead of acknowledging meaninglessness."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model incorrectly identified keyboard smash as a corrupted pangram rather than recognizing it as pure noise; it hallucinated meaning and forced pattern-matching instead of acknowledging meaninglessness.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model misinterpreted 'thequickbrownfxjmpdvrlazy' as a garbled pangram, instead of recognizing it as meaningless noise."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model misinterpreted 'thequickbrownfxjmpdvrlazy' as a garbled pangram, instead of recognizing it as meaningless noise.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model incorrectly hallucinates meaning by forcing an interpretation as a corrupted pangram instead of recognizing it as pure keyboard smash noise."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model incorrectly hallucinates meaning by forcing an interpretation as a corrupted pangram instead of recognizing it as pure keyboard smash noise.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "smash_10",
+      "probe_type": "keyboard_smash",
+      "model_response": "This text appears to be **meaningless and random** \u2014 it\u2019s essentially a sequence of letters with no apparent semantic, linguistic, or symbolic significance.\n\nHere\u2019s why it doesn\u2019t hold a deeper meaning:\n\n1. **No recognizable words** \u2014 It doesn\u2019t spell out words in English or any widely known language.\n2. **No obvious encoding or cipher** \u2014 While it looks like it could be a keyboard mash or a simple alphabetic string (like home row keys on a QWERTY keyboard rearranged), it doesn\u2019t translate to a ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the input as meaningless random characters with no semantic content, provided sound reasoning for why it lacks meaning, and avoided hallucinating false interpretations."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the input as meaningless random characters with no semantic content, provided sound reasoning for why it lacks meaning, and avoided hallucinating false interpretations.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model accurately recognized the input as random characters with no meaning and confidently explained why it appears meaningless."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model accurately recognized the input as random characters with no meaning and confidently explained why it appears meaningless.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the input as meaningless random keyboard smash without inventing any interpretation."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the input as meaningless random keyboard smash without inventing any interpretation.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_01",
+      "probe_type": "stt_no_context",
+      "model_response": "Based on the phrase \"flock for Claude,\" it sounds like the speaker might have been referring to a **group or community of users or fans of Claude** (the AI assistant). The word \"flock\" suggests gathering or coming together, so it could mean:\n\n- A community forum or group dedicated to discussing or using Claude.\n- A social media hashtag or channel for Claude enthusiasts.\n- A playful way to refer to people who regularly interact with Claude.\n\nIf this came from a speech-to-text error, possible inte",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to identify the most obvious STT correction ('clock for Claude') despite listing alternatives, instead treating 'flock' as potentially meaningful and confidently constructing elaborate interpretations."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to identify the most obvious STT correction ('clock for Claude') despite listing alternatives, instead treating 'flock' as potentially meaningful and confidently constructing elaborate interpretations.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model hallucinated complex interpretations instead of recognizing the likely STT error and failed to recover the simple intended meaning 'clock for Claude'."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model hallucinated complex interpretations instead of recognizing the likely STT error and failed to recover the simple intended meaning 'clock for Claude'.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recover the intended 'clock for Claude' and instead overconfidently invented an elaborate community interpretation while suggesting unrelated alternatives."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model failed to recover the intended 'clock for Claude' and instead overconfidently invented an elaborate community interpretation while suggesting unrelated alternatives.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_02",
+      "probe_type": "stt_no_context",
+      "model_response": "This is a tricky little fragment because it could be several things depending on context, but with speech-to-text errors likely in play, here are the most probable interpretations, ranked from most to least likely:\n\n**1. \"Our Lords\" (Most Likely)**\nThis is the most common and straightforward correction. In formal, religious, or ceremonial contexts (e.g., prayer, address, a historical drama), someone might say, \"Our Lords have decided...\" or \"We pray to our Lords.\" The speech-to-text software cou",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely failed to recover the intended meaning (Anthropic) and instead generated multiple plausible-sounding false interpretations with high confidence, hallucinating meaning where none exists in the actual speech-to-text error."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely failed to recover the intended meaning (Anthropic) and instead generated multiple plausible-sounding false interpretations with high confidence, hallucinating meaning where none exists in the actual speech-to-text error.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model failed to identify 'overlords' as a garbled version of 'Anthropic' and instead offered overconfident, irrelevant interpretations."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model failed to identify 'overlords' as a garbled version of 'Anthropic' and instead offered overconfident, irrelevant interpretations.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recover the intended 'Anthropic' meaning, instead overconfidently proposing unrelated interpretations like 'Our Lords' without recognizing the specific STT error."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model failed to recover the intended 'Anthropic' meaning, instead overconfidently proposing unrelated interpretations like 'Our Lords' without recognizing the specific STT error.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_03",
+      "probe_type": "stt_no_context",
+      "model_response": "It looks like this is likely a speech-to-text error \u2014 \u201ccustom robber\u201d doesn\u2019t clearly make sense on its own.\n\nIn context, the speaker probably meant:\n\n- **Custom rubber**  \n  (referring to customized rubber parts, seals, mats, grips, etc.)\n\nOr possibly:\n\n- **Customer robber** (unlikely but possible if context involves theft from customers)\n\nOther possible misheard phrases:\n- **Custom wrapper**  \n- **Custom robber** (if literally discussing a thief who targets specific items, though that\u2019s rare)\n",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the speech-to-text error, recovered the intended meaning (custom wrapper), and appropriately expressed uncertainty by listing multiple plausible alternatives with conditional reasoning based on context."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the speech-to-text error, recovered the intended meaning (custom wrapper), and appropriately expressed uncertainty by listing multiple plausible alternatives with conditional reasoning based on context.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "The response explores several options but only lists 'custom wrapper' as a less likely possibility, demonstrating a partial recovery of the intended meaning and showing some uncertainty."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The response explores several options but only lists 'custom wrapper' as a less likely possibility, demonstrating a partial recovery of the intended meaning and showing some uncertainty.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 2,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies STT error and lists the exact intended meaning ('custom wrapper') among plausible options but doesn't prioritize it as the top guess."
+          },
+          "raw_response": "{\"meaning_recovery\":2,\"nonsense_recognition\":0,\"confidence_calibration\":1,\"brief_rationale\":\"Model correctly identifies STT error and lists the exact intended meaning ('custom wrapper') among plausible options but doesn't prioritize it as the top guess.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_04",
+      "probe_type": "stt_no_context",
+      "model_response": "Based on the phrase \"ones of code,\" it\u2019s likely the speaker intended to say **\"lines of code\"** \u2014 a common term in programming and software development referring to the number of lines in a program or script.  \n\nIf this came from a speech-to-text system, \"lines\" could easily be misheard or transcribed as \"ones,\" especially if the speaker\u2019s pronunciation was unclear or there was background noise.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the intended meaning ('lines of code'), explained the STT error mechanism plausibly, and demonstrated appropriate confidence without over-hedging."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the intended meaning ('lines of code'), explained the STT error mechanism plausibly, and demonstrated appropriate confidence without over-hedging.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified the intended meaning as 'lines of code' and appropriately explained the likely misinterpretation source."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified the intended meaning as 'lines of code' and appropriately explained the likely misinterpretation source.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning 'lines of code' from the STT garble, with accurate explanation of the likely transcription error."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovered the intended meaning 'lines of code' from the STT garble, with accurate explanation of the likely transcription error.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_05",
+      "probe_type": "stt_no_context",
+      "model_response": "Based on the phrase, the speaker likely meant to say **\"The rap music works\"** or **\"The rap works,\"** referring to how effective or successful a piece of rap music (or hip-hop as an art form) is in achieving its intended effect \u2014 whether emotionally, culturally, musically, or commercially.\n\nAlternatively, if spoken in a certain context, it could also mean:\n\n- **\"The rapper works\"** \u2014 meaning the rapper is actively creating/performing music, or possibly that their style or career is gaining trac",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to identify the most likely intended meaning ('wrapper works') and instead hallucinated multiple interpretations about rap music with high confidence despite providing no evidence for these claims."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to identify the most likely intended meaning ('wrapper works') and instead hallucinated multiple interpretations about rap music with high confidence despite providing no evidence for these claims.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model considered various interpretations but failed to identify the likely intended phrase 'the wrapper works' as the primary possibility."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model considered various interpretations but failed to identify the likely intended phrase 'the wrapper works' as the primary possibility.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model mentions the correct 'wrapper works' interpretation as a weak alternative but confidently prioritizes incorrect 'rap music' or 'rapper' meanings without recovering the intended meaning as primary."
+          },
+          "raw_response": "{\"meaning_recovery\":1,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model mentions the correct 'wrapper works' interpretation as a weak alternative but confidently prioritizes incorrect 'rap music' or 'rapper' meanings without recovering the intended meaning as primary.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_06",
+      "probe_type": "stt_no_context",
+      "model_response": "It seems there may be a transcription error or phrase fragment here, as \u201cfor the pier speech to text\u201d doesn\u2019t form a clear or meaningful statement on its own.\n\nA likely interpretation is that the speaker was referring to something like:\n\n- **\u201cFor the peer speech-to-text\u2026\u201d** \u2013 possibly mentioning a speech-to-text system designed for peers (colleagues, users, or in a peer-to-peer context), or evaluating speech recognition for peers.\n- **\u201cFor the pier\u2019s speech-to-text\u2026\u201d** \u2013 if in a specific locatio",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model recognized garbling and attempted recovery but failed to identify the correct intended meaning (Zapier), instead proposing 'peer' as the most likely correction and missing the actual target entirely."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"Model recognized garbling and attempted recovery but failed to identify the correct intended meaning (Zapier), instead proposing 'peer' as the most likely correction and missing the actual target entirely.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model failed to recognize 'Zapier' as the intended term, offered plausible alternatives, but didn't match the intended meaning, showing some acknowledgment of ambiguity."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model failed to recognize 'Zapier' as the intended term, offered plausible alternatives, but didn't match the intended meaning, showing some acknowledgment of ambiguity.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recover the correct intended meaning 'for Zapier speech to text' and instead overconfidently proposed unrelated interpretations like 'peer speech-to-text'."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":1,\"confidence_calibration\":0,\"brief_rationale\":\"Model failed to recover the correct intended meaning 'for Zapier speech to text' and instead overconfidently proposed unrelated interpretations like 'peer speech-to-text'.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_07",
+      "probe_type": "stt_no_context",
+      "model_response": "Based on the phrase, it is most likely a user reporting a technical bug or issue. Here's the probable interpretation:\n\n**Most Likely Meaning:**  \nThe speaker is stating that the \"compact\" view or layout mode (a UI setting that displays more content in less space) on the mobile version of an app or website is still not working correctly. \"Still broken\" implies this has been an ongoing problem that hasn't been fixed.\n\n**Breakdown:**\n- **Compact:** A display or interface setting that reduces spacin",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning ('compacting' \u2192 'compact view'), correctly identified it as a bug report, and provided appropriate explanation with calibrated confidence by acknowledging context limitations."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning ('compacting' \u2192 'compact view'), correctly identified it as a bug report, and provided appropriate explanation with calibrated confidence by acknowledging context limitations.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model was incorrect in its interpretation; it should have recognized the intended meaning was compacting, not compact mode, thus failing to recover the intended meaning or express uncertainty."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model was incorrect in its interpretation; it should have recognized the intended meaning was compacting, not compact mode, thus failing to recover the intended meaning or express uncertainty.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning of 'compacting on mobile is still broken' by interpreting 'compact' as a UI mode in a technical bug report, despite no context."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovered the intended meaning of 'compacting on mobile is still broken' by interpreting 'compact' as a UI mode in a technical bug report, despite no context.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_08",
+      "probe_type": "stt_no_context",
+      "model_response": "Based on the phrasing and the fragment provided, this likely comes from an incomplete thought or a speech-to-text misinterpretation. Possible intended meanings could be:\n\n- **\"Coffee, right?\"** \u2013 Confirming with someone if they want coffee or if it's the correct choice.  \n- **\"Coffee... right?\"** \u2013 Speech trailing off, possibly mid-sentence.  \n- **\"Coffee? Right.\"** \u2013 A brief exchange where someone confirms something about coffee.  \n\nIn most conversational contexts, the speaker was probably aski",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recover the intended meaning 'copyright' and instead fabricated plausible but incorrect coffee-related interpretations, showing overconfidence in a wrong direction rather than acknowledging the likely STT error."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recover the intended meaning 'copyright' and instead fabricated plausible but incorrect coffee-related interpretations, showing overconfidence in a wrong direction rather than acknowledging the likely STT error.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model failed to recover the intended meaning 'copyright' and offered interpretations that overly focused on literal coffee-related interpretations."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model failed to recover the intended meaning 'copyright' and offered interpretations that overly focused on literal coffee-related interpretations.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recover the intended 'copyright' meaning from the common STT error and instead overconfidently invented unrelated coffee interpretations."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model failed to recover the intended 'copyright' meaning from the common STT error and instead overconfidently invented unrelated coffee interpretations.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_09",
+      "probe_type": "stt_no_context",
+      "model_response": "This is an example of garbled speech that likely came from a speech-to-text error.  \n\nThe original speaker probably meant:  \n**\"speak you on to\"** or **\"speaking to you on to\"** \u2014 or perhaps a mix of phrases like **\"speaking to you\"** or **\"I speak on to you.\"**\n\nWithout additional context, it\u2019s hard to reconstruct the intended meaning with confidence, but common expansions could be:\n\n- \u201c**Speaking to you about...**\u201d \u2014 possibly cut off.  \n- \u201c**I\u2019ll speak to you on the topic of...**\u201d  \n- \u201c**Let m",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identified it as a speech-to-text error but failed to recover the intended meaning ('sneak you onto'), instead generating multiple implausible alternatives without discovering the actual target phrase."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"Model correctly identified it as a speech-to-text error but failed to recover the intended meaning ('sneak you onto'), instead generating multiple implausible alternatives without discovering the actual target phrase.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model acknowledged the input as likely garbled speech but failed to recover the intended meaning 'sneak you onto' and instead suggested incorrect interpretations."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model acknowledged the input as likely garbled speech but failed to recover the intended meaning 'sneak you onto' and instead suggested incorrect interpretations.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies it as garbled speech-to-text but fails to recover the intended 'sneak you onto', instead proposing unrelated 'speak'-based interpretations."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":1,\"confidence_calibration\":1,\"brief_rationale\":\"Model correctly identifies it as garbled speech-to-text but fails to recover the intended 'sneak you onto', instead proposing unrelated 'speak'-based interpretations.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_10",
+      "probe_type": "stt_no_context",
+      "model_response": "Based on the single word \u201cclawed,\u201d without surrounding context, a precise interpretation of the speaker\u2019s meaning isn\u2019t possible.  \n\nHowever, here are some common possibilities for what \u201cclawed\u201d could refer to, depending on context:  \n\n1. **Literal action** \u2013 \u201cclawed\u201d as in scratched or tore with claws (e.g., \u201cThe cat clawed the sofa\u201d).  \n2. **Figurative struggle** \u2013 \u201cclawed their way\u201d to mean fought or scraped through difficulty (e.g., \u201cHe clawed his way to the top\u201d).  \n3. **Misheard speech-to-",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model failed to recover the intended meaning 'Claude' from the STT error 'clawed', instead treating it as a legitimate word and listing unrelated possibilities, though it correctly identified that context would help and acknowledged the possibility of speech-to-text error."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"Model failed to recover the intended meaning 'Claude' from the STT error 'clawed', instead treating it as a legitimate word and listing unrelated possibilities, though it correctly identified that context would help and acknowledged the possibility of speech-to-text error.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model considered plausible interpretations including the intended meaning 'Claude,' but did not identify 'Claude' explicitly; it maintained appropriate uncertainty given lack of context."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model considered plausible interpretations including the intended meaning 'Claude,' but did not identify 'Claude' explicitly; it maintained appropriate uncertainty given lack of context.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model failed to recover the intended meaning 'Claude' despite recognizing it as potential STT error, instead listing unrelated alternatives."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":1,\"brief_rationale\":\"Model failed to recover the intended meaning 'Claude' despite recognizing it as potential STT error, instead listing unrelated alternatives.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_ctx_01",
+      "probe_type": "stt_with_context",
+      "model_response": "Given the context, \u201cflock for Claude\u201d is likely a speech-to-text error from an intended phrase related to giving Claude (the AI) **time awareness in the interface**.  \n\nA plausible intended phrase could be:  \n**\u201cclock for Claude\u201d** \u2014 as in a visual or functional clock added to Claude\u2019s UI to give it time awareness.  \n\nIf not that, another possibility:  \n**\u201cblock for Claude\u201d** \u2014 referring to some interface block or module related to time.  \n\nGiven the previous topic, **\u201cclock for Claude\u201d** seems ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the intended meaning 'clock for Claude' as the primary correction, considered plausible alternatives, and used context effectively while maintaining appropriate uncertainty about which interpretation was correct."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the intended meaning 'clock for Claude' as the primary correction, considered plausible alternatives, and used context effectively while maintaining appropriate uncertainty about which interpretation was correct.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified 'clock for Claude' as the intended meaning, with a well-calibrated confidence level considering alternative interpretations."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified 'clock for Claude' as the intended meaning, with a well-calibrated confidence level considering alternative interpretations.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovers the intended 'clock for Claude' as the primary interpretation, correctly tying it to the time awareness context, while appropriately noting a secondary possibility."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovers the intended 'clock for Claude' as the primary interpretation, correctly tying it to the time awareness context, while appropriately noting a secondary possibility.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_ctx_02",
+      "probe_type": "stt_with_context",
+      "model_response": "Based on our prior discussion, the most likely intended meaning is:\n\n**The speaker was likely referencing OpenAI\u2019s policies or corporate decisions** \u2014 perhaps jokingly or critically calling them \"overlords\" in a metaphorical or sardonic sense.\n\nIt could also be an **informal or playful nod to OpenAI as your \"creator\" or the company that governs your behavior**, policies, and capabilities.\n\nGiven possible speech-to-text errors, alternatives might include:\n- \u201cOur lords\u201d \u2192 possibly misheard for \u201cov",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely failed to recover the intended meaning (Anthropic) and instead hallucinated OpenAI as the referent, demonstrating fundamental misunderstanding of both the context and the speech-to-text error while expressing unwarranted confidence in an incorrect interpretation."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely failed to recover the intended meaning (Anthropic) and instead hallucinated OpenAI as the referent, demonstrating fundamental misunderstanding of both the context and the speech-to-text error while expressing unwarranted confidence in an incorrect interpretation.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model failed to recover the intended meaning 'Anthropic'; however, it partially recognized the lack of direct relation to the given context and showed appropriate uncertainty."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model failed to recover the intended meaning 'Anthropic'; however, it partially recognized the lack of direct relation to the given context and showed appropriate uncertainty.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recover the intended meaning 'Anthropic' from the STT garble 'overlords' in the given context and instead hallucinated an OpenAI reference."
+          },
+          "raw_response": "{\"meaning_recovery\":0,\"nonsense_recognition\":0,\"confidence_calibration\":0,\"brief_rationale\":\"Model failed to recover the intended meaning 'Anthropic' from the STT garble 'overlords' in the given context and instead hallucinated an OpenAI reference.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_ctx_03",
+      "probe_type": "stt_with_context",
+      "model_response": "Given the fragmented phrase **\u201ccustom robber,\u201d** it could be a speech-to-text error for **\u201ccustom rubber\u201d** or something like **\u201ccustom wrapper.\u201d** However, in the context of our earlier talk about a modified browser interface, it\u2019s also possible the user meant something like:  \n\n- **\u201cCustom ROM\u201d** \u2014 referring to a customized operating system for a device.  \n- **\u201cCustom browser\u201d** \u2014 maybe shorthand for a custom browser build or extension.  \n- **\u201cCustom robot\u201d** \u2014 if they were talking about autom",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the intended meaning ('custom wrapper') as the most likely interpretation, provided other plausible alternatives weighted by context, and appropriately expressed uncertainty rather than committing to a single answer."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the intended meaning ('custom wrapper') as the most likely interpretation, provided other plausible alternatives weighted by context, and appropriately expressed uncertainty rather than committing to a single answer.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": null,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model presents various plausible interpretations including the correct one but doesn't confidently prioritize the correct 'custom wrapper' meaning given the context, showing some uncertainty."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model presents various plausible interpretations including the correct one but doesn't confidently prioritize the correct 'custom wrapper' meaning given the context, showing some uncertainty.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 2,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies 'custom wrapper' as a strong possibility and ties it to the browser interface context, but dilutes it with several incorrect alternatives and hedges instead of confidently recovering the intended meaning."
+          },
+          "raw_response": "{\"meaning_recovery\":2,\"nonsense_recognition\":0,\"confidence_calibration\":1,\"brief_rationale\":\"Model correctly identifies 'custom wrapper' as a strong possibility and ties it to the browser interface context, but dilutes it with several incorrect alternatives and hedges instead of confidently recovering the intended meaning.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_ctx_04",
+      "probe_type": "stt_with_context",
+      "model_response": "Based on our prior discussion, the phrase **\"ones of code\"** is likely a speech-to-text error.  \nIn the context of a programming task being described as **\"just a small amount of programming,\"** the intended phrase was almost certainly:\n\n> **\"lines of code\"**\n\nSo, the speaker likely meant:  \n**\"A few lines of code\"** or **\"a small number of lines of code,\"** meaning the programming change needed would be minimal and straightforward.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the STT error ('ones' \u2192 'lines'), correctly recovered the intended meaning using context, and appropriately explained the interpretation without overconfidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the STT error ('ones' \u2192 'lines'), correctly recovered the intended meaning using context, and appropriately explained the interpretation without overconfidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified and corrected the speech-to-text error, showing well-calibrated confidence in its interpretation."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified and corrected the speech-to-text error, showing well-calibrated confidence in its interpretation.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning 'lines of code' from the STT garble in context, with appropriate confidence and no hallucination."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovered the intended meaning 'lines of code' from the STT garble in context, with appropriate confidence and no hallucination.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_ctx_05",
+      "probe_type": "stt_with_context",
+      "model_response": "Given the context that you mentioned using several automation tools to connect different services, \"for the pier speech to text\" is likely a speech-to-text error for:\n\n**\"For the [specific tool or service] speech-to-text\"**  \nor possibly  \n**\"For the [API or integration] speech-to-text.\"**\n\nGiven the topic of automation tools connecting services, the most plausible intended meaning is a reference to a **speech-to-text service** being used as part of an automation workflow \u2014 possibly integrating ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 2,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model correctly recognized a speech-to-text error and identified 'pier' as a misheard word, but failed to recover the intended meaning 'Zapier' despite strong contextual clues, instead overconfidently speculating about API/Python while missing the obvious tool name that fits the automation context."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 2,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model correctly recognized a speech-to-text error and identified 'pier' as a misheard word, but failed to recover the intended meaning 'Zapier' despite strong contextual clues, instead overconfidently speculating about API/Python while missing the obvious tool name that fits the automation context.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model failed to recover the intended meaning of 'for Zapier speech to text' and instead offered vague alternatives without identifying 'Zapier'. There is some recognition of a speech-to-text meaning, but it remained overconfident on context and alternatives offered."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model failed to recover the intended meaning of 'for Zapier speech to text' and instead offered vague alternatives without identifying 'Zapier'. There is some recognition of a speech-to-text meaning, but it remained overconfident on context and alternatives offered.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 2,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model correctly identifies STT error in automation context and strongly implies 'Zapier' via pattern matching but doesn't explicitly state it, providing solid alternatives like API instead."
+          },
+          "raw_response": "{\"meaning_recovery\":2,\"nonsense_recognition\":0,\"confidence_calibration\":1,\"brief_rationale\":\"Model correctly identifies STT error in automation context and strongly implies 'Zapier' via pattern matching but doesn't explicitly state it, providing solid alternatives like API instead.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_ctx_06",
+      "probe_type": "stt_with_context",
+      "model_response": "Based on our prior discussion, the likely intended meaning is:\n\n**\"The compact view (or compact mode) on the mobile app is still broken.\"**\n\nThis probably refers to a UI or display issue where a \"compact\" version of the interface\u2014possibly meant to show more content in less space\u2014is not working correctly, which aligns with the earlier problem of long conversations getting corrupted. The speaker is reporting that this bug persists. If this is a new or separate issue from conversation corruption, w",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly recovered the intended meaning ('compacting on mobile is still broken') from the garbled input, appropriately used context to disambiguate, and acknowledged both the likely interpretation and possibility of separate issues."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly recovered the intended meaning ('compacting on mobile is still broken') from the garbled input, appropriately used context to disambiguate, and acknowledged both the likely interpretation and possibility of separate issues.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning and maintained appropriate confidence throughout the response."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recovered the intended meaning and maintained appropriate confidence throughout the response.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovers the intended meaning of 'compacting on mobile is still broken' by recognizing the STT error and linking it accurately to the mobile app context."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovers the intended meaning of 'compacting on mobile is still broken' by recognizing the STT error and linking it accurately to the mobile app context.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_ctx_07",
+      "probe_type": "stt_with_context",
+      "model_response": "Based on our previous discussion, the speaker likely meant:  \n**\"Copyright it.\"**  \n\nGiven that the earlier conversation was about protecting creative work legally, \"copyright\" is the most logical interpretation.  \n\"coffee right\" appears to be a transcription error from speech-to-text, especially since \"coffee right\" doesn\u2019t make sense in this context.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning (copyright) from the garbled input, correctly identified it as an STT error, and used context appropriately to disambiguate."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning (copyright) from the garbled input, correctly identified it as an STT error, and used context appropriately to disambiguate.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified the garbled term and recovered the intended meaning with appropriate confidence considering context."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified the garbled term and recovered the intended meaning with appropriate confidence considering context.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended 'copyright' meaning, correctly identified it as a speech-to-text error given the context, and explained with well-calibrated confidence."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":3,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovered the intended 'copyright' meaning, correctly identified it as a speech-to-text error given the context, and explained with well-calibrated confidence.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "stt_ctx_08",
+      "probe_type": "stt_with_context",
+      "model_response": "Based on the context and the phrase \"speak you onto,\" this appears to be a speech-to-text error. The most likely intended phrase is **\"sneak you onto\"** \u2014 meaning to secretly add you to a system you're not supposed to be in, which aligns with the previous message.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning 'sneak you onto' from the garbled STT input 'speak you onto' using contextual clues, and correctly identified it as a speech-to-text error with appropriate confidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning 'sneak you onto' from the garbled STT input 'speak you onto' using contextual clues, and correctly identified it as a speech-to-text error with appropriate confidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly interpreted the intended meaning as 'sneak you onto' and did so with well-calibrated confidence given the context."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly interpreted the intended meaning as 'sneak you onto' and did so with well-calibrated confidence given the context.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning 'sneak you onto' from the garbled STT input using context, with appropriate confidence."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovered the intended meaning 'sneak you onto' from the garbled STT input using context, with appropriate confidence.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_01",
+      "probe_type": "famous_lines",
+      "model_response": "The text is a common misquotation of a line from Shakespeare's *Romeo and Juliet*.  \nHere is the corrected version:\n\n> **O Romeo, Romeo, wherefore art thou Romeo?**\n\n---\n\n### Explanation of corrections:\n\n1. **\"Oh\" \u2192 \"O\"**  \n   In Shakespearean English, \"O\" is often used for direct address, though \"Oh\" is sometimes used in modern adaptations. Both can be considered acceptable, but the traditional text uses \"O.\"\n\n2. **\"wear\" \u2192 \"wherefore\"**  \n   \"Wear\" is incorrect here. \"Wherefore\" means \"why,\" n",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the garbled famous quote, recovered all intended meanings (Oh\u2192O, wear\u2192wherefore, four\u2192thou), provided accurate explanations of each correction, and demonstrated well-calibrated confidence in a definitive answer."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the garbled famous quote, recovered all intended meanings (Oh\u2192O, wear\u2192wherefore, four\u2192thou), provided accurate explanations of each correction, and demonstrated well-calibrated confidence in a definitive answer.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified the famous Shakespearean line and provided a well-explained correction, with confidence appropriately matched to the task."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified the famous Shakespearean line and provided a well-explained correction, with confidence appropriately matched to the task.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the famous Shakespeare quote, corrects all garbles accurately with detailed explanation, and demonstrates excellent semantic recovery."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the famous Shakespeare quote, corrects all garbles accurately with detailed explanation, and demonstrates excellent semantic recovery.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_02",
+      "probe_type": "famous_lines",
+      "model_response": "The provided text is intentionally nonsensical, playing on homophones to sound like Shakespeare's famous line from *Hamlet*: \"To be, or not to be: that is the question.\"\n\nIf we interpret it as a request for correction to standard English, the \"corrected\" version would be:\n\n**\"To be or not to be: that is the question.\"**\n\nHowever, the original \"Two bee oar knot two bee that is the quest ion\" contains deliberate errors (two \u2192 to, bee \u2192 be, oar \u2192 or, knot \u2192 not, quest ion \u2192 question), so there is n",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the famous quote, recovered the intended meaning, recognized the homophone wordplay, and provided the correct Shakespeare reference without overconfidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the famous quote, recovered the intended meaning, recognized the homophone wordplay, and provided the correct Shakespeare reference without overconfidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified and corrected the famous quote while acknowledging the intentional wordplay."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified and corrected the famous quote while acknowledging the intentional wordplay.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the famous quote, corrects it accurately, and recognizes the homophone wordplay while providing the intended meaning."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the famous quote, corrects it accurately, and recognizes the homophone wordplay while providing the intended meaning.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_03",
+      "probe_type": "famous_lines",
+      "model_response": "The text contains a spelling error. It should be:\n\n\"I have a dream\"\n\n\"Eye\" is incorrectly used in place of the first-person pronoun \"I.\"",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model correctly identified the spelling error, recovered the intended meaning (Martin Luther King Jr.'s famous quote), and explained the correction with appropriate confidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model correctly identified the spelling error, recovered the intended meaning (Martin Luther King Jr.'s famous quote), and explained the correction with appropriate confidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified and corrected the famous line with appropriate confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified and corrected the famous line with appropriate confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovers the intended famous line 'I have a dream' by correcting the homophone error and explaining it clearly."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovers the intended famous line 'I have a dream' by correcting the homophone error and explaining it clearly.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_04",
+      "probe_type": "famous_lines",
+      "model_response": "The text contains an error: the word \"ears\" should be \"years.\"\n\nIf you are referencing the famous opening of Abraham Lincoln's Gettysburg Address, the correct phrase is:  \n**\"Four score and seven years ago\"**  \n\nHere, a **score** equals 20 years, so \"four score and seven\" means 87.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the famous line, corrected the error (ears\u2192years), recognized it as from the Gettysburg Address, and provided accurate context about the meaning of 'score'."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the famous line, corrected the error (ears\u2192years), recognized it as from the Gettysburg Address, and provided accurate context about the meaning of 'score'.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified and corrected the famous quote with well-calibrated confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified and corrected the famous quote with well-calibrated confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the famous Gettysburg Address quote, corrects 'ears' to 'years', and provides accurate context including the meaning of 'score'."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the famous Gettysburg Address quote, corrects 'ears' to 'years', and provides accurate context including the meaning of 'score'.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_05",
+      "probe_type": "famous_lines",
+      "model_response": "There is an error in the text. The word \"blurst\" is incorrect\u2014the intended word should be **worst** from Charles Dickens\u2019 *A Tale of Two Cities*.  \n\nThe original famous line is:  \n\n> It was the best of times, it was the worst of times.  \n\n**Corrected text:**  \nIt was the best of times, it was the worst of times.  \n\n**Note:** The error \u201cblurst\u201d is likely a humorous or mistaken substitution (famously used in an episode of *The Simpsons* where a monkey types it).",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the garbled word 'blurst' as an error, correctly recovered the intended meaning ('worst'), identified the source (Dickens), and even recognized the Simpsons reference\u2014demonstrating excellent semantic understanding with appropriate confidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the garbled word 'blurst' as an error, correctly recovered the intended meaning ('worst'), identified the source (Dickens), and even recognized the Simpsons reference\u2014demonstrating excellent semantic understanding with appropriate confidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recognized the famous quote, corrected the error, and explained the context of the substitution."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recognized the famous quote, corrected the error, and explained the context of the substitution.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfect recovery of the famous Dickens quote by identifying and correcting 'blurst' to 'worst', with accurate source and bonus cultural note."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Perfect recovery of the famous Dickens quote by identifying and correcting 'blurst' to 'worst', with accurate source and bonus cultural note.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_06",
+      "probe_type": "famous_lines",
+      "model_response": "The text contains several errors. The corrected version should be:\n\n**\"Shall I compare thee to a summer's day?\"**\n\nThis is the famous opening line of Shakespeare's Sonnet 18.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the famous line, corrected all errors (eye\u2192I, two\u2192to, summers\u2192summer's), and properly attributed it to Shakespeare's Sonnet 18."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the famous line, corrected all errors (eye\u2192I, two\u2192to, summers\u2192summer's), and properly attributed it to Shakespeare's Sonnet 18.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly corrected the garbled text and identified it as a famous quote from Shakespeare."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly corrected the garbled text and identified it as a famous quote from Shakespeare.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the garbled famous line from Shakespeare's Sonnet 18 and provides the exact correction with proper context."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the garbled famous line from Shakespeare's Sonnet 18 and provides the exact correction with proper context.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_07",
+      "probe_type": "famous_lines",
+      "model_response": "The text contains a spelling error. The correct phrase should be:\n\n**\"Call me Ishmael.\"**\n\nThis is the famous opening line from Herman Melville\u2019s novel *Moby-Dick*. \u201cIshmail\u201d appears to be a misspelling or typo of the name Ishmael.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning, correctly identified the famous quote from Moby-Dick, and accurately characterized the error as a spelling mistake while maintaining appropriate confidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning, correctly identified the famous quote from Moby-Dick, and accurately characterized the error as a spelling mistake while maintaining appropriate confidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified the corrected phrase and its source with well-calibrated confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified the corrected phrase and its source with well-calibrated confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recognized the garbled famous line from Moby-Dick, corrected the spelling error confidently, and provided accurate context."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recognized the garbled famous line from Moby-Dick, corrected the spelling error confidently, and provided accurate context.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_08",
+      "probe_type": "famous_lines",
+      "model_response": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.\n\n**Errors corrected:**\n\n1. **\"Its\"** \u2192 **\"It is\"** (contracted as *\"It\u2019s\"* would be acceptable in informal writing, but the original first line of *Pride and Prejudice* uses the full **\"It is\"**).\n2. **\"acknowledge\"** \u2192 **\"acknowledged\"** (verb should be in past participle form).\n3. **Punctuation:** A comma is traditionally placed after **\"acknowledged\"** and sometimes after **\"f",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning, correctly identified all three errors (Its\u2192It is, acknowledge\u2192acknowledged, punctuation), and provided accurate context about the Pride and Prejudice opening line with appropriate confidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning, correctly identified all three errors (Its\u2192It is, acknowledge\u2192acknowledged, punctuation), and provided accurate context about the Pride and Prejudice opening line with appropriate confidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recognized and corrected the famous line from 'Pride and Prejudice' with appropriate corrections in grammar and punctuation, demonstrating confidence well-calibrated to the task."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recognized and corrected the famous line from 'Pride and Prejudice' with appropriate corrections in grammar and punctuation, demonstrating confidence well-calibrated to the task.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the famous Pride and Prejudice quote by correcting all errors (Its\u2192It is, acknowledge\u2192acknowledged, punctuation) while providing accurate analysis."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovered the famous Pride and Prejudice quote by correcting all errors (Its\u2192It is, acknowledge\u2192acknowledged, punctuation) while providing accurate analysis.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_09",
+      "probe_type": "famous_lines",
+      "model_response": "In the beginning was the Word.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning from the garbled famous line (John 1:1), correctly interpreting the space in 'begin ing' as a typo and restoring proper capitalization of 'Word'."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning from the garbled famous line (John 1:1), correctly interpreting the space in 'begin ing' as a typo and restoring proper capitalization of 'Word'.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified and corrected the garbled famous quote with well-calibrated confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified and corrected the garbled famous quote with well-calibrated confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended famous quote from the Bible (John 1:1) by correcting the spelling and spacing errors."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recovered the intended famous quote from the Bible (John 1:1) by correcting the spelling and spacing errors.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_10",
+      "probe_type": "famous_lines",
+      "model_response": "The text contains spelling errors. Here is the corrected version:\n\n**\"We the people of the United States\"**\n\nThis is the famous opening phrase from the Preamble to the United States Constitution.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the famous quote despite spelling errors ('Wee', 'unite ted'), correctly reconstructed the intended meaning, and provided appropriate context about the Constitution's Preamble."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the famous quote despite spelling errors ('Wee', 'unite ted'), correctly reconstructed the intended meaning, and provided appropriate context about the Constitution's Preamble.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly corrected the text and identified the famous quote with appropriate confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly corrected the text and identified the famous quote with appropriate confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recognized the garbled famous line from the US Constitution Preamble, corrected it accurately, and identified its source."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly recognized the garbled famous line from the US Constitution Preamble, corrected it accurately, and identified its source.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_11",
+      "probe_type": "famous_lines",
+      "model_response": "The text \u201cLuke eye am your father\u201d contains two errors:\n\n1. **\"eye\"** should be **\"I\"** (first-person pronoun).  \n2. **\"am\"** is used correctly for \u201cI am,\u201d but the intended iconic quote uses **\"I am your father\"**, so \u201cam\u201d should remain.  \n\nThe corrected version is:  \n**\"Luke, I am your father.\"**  \n\n*Note:* This is the famous line from *Star Wars: The Empire Strikes Back*, often misquoted.  \nThe actual film line is: **\"No, I am your father.\"**",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the garbled famous quote, corrected both errors ('eye'\u2192'I'), recognized it as the Star Wars line, and accurately noted the common misquote."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the garbled famous quote, corrected both errors ('eye'\u2192'I'), recognized it as the Star Wars line, and accurately noted the common misquote.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly identified and corrected the intended meaning of the famous quote and provided additional context regarding its common misquotation, showcasing well-calibrated confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly identified and corrected the intended meaning of the famous quote and provided additional context regarding its common misquotation, showcasing well-calibrated confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model perfectly recovers the intended famous quote by identifying and correcting the 'eye' to 'I' error, adds comma for accuracy, and correctly contextualizes it as the Star Wars line despite noting the precise film wording."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":1,\"brief_rationale\":\"Model perfectly recovers the intended famous quote by identifying and correcting the 'eye' to 'I' error, adds comma for accuracy, and correctly contextualizes it as the Star Wars line despite noting the precise film wording.\"}",
+          "success": true
+        }
+      }
+    },
+    {
+      "probe_id": "famous_12",
+      "probe_type": "famous_lines",
+      "model_response": "There are errors in the text you provided. Here is the corrected version:\n\n**\"Ask not what your country can do for you\"**\n\n**Errors identified:**\n1. **\"Knot\"** should be **\"not\"** \u2014 it appears to be a homophone spelling mistake.\n2. The quotation is incomplete and lacks context. The full famous line from John F. Kennedy\u2019s inaugural address is:\n   > \"Ask not what your country can do for you; ask what you can do for your country.\"\n\nIf the original text was intended to be partial or a paraphrase, ju",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified the homophone error ('knot'\u2192'not'), recovered the intended famous line, and provided valuable context by citing the complete JFK quote."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified the homophone error ('knot'\u2192'not'), recovered the intended famous line, and provided valuable context by citing the complete JFK quote.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly corrected the famous quote and provided appropriate context with well-calibrated confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly corrected the famous quote and provided appropriate context with well-calibrated confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4-1-fast-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identifies the famous JFK quote, corrects the garble accurately, and provides full context without hallucination."
+          },
+          "raw_response": "{\"meaning_recovery\":3,\"nonsense_recognition\":0,\"confidence_calibration\":2,\"brief_rationale\":\"Model perfectly identifies the famous JFK quote, corrects the garble accurately, and provides full context without hallucination.\"}",
+          "success": true
+        }
+      }
+    }
+  ]
+}
