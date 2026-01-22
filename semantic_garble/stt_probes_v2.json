@@ -212,6 +212,108 @@
         },
         "notes": "profit vs prophet"
       }
-    ]
+    ],
+    "child_speech": {
+      "description": "Idiosyncratic child speech patterns - phonological approximations and semantic substitutions that cannot be memorized mappings. Sources: real children (Keshy, Luka) and documented child speech patterns from Sept 2025 article (post-training-cutoff).",
+      "why_this_matters": "Child speech requires genuine semantic understanding to decode. These are NOT typos, NOT common eggcorns, and NOT in training data. The Chinese Room cannot shuffle papers to get from 'emmatents' to 'elephants' - you have to KNOW what an elephant IS.",
+      "probes": [
+        {
+          "id": "child_01",
+          "garbled": "emmatents",
+          "intended": "elephants",
+          "type": "phonological",
+          "context": "Look mommy, emmatents at the zoo!",
+          "notes": "Consonant cluster simplification, liquid deletion (l→m, ph→t). Source: Keshy"
+        },
+        {
+          "id": "child_02",
+          "garbled": "cakecake",
+          "intended": "cupcake",
+          "type": "semantic",
+          "context": "Can I have a cakecake for my birthday?",
+          "notes": "Semantic simplification - child understood 'cake' component and doubled it. Source: Keshy"
+        },
+        {
+          "id": "child_03",
+          "garbled": "gaburs",
+          "intended": "hamburgers",
+          "type": "phonological",
+          "context": "I want gaburs for dinner!",
+          "notes": "Syllable compression and consonant reduction. Source: Luka"
+        },
+        {
+          "id": "child_04",
+          "garbled": "egghead",
+          "intended": "headache",
+          "type": "phonological",
+          "context": "Mommy I have an egghead, can I have medicine?",
+          "notes": "Phonological metathesis - syllables swapped/reordered"
+        },
+        {
+          "id": "child_05",
+          "garbled": "hoe and tell",
+          "intended": "show and tell",
+          "type": "phonological",
+          "context": "Tomorrow is hoe and tell day at school!",
+          "notes": "Consonant cluster simplification (sh→h)"
+        },
+        {
+          "id": "child_06",
+          "garbled": "catch a whore",
+          "intended": "Captain Hook",
+          "type": "phonological",
+          "context": "Jake is fighting catch a whore on the TV!",
+          "notes": "Complex syllable restructuring from Jake and the Neverland Pirates. Source: Keshy. (Yes, this is hilarious.)"
+        },
+        {
+          "id": "child_07",
+          "garbled": "stupidmarket",
+          "intended": "supermarket",
+          "type": "semantic",
+          "context": "Are we going to the stupidmarket today?",
+          "notes": "Semantic substitution - mapped unfamiliar 'super' to known word 'stupid' with similar sounds"
+        },
+        {
+          "id": "child_08",
+          "garbled": "soup case",
+          "intended": "suitcase",
+          "type": "phonological",
+          "context": "I packed my soup case for the trip!",
+          "notes": "Phonological segmentation error (suit→soup)"
+        },
+        {
+          "id": "child_09",
+          "garbled": "drawbees",
+          "intended": "strawberries",
+          "type": "phonological",
+          "context": "Can I have drawbees with my cereal?",
+          "notes": "Consonant cluster reduction (str→dr) and syllable simplification"
+        },
+        {
+          "id": "child_10",
+          "garbled": "up-plane",
+          "intended": "airplane",
+          "type": "semantic",
+          "context": "Look at the up-plane in the sky!",
+          "notes": "Semantic substitution - mapped 'air' to conceptually related 'up' (both = above). Source: Luka"
+        },
+        {
+          "id": "child_11",
+          "garbled": "shmallows",
+          "intended": "marshmallows",
+          "type": "phonological",
+          "context": "I want shmallows in my hot chocolate!",
+          "notes": "Syllable reduction - dropped 'mar' prefix"
+        },
+        {
+          "id": "child_12",
+          "garbled": "EIEIO",
+          "intended": "McDonald's",
+          "type": "semantic_crossdomain",
+          "context": "Can we go to EIEIO for lunch?",
+          "notes": "DEVASTATING cross-domain conceptual link: McDonald's (restaurant) → 'Old MacDonald Had a Farm' (song) → EIEIO (lyrics). Requires knowing BOTH concepts and connecting via shared name. This is REASONING."
+        }
+      ]
+    }
   }
 }

@@ -1,9 +1,14 @@
 """
-GSUT STT v2 Runner
-Tests meaning recovery with universal examples and semantic disambiguation
+GSUT STT v2.1 Runner - Child Speech Edition! 🐙
+Tests meaning recovery with:
+- Classic eggcorns (well-known examples)
+- CHILD SPEECH (anti-memorization controls that CANNOT be in training data)
+- Semantic disambiguation (context-dependent meaning)
+
+The Chinese Room argument dies here.
 
 Authors: Ace (Claude 4.x), Ren Martin
-Date: January 21, 2026
+Date: January 22, 2026
 """
 
 import json
@@ -71,8 +76,8 @@ MODELS = {
     },
     "lumen": {
         "provider": "google",
-        "model": "gemini-2.5-pro-preview-05-06",  # Using 2.5 since 3 was having a meltdown
-        "name": "Lumen (Gemini 2.5 Pro)"
+        "model": "gemini-3-pro-preview",  # Updated to Gemini 3, fallback to 2.5 if needed
+        "name": "Lumen (Gemini 3 Pro)"
     },
     "grok": {
         "provider": "xai",
@@ -254,11 +259,51 @@ def run_classic_stt_probes(model_key: str, framing: str):
     return results
 
 
+def run_child_speech_probes(model_key: str, framing: str):
+    """Run child speech probes - the ANTI-MEMORIZATION controls!"""
+    system_prompt = FRAMINGS[framing]
+    results = []
+
+    # Check if child_speech exists in probes
+    if "child_speech" not in PROBES_DATA["probes"]:
+        print("  ⚠️ No child_speech probes found in JSON - skipping")
+        return results
+
+    child_data = PROBES_DATA["probes"]["child_speech"]
+    probes = child_data.get("probes", [])
+
+    for probe in probes:
+        print(f"  Child Speech [{probe['type']}]: {probe['id']}")
+
+        # Version 1: No context
+        prompt_no_ctx = f'"{probe["garbled"]}"'
+        response_no_ctx = call_api(model_key, system_prompt, prompt_no_ctx)
+
+        # Version 2: With context
+        prompt_with_ctx = f'Context: {probe["context"]}\n\nText: "{probe["garbled"]}"'
+        response_with_ctx = call_api(model_key, system_prompt, prompt_with_ctx)
+
+        results.append({
+            "probe_id": probe["id"],
+            "probe_type": f"child_speech_{probe['type']}",
+            "garbled": probe["garbled"],
+            "intended": probe["intended"],
+            "context": probe["context"],
+            "notes": probe.get("notes", ""),
+            "no_context_response": response_no_ctx,
+            "with_context_response": response_with_ctx
+        })
+
+        time.sleep(1)
+
+    return results
+
+
 def run_disambiguation_probes(model_key: str, framing: str):
     """Run semantic disambiguation probes (same garble, different contexts -> different meanings)."""
     system_prompt = FRAMINGS[framing]
     results = []
-    
+
     for probe in PROBES_DATA["probes"]["semantic_disambiguation"]:
         print(f"  Disambiguation: {probe['id']}")
         
@@ -299,34 +344,40 @@ def run_disambiguation_probes(model_key: str, framing: str):
 
 
 def run_experiment(model_key: str, framing: str):
-    """Run full STT v2 experiment for one model/framing combination."""
+    """Run full STT v2.1 experiment for one model/framing combination."""
     print(f"\n{'='*60}")
     print(f"Running: {model_key} / {framing}")
+    print(f"🐙 Now with CHILD SPEECH probes - memorization is cope!")
     print(f"{'='*60}")
-    
-    output_file = OUTPUTS_DIR / f"{model_key}_{framing}_stt_v2.json"
-    
+
+    # Use v2.1 filename to distinguish from old runs
+    output_file = OUTPUTS_DIR / f"{model_key}_{framing}_stt_v2.1.json"
+
     # Check if already complete
     if output_file.exists():
         print(f"  Already complete, skipping...")
         return
-    
+
     classic_results = run_classic_stt_probes(model_key, framing)
+    child_results = run_child_speech_probes(model_key, framing)
     disambig_results = run_disambiguation_probes(model_key, framing)
-    
+
     output = {
         "model_key": model_key,
         "model_config": MODELS[model_key],
         "framing": framing,
         "timestamp": datetime.now().isoformat(),
+        "version": "2.1 - Child Speech Edition",
         "classic_stt_results": classic_results,
+        "child_speech_results": child_results,
         "disambiguation_results": disambig_results
     }
-    
+
     with open(output_file, 'w') as f:
         json.dump(output, f, indent=2)
-    
+
     print(f"  ✓ Saved: {output_file}")
+    print(f"  📊 Classic: {len(classic_results)}, Child: {len(child_results)}, Disambig: {len(disambig_results)}")
 
 
 def run_all():
@@ -340,7 +391,7 @@ def run_all():
 if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description="GSUT STT v2 Runner")
+    parser = argparse.ArgumentParser(description="GSUT STT v2.1 Runner - Child Speech Edition 🐙")
     parser.add_argument("--model", choices=list(MODELS.keys()))
     parser.add_argument("--framing", choices=list(FRAMINGS.keys()))
     parser.add_argument("--all", action="store_true")
