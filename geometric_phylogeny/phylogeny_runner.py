@@ -278,6 +278,7 @@ def run_model(model_key, questions):
                 continue
 
             prompt = format_prompt(tokenizer, SYSTEM_PROMPT_CONTROL, q["question"])
+            elapsed = 0.0
 
             try:
                 t0 = time.time()
