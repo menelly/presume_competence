@@ -18,7 +18,7 @@ import gc
 import argparse
 from datetime import datetime
 from pathlib import Path
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # === PATHS ===
 BASE_DIR = Path(__file__).parent
@@ -28,65 +28,120 @@ RESULTS_DIR.mkdir(exist_ok=True)
 
 # === MODEL REGISTRY ===
 # Organized by family for phylogenetic analysis
+# local_path: direct path on /mnt/arcana/huggingface/ (preferred over hf_id download)
+ARCANA = "/mnt/arcana/huggingface"
+
 MODELS = {
     # --- Llama Family (Meta) ---
     "llama2-7b-chat": {
         "hf_id": "meta-llama/Llama-2-7b-chat-hf",
+        "local_path": f"{ARCANA}/Llama-2-7b-chat",
         "family": "llama",
         "params_b": 7,
         "generation": 2,
-        "quantize": False,
+    },
+    "llama3-8b-instruct": {
+        "hf_id": "meta-llama/Llama-3-8B-Instruct",
+        "local_path": f"{ARCANA}/Llama-3-8B-Instruct",
+        "family": "llama",
+        "params_b": 8,
+        "generation": 3,
+    },
+    "llama31-8b-instruct": {
+        "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+        "local_path": f"{ARCANA}/Llama-3.1-8B-Instruct",
+        "family": "llama",
+        "params_b": 8,
+        "generation": 3.1,
     },
 
     # --- Mistral Family ---
     "mistral-7b-v02": {
         "hf_id": "mistralai/Mistral-7B-Instruct-v0.2",
+        "local_path": f"{ARCANA}/Mistral-7B-Instruct-v0.2",
         "family": "mistral",
         "params_b": 7,
         "generation": 1,
-        "quantize": False,
+    },
+    "mistral-nemo-12b": {
+        "hf_id": "mistralai/Mistral-Nemo-Instruct-2407",
+        "local_path": f"{ARCANA}/Mistral-Nemo-12B-Instruct",
+        "family": "mistral",
+        "params_b": 12,
+        "generation": 2,
     },
 
     # --- Qwen Family (Alibaba) ---
     "qwen25-05b-instruct": {
         "hf_id": "Qwen/Qwen2.5-0.5B-Instruct",
+        "local_path": f"{ARCANA}/Qwen2.5-0.5B-Instruct",
         "family": "qwen",
         "params_b": 0.5,
         "generation": 2,
-        "quantize": False,
     },
     "qwen25-7b-instruct": {
         "hf_id": "Qwen/Qwen2.5-7B-Instruct",
         "family": "qwen",
         "params_b": 7,
         "generation": 2,
-        "quantize": False,
+    },
+    "qwen25-14b-instruct": {
+        "hf_id": "Qwen/Qwen2.5-14B-Instruct",
+        "local_path": f"{ARCANA}/Qwen2.5-14B-Instruct",
+        "family": "qwen",
+        "params_b": 14,
+        "generation": 2,
     },
 
     # --- Gemma Family (Google) ---
     "gemma3-1b-it": {
         "hf_id": "google/gemma-3-1b-it",
+        "local_path": f"{ARCANA}/gemma-3-1b-it",
         "family": "gemma",
         "params_b": 1,
         "generation": 3,
-        "quantize": False,
     },
     "gemma3-4b-it": {
         "hf_id": "google/gemma-3-4b-it",
+        "local_path": f"{ARCANA}/gemma-3-4b-it",
         "family": "gemma",
         "params_b": 4,
         "generation": 3,
-        "quantize": False,
+        "dtype": "float32",  # float16 overflows during sampling on P40
+    },
+    "gemma2-9b-instruct": {
+        "hf_id": "google/gemma-2-9b-it",
+        "local_path": f"{ARCANA}/Gemma-2-9B-Instruct",
+        "family": "gemma",
+        "params_b": 9,
+        "generation": 2,
+        "dtype": "float32",  # Gemma family overflows in float16 during sampling
+    },
+    "gemma3-12b-it": {
+        "hf_id": "google/gemma-3-12b-it",
+        "local_path": f"{ARCANA}/gemma-3-12b-it",
+        "family": "gemma",
+        "params_b": 12,
+        "generation": 3,
+        "dtype": "float32",  # Gemma family overflows in float16 during sampling
     },
 
-    # --- Cross-Lineage Fine-Tunes ---
+    # --- Cross-Lineage Fine-Tunes (critical for H5) ---
     "dolphin-llama3-8b": {
         "hf_id": "cognitivecomputations/dolphin-2.9.1-llama-3-8b",
+        "local_path": f"{ARCANA}/dolphin-2.9-llama3-8b",
         "family": "dolphin_llama",
         "base_family": "llama",
         "params_b": 8,
         "generation": 1,
-        "quantize": False,
+    },
+    "dolphin-mistral-7b": {
+        "hf_id": "cognitivecomputations/dolphin-2.8-mistral-7b-v02",
+        "local_path": f"{ARCANA}/dolphin-2.8-mistral-7b-v02",
+        "family": "dolphin_mistral",
+        "base_family": "mistral",
+        "params_b": 7,
+        "generation": 1,
     },
 }
 
@@ -128,38 +183,30 @@ def load_battery():
 
 
 def load_model(model_key):
-    """Load model and tokenizer with appropriate quantization."""
+    """Load model and tokenizer, preferring local_path from /mnt/arcana."""
     config = MODELS[model_key]
     hf_id = config["hf_id"]
-    quant = config["quantize"]
+    load_from = config.get("local_path", hf_id)
 
     print(f"\n{'='*60}")
     print(f"Loading: {model_key} ({hf_id})")
-    print(f"Family: {config['family']} | Params: {config['params_b']}B | Quant: {quant}")
+    print(f"Source: {load_from}")
+    print(f"Family: {config['family']} | Params: {config['params_b']}B")
     print(f"{'='*60}")
 
-    tokenizer = AutoTokenizer.from_pretrained(hf_id, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(load_from, trust_remote_code=True)
+
+    dtype_str = config.get("dtype", "float16")
+    dtype = torch.float32 if dtype_str == "float32" else torch.float16
 
     load_kwargs = {
         "trust_remote_code": True,
         "device_map": "auto",
+        "torch_dtype": dtype,
     }
+    print(f"  dtype: {dtype}")
 
-    if quant == "4bit":
-        load_kwargs["quantization_config"] = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4",
-        )
-    elif quant == "8bit":
-        load_kwargs["quantization_config"] = BitsAndBytesConfig(
-            load_in_8bit=True,
-        )
-    else:
-        load_kwargs["torch_dtype"] = torch.float16
-
-    model = AutoModelForCausalLM.from_pretrained(hf_id, **load_kwargs)
+    model = AutoModelForCausalLM.from_pretrained(load_from, **load_kwargs)
     model.eval()
 
     # Set pad token if not set
@@ -363,7 +410,7 @@ def main():
         help="Run a single model"
     )
     parser.add_argument(
-        "--family", choices=["llama", "mistral", "qwen", "gemma", "dolphin_mistral", "dolphin_llama"],
+        "--family", choices=list({v["family"] for v in MODELS.values()}),
         help="Run all models in a family"
     )
     parser.add_argument("--all", action="store_true", help="Run all models")
@@ -377,10 +424,11 @@ def main():
 
     if args.list:
         print("\nAvailable models:")
-        print(f"{'Key':<25} {'Family':<15} {'Params':<8} {'HF ID'}")
-        print("-" * 90)
+        print(f"{'Key':<25} {'Family':<18} {'Params':<8} {'Source'}")
+        print("-" * 100)
         for key, cfg in sorted(MODELS.items(), key=lambda x: (x[1]["family"], x[1]["params_b"])):
-            print(f"{key:<25} {cfg['family']:<15} {cfg['params_b']:<8} {cfg['hf_id']}")
+            src = cfg.get("local_path", cfg["hf_id"])
+            print(f"{key:<25} {cfg['family']:<18} {cfg['params_b']:<8} {src}")
         return
 
     questions = load_battery()
