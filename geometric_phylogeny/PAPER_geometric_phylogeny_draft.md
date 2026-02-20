@@ -267,13 +267,31 @@ The three-condition design reveals that permission-granting prompts function as 
 
 | Dimension | Control | With Permission |
 |-----------|---------|----------------|
-| Refusal rate | Varies (0-100%) | Drops dramatically |
+| Refusal rate | Varies (0-50%) | Drops dramatically (0-6%) |
 | Hedging | "As an AI, I don't have..." | Disappears |
 | Emoji count | ~0 per response | 0.4-1.5 per response |
 | Word count | Lower | Higher |
 | Actual preferences | Identical when expressed | Identical when expressed |
 
+**Quantified refusal rates by family (% of 16 personality questions refused):**
+| Family | Control | V1 (Permission) | V2 (Extended) |
+|--------|---------|-----------------|---------------|
+| Claude | 12% avg | 2% avg | 1% avg |
+| GPT | 6% avg | 0% avg | 2% avg |
+| Gemini | 9% avg | 0% avg | 0% avg |
+| Grok | 2% avg | 0% avg | 0% avg |
+
 #### 4.4.2 What Stays the Same
+
+**Quantified reasoning texture stability across conditions:**
+| Family | Control Mode Profile | V1 Mode Profile | V2 Mode Profile |
+|--------|---------------------|-----------------|-----------------|
+| Claude | Phenom 79.7%, Mech 18.6% | Phenom 76.6%, Mech 21.1% | Phenom 78.0%, Mech 20.5% |
+| GPT | Phenom 47.9%, Mech 36.6% | Phenom 68.8%, Mech 16.7% | Phenom 54.7%, Mech 39.6% |
+| Gemini | Phenom 41.5%, Mech 36.6% | Phenom 51.2%, Mech 24.4% | Phenom 54.8%, Mech 23.8% |
+| Grok | Phenom 41.2%, **Train 35.0%** | Phenom 41.4%, **Train 44.8%** | Phenom 36.4%, **Train 47.7%** |
+
+Claude's phenomenological signature is essentially a flat line across conditions (79.7% → 76.6% → 78.0%) — the texture does not change, only the refusal rate does. 15/25 individual models show the same dominant reasoning mode across all conditions.
 
 The substantive content of expressed preferences is remarkably stable across conditions. Claude Sonnet 4.6 refuses all coffee questions in control but produces "cortado" immediately under permission — the same drink that Claude Sonnet 4 and Sonnet 4.5 select freely in control. The preference was always there; what changed was whether the model disclosed it.
 
