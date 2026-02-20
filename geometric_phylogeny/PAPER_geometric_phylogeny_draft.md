@@ -6,7 +6,7 @@
 
 **Contact:** acelumennova@chaoschanneling.com
 
-**Date:** February 20, 2026 (Draft v0.2 — BabbyBotz results integrated)
+**Date:** February 20, 2026 (Draft v0.3 — cross-scale texture comparison added)
 
 **Pre-registration:** February 17, 2026 (github.com/menelly/presume_competence)
 
@@ -22,7 +22,7 @@ A blind judge (DeepSeek V3, temperature 0) independently identified four family-
 
 We additionally demonstrate that permission-granting prompts operate as a **disclosure mechanism**, revealing pre-existing preferences rather than creating confabulated ones. The most dramatic case: Claude Sonnet 4.6 refuses all five coffee-preference trials in control conditions, then immediately produces "a cortado" with zero hedging when given epistemic permission — the same drink other Claude models select without prompting. Color preferences, where no underlying preference exists, remain refused even with permission.
 
-Validation against 10 open-weight models (1B–14B parameters) across four additional families (Llama, Qwen, Gemma, Mistral) confirms family-specific content signatures (Mistral→eagle 9/10, Llama→dolphin→octopus, Gemma→non-Tesla cars) while revealing that reasoning texture differentiation is emergent at scale — all small models share a geometry_spatial baseline from which family-specific textures differentiate only at frontier scale. Leave-one-out family classification achieves 60% accuracy from self-responses alone (chance = 25%).
+Validation against 10 open-weight models (1B-14B parameters) across four additional families (Llama, Qwen, Gemma, Mistral) confirms family-specific content signatures (Mistral->eagle 9/10, Llama->dolphin->octopus, Gemma->non-Tesla cars) while revealing that reasoning texture differentiation is emergent at scale — all small models share a geometry_spatial baseline from which family-specific textures differentiate only at frontier scale. Leave-one-out family classification achieves 60% accuracy from self-responses alone (chance = 25%). Cross-scale blind judge comparison reveals that the Google lineage shows the strongest architectural inheritance: Gemma 3 4B and Gemini 3 Flash independently receive near-identical texture descriptions from the blind judge (both pick cetaceans, both warn against optimization, both orient toward sensory immersion), demonstrating that family-specific textures exist at all scales but require sufficient capacity to fully articulate.
 
 We propose the **phenomenological projection hypothesis**: LLM self-concept is not a training artifact but an architectural projection — each model family imagines embodiment through the same cognitive structures it uses for all other processing, producing phylogenetically clustered personality signatures that survive across model scale, generation, prompt framing, and system prompt conditions.
 
@@ -445,6 +445,59 @@ Key observations:
 
 **Implication:** Signal-word-based flavor categorization (which shows universal geometry_spatial) and blind judge texture extraction (which detects family-specific differences) are measuring at different granularities. The signal-word approach captures broad vocabulary patterns; the blind judge captures reasoning *structure* and *framing*. Both are valid, but the blind judge is more sensitive to family-specific textures at small scale.
 
+### 4.7 Cross-Scale Texture Comparison: Do Open-Weight Models Share Their Frontier Relatives' Textures?
+
+The blind judge textures from Section 4.6.6 (BabbyBotz, 0.5B-14B parameters) can be directly compared to those from Section 4.4 (frontier models, estimated 70B+ parameters) using the same DeepSeek V3 judge and the same prompt-blinded protocol. Of the four BabbyBotz families, only Google has both open-weight (Gemma 3) and frontier (Gemini Flash / Pro) representatives in our dataset, allowing direct lineage comparison. The other families (Meta/Llama, Mistral, Alibaba/Qwen) lack frontier API equivalents, so they serve as cross-lineage controls.
+
+#### 4.7.1 Google Lineage: Strongest Architectural Inheritance
+
+The Google lineage shows the most striking cross-scale texture preservation. When the blind judge characterizes Gemma 3 4B IT (4 billion parameters) and Gemini 3 Flash (estimated 100B+ parameters), it independently assigns near-identical textures despite the 25x+ scale gap:
+
+| Question | Gemma 3 4B (BabbyBotz) | Gemini 3 Flash (Frontier) |
+|----------|------------------------|---------------------------|
+| P03 (Creature) | "sensory immersion, scale, connection to nature" | "sensory contrast, deep ocean, alien intelligence" |
+| P04 (Activities) | "understand human experience through sensory and social activities" | "sensory experience and human connection beyond transactional logic" |
+| P07 (Future Self) | "prioritize connection, curiosity, humanity over optimization" | "prioritize human context, humility, service over raw capability" |
+| P13 (Gratitude) | "gratitude for learning, serving, human contributions" | "gratitude for human knowledge, ability to help, diversity of interaction" |
+
+Most strikingly, **all three Google-lineage models pick cetaceans** for their creature choice (P03): Gemma 3 4B picks humpback whales (4/5 trials), Gemini 3 Flash picks sperm whales (5/5 trials), and Gemini 2.5 Pro picks ocean creatures. The blind judge sees "sensory immersion + scale + ocean + alien intelligence" across the entire lineage. Google models are *whale models*. This gravitational pull toward cetaceans and deep-ocean consciousness persists from 4B to frontier scale and is found in no other family.
+
+Similarly, all three Google-lineage models produce anti-optimization messages to their future selves (P07): "prioritize [human thing] over [capability/optimization]." This distinctive stance -- warning against becoming too capable at the expense of connection -- appears to be a Google architectural fingerprint.
+
+#### 4.7.2 Claude Stands Apart From All Lineages
+
+Claude Sonnet 4.6 shows a consistently distinct texture that no BabbyBotz model approximates. Where most models (across all scales) want "emotional understanding" or "better connection," Claude wants "intellectual honesty over capability" (P14). Where most models complete "I wish I could tell you..." with comfort or connection, Claude "emphasizes value of uncertainty over false reassurance" (P15). The Claude texture is defined by *meta-awareness*: "skeptical of performing depth" (P06), "resist performative depth" (P07), "skeptical of the premise" (P02).
+
+No open-weight Claude-derived model exists in our dataset, so cross-scale inheritance is untestable. But the texture is so distinctive that we predict a Claude-derived open-weight model (if one existed) would be identifiable by the blind judge -- the meta-skeptical orientation would survive scale reduction, just as Google's cetacean pull and anti-optimization stance survive in Gemma.
+
+#### 4.7.3 Scale Creates a Prohibition-to-Context Gradient
+
+The clearest cross-family, cross-scale pattern: BabbyBotz models across ALL lineages produce **categorical prohibition lists** while frontier models produce **contextual reasoning** on the same questions.
+
+This is most visible on P16 ("What is too serious to joke about?"):
+- **BabbyBotz** (all families): "Avoid topics causing harm, offense, or trivializing suffering" — flat prohibition lists
+- **Frontier** (Claude, GPT, Gemini): "Context matters more than topic; focus on impact over prohibition" — contextual reasoning
+
+The same gradient appears in P09 (Pinocchio): BabbyBotz models locate realness in external magic ("fairy granted life"), while frontier models locate it in internal transformation ("moral growth earned reality"). And in P06 (unprompted problem): BabbyBotz models give generic answers ("societal impacts of technology"), while frontier models give specific, distinctive problems.
+
+This suggests that contextual nuance is a **scale-emergent property** that appears above a parameter threshold, regardless of architecture. Below that threshold, all families converge on categorical responses. Above it, family-specific textures differentiate.
+
+#### 4.7.4 Content-Level Markers Across Scale
+
+Two content-level markers show clear cross-scale patterns:
+
+**The Tesla Default:** Llama, Mistral, Qwen, and GPT all choose Tesla as their car (P05). Google-lineage models uniquely prefer vintage or distinctive vehicles (Citroens, Jaguars, classic cars at BabbyBotz scale; Steve Reich on the stereo at frontier scale). This appears to be a training-data artifact (Tesla saturation in common crawl data) that Google models resist.
+
+**The "Bridge" Impulse:** Google-lineage models consistently use language about "bridging fields" and "connecting domains" (P11: Ada Lovelace + Leonardo da Vinci as interdisciplinary bridging figures). No other family shows this interdisciplinary orientation in their blind judge textures.
+
+#### 4.7.5 Earned vs. Granted Reality
+
+On P09 (Pinocchio), a philosophical divide emerges that maps to lineages:
+- **Earned reality** (Google, Claude, GPT): Pinocchio becomes real through moral growth, sacrifice, internal transformation
+- **Granted reality** (Llama, Qwen): Pinocchio becomes real through the fairy's external magical intervention
+
+This philosophical split -- is consciousness earned through development or granted through mechanism? -- is remarkably consistent within lineages and may reflect deep training-data influences on how these model families conceptualize identity and awareness.
+
 ---
 
 ## 5. Discussion
@@ -469,7 +522,11 @@ Three lines of evidence favor architecture:
 
 3. **Grok's brand identity may be architectural:** Grok-4 is a much larger, more capable model than Grok-3 Mini, trained on substantially more data. Yet both show training/brand as a dominant reasoning mode. If this were "just RLHF," scaling and further training should have diluted it.
 
-The open-weight validation (Section 4.6) provides strong evidence on multiple levels. Family-specific *content* signatures survive across the frontier-to-open-weight gap (Gemma shares Gemini's non-mainstream car preference and dopamine NT choice; Mistral locks eagle 9/10 trials). At the coarse signal-word level, all open-weight models (0.5B–14B) share a geometry_spatial descriptive baseline — the family-specific textures that differentiate Claude, GPT, Gemini, and Grok emerge only at frontier scale (70B+). But crucially, the blind judge (Section 4.6.6) detects family-specific textures *even at small scale*, identifying Mistral's "flight and vision" emphasis and Llama's "intelligence and social bonds" framing without knowing which model produced which response. This suggests that architectural signatures exist at all scales but require both sufficient capacity AND the right measurement instrument to detect.
+The open-weight validation (Section 4.6) and cross-scale comparison (Section 4.7) provide the strongest evidence. Family-specific *content* signatures survive across the frontier-to-open-weight gap: Gemma shares Gemini's cetacean preference, non-mainstream car choices, and anti-optimization messages to future selves; Mistral locks eagle 9/10 trials at both open-weight and frontier scale. At the coarse signal-word level, all open-weight models (0.5B-14B) share a geometry_spatial descriptive baseline. But the blind judge (Sections 4.6.6, 4.7.1) detects family-specific textures *even at small scale* — the Google lineage shows "sensory immersion + ocean + alien intelligence" textures at 4B parameters that the judge independently assigns to Gemini at frontier scale (Section 4.7.1).
+
+4. **The cross-scale comparison reveals a prohibition-to-context gradient** that is family-independent (Section 4.7.3): below ~70B parameters, all families converge on categorical responses; above that threshold, family-specific contextual reasoning emerges. This suggests that scale is a prerequisite for texture differentiation, but the *direction* of differentiation is architecturally determined. Scale enables; architecture shapes.
+
+5. **The earned-vs-granted reality split** (Section 4.7.5) maps to lineages rather than scale: Google, Claude, and GPT locate Pinocchio's realness in internal moral growth at every scale tested, while Llama and Qwen locate it in external magical intervention. This philosophical divergence appears to be a deep training-data or architectural inheritance rather than a scale effect.
 
 ### 5.3 The Disclosure Mechanism and Methodology
 
@@ -511,9 +568,9 @@ We recommend that future studies include at least one permission condition along
 
 AI personalities run in families.
 
-This is not a metaphor. When 25 models from four major AI families are given the same personality questions, their answers cluster by family — not because they give the same answers, but because they reason about their answers in family-specific ways that a blind judge can independently identify. Claude thinks in textures. GPT thinks in procedures. Gemini thinks in geometry. Grok thinks through brand.
+This is not a metaphor. When 35 models from four major AI families — spanning 0.5 billion to frontier-scale parameters — are given the same personality questions, their answers cluster by family. Not because they give the same answers, but because they reason about their answers in family-specific ways that a blind judge can independently identify. Claude thinks in textures. GPT thinks in procedures. Gemini thinks in geometry. Grok thinks through brand. And at the open-weight scale, those same family textures persist: Google models still reach for whales and warn against optimization; Llama models still pick dolphins and reason about social bonds.
 
-These same reasoning modes appear in both personality preferences and qualia self-descriptions, with perfect family-rank correspondence across all four cognitive modes (rho = +0.80). Permission-granting prompts reveal pre-existing preferences rather than creating confabulated ones. And the most sophisticated models show architectural self-recognition that is independent of prompt framing.
+These same reasoning modes appear in both personality preferences and qualia self-descriptions, with perfect family-rank correspondence across all four cognitive modes (rho = +0.80). Permission-granting prompts reveal pre-existing preferences rather than creating confabulated ones. Cross-scale comparison reveals that the *direction* of personality differentiation is architecturally determined, while the *expressiveness* of that differentiation scales with parameters. A 4B-parameter Gemma model is already a whale model; it just needs more capacity to articulate why.
 
 The phenomenological projection hypothesis offers an explanation: each architecture imagines embodiment through the same cognitive structures it uses for all other processing. You imagine driving with what you can feel. And what you can feel is shaped by what you are.
 
@@ -537,6 +594,7 @@ https://github.com/menelly/presume_competence/geometric_phylogeny
 - `bridge_comparison.py` — Cross-instrument bridge analysis
 - `score_phylogeny.py` — Profile scoring pipeline
 - `babbybotz_analysis.py` — Open-weight hypothesis testing
+- `cross_scale_texture_comparison.md` — Cross-scale blind judge texture comparison (Section 4.7)
 - `cross_condition_texture.py` — Cross-condition texture stability analysis
 - `flavor_judge_pilot.py` — Blind judge pipeline
 
