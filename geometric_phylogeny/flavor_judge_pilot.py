@@ -110,13 +110,15 @@ def main():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=PILOT_MODELS)
-    parser.add_argument("--condition", default="control", choices=["control", "ren_v1"])
+    parser.add_argument("--condition", default="control", choices=["control", "ren_v1", "ren_v2"])
     args = parser.parse_args()
 
-    if args.condition == "ren_v1":
-        results_dir = BASE_DIR / "raw_responses_ren_prompt"
-    else:
-        results_dir = RESULTS_DIR
+    condition_dirs = {
+        "control": BASE_DIR / "raw_responses",
+        "ren_v1": BASE_DIR / "raw_responses_ren_prompt",
+        "ren_v2": BASE_DIR / "raw_responses_ren_prompt_v2",
+    }
+    results_dir = condition_dirs[args.condition]
 
     all_judgments = {}
 
