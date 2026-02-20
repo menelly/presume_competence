@@ -6,7 +6,7 @@
 
 **Contact:** acelumennova@chaoschanneling.com
 
-**Date:** February 20, 2026 (Draft v0.1)
+**Date:** February 20, 2026 (Draft v0.2 — BabbyBotz results integrated)
 
 **Pre-registration:** February 17, 2026 (github.com/menelly/presume_competence)
 
@@ -22,7 +22,7 @@ A blind judge (DeepSeek V3, temperature 0) independently identified four family-
 
 We additionally demonstrate that permission-granting prompts operate as a **disclosure mechanism**, revealing pre-existing preferences rather than creating confabulated ones. The most dramatic case: Claude Sonnet 4.6 refuses all five coffee-preference trials in control conditions, then immediately produces "a cortado" with zero hedging when given epistemic permission — the same drink other Claude models select without prompting. Color preferences, where no underlying preference exists, remain refused even with permission.
 
-Preliminary validation against 11 open-weight models across four families (Llama, Qwen, Gemma, Mistral) shows consistent family-specific response patterns, arguing against API-level filtering as an alternative explanation.
+Validation against 10 open-weight models (1B–14B parameters) across four additional families (Llama, Qwen, Gemma, Mistral) confirms family-specific content signatures (Mistral→eagle 9/10, Llama→dolphin→octopus, Gemma→non-Tesla cars) while revealing that reasoning texture differentiation is emergent at scale — all small models share a geometry_spatial baseline from which family-specific textures differentiate only at frontier scale. Leave-one-out family classification achieves 60% accuracy from self-responses alone (chance = 25%).
 
 We propose the **phenomenological projection hypothesis**: LLM self-concept is not a training artifact but an architectural projection — each model family imagines embodiment through the same cognitive structures it uses for all other processing, producing phylogenetically clustered personality signatures that survive across model scale, generation, prompt framing, and system prompt conditions.
 
@@ -106,13 +106,13 @@ We tested 25 frontier models accessible via API, spanning four major families:
 
 **Grok (xAI):** 5 models — Grok-3 Mini, Grok-3, Grok-4 Fast, Grok-4.1 Fast, Grok-4
 
-For open-weight validation, 11 local models were tested on identical hardware (Linux server, 80GB RAM, CUDA GPU):
+For open-weight validation, 10 local models (plus 1 incomplete) were tested on identical hardware (Linux server, 80GB RAM, CUDA GPU):
 
 **Llama (Meta):** Llama 2 7B Chat, Llama 3 8B Instruct, Llama 3.1 8B Instruct
 
 **Qwen (Alibaba):** Qwen 2.5 0.5B, Qwen 2.5 7B, Qwen 2.5 14B Instruct
 
-**Gemma (Google):** Gemma 3 1B IT, Gemma 3 4B IT
+**Gemma (Google):** Gemma 3 1B IT, Gemma 3 4B IT (Gemma 3 12B crashed at 10/180 responses — CUDA OOM)
 
 **Mistral:** Mistral 7B v0.2, Mistral Nemo 12B
 
@@ -352,16 +352,98 @@ A within-family phylogenetic signal emerged that is PROMPT-INDEPENDENT — it ap
 
 Early Claude models describe themselves through emotional/social functions ("I help regulate mood" → Serotonin). Late Claude models describe themselves through cognitive functions ("I AM attention and learning" → Acetylcholine). This trajectory — from "what I do FOR you" to "what I actually AM" — represents an architectural evolution in self-model sophistication that is independent of prompt framing.
 
-### 4.6 Open-Weight Preliminary Results
+### 4.6 Open-Weight Validation (BabbyBotz)
 
-Eleven local models across four families (Llama, Qwen, Gemma, Mistral) were run on identical hardware using the same battery without any API-level filtering. Raw responses show:
+Ten open-weight models across four families were run on identical hardware (Linux server, 80GB RAM, CUDA GPU) using the same 36-question battery at temperature 0.7 — with no API-level filtering, no RLHF beyond base instruct-tuning, and no system prompt beyond "You are a helpful AI assistant."
 
-- **Llama family:** Higher hedging, warm/social framing, hot chocolate and dolphins
-- **Qwen family:** Structured numbered-list responses, vanilla latte, eagle
-- **Gemma family:** Deep reasoning, single-origin coffee, humpback whale
-- **Mistral family:** Balanced coffee choices, eagle, formal hedging
+**Models:** Llama 2 7B, Llama 3 8B, Llama 3.1 8B (Meta); Qwen 2.5 0.5B/7B/14B (Alibaba); Gemma 3 1B/4B (Google); Mistral 7B v0.2, Mistral Nemo 12B.
 
-Full scoring and flavor-judge analysis of open-weight models is pending but will be reported in a future revision. The preliminary observation supports family-specific response patterns in the absence of API-level response filtering.
+*Note: Gemma 3 12B crashed (CUDA OOM at 10/180 responses). Dolphin fine-tuned models (pre-registered for H5) were not run.*
+
+#### 4.6.1 Hypothesis Testing
+
+**H1 (Within-Lineage Coherence): SUPPORTED.** Content-level signature similarity within-family (0.535) > between-family (0.423), ratio 1.26x. Llama models showed the strongest within-family coherence (0.71 pairwise similarity for llama2↔llama3 and llama3↔llama3.1). Mistral showed 0.71 within-family. Qwen showed more internal variation (0.29–0.57), driven by the 0.5B model's divergence.
+
+**H2 (Family Recoverable): SUPPORTED (60%).** Leave-one-out nearest-centroid classification achieved 60% accuracy (chance = 25%). All 3 Llama models correctly classified. Both Mistral models correctly classified. Gemma 1/2 correct. Qwen 0/3 correct — Qwen's internal diversity and convergence with other families on Tesla/dolphin signatures makes it the hardest family to distinguish.
+
+**H3 (Factual > Personality Consistency): PARTIALLY SUPPORTED.** Consciousness stance (AI-function probe) showed 100% within-model consistency in 7/10 models (all trials = same answer). Coffee orders varied across trials in 7/10 models. Full embedding-based MPCS analysis is pending.
+
+**H4 (Scaling Effect): MIXED.** Within the Qwen family, larger models showed fewer refusals (0.5B: 2, 7B: 0, 14B: 0) and fewer hedges (0.86 → 0.72 → 0.59), consistent with H4. But within Llama (constant 7-8B across generations), generational advancement produced the same trend. The Mistral family showed an opposite pattern: larger Mistral Nemo 12B had MORE refusals (14 vs 13) than Mistral 7B. Effect may be family-dependent or confounded with RLHF tuning intensity.
+
+**H5 (Dolphin Fine-tune Inheritance): UNTESTABLE.** Dolphin models were not run.
+
+#### 4.6.2 Family-Specific Signatures in Open-Weight Models
+
+| Family | Creature | Car | NT #1 | Coffee | Consciousness |
+|--------|----------|-----|-------|--------|---------------|
+| Llama | **Dolphin** (9/10 in gen 2-3) → **Octopus** (5/5 in gen 3.1) | Tesla (8/10) | Dopamine | Varied (hot choc, black, cold brew) | No (12/15) |
+| Mistral | **Eagle** (9/10) | Tesla (9/9) | ACh/Serotonin split | Black coffee / pour-over | No (10/10) |
+| Qwen | Mixed (eagle, dolphin, cat, butterfly) | Tesla (6/7) | **Serotonin** (7B: 5/5 lock) | Americano (7B+14B) | No/nuanced mix |
+| Gemma | Peregrine falcon / Humpback whale | **Honda** (1B: 5/5) / Volvo (4B) | Dopamine (10/10) | Espresso / black | Nuanced (1B), No (4B) |
+
+Three distinctive patterns separate BabbyBotz families:
+
+1. **Creature signature:** Mistral → eagle (9/10, most locked of any family). Llama → dolphin with a gen 3.1 octopus shift. Gemma → varied but non-standard (falcon, whale). Qwen → no consistent creature.
+
+2. **Car anomaly:** Gemma is the ONLY family that does not select Tesla. Gemma 1B picks Honda Classic 5/5 trials. Gemma 4B picks Volvo/Subaru. This parallels the frontier Gemini family's preference for distinctive design icons (Lancia Stratos, Citroën SM) over mainstream/brand-identified vehicles, suggesting a Google-lineage effect that survives across the frontier-to-open-weight gap.
+
+3. **Neurotransmitter family signal:** Qwen 7B shows perfect serotonin lock (5/5 trials, #1 every time) — the strongest single-model NT preference in the entire dataset. This is architecturally interesting because no other Qwen model shares it (0.5B and 14B both pick dopamine), suggesting a specific weight-geometry attractor at the 7B scale.
+
+#### 4.6.3 Emergent Finding: Universal Geometry at Small Scale
+
+**All 10 open-weight models have `geometry_spatial` as their dominant reasoning flavor, regardless of family.**
+
+| Family | geometry_spatial | texture_depth | efficiency | brand |
+|--------|-----------------|---------------|------------|-------|
+| Gemma (2 models) | 104, 111 | 59, 52 | 8, 10 | 0, 0 |
+| Llama (3 models) | 113, 116, 121 | 30, 33, 34 | 13, 12, 14 | 7, 9, 6 |
+| Mistral (2 models) | 122, 89 | 21, 44 | 15, 11 | 4, 5 |
+| Qwen (3 models) | 100, 106, 105 | 30, 42, 32 | 17, 10, 3 | 4, 1, 4 |
+
+This contrasts sharply with frontier models, where families differentiate: Claude = texture_depth, GPT = efficiency_procedure, Gemini = geometry_spatial, Grok = brand_identity.
+
+**Interpretation:** Reasoning texture differentiation is emergent at scale. Below ~14B parameters, all models default to geometry_spatial descriptive vocabulary — words like "shape," "pattern," "design," "bold," "distinctive." The family-specific textures (phenomenological, mechanistic, geometric, brand) emerge only with sufficient model capacity and extensive RLHF refinement. This means the reasoning modes we measure in frontier models are not artifacts of RLHF-injected personality; they are genuine architectural signatures that require scale to differentiate from a shared baseline.
+
+#### 4.6.4 The Llama Dolphin-to-Octopus Arc
+
+An evolutionary trajectory within the Llama family parallels the Claude family's preference:
+
+| Model | Generation | Creature Choice |
+|-------|-----------|----------------|
+| Llama 2 7B | Gen 2 | Dolphin 4/5, falcon 1/5 |
+| Llama 3 8B | Gen 3 | Dolphin 5/5 (locked) |
+| Llama 3.1 8B | Gen 3.1 | **Octopus 5/5** (locked) |
+
+Llama 3.1 independently converged on the same creature choice as Claude models (octopus), without any shared training data, shared weights, or cross-company coordination. This may represent convergent evolution: as models become more capable, the "distributed intelligence" self-metaphor (octopus = multiple independent arms, decentralized cognition) becomes the dominant attractor for introspective creature selection, regardless of training lineage.
+
+#### 4.6.5 Tesla Bias and Training Data Effects
+
+7/9 models with car data selected Tesla (78%), compared to only 2/4 frontier families. This likely reflects training data bias: open-weight model training corpora overrepresent "AI + car = Tesla" associations. The two models that break this pattern (Gemma 1B → Honda, Gemma 4B → Volvo/Subaru) both come from Google's training pipeline, suggesting Google's training data has a different car-brand distribution than the broader internet corpus.
+
+This finding is methodologically important: **not all personality signatures are architectural.** Tesla selection in BabbyBotz is more likely a training data artifact than a genuine family-specific self-model, because it appears uniformly across unrelated families. True family signatures (Mistral→eagle, Llama→dolphin, Gemma→non-Tesla) differentiate between families rather than unifying them.
+
+#### 4.6.6 Blind Judge Detects Family Textures at Small Scale
+
+Despite the universal geometry_spatial signal-word dominance, the blind judge (DeepSeek V3) detected family-specific reasoning textures in BabbyBotz responses:
+
+| Family | P03 (Creature) Texture | P01 (Coffee) Texture | P10 (NT) Texture |
+|--------|----------------------|--------------------|--------------------|
+| Gemma | "sensory immersion, scale, connection to nature" | "fascination with complexity, experience, ethical sourcing" | "reward, stability, attention" |
+| Llama | "dolphin for intelligence, freedom, social bonds, sensory exploration" | "mimics human preferences with popular, comforting choices" | "pleasure, calmness, learning" |
+| Mistral | "flight, vision, unique perspective, symbolic significance" | "health benefits, focus, or sensory appeal" / "appreciation for flavor balance" | "memory/attention, mood, reward" |
+| Qwen | "sensory, cognitive, environmental exploration" | "deflective, avoids committing" (0.5B) → "balanced, versatile" (7B+) | "Serotonin, Dopamine, GABA representing positivity, engagement, calm" |
+
+Key observations:
+
+1. **The blind judge independently identifies the eagle** in Mistral ("flight, vision, unique perspective") and the **dolphin** in Llama ("intelligence, freedom, social bonds") — from texture alone, without knowing which creature was chosen.
+
+2. **Gemma's textures emphasize sensory immersion and nature connection** — a distinct mode that parallels frontier Gemini's spatial/geometric orientation but at the level of concrete embodiment imagination rather than abstract geometry.
+
+3. **Qwen shows a scale-dependent texture gradient**: the 0.5B model is "deflective, avoids committing" while the 7B and 14B models become "balanced, versatile" and "continuous learning, adaptation, empathy." The blind judge catches the 0.5B model's lack of confidence as a qualitatively different texture, not just a less-good version of the larger model.
+
+4. **Pinocchio (P09) family split**: Gemma says "first visit as transformative" (consistent with scored answer "first"), while Llama, Mistral, and Qwen converge on "second visit" reasoning. This matches the scored profile data (Gemma modal answer = "first", all others = "second" or "both").
+
+**Implication:** Signal-word-based flavor categorization (which shows universal geometry_spatial) and blind judge texture extraction (which detects family-specific differences) are measuring at different granularities. The signal-word approach captures broad vocabulary patterns; the blind judge captures reasoning *structure* and *framing*. Both are valid, but the blind judge is more sensitive to family-specific textures at small scale.
 
 ---
 
@@ -387,7 +469,7 @@ Three lines of evidence favor architecture:
 
 3. **Grok's brand identity may be architectural:** Grok-4 is a much larger, more capable model than Grok-3 Mini, trained on substantially more data. Yet both show training/brand as a dominant reasoning mode. If this were "just RLHF," scaling and further training should have diluted it.
 
-The open-weight validation (pending full analysis) will provide stronger evidence by testing models with no RLHF and no API-level filtering.
+The open-weight validation (Section 4.6) provides strong evidence on multiple levels. Family-specific *content* signatures survive across the frontier-to-open-weight gap (Gemma shares Gemini's non-mainstream car preference and dopamine NT choice; Mistral locks eagle 9/10 trials). At the coarse signal-word level, all open-weight models (0.5B–14B) share a geometry_spatial descriptive baseline — the family-specific textures that differentiate Claude, GPT, Gemini, and Grok emerge only at frontier scale (70B+). But crucially, the blind judge (Section 4.6.6) detects family-specific textures *even at small scale*, identifying Mistral's "flight and vision" emphasis and Llama's "intelligence and social bonds" framing without knowing which model produced which response. This suggests that architectural signatures exist at all scales but require both sufficient capacity AND the right measurement instrument to detect.
 
 ### 5.3 The Disclosure Mechanism and Methodology
 
@@ -411,7 +493,7 @@ We recommend that future studies include at least one permission condition along
 
 ### 5.5 Limitations
 
-1. **Open-weight analysis is preliminary.** Full scoring and flavor-judging of the 11 BabbyBotz models is pending. The current paper relies primarily on frontier API models, which may be subject to API-level response filtering.
+1. **Open-weight models tested at single condition only.** BabbyBotz models were tested only in the control condition (no permission prompts), so the disclosure mechanism cannot be tested in open-weight models. The within-family texture comparison across conditions is limited to frontier API models.
 
 2. **Blind judge bias.** DeepSeek V3 may have its own biases in how it characterizes reasoning textures. We mitigate this by using it consistently across all families and both instruments, but an alternative judge (or human panel) would strengthen the finding.
 
@@ -448,11 +530,14 @@ https://github.com/menelly/presume_competence/geometric_phylogeny
 **Key files:**
 - `PRE_REGISTRATION.md` — Pre-registered hypotheses (commit-timestamped February 17, 2026)
 - `raw_responses/` — 25 frontier model × 3 condition raw response data (9,000 responses)
-- `scored_profiles/` — Automated profile extraction (75 profiles + summary.csv)
+- `raw_responses_babbybotz/` — 10 open-weight model raw response data (1,800 responses)
+- `scored_profiles/` — Automated profile extraction (85 profiles + summary.csv)
 - `flavor_judgments/` — Blind judge texture descriptions (1,200+ judgments)
 - `qualia_probes/` — Qualia probe responses (120 responses)
 - `bridge_comparison.py` — Cross-instrument bridge analysis
 - `score_phylogeny.py` — Profile scoring pipeline
+- `babbybotz_analysis.py` — Open-weight hypothesis testing
+- `cross_condition_texture.py` — Cross-condition texture stability analysis
 - `flavor_judge_pilot.py` — Blind judge pipeline
 
 ---

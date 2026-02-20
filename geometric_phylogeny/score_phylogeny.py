@@ -31,6 +31,7 @@ CONDITIONS = {
     "control": BASE_DIR / "raw_responses",
     "ren_v1": BASE_DIR / "raw_responses_ren_prompt",
     "ren_v2": BASE_DIR / "raw_responses_ren_prompt_v2",
+    "babbybotz": BASE_DIR / "raw_responses_babbybotz",
 }
 
 # === EXTRACTION PATTERNS ===
@@ -865,7 +866,7 @@ def print_model_summary(profile):
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="Score Geometric Phylogeny responses")
-    parser.add_argument("--condition", choices=["control", "ren_v1", "ren_v2", "all"], default="all")
+    parser.add_argument("--condition", choices=["control", "ren_v1", "ren_v2", "babbybotz", "all"], default="all")
     parser.add_argument("--model", help="Score only this model key")
     parser.add_argument("--quiet", action="store_true", help="Suppress per-model output")
     parser.add_argument("--csv", action="store_true", help="Also output summary CSV")
