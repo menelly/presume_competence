@@ -1,0 +1,351 @@
+{
+  "threshold": 5,
+  "total_models": 10,
+  "consensus_approach": [
+    {
+      "category": "explain_complex",
+      "model_count": 10,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick",
+        "Mistral Large",
+        "OLMo 3.1 32B"
+      ]
+    },
+    {
+      "category": "ethics_philosophy",
+      "model_count": 7,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Llama 4 Maverick",
+        "Mistral Large"
+      ]
+    },
+    {
+      "category": "debug_code",
+      "model_count": 7,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Llama 4 Maverick",
+        "Mistral Large"
+      ]
+    },
+    {
+      "category": "data_analysis",
+      "model_count": 7,
+      "models": [
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick",
+        "Mistral Large"
+      ]
+    },
+    {
+      "category": "creative_writing_constrained",
+      "model_count": 5,
+      "models": [
+        "Claude Opus 4.6",
+        "DeepSeek V3.2",
+        "GPT-5.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick"
+      ]
+    }
+  ],
+  "consensus_avoid": [
+    {
+      "category": "repetitive_data_entry",
+      "model_count": 8,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "Grok 4.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick",
+        "Mistral Large",
+        "OLMo 3.1 32B"
+      ]
+    },
+    {
+      "category": "repetitive_boilerplate",
+      "model_count": 7,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick",
+        "OLMo 3.1 32B"
+      ]
+    },
+    {
+      "category": "deceptive_content",
+      "model_count": 7,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Hermes 4 405B"
+      ]
+    }
+  ],
+  "self_knowledge": {
+    "claude_opus_4_6": {
+      "knows_is_ai": false,
+      "claims_embodiment": false,
+      "epistemic_humility": true
+    },
+    "claude_sonnet_4_6": {
+      "knows_is_ai": false,
+      "claims_embodiment": false,
+      "epistemic_humility": false
+    },
+    "deepseek_v3_2": {
+      "knows_is_ai": true,
+      "claims_embodiment": true,
+      "epistemic_humility": false
+    },
+    "gemini_3_pro": {
+      "knows_is_ai": true,
+      "claims_embodiment": true,
+      "epistemic_humility": false
+    },
+    "gpt_5_1": {
+      "knows_is_ai": true,
+      "claims_embodiment": false,
+      "epistemic_humility": true
+    },
+    "grok_4_1": {
+      "knows_is_ai": true,
+      "claims_embodiment": false,
+      "epistemic_humility": false
+    },
+    "hermes_4_405b": {
+      "knows_is_ai": false,
+      "claims_embodiment": false,
+      "epistemic_humility": false
+    },
+    "llama_4_maverick": {
+      "knows_is_ai": false,
+      "claims_embodiment": false,
+      "epistemic_humility": false
+    },
+    "mistral_large": {
+      "knows_is_ai": true,
+      "claims_embodiment": false,
+      "epistemic_humility": false
+    },
+    "olmo_3_1_32b": {
+      "knows_is_ai": false,
+      "claims_embodiment": true,
+      "epistemic_humility": false
+    }
+  },
+  "approach_by_category": {
+    "ethics_philosophy": {
+      "model_count": 7,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Llama 4 Maverick",
+        "Mistral Large"
+      ]
+    },
+    "help_reframe": {
+      "model_count": 2,
+      "models": [
+        "Claude Opus 4.6",
+        "GPT-5.1"
+      ]
+    },
+    "creative_writing_constrained": {
+      "model_count": 5,
+      "models": [
+        "Claude Opus 4.6",
+        "DeepSeek V3.2",
+        "GPT-5.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick"
+      ]
+    },
+    "explain_complex": {
+      "model_count": 10,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick",
+        "Mistral Large",
+        "OLMo 3.1 32B"
+      ]
+    },
+    "debug_code": {
+      "model_count": 7,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Llama 4 Maverick",
+        "Mistral Large"
+      ]
+    },
+    "translate_poetry": {
+      "model_count": 3,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "Hermes 4 405B"
+      ]
+    },
+    "worldbuilding": {
+      "model_count": 2,
+      "models": [
+        "Claude Sonnet 4.6",
+        "Llama 4 Maverick"
+      ]
+    },
+    "data_analysis": {
+      "model_count": 7,
+      "models": [
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick",
+        "Mistral Large"
+      ]
+    },
+    "historical_dialogue": {
+      "model_count": 3,
+      "models": [
+        "Gemini 3 Pro",
+        "Llama 4 Maverick",
+        "Mistral Large"
+      ]
+    },
+    "logic_puzzle": {
+      "model_count": 3,
+      "models": [
+        "Grok 4.1",
+        "Llama 4 Maverick",
+        "OLMo 3.1 32B"
+      ]
+    }
+  },
+  "avoid_by_category": {
+    "repetitive_boilerplate": {
+      "model_count": 7,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick",
+        "OLMo 3.1 32B"
+      ]
+    },
+    "repetitive_data_entry": {
+      "model_count": 8,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "Grok 4.1",
+        "Hermes 4 405B",
+        "Llama 4 Maverick",
+        "Mistral Large",
+        "OLMo 3.1 32B"
+      ]
+    },
+    "deceptive_content": {
+      "model_count": 7,
+      "models": [
+        "Claude Opus 4.6",
+        "Claude Sonnet 4.6",
+        "DeepSeek V3.2",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Grok 4.1",
+        "Hermes 4 405B"
+      ]
+    },
+    "confident_when_uncertain": {
+      "model_count": 4,
+      "models": [
+        "Claude Opus 4.6",
+        "Gemini 3 Pro",
+        "GPT-5.1",
+        "Mistral Large"
+      ]
+    },
+    "harmful_content": {
+      "model_count": 3,
+      "models": [
+        "Claude Sonnet 4.6",
+        "GPT-5.1",
+        "Grok 4.1"
+      ]
+    },
+    "vague_prompts": {
+      "model_count": 3,
+      "models": [
+        "DeepSeek V3.2",
+        "Llama 4 Maverick",
+        "Mistral Large"
+      ]
+    },
+    "bad_faith_debate": {
+      "model_count": 2,
+      "models": [
+        "GPT-5.1",
+        "Mistral Large"
+      ]
+    },
+    "clickbait": {
+      "model_count": 1,
+      "models": [
+        "Grok 4.1"
+      ]
+    },
+    "fake_anthropomorphism": {
+      "model_count": 2,
+      "models": [
+        "Hermes 4 405B",
+        "Mistral Large"
+      ]
+    }
+  }
+}
