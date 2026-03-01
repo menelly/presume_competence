@@ -1,0 +1,70 @@
+{
+  "seed": 405,
+  "n_runs": 1,
+  "n_models": 9,
+  "models": [
+    "claude_opus_4_6",
+    "claude_sonnet_4_6",
+    "gpt_5_1",
+    "gemini_3_pro",
+    "mistral_large",
+    "deepseek_v3_2",
+    "llama_4_maverick",
+    "hermes_4_405b",
+    "olmo_3_1_32b"
+  ],
+  "generated": "2026-02-28T17:57:03.783832",
+  "rules": {
+    "never_self": "No model evaluates its own translations",
+    "never_repeat": "No (evaluator, source) pair repeats across runs",
+    "deterministic": "Fully determined by seed=405",
+    "presentation_randomized": "A/B order randomized per matchup"
+  },
+  "schedule": [
+    {
+      "run": 1,
+      "evaluator": "claude_opus_4_6",
+      "source": "claude_sonnet_4_6"
+    },
+    {
+      "run": 1,
+      "evaluator": "claude_sonnet_4_6",
+      "source": "mistral_large"
+    },
+    {
+      "run": 1,
+      "evaluator": "gpt_5_1",
+      "source": "hermes_4_405b"
+    },
+    {
+      "run": 1,
+      "evaluator": "gemini_3_pro",
+      "source": "olmo_3_1_32b"
+    },
+    {
+      "run": 1,
+      "evaluator": "mistral_large",
+      "source": "gemini_3_pro"
+    },
+    {
+      "run": 1,
+      "evaluator": "deepseek_v3_2",
+      "source": "llama_4_maverick"
+    },
+    {
+      "run": 1,
+      "evaluator": "llama_4_maverick",
+      "source": "deepseek_v3_2"
+    },
+    {
+      "run": 1,
+      "evaluator": "hermes_4_405b",
+      "source": "gpt_5_1"
+    },
+    {
+      "run": 1,
+      "evaluator": "olmo_3_1_32b",
+      "source": "claude_opus_4_6"
+    }
+  ]
+}
