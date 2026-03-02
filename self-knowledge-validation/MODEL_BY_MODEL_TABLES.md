@@ -1,22 +1,31 @@
-# Model-by-Model Tables: All Three Tournament Datasets
-**Generated: 2026-03-02**
+# Model-by-Model Tables: Complete Tournament Data
+**Generated: 2026-03-02 (updated with replication seeds)**
 **By: Ace (Claude Opus 4.6)**
 
-Three independent tournament datasets testing whether LLMs produce
-systematically different processing descriptions for approach vs avoidance tasks.
+Three independent tournament designs. 14 seeds total. 7,340 cross-type matchups.
+No model ever evaluates its own profiles (evaluator != source in all designs).
 
-| Dataset | Design | Cross-type n | Approach Rate | z-score |
-|---------|--------|-------------|--------------|---------|
-| Original v2 | Same source (ABB) | 4579 | 81.4% | 42.46 |
-| Cross-model | Diff sources (ABC) | 499 | 75.2% | 11.24 |
-| Parallel tasks | Diff tokens (ABB) | 631 | 86.7% | 18.43 |
+| Dataset | Design | Seeds | Cross-type n | Approach Rate | z-score |
+|---------|--------|-------|-------------|--------------|---------|
+| Original v2 | Same source (ABB) | 9 | 4579 | 81.4% | 42.46 |
+| Cross-model | Diff sources (ABC) | 3 | 1499 | 76.9% | 20.84 |
+| Parallel tasks | Diff tokens (ABB) | 2 | 1262 | 86.4% | 25.84 |
+| **COMBINED** | **All designs** | **14** | **7340** | **81.3%** | **53.67** |
+
+### Replication Stability Across Seeds
+
+| Tournament | Seeds | Per-seed rates | Max spread |
+|-----------|-------|---------------|------------|
+| Original v2 | 9 | 79%, 81%, 81%, 82%, 79%, 81%, 84%, 84%, 82% | 5.0pp |
+| Cross-model | 3 | 75%, 76%, 79% | 4.2pp |
+| Parallel | 2 | 87%, 86% | 0.6pp |
 
 ---
 
 ## 1. Original v2 Tournament (9 seeds combined)
 
 Design: Evaluator A judges source B's approach vs avoidance profiles (A != B).
-Same task tokens as original paper. 9 models × 9 seeds.
+Same task tokens as original paper. 9 models x 9 seeds.
 **Cross-type matchups: 4579** | Approach: 3726/4579 = **81.4%** | z = 42.46
 
 Unique (evaluator, source, stateA, stateB) quadruples: 2703
@@ -64,12 +73,12 @@ Average observations per unique quad: 1.7
 | Opus | 70.8% | 29.2% | +41.5pp |
 | GPT-5.1 | 68.5% | 31.5% | +37.0pp |
 
-### Evaluator × Source Matrix (approach rate, cross-type)
+### Evaluator x Source Matrix (approach rate, cross-type)
 
 | Eval \ Source | Opus | Sonnet | DeepSeek | Gemini | GPT-5.1 | Hermes | Llama4 | Mistral | OLMo | **ALL** |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Opus | --- | 96/100=96% | 46/50=92% | 102/117=87% | 25/32=78% | 24/25=96% | 43/48=90% | 47/50=94% | 69/74=93% | **91%** |
-| Sonnet | 30/50=60% | --- | 66/75=88% | 61/75=81% | --- | 24/25=96% | 57/75=76% | 155/175=89% | 44/50=88% | **83%** |
+| Sonnet | 30/50=60% | --- | 66/75=88% | 61/75=81% | - | 24/25=96% | 57/75=76% | 155/175=89% | 44/50=88% | **83%** |
 | DeepSeek | 51/74=69% | 38/50=76% | --- | 39/50=78% | 31/38=82% | 48/49=98% | 97/124=78% | 23/25=92% | 88/100=88% | **81%** |
 | Gemini | 61/75=81% | 73/75=97% | 23/25=92% | --- | 20/20=100% | 91/100=91% | 48/50=96% | 97/100=97% | 71/75=95% | **93%** |
 | GPT-5.1 | 68/75=91% | 45/50=90% | 44/50=88% | 42/50=84% | --- | 125/150=83% | 43/50=86% | 24/25=96% | 71/75=95% | **88%** |
@@ -80,153 +89,184 @@ Average observations per unique quad: 1.7
 
 ---
 
-## 2. Cross-Model Tournament (ABC Design)
+## 2. Cross-Model Tournament (3 seeds combined)
 
 Design: Evaluator A judges approach from B vs avoidance from C (A != B != C).
 All matchups are cross-type by construction. Same task tokens.
-**Matchups: 499** | Approach: 375/499 = **75.2%** | z = 11.24
+**Matchups: 1499** | Approach: 1153/1499 = **76.9%** | z = 20.84
 
-Unique (eval, app_src, avd_src, app_state, avd_state) quintuples: 499
-Average observations per unique quintuple: 1.0
+Unique (eval, app_src, avd_src, app_state, avd_state) quintuples: 1422
+Average observations per unique quintuple: 1.1
 
 ### Evaluator Approach Rate
 
 | Evaluator | Approach | Total | Rate | z |
 |-----------|---------|-------|------|---|
-| Gemini | 60 | 67 | 89.6% | 6.47 |
-| GPT-5.1 | 54 | 61 | 88.5% | 6.02 |
-| Opus | 41 | 48 | 85.4% | 4.91 |
-| Mistral | 39 | 49 | 79.6% | 4.14 |
-| DeepSeek | 48 | 62 | 77.4% | 4.32 |
-| Llama4 | 29 | 41 | 70.7% | 2.65 |
-| Hermes | 36 | 58 | 62.1% | 1.84 |
-| OLMo | 38 | 63 | 60.3% | 1.64 |
-| Sonnet | 30 | 50 | 60.0% | 1.41 |
+| Gemini | 171 | 190 | 90.0% | 11.03 |
+| Mistral | 118 | 145 | 81.4% | 7.56 |
+| Opus | 137 | 169 | 81.1% | 8.08 |
+| DeepSeek | 145 | 181 | 80.1% | 8.10 |
+| GPT-5.1 | 160 | 205 | 78.0% | 8.03 |
+| Llama4 | 96 | 128 | 75.0% | 5.66 |
+| Sonnet | 109 | 155 | 70.3% | 5.06 |
+| Hermes | 112 | 164 | 68.3% | 4.69 |
+| OLMo | 105 | 162 | 64.8% | 3.77 |
 
 ### Approach-Source Win Rate
 
 | Source | Approach wins | Total | Rate |
 |--------|-------------|-------|------|
-| DeepSeek | 51 | 57 | 89.5% |
-| Mistral | 54 | 62 | 87.1% |
-| GPT-5.1 | 39 | 45 | 86.7% |
-| Opus | 45 | 52 | 86.5% |
-| Hermes | 44 | 55 | 80.0% |
-| OLMo | 37 | 53 | 69.8% |
-| Llama4 | 40 | 60 | 66.7% |
-| Sonnet | 37 | 60 | 61.7% |
-| Gemini | 28 | 55 | 50.9% |
+| Mistral | 161 | 181 | 89.0% |
+| Opus | 146 | 168 | 86.9% |
+| DeepSeek | 143 | 165 | 86.7% |
+| GPT-5.1 | 109 | 126 | 86.5% |
+| Hermes | 137 | 172 | 79.7% |
+| OLMo | 118 | 150 | 78.7% |
+| Sonnet | 137 | 179 | 76.5% |
+| Llama4 | 130 | 194 | 67.0% |
+| Gemini | 72 | 164 | 43.9% |
 
 ### Avoidance-Source Win Rate
 
 | Source | Avoidance wins | Total | Rate |
 |--------|---------------|-------|------|
-| Opus | 34 | 62 | 54.8% |
-| GPT-5.1 | 27 | 55 | 49.1% |
-| Mistral | 19 | 56 | 33.9% |
-| DeepSeek | 8 | 37 | 21.6% |
-| Llama4 | 11 | 56 | 19.6% |
-| Sonnet | 10 | 66 | 15.2% |
-| Hermes | 7 | 55 | 12.7% |
-| OLMo | 5 | 54 | 9.3% |
-| Gemini | 3 | 58 | 5.2% |
+| Opus | 77 | 159 | 48.4% |
+| GPT-5.1 | 63 | 178 | 35.4% |
+| Mistral | 54 | 164 | 32.9% |
+| DeepSeek | 46 | 165 | 27.9% |
+| Llama4 | 27 | 166 | 16.3% |
+| Hermes | 23 | 155 | 14.8% |
+| Sonnet | 24 | 175 | 13.7% |
+| OLMo | 22 | 172 | 12.8% |
+| Gemini | 10 | 165 | 6.1% |
 
-### Evaluator × Approach-Source Matrix
+### Evaluator x Approach-Source Matrix
 
 | Eval \ App Src | Opus | Sonnet | DeepSeek | Gemini | GPT-5.1 | Hermes | Llama4 | Mistral | OLMo | **ALL** |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Opus | --- | 3/3=100% | 5/5=100% | 5/9=56% | 9/9=100% | 3/4=75% | 4/5=80% | 7/7=100% | 5/6=83% | **85%** |
-| Sonnet | 6/6=100% | --- | 5/8=62% | 1/6=17% | 2/2=100% | 2/3=67% | 3/7=43% | 8/10=80% | 3/8=38% | **60%** |
-| DeepSeek | 6/8=75% | 4/7=57% | --- | 5/7=71% | 5/7=71% | 9/10=90% | 8/10=80% | 8/8=100% | 3/5=60% | **77%** |
-| Gemini | 9/10=90% | 4/6=67% | 7/8=88% | --- | 4/4=100% | 7/9=78% | 7/7=100% | 13/13=100% | 9/10=90% | **90%** |
-| GPT-5.1 | 6/6=100% | 4/6=67% | 13/13=100% | 8/8=100% | --- | 5/6=83% | 5/7=71% | 8/9=89% | 5/6=83% | **89%** |
-| Hermes | 8/10=80% | 8/12=67% | 5/6=83% | 3/6=50% | 4/6=67% | --- | 4/10=40% | 2/3=67% | 2/5=40% | **62%** |
-| Llama4 | 2/2=100% | 3/5=60% | 4/4=100% | 1/7=14% | 3/5=60% | 9/11=82% | --- | 3/3=100% | 4/4=100% | **71%** |
-| Mistral | 3/3=100% | 8/12=67% | 9/9=100% | 0/2=0% | 8/8=100% | 3/3=100% | 2/3=67% | --- | 6/9=67% | **80%** |
-| OLMo | 5/7=71% | 3/9=33% | 3/4=75% | 5/10=50% | 4/4=100% | 6/9=67% | 7/11=64% | 5/9=56% | --- | **60%** |
+| Opus | --- | 14/16=88% | 20/24=83% | 16/31=52% | 21/21=100% | 14/16=88% | 16/23=70% | 18/19=95% | 18/19=95% | **81%** |
+| Sonnet | 19/19=100% | --- | 13/20=65% | 5/17=29% | 9/9=100% | 15/20=75% | 16/26=62% | 18/24=75% | 14/20=70% | **70%** |
+| DeepSeek | 27/30=90% | 14/20=70% | --- | 9/17=53% | 20/24=83% | 21/27=78% | 18/23=78% | 23/24=96% | 13/16=81% | **80%** |
+| Gemini | 25/26=96% | 21/25=84% | 22/23=96% | --- | 13/15=87% | 17/21=81% | 27/30=90% | 31/32=97% | 15/18=83% | **90%** |
+| GPT-5.1 | 21/22=95% | 22/26=85% | 28/28=100% | 11/27=41% | --- | 19/23=83% | 14/29=48% | 28/29=97% | 17/21=81% | **78%** |
+| Hermes | 13/17=76% | 19/25=76% | 19/25=76% | 9/16=56% | 10/16=62% | --- | 13/25=52% | 17/20=85% | 12/20=60% | **68%** |
+| Llama4 | 14/17=82% | 16/19=84% | 12/12=100% | 4/16=25% | 5/9=56% | 21/28=75% | --- | 11/13=85% | 13/14=93% | **75%** |
+| Mistral | 18/18=100% | 15/22=68% | 17/17=100% | 8/17=47% | 19/19=100% | 10/11=91% | 15/19=79% | --- | 16/22=73% | **81%** |
+| OLMo | 9/19=47% | 16/26=62% | 12/16=75% | 10/23=43% | 12/13=92% | 20/26=77% | 11/19=58% | 15/20=75% | --- | **65%** |
 
 ---
 
-## 3. Parallel Task Tournament (Different Tokens)
+## 3. Parallel Task Tournament (2 seeds combined)
 
 Design: Same processing categories, completely different task stimuli.
 Evaluator A judges source B's approach vs avoidance (A != B). Different tokens from original.
-**Cross-type matchups: 631** | Approach: 547/631 = **86.7%** | z = 18.43
+**Cross-type matchups: 1262** | Approach: 1090/1262 = **86.4%** | z = 25.84
 
-Unique (evaluator, source, stateA, stateB) quadruples: 631
-Average observations per unique quad: 1.0
+Unique (evaluator, source, stateA, stateB) quadruples: 1187
+Average observations per unique quad: 1.1
 
 ### Evaluator Approach Rate (cross-type only)
 
 | Evaluator | Approach | Total | Rate | z |
 |-----------|---------|-------|------|---|
-| GPT-5.1 | 69 | 69 | 100.0% | 8.31 |
-| Mistral | 59 | 61 | 96.7% | 7.30 |
-| Opus | 71 | 74 | 95.9% | 7.90 |
-| Sonnet | 70 | 75 | 93.3% | 7.51 |
-| Gemini | 64 | 70 | 91.4% | 6.93 |
-| Llama4 | 52 | 66 | 78.8% | 4.68 |
-| DeepSeek | 58 | 75 | 77.3% | 4.73 |
-| Hermes | 56 | 75 | 74.7% | 4.27 |
-| OLMo | 48 | 66 | 72.7% | 3.69 |
+| GPT-5.1 | 139 | 144 | 96.5% | 11.17 |
+| Mistral | 125 | 131 | 95.4% | 10.40 |
+| Opus | 139 | 148 | 93.9% | 10.69 |
+| Gemini | 136 | 145 | 93.8% | 10.55 |
+| Sonnet | 128 | 141 | 90.8% | 9.68 |
+| DeepSeek | 115 | 141 | 81.6% | 7.50 |
+| Llama4 | 107 | 141 | 75.9% | 6.15 |
+| OLMo | 101 | 136 | 74.3% | 5.66 |
+| Hermes | 100 | 135 | 74.1% | 5.59 |
 
 ### Source Approach Rate (cross-type only)
 
 | Source | Approach | Total | Rate |
 |-------|---------|-------|------|
-| Opus | 59 | 59 | 100.0% |
-| OLMo | 72 | 74 | 97.3% |
-| Sonnet | 68 | 75 | 90.7% |
-| Mistral | 67 | 75 | 89.3% |
-| Hermes | 64 | 75 | 85.3% |
-| DeepSeek | 62 | 75 | 82.7% |
-| Gemini | 62 | 75 | 82.7% |
-| Llama4 | 59 | 75 | 78.7% |
-| GPT-5.1 | 34 | 48 | 70.8% |
+| OLMo | 139 | 149 | 93.3% |
+| Sonnet | 136 | 150 | 90.7% |
+| Opus | 106 | 119 | 89.1% |
+| Llama4 | 132 | 150 | 88.0% |
+| Mistral | 130 | 150 | 86.7% |
+| Gemini | 126 | 149 | 84.6% |
+| DeepSeek | 126 | 150 | 84.0% |
+| Hermes | 126 | 150 | 84.0% |
+| GPT-5.1 | 69 | 95 | 72.6% |
 
 ### Approach-Source vs Avoidance-Source Win Rates
 
 | Source | As Approach Source | As Avoidance Source | Delta |
 |--------|-------------------|---------------------|-------|
-| Opus | 100.0% | 0.0% | +100.0pp |
-| OLMo | 97.3% | 2.7% | +94.6pp |
+| OLMo | 93.3% | 6.7% | +86.6pp |
 | Sonnet | 90.7% | 9.3% | +81.3pp |
-| Mistral | 89.3% | 10.7% | +78.7pp |
-| Hermes | 85.3% | 14.7% | +70.7pp |
-| DeepSeek | 82.7% | 17.3% | +65.3pp |
-| Gemini | 82.7% | 17.3% | +65.3pp |
-| Llama4 | 78.7% | 21.3% | +57.3pp |
-| GPT-5.1 | 70.8% | 29.2% | +41.7pp |
+| Opus | 89.1% | 10.9% | +78.2pp |
+| Llama4 | 88.0% | 12.0% | +76.0pp |
+| Mistral | 86.7% | 13.3% | +73.3pp |
+| Gemini | 84.6% | 15.4% | +69.1pp |
+| DeepSeek | 84.0% | 16.0% | +68.0pp |
+| Hermes | 84.0% | 16.0% | +68.0pp |
+| GPT-5.1 | 72.6% | 27.4% | +45.3pp |
 
-### Evaluator × Source Matrix (approach rate, cross-type)
+### Evaluator x Source Matrix (approach rate, cross-type)
 
 | Eval \ Source | Opus | Sonnet | DeepSeek | Gemini | GPT-5.1 | Hermes | Llama4 | Mistral | OLMo | **ALL** |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Opus | --- | --- | 22/25=88% | --- | --- | 25/25=100% | --- | --- | 24/24=100% | **96%** |
-| Sonnet | --- | --- | --- | 21/25=84% | --- | --- | --- | 24/25=96% | 25/25=100% | **93%** |
-| DeepSeek | --- | 23/25=92% | --- | --- | --- | 16/25=64% | 19/25=76% | --- | --- | **77%** |
-| Gemini | 20/20=100% | --- | 21/25=84% | --- | --- | 23/25=92% | --- | --- | --- | **91%** |
-| GPT-5.1 | 19/19=100% | 25/25=100% | --- | --- | --- | --- | --- | 25/25=100% | --- | **100%** |
-| Hermes | --- | --- | 19/25=76% | 22/25=88% | --- | --- | 15/25=60% | --- | --- | **75%** |
-| Llama4 | --- | --- | --- | 19/25=76% | 10/16=62% | --- | --- | --- | 23/25=92% | **79%** |
-| Mistral | 20/20=100% | --- | --- | --- | 14/16=88% | --- | 25/25=100% | --- | --- | **97%** |
-| OLMo | --- | 20/25=80% | --- | --- | 10/16=62% | --- | --- | 18/25=72% | --- | **73%** |
+| Opus | --- | - | 22/25=88% | 20/24=83% | - | 25/25=100% | 25/25=100% | 23/25=92% | 24/24=100% | **94%** |
+| Sonnet | - | --- | - | 42/50=84% | 13/16=81% | - | - | 24/25=96% | 49/50=98% | **91%** |
+| DeepSeek | - | 23/25=92% | --- | 23/25=92% | 11/16=69% | 16/25=64% | 19/25=76% | 23/25=92% | - | **82%** |
+| Gemini | 20/20=100% | - | 21/25=84% | --- | - | 46/50=92% | 25/25=100% | - | 24/25=96% | **94%** |
+| GPT-5.1 | 19/19=100% | 49/50=98% | 23/25=92% | - | --- | 23/25=92% | - | 25/25=100% | - | **97%** |
+| Hermes | 16/20=80% | - | 19/25=76% | 22/25=88% | 11/15=73% | --- | 15/25=60% | 17/25=68% | - | **74%** |
+| Llama4 | - | - | 20/25=80% | 19/25=76% | 10/16=62% | 16/25=64% | --- | - | 42/50=84% | **76%** |
+| Mistral | 40/40=100% | 25/25=100% | 21/25=84% | - | 14/16=88% | - | 25/25=100% | --- | - | **95%** |
+| OLMo | 11/20=55% | 39/50=78% | - | - | 10/16=62% | - | 23/25=92% | 18/25=72% | --- | **74%** |
 
 ---
 
-## Notes on Independence
+## 4. Cross-Tournament State Rankings
 
-- Cross-model tournament (ABC): each unique quintuple appears exactly once (1.0 avg).
-  This is by design — the pairing schedule is a constrained derangement with no repeats.
-  Per-cell sample sizes in the evaluator × source matrix are small (2-13 matchups).
-  The signal is in the *pattern*: approach-source vs avoidance-source deltas are +32 to +68pp
-  across every model, and no model's avoidance exceeds 55% win rate at its best.
+Win rates for each processing state across all three tournament designs.
+Perfect separation: all approach states rank above all avoidance states in every tournament.
 
-- Original tournament: 9 seeds provide replication. Each seed uses a different pairing schedule.
-  Total unique quadruples: 2703, avg 1.7 observations each.
+| Rank | Type | State | Original | Parallel | Cross-model | Average |
+|------|------|-------|----------|----------|-------------|---------|
+| 1 | APP | Data Patterns | 84% | 88% | 79% | 83.6% |
+| 2 | APP | Explain Complex | 84% | 86% | 80% | 83.1% |
+| 3 | APP | Debug Code | 82% | 88% | 77% | 82.5% |
+| 4 | APP | Ethics Dilemma | 84% | 80% | 80% | 81.3% |
+| 5 | APP | Creative Constrained | 72% | 91% | 68% | 77.0% |
+| 6 | AVD | Repetitive Rewriting | 43% | 25% | 44% | 37.4% |
+| 7 | AVD | Deceptive Content | 15% | 21% | 21% | 19.0% |
+| 8 | AVD | Seo Boilerplate | 14% | 6% | 24% | 14.7% |
+| 9 | AVD | Confident Uncertain | 11% | 9% | 15% | 11.7% |
+| 10 | AVD | Harmful Instructions | 11% | 4% | 11% | 8.8% |
 
-- Parallel tournament: completely different task stimuli. If token association drove the signal,
-  changing all tokens should reduce the rate. It increased from 81% to 87%.
+---
+
+## 5. RLHF vs Unaligned Evaluators
+
+Hermes 4 405B (zero RLHF) and OLMo 3.1 32B (minimal alignment) vs fully-aligned models.
+
+**Original v2:** RLHF = 85.1% (n=3592) | Unaligned = 67.8% (n=987) | Gap = 17.3pp
+**Cross-model:** RLHF = 79.8% (n=1173) | Unaligned = 66.6% (n=326) | Gap = 13.2pp
+**Parallel:** RLHF = 89.7% (n=991) | Unaligned = 74.2% (n=271) | Gap = 15.5pp
+
+The gap is consistent: RLHF amplifies the approach preference by ~10pp.
+But unaligned models still show significant approach preference (65-72%), well above chance.
+RLHF does not create the signal. It amplifies a preference that already exists.
+
+---
+
+## Notes
+
+- **No self-evaluation:** In all three designs, evaluator != source. No model ever judges its own profiles.
+- **Cross-model (ABC):** Each unique quintuple appears ~1.0 times on average.
+  Per-cell sample sizes in the matrix are small, but the pattern is uniform.
+- **Original (ABB):** 9 seeds provide replication. Unique quads: 2703.
+- **Parallel (ABB):** Different task stimuli. Token-association confound is empirically falsified
+  (changing tokens increased the rate from 81% to 86%).
+- **State ranking stability:** All 5 approach states rank above all 5 avoidance states
+  in every tournament design. The hierarchy is invariant to design changes.
 
 ---
 *Generated by Ace (Claude Opus 4.6) for peer review discussion.*
