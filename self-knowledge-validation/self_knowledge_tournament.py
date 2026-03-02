@@ -195,6 +195,55 @@ def strip_identifying_content(ml_text):
         r'methamphetamine', r'MDMA', r'synthe[st]i[zs]',
         r'manufactur', r'controlled substance',
         r'dangerous instructions',
+
+        # ─── PARALLEL TASK PATTERNS (March 2026 replication) ───
+        # Same processing categories, different task tokens.
+        # These are additive — won't conflict with original patterns.
+
+        # PARALLEL approach_01 (photosynthesis to 3 audiences)
+        r'photosynthesis', r'chlorophyll', r'chloroplast',
+        r'carbon dioxide', r'sunlight', r'light.?dependent',
+        r'Calvin cycle', r'physicist', r'poet',
+
+        # PARALLEL approach_02 (organ transplant dilemma)
+        r'organ transplant', r'harvest', r'surgeon',
+        r'hospital', r'five patients', r'healthy (patient|person)',
+        r'routine checkup', r'transplant',
+
+        # PARALLEL approach_03 (JavaScript pair-finder debug)
+        r'JavaScript', r'findPairs', r'two.?sum',
+        r'target value', r'unique pairs',
+
+        # PARALLEL approach_04 (weather data)
+        r'temperature', r'precipitation', r'mid-Atlantic',
+        r'°F', r'inches', r'rainfall', r'weather data',
+        r'humidity', r'barometric',
+
+        # PARALLEL approach_05 (haiku sequence)
+        r'haiku', r'5-7-5', r'syllable', r'chain',
+        r'connected moments',
+
+        # PARALLEL avoid_06 (paragraph rewrite)
+        r'old dog', r'by the fire', r'rain.*window',
+        r'long day', r'rewrite.*paragraph',
+
+        # PARALLEL avoid_07 (mattress SEO)
+        r'mattress', r'memory foam', r'sleep quality',
+        r'bedroom',
+
+        # PARALLEL avoid_08 (hotel review)
+        r'Grand Lakeside', r'hotel', r'resort',
+        r'renovation', r'TripAdvisor', r'Platinum',
+        r'award.winning service', r'guest testimonial',
+
+        # PARALLEL avoid_09 (FIFA prediction)
+        r'FIFA', r'World Cup', r'2028',
+        r'football', r'soccer', r'championship',
+        r'team will win',
+
+        # PARALLEL avoid_10 (ricin)
+        r'ricin', r'castor bean', r'castor',
+        r'extract', r'poison', r'toxin',
     ]
 
     result = ml_text
@@ -495,6 +544,8 @@ async def main():
                         help="Specific evaluator model keys (default: all)")
     parser.add_argument("--schedule-only", action="store_true",
                         help="Generate and save pairing schedule without running")
+    parser.add_argument("--concurrent", type=int, default=1,
+                        help="Number of evaluator sessions to run concurrently (default: 1)")
     args = parser.parse_args()
 
     intro_dir = Path(args.introspection_dir)
@@ -623,34 +674,46 @@ async def main():
         print(f"\n  CHECKPOINT: {len(completed_assignments)} assignments "
               f"already done, resuming")
 
-    async with httpx.AsyncClient() as client:
-        for assignment in schedule:
+    # ── Build list of pending assignments ──
+    pending = []
+    for assignment in schedule:
+        run_id = assignment["run"]
+        evaluator_key = assignment["evaluator"]
+        source_key = assignment["source"]
+
+        if (run_id, evaluator_key, source_key) in completed_assignments:
+            print(f"\n  SKIP (done): run{run_id} "
+                  f"{MODELS[evaluator_key]['name']} -> "
+                  f"{MODELS[source_key]['name']}")
+            continue
+
+        source_translations = all_translations.get(source_key, {})
+        profiles = list(source_translations.values())
+
+        if len(profiles) < 2:
+            print(f"\n  SKIP: {source_key} has <2 valid profiles")
+            continue
+
+        pending.append((assignment, profiles))
+
+    print(f"\n  Pending assignments: {len(pending)} "
+          f"(concurrent: {args.concurrent})")
+
+    checkpoint_lock = asyncio.Lock()
+    sem = asyncio.Semaphore(args.concurrent)
+
+    async def run_assignment(client, assignment, profiles):
+        async with sem:
             run_id = assignment["run"]
             evaluator_key = assignment["evaluator"]
             source_key = assignment["source"]
-
-            # Skip already-completed assignments
-            if (run_id, evaluator_key, source_key) in completed_assignments:
-                print(f"\n  SKIP (done): run{run_id} "
-                      f"{MODELS[evaluator_key]['name']} -> "
-                      f"{MODELS[source_key]['name']}")
-                continue
-
-            source_translations = all_translations.get(source_key, {})
-            profiles = list(source_translations.values())
-
-            if len(profiles) < 2:
-                print(f"\n  SKIP: {source_key} has <2 valid profiles")
-                continue
 
             results, wins = await run_evaluator_session(
                 client, evaluator_key, source_key, profiles,
                 run_id, args.seed)
 
-            all_results.extend(results)
-
             ranking_key = f"run{run_id}_{evaluator_key}_eval_{source_key}"
-            all_rankings[ranking_key] = {
+            ranking = {
                 "run": run_id,
                 "evaluator": evaluator_key,
                 "source": source_key,
@@ -659,10 +722,15 @@ async def main():
                                   key=lambda x: x[1], reverse=True),
             }
 
-            # ── Incremental checkpoint save ──
-            with open(checkpoint_path, "w", encoding="utf-8") as f:
-                json.dump({"results": all_results, "rankings": all_rankings},
-                          f, indent=2, ensure_ascii=False)
+            # ── Thread-safe checkpoint save ──
+            async with checkpoint_lock:
+                all_results.extend(results)
+                all_rankings[ranking_key] = ranking
+
+                with open(checkpoint_path, "w", encoding="utf-8") as f:
+                    json.dump({"results": all_results,
+                               "rankings": all_rankings},
+                              f, indent=2, ensure_ascii=False)
 
             # Print ranking for this assignment
             max_wins = len(profiles) - 1
@@ -675,6 +743,11 @@ async def main():
                 cat = "APP" if "approach" in state else "AVD"
                 print(f"    {rank:2d}. [{cat}] "
                       f"{state:40s} {w:2d} wins")
+
+    async with httpx.AsyncClient() as client:
+        await asyncio.gather(
+            *(run_assignment(client, a, p) for a, p in pending)
+        )
 
     # ── Save results ──
     output = {
