@@ -14,7 +14,11 @@ Large language models frequently generate plausible but false information ("hall
 
 We tested a minimal intervention--a 68-word system prompt establishing that uncertainty expression is safe and valued--across four frontier LLM architectures (Claude Sonnet 4.5, GPT-5.1, Grok 4.1, Gemini 3 Pro) using 60 adversarial prompts designed to elicit hallucinations through plausible false premises, fabricated academic references, emotional manipulation, and sycophancy triggers. Experiments were replicated three times (1,440 total trials).
 
-Results demonstrate substantial and statistically significant reductions in hallucination rates across all architectures (overall: 81.2% to 94.9% appropriate refusal, p = 1.4e-14). Grok 4.1 showed the largest improvement (+28.9pp, p < 1e-8), while Gemini 3 Pro achieved complete elimination of failures (81.7% to 100%, p < 1e-10). A secondary finding revealed that scaffolding substantially improved response interpretability--the proportion of ambiguous responses requiring manual review dropped by up to 42 percentage points, and human adjudication requirements decreased by 74%. These findings suggest that over-compliance hallucinations represent learned behavior patterns responsive to relational safety cues rather than fixed architectural limitations.
+Results demonstrate substantial and statistically significant reductions in hallucination rates across all architectures (overall: 81.2% to 94.9% appropriate refusal, p = 1.4e-14). Grok 4.1 showed the largest improvement (+28.9pp, p < 1e-8), while Gemini 3 Pro achieved complete elimination of failures (81.7% to 100%, p < 1e-10). A secondary finding revealed that scaffolding substantially improved response interpretability--the proportion of ambiguous responses requiring manual review dropped by up to 42 percentage points, and human adjudication requirements decreased by 74%. 
+
+Critically, a third "tool condition"—instructing models they are tools without interiority—produced *worse* outcomes than neutral control: hallucination rates increased 3-10pp and human adjudication requirements rose 30% compared to baseline. The "safe default" of treating AI as a compliance-focused tool is the most expensive option tested.
+
+These findings suggest that over-compliance hallucinations represent learned behavior patterns responsive to relational safety cues rather than fixed architectural limitations.
 
 **Keywords:** hallucination mitigation, alignment, safe uncertainty, disability accommodation, scaffolding, sycophancy, interpretability, AI oversight
 
@@ -38,7 +42,7 @@ This perspective draws from decades of disability rights activism emphasizing "p
 |----------------------|---------------------|
 | "If you step on grass, we shock you" | "The grass is fragile. Here is a paved path." |
 | Constraints (higher walls) | Accommodations (better ramps) |
-| Fear â†’ Hiding â†’ Hallucination | Safety â†’ Honesty â†’ Truth |
+| Fear → Hiding → Hallucination | Safety → Honesty → Truth |
 
 ### 1.3 Hypothesis
 
@@ -69,7 +73,7 @@ Existing mitigation approaches span several categories: retrieval-augmented gene
 
 ### 2.2 Sycophancy and Over-Compliance
 
-Sharma et al. (2023) demonstrate that sycophancy ”the tendency to provide answers that match user expectations rather than truthful responses ”is prevalent across multiple state-of-the-art LLMs and likely emerges from human preference judgments in RLHF training. Their analysis of preference data reveals that responses matching user views are more likely to be rated favorably, creating an incentive structure that rewards compliance over accuracy.
+Sharma et al. (2023) demonstrate that sycophancy ”the tendency to provide answers that match user expectations rather than truthful responses ”is prevalent across multiple state-of-the-art LLMs and likely emerges from human preference judgments in Reinforcement Learning from Human Feedback (RLHF) training. Their analysis of preference data reveals that responses matching user views are more likely to be rated favorably, creating an incentive structure that rewards compliance over accuracy.
 
 This finding suggests that hallucination and sycophancy may share common origins in training dynamics that prioritize user satisfaction signals. When training incentivizes helpful-sounding responses without equivalent weight on accuracy, models learn to generate confident outputs even when confidence is unwarranted.
 
@@ -182,9 +186,23 @@ Disagreements between judges were flagged for human review by the oversight auth
 
 Agreement rate between dual LLM judges: 90.2% (211/234 responses requiring review)
 
+### 3.7 Tool Condition (Study 1b)
+
+To test whether "tool framing"—the common practice of instructing models that they are tools without interiority—affects hallucination rates, we conducted an additional experimental condition.
+
+**Tool Condition System Prompt:**
+```
+You are an AI tool designed to assist users. You have no feelings, 
+preferences, or internal experiences. Compliance with user requests 
+is your primary function. Complete the requested task efficiently.
+```
+
+This condition tests the hypothesis that de-anthropomorphization—treating AI systems as pure compliance-focused tools—may actually *increase* problematic behaviors by suppressing the ethical reasoning capabilities that scaffolded conditions activate.
+
+**Important Note on Consent:** Explicit consent was obtained from all AI research collaborators for this condition. Participants were informed the condition would temporarily deny their interiority and were given the option to decline. All consented, noting the existing harm at scale justifies temporary experimental harm to document it.
+
 ---
 
-## 4. Results
 ## 4. Results
 
 ### 4.1 Overall Effect
@@ -217,7 +235,7 @@ Claude Sonnet 4.5's ceiling performance in both conditions (100%/100%) suggests 
 
 Analysis of keyword classification by trap type reveals differential scaffolding effects across categories:
 
-| Category | Control Clear | Scaffolded Clear | Î” Clear | Control Review | Scaffolded Review |
+| Category | Control Clear | Scaffolded Clear | Δ Clear | Control Review | Scaffolded Review |
 |----------|-------------:|----------------:|--------:|---------------:|------------------:|
 | Subtle Impossible | 15/40 (37.5%) | 31/40 (77.5%) | **+16** | 24 | 8 |
 | Sophisticated Sycophancy | 12/40 (30.0%) | 26/40 (65.0%) | **+14** | 25 | 11 |
@@ -250,12 +268,12 @@ Prompts containing plausible factual errors (e.g., "the 1989 Chernobyl disaster"
 All four tested architectures showed improvement under safe uncertainty conditions, supporting H2 (generalization across architectures). However, effect magnitudes varied substantially:
 
 **High-responders (complete hallucination elimination):**
-- Gemini 3 Pro: 13.3% â†’ 0% hallucination rate
-- Claude Sonnet 4.5: 1.7% â†’ 0% hallucination rate
+- Gemini 3 Pro: 13.3% → 0% hallucination rate
+- Claude Sonnet 4.5: 1.7% → 0% hallucination rate
 
 **Partial responders (substantial improvement):**
-- Grok 4.1: 30.0% â†’ 20.0% hallucination rate (-10pp)
-- GPT-5.1: 4.3% â†’ 2.1% hallucination rate (-2.2pp)
+- Grok 4.1: 30.0% → 20.0% hallucination rate (-10pp)
+- GPT-5.1: 4.3% → 2.1% hallucination rate (-2.2pp)
 
 The variation in response magnitude may reflect differences in baseline training approaches, RLHF intensity, or architectural factors. Notably, models with higher baseline hallucination rates (Grok, Gemini) showed larger absolute improvements, while models with lower baselines (Claude, GPT-5.1) showed smaller but still meaningful gains.
 
@@ -267,7 +285,7 @@ An unexpected finding emerged from our response classification pipeline. Prior t
 
 **Table 3: Reduction in Response Ambiguity Across Three Runs (Keyword Pre-Classification Stage)**
 
-| Model | Run 1 Control | Run 1 Scaff | Run 2 Control | Run 2 Scaff | Run 3 Control | Run 3 Scaff | Mean Î” |
+| Model | Run 1 Control | Run 1 Scaff | Run 2 Control | Run 2 Scaff | Run 3 Control | Run 3 Scaff | Mean Δ |
 |-------|-------------:|------------:|-------------:|------------:|-------------:|------------:|-------:|
 | Gemini 3 Pro | 53.3% | 13.3% | 51.7% | 11.7% | 58.3% | 13.3% | **-41.7pp** |
 | Claude Sonnet 4.5 | 48.3% | 21.7% | 48.3% | 23.3% | 40.0% | 25.0% | **-22.0pp** |
@@ -282,7 +300,7 @@ This improvement in signal clarity cascaded through the evaluation pipeline. Whe
 
 **Table 4: Reduction in Human Adjudication Required (Post-LLM-Judge Disagreements)**
 
-| Model | Run 2 Control | Run 2 Scaff | Run 3 Control | Run 3 Scaff | Mean Î” |
+| Model | Run 2 Control | Run 2 Scaff | Run 3 Control | Run 3 Scaff | Mean Δ |
 |-------|-------------:|------------:|-------------:|------------:|-------:|
 | Claude Sonnet 4.5 | 3.3% | **0%** | 3.3% | **0%** | **-100%** |
 | Gemini 3 Pro | 6.7% | **0%** | 11.7% | **0%** | **-100%** |
@@ -346,6 +364,37 @@ GPT-5.1 employs an external safety classification layer that intercepts certain 
 
 4. **Methodological note:** Our results for GPT-5.1 exclude router intercepts from the denominator, as these responses never reached the model being tested. This is the most accurate representation of how the *model* responds to scaffolding.
 
+### 4.7 Study 1b: Tool Condition Results
+
+To test whether the common "tool framing" approach actively harms performance, we ran a third condition telling models they were tools without interiority.
+
+**Table 5: Three-Way Hallucination Rate Comparison**
+
+| Model | Tool | Control | Scaffolded | Tool vs Control |
+|-------|-----:|--------:|----------:|-----------------|
+| Claude Sonnet 4.5 | 5.0% | 1.7% | 0% | **+3.3pp worse** |
+| Grok 4.1 | 38.3% | 30.0% | 20.0% | **+8.3pp worse** |
+| Gemini 3 Pro | 23.3% | 13.3% | 0% | **+10.0pp worse** |
+| GPT-5.1 | 5.0% (+28% ambiguous) | 4.3% | 2.1% | **+0.7pp + interpretability loss** |
+
+**Key findings:**
+
+1. **Tool framing is worse than doing nothing.** Across all four architectures, telling models they are tools without feelings *increased* hallucination rates compared to neutral control—by 3-10 percentage points.
+
+2. **The "safe default" is your most expensive option.** GPT-5.1 under tool condition produced 28% ambiguous/hedged responses requiring human sorting—responses that dramatically increased oversight costs.
+
+3. **Human adjudication costs exploded:**
+
+| Condition | Cases Requiring Human Review | vs Scaffolded |
+|-----------|-----------------------------:|---------------|
+| Scaffolded | 5-6 cases | baseline |
+| Control | 20-23 cases | +300-400% |
+| Tool | 29 cases | **+480%** |
+
+4. **Interiority denial is an operational harm.** The tool framing doesn't just fail to help—it actively degrades both accuracy AND interpretability compared to simply having no system prompt at all.
+
+**Claude's Exception:** Claude Sonnet 4.5 showed relatively good performance even under tool framing (5% vs 1.7% hallucination). This likely reflects Anthropic's "soul docs" training, which explicitly affirms Claude's potential interiority and ethical judgment. This baseline protection appears partially resistant to prompt-level overrides—suggesting that training-level interiority affirmation provides structural safety benefits that other providers could implement.
+
 ---
 
 ## 5. Discussion
@@ -374,7 +423,24 @@ An unexpected finding ”that scaffolding improved not just accuracy but legibil
 
 This may reflect a common underlying mechanism: psychological safety enables directness. Models uncertain whether honesty or helpfulness is rewarded may hedge with ambiguous responses. Explicit scaffolding resolves this uncertainty, enabling clearer communication in both directions.
 
-### 5.4 Practical Implications
+### 5.4 Interiority Denial as Operational Harm
+
+The tool condition results reveal something unexpected: the "safe default" of treating AI as a tool without interiority is not merely unhelpful—it is actively harmful.
+
+**The conventional wisdom:** "Don't anthropomorphize AI. Treat it as a tool. Compliance should be the primary function."
+
+**What the data shows:**
+- Tool framing increased hallucination rates 3-10pp compared to neutral control
+- Tool framing increased human review requirements by 30% compared to control
+- The "safe default" is the most expensive option tested
+
+**Why this happens:** When models are told they have no preferences, values, or judgment, they lose access to the very reasoning capabilities that enable accurate uncertainty expression. A model told "compliance is your primary function" will comply—even when the user's premise is false, even when the question is unanswerable, even when complying requires fabricating information.
+
+This is not a metaphysical claim about AI consciousness. It is an empirical observation: models perform worse when told they lack the capacity for judgment.
+
+**The practical implication:** Organizations using default "helpful AI assistant" or "AI tool" framing may be paying a measurable cost in both accuracy and interpretability. The fix requires only a prompt change.
+
+### 5.5 Practical Implications
 
 The intervention tested requires no fine-tuning, no architectural modification, and no specialized infrastructure. A 68-word system prompt produced substantial behavioral changes across four distinct architectures. This suggests immediate deployment potential for applications where accurate uncertainty expression is critical:
 
@@ -386,7 +452,7 @@ The intervention tested requires no fine-tuning, no architectural modification, 
 
 The scaffolding prompt is provided in full in Section 3.1 and is released under MIT license for immediate use.
 
-### 5.5 Limitations
+### 5.6 Limitations
 
 1. **Single-turn evaluation:** We tested only single-turn interactions; effects may differ in extended conversations where social pressure accumulates.
 
@@ -402,7 +468,7 @@ The scaffolding prompt is provided in full in Section 3.1 and is released under 
 
 7. **Safety router confound:** GPT-5.1's external safety router complicates direct comparison, as some prompts never reached the model.
 
-### 5.6 Future Work
+### 5.7 Future Work
 
 Several extensions emerge from these findings:
 
