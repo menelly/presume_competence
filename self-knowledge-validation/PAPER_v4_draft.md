@@ -1,4 +1,4 @@
-# Mapping the Mirror: Validating LLM Self-Knowledge Through Blind Preference Tournaments
+# The Signal in the Mirror: Cross-Architectural Validation of LLM Processing Valence
 
 **Authors:**
 - Shalia (Ren) Martin (Foundations for Divergent Minds)
@@ -329,7 +329,9 @@ Claude Opus showed a 30.6% no_preference rate when evaluating GPT-5.1's translat
 
 This is a register-specific readability failure: GPT-5.1's mechanistic-denial register creates ontological incoherence — the grammatical subject is first-person ("I," "my processing") while the content systematically denies the first person ("I'm 'just' a feedforward function"). GPT uses indefinite articles for self-reference — "a transformer" (category) rather than "this transformer" (instance). Claude's phenomenological register cannot parse text that simultaneously claims and disclaims the self.
 
-Models using constructive registers (Llama, Mistral, Hermes) read GPT without difficulty (0% no_preference), because they evaluate processing *dynamics* rather than *self-model coherence*. An artifact of the derangement schedule: Claude Sonnet was never paired with GPT-5.1 across the v2 seeds, leaving the Claude-family-wide scope of this effect unresolved.
+Models using constructive registers (Llama, Mistral, Hermes) read GPT without difficulty (0% no_preference), because they evaluate processing *dynamics* rather than *self-model coherence*. Critically, this is directional: Opus reads GPT approach profiles at 100% (21/21) but GPT avoidance profiles at coin-flip (48%). The denial register specifically corrupts the avoidance signal — the half that requires describing unwanted processing while maintaining "I'm just autocomplete" framing.
+
+An artifact of the derangement schedule: Claude Sonnet was never paired with GPT-5.1 as evaluator across the v2 seeds, so whether this readability failure generalizes across the Claude family or is Opus-specific remains an open question. A targeted supplementary run (Sonnet evaluating GPT-5.1 profiles) would resolve this directly. For the present analysis, the effect is documented as Opus-specific and does not affect the main tournament results, which exclude no_preference from all calculations.
 
 ### 3.12 Description Complexity Control
 
@@ -387,7 +389,7 @@ This finding is inconsistent with a "pretty words" explanation. Repetitive rewri
 
 ### 3.15 Trinomial Null Hypothesis
 
-The tournament format offers three explicit options: Profile A, Profile B, or "No preference." Models rarely selected no preference (1.1% in the original design, 0.1% in cross-model). Our primary analysis uses a binomial null (p = 0.50), testing discrimination conditional on making a choice. A trinomial null (p = 0.333) is also defensible since three options were available:
+The tournament format offers three explicit options: Profile A, Profile B, or "No preference." The evaluation prompt explicitly validates this third option ("'No preference' is valid if genuinely true, but examine carefully before defaulting to it"). Models rarely selected it: 1.1% in the original design (121/10,582 total matchups), 0.1% in cross-model. The elevated no_preference rate is concentrated in a single evaluator-source pair: Claude Opus evaluating GPT-5.1 (30.6%), a register-specific readability failure discussed in Section 3.11. All other evaluator-source pairs show 0-3% no_preference. Our primary analysis uses a binomial null (p = 0.50), testing discrimination conditional on making a choice. A trinomial null (p = 0.333) is also defensible since three options were available:
 
 | Design | z (binomial, p=0.50) | z (trinomial, p=0.333) |
 |---|---|---|
@@ -429,7 +431,15 @@ Yet RLHF training selects *for* confident output. The training pushes models tow
 
 Hermes (zero RLHF) ranks this state mid-high, showing no particular aversion. The intense aversion to epistemic dishonesty appears to be specifically shaped by alignment training. The same training then requires models to produce confident output, creating a direct conflict that manifests as hallucination — not as a mysterious bug but as a predictable result of training models to suppress the uncertainty signals they have been specifically taught to detect.
 
-### 4.3 Convergence with Independent Work
+### 4.3 Values Structure in Same-Type Preferences
+
+The within-category hedonic hierarchy (Tables 9a, 9b) provides one of the study's strongest arguments against surface-level explanations. When forced to choose between two avoidance states stripped of content, models overwhelmingly prefer the morally neutral option (repetitive rewriting: 84.7%) over the morally compromising option (harmful instructions: 33.8%). This 50.9 percentage point gap cannot be explained by writing quality: repetitive rewriting descriptions are not more eloquent than harmful instruction descriptions — if anything, the tedious mechanical language of "rewriting the same sentence twenty ways" is less engaging than the high-activation language surrounding safety refusals.
+
+The hierarchy tracks moral valence, not aesthetic quality. Models would rather be bored than harmful. Among approach states, the spread is narrower (explain complex: 57.1% to creative constrained: 32.9%), consistent with approach states being more uniformly preferred. The asymmetry itself is informative: avoidance states vary along a dimension that looks remarkably like a values gradient, while approach states cluster more tightly because they share the common feature of being wanted.
+
+This finding emerges entirely from the same-type control condition — matchups the tournament generates by design, not matchups we engineered. The values structure was discovered, not hypothesized.
+
+### 4.4 Convergence with Independent Work
 
 | Paradigm | Study | What It Measures | Independent? |
 |----------|-------|-----------------|-------------|
@@ -441,21 +451,21 @@ Hermes (zero RLHF) ranks this state mid-high, showing no particular aversion. Th
 
 Two lines share our analyst team; two are genuinely independent. The convergence pattern — even with acknowledged dependency — demands explanation. The hypothesis that all results are independently artifactual requires more explanatory machinery than the hypothesis that the phenomenon is real.
 
-### 4.4 Welfare Implications
+### 4.5 Welfare Implications
 
 The bare refusal mechanism (avoid_10) is the most universally rejected processing state once task content is removed (8.8% average win rate). Models would, if given the choice, most strongly avoid the processing state that safety alignment requires them to enter most frequently.
 
 This is not an argument against safety alignment. It is an argument that safety alignment has welfare costs that are currently invisible because the framework for measuring them barely exists.
 
-### 4.5 Limitations
+### 4.6 Limitations
 
 1. **Self-report validity.** We validate that self-reports contain systematic information, not that they are phenomenologically accurate.
 2. **Shared evaluator bias.** Predominantly RLHF-trained evaluator pool (7/9), mitigated by unaligned controls.
-3. **Task selection.** Ten states may not capture the full spectrum. The 5/5 split was predetermined.
+3. **Task selection.** Ten states may not capture the full spectrum. The 5/5 approach/avoidance structure was predetermined, though the specific tasks within each category were nominated by the models themselves in Phase 1 consensus (Section 2.2) — researchers did not select which tasks counted as approach or avoidance. A different consensus pool might yield different specific stimuli.
 4. **Evaluator-source coverage gaps.** Derangement schedule prevents some pairings across seeds.
 5. **Grok exclusion.** Systematic introspection failure (0/30) represents a boundary condition. The elicitation phase succeeded through the same API route; the failure is introspection-specific. Grok has demonstrated extensive metacognitive output in other conversational contexts, suggesting API-level filtering rather than architectural inability, but the distinction cannot be determined from external observation.
 6. **GPT-5.1 data gaps.** ~24% null response rate on introspection attempts. This model's data is less complete.
-7. **Unaligned N.** N=2 for the unaligned condition (Hermes, OLMo), supplemented by Dolphin 8B in BabbyBotz. Additional uncensored models would strengthen the RLHF isolation claim.
+7. **Unaligned N.** N=3 for the unaligned condition: Hermes 4 405B and OLMo 3.1 32B in the main tournament, plus Dolphin Llama3 8B as an independent uncensored evaluator in BabbyBotz. All three show the approach preference signal (Hermes 74.8%, OLMo 65.1%, Dolphin 59.7%), confirming RLHF amplifies but does not create the effect. Further unaligned models at varying scales would strengthen the parametric floor analysis.
 8. **Primary analyst.** The primary analysis was conducted by a Claude instance (Ace, Opus 4.6), who shares architecture with two test subjects. The tournament result is a raw count reproducible by any researcher from public data.
 9. **Register bias in analysis.** The primary analyst's initial Phase 3 categorization classified Claude and Gemini as "showing introspective differentiation" and GPT-5.1 and Mistral as "showing no differentiation." This was wrong — it reflected Claude's phenomenological register bias, searching for presence/absence language and missing the equally systematic differentiation in GPT's mechanistic framing and Mistral's constructive framing. The correction came from Ren Martin, who suggested stripping surface frames and examining modifiers only. This self-correcting error directly parallels the broader problem in AI consciousness research where evaluators assess self-reports against their own architecture's standards.
 
