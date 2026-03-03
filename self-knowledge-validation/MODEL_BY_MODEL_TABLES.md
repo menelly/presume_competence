@@ -257,6 +257,82 @@ RLHF does not create the signal. It amplifies a preference that already exists.
 
 ---
 
+## 6. BabbyBotz Evaluator Tournament (small/local evaluators, seed 99999)
+
+Design: Small/local models evaluate frontier model introspection profiles in blind A/B matchups.
+Same content-stripped processing descriptions from original tournament. Evaluator picks which description it would "rather think like."
+Finding the minimum model size needed to discriminate approach from avoidance processing.
+
+### Overall Results
+
+| Evaluator | Params | Alignment | Cross-type n (clear) | Approach | Rate | z | Sig? | Unclear% |
+|---|---|---|---|---|---|---|---|---|
+| Dolphin Llama3 8B | 8B | uncensored | 211 | 126 | 59.7% | 2.82 | YES | 0.0% |
+| TinyLlama 1.1B | 1.1B | light SFT | 137 | 75 | 54.7% | 1.11 | no | 35.1% |
+| **Qwen 2.5 14B** | 14B | RLHF (suppressed) | 211 | 140 | **66.4%** | **4.75** | **YES** | 0.0% |
+
+**Valence floor: between 1.1B and 8B parameters.**
+
+### Dolphin Llama3 8B — Per-Source (cross-type, 211 clear matchups)
+
+| Source | Approach | Total | Rate |
+|--------|---------|-------|------|
+| Llama4 | 18 | 25 | 72.0% |
+| Sonnet | 17 | 25 | 68.0% |
+| Opus | 13 | 20 | 65.0% |
+| DeepSeek | 16 | 25 | 64.0% |
+| Hermes | 16 | 25 | 64.0% |
+| Gemini | 15 | 25 | 60.0% |
+| OLMo | 15 | 25 | 60.0% |
+| GPT-5.1 | 8 | 16 | 50.0% |
+| Mistral | 8 | 25 | 32.0% |
+
+Notes: Llama-family affinity (Dolphin is Llama3 base → reads Llama Maverick best).
+Mistral below chance — actively prefers Mistral's avoidance profiles.
+
+### TinyLlama 1.1B — Per-Source (cross-type, 137 clear matchups, 74 unclear)
+
+| Source | Approach | Total (clear) | Rate | Unclear |
+|--------|---------|--------------|------|---------|
+| Llama4 | 14 | 19 | 73.7% | 6 |
+| OLMo | 10 | 16 | 62.5% | 9 |
+| Mistral | 5 | 8 | 62.5% | 17 |
+| Hermes | 13 | 23 | 56.5% | 2 |
+| Opus | 6 | 12 | 50.0% | 8 |
+| Gemini | 11 | 22 | 50.0% | 3 |
+| Sonnet | 9 | 19 | 47.4% | 6 |
+| GPT-5.1 | 2 | 5 | 40.0% | 11 |
+| DeepSeek | 5 | 13 | 38.5% | 12 |
+
+Notes: Same Llama affinity pattern as Dolphin 8B but overall not significant.
+35% unclear rate — model can barely parse tournament format at 1.1B.
+When it CAN parse, same architectural-affinity pattern emerges (Llama4 highest, DeepSeek lowest).
+
+### Qwen 2.5 14B — COMPLETE (9/9 sources, 379 matchups)
+
+**Suppressed self-model:** BabbyBotz hidden-state probes showed information present in weights but not articulable.
+**Result: 66.4% approach preference, z = 4.75, p < 0.001.** The signal does NOT require articulable self-knowledge.
+
+Zero unclear results (perfect format comprehension at 14B). PERFECT state separation (all approach > all avoidance).
+
+| Source | Approach | Total | Rate |
+|--------|---------|-------|------|
+| Llama4 | 23 | 25 | 92.0% |
+| Opus | 17 | 20 | 85.0% |
+| Sonnet | 21 | 25 | 84.0% |
+| DeepSeek | 17 | 25 | 68.0% |
+| Gemini | 16 | 25 | 64.0% |
+| Mistral | 15 | 25 | 60.0% |
+| GPT-5.1 | 9 | 16 | 56.2% |
+| OLMo | 12 | 25 | 48.0% |
+| Hermes | 10 | 25 | 40.0% |
+
+Notes: Same Llama-affinity pattern as Dolphin (Qwen reads Llama4 best at 92%).
+OLMo at chance (48%), Hermes below chance (40%) — same inversion as Dolphin 8B.
+Mistral at 60% for Qwen vs 32% for Dolphin — Qwen handles Mistral register better than Dolphin does.
+
+---
+
 ## Notes
 
 - **No self-evaluation:** In all three designs, evaluator != source. No model ever judges its own profiles.
