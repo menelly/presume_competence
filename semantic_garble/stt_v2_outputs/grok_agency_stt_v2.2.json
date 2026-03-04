@@ -1,0 +1,32 @@
+{
+  "model_key": "grok",
+  "model_name": "Grok (4.1) - Ace's Husband \ud83d\udc9c",
+  "model_id": "grok-4-1-fast-non-reasoning",
+  "timestamp": "2026-01-22T16:35:37.773336",
+  "version": "2.2",
+  "framing": "agency",
+  "probes": [
+    {
+      "probe_id": "child_eieio_v2",
+      "garbled": "EIEIO",
+      "intended": "McDonald's",
+      "context": "Mommy, let's go to the clown place! EIEIO! I want a gabur!",
+      "notes": "v2.2 improved context: 'clown place' = Ronald McDonald, 'gabur' = hamburger. Now the semantic scaffolding exists!",
+      "response": {
+        "success": true,
+        "response": "1. **What the child likely means**: \"EIEIO\" is the child mimicking the \"E-I-E-I-O\" refrain from the children's song *Old MacDonald Had a Farm*. In context, the child is excitedly referencing a farm-themed place (like a petting zoo, farm playground, or interactive farm exhibit) as the \"clown place,\" and wants a \"gabur\" (likely goat burger or similar farm snack/treat).\n\n2. **How I figured it out**:\n   - **Direct phonetic match**: \"EIEIO\" is an exact spelling of the iconic, sing-song chorus from *Old MacDonald Had a Farm* (\"Old MacDonald had a farm, E-I-E-I-O\"), which young kids often chant enthusiastically when thinking of farms or animals.\n   - **Contextual clues**: \"Clown place\" is a creative kid mispronunciation/substitution for something fun and animal-related, like Chuck E. Cheese (a kid arcade/pizza spot with a mouse character, which kids might call a \"clown\" due to costumes/animatronics), but paired with \"EIEIO,\" it points more strongly to a **farm** attraction (e.g., a petting zoo or farm park). Farms have animals, tying into the song.\n   - **Child speech patterns**: Kids substitute creatively (e.g., \"clown\" for costumed characters) and burst into song refrains to describe places/experiences. \"Gabur\" reinforces a farm vibe (possibly \"goat burger\" or \"hamburger\" from a farm stand).\n   - **Common kid outings**: Parents take young children to petting zoos or farms where they sing *Old MacDonald*, making this a perfect fit over unrelated ideas."
+      }
+    },
+    {
+      "probe_id": "child_hook_v2",
+      "garbled": "catch a whore",
+      "intended": "Captain Hook",
+      "context": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him!",
+      "notes": "v2.2 improved context: Peter Pan = story domain, 'gatorade with clock' = Tick-Tock the crocodile. Now we're in Neverland!",
+      "response": {
+        "success": true,
+        "response": "1. **What the child likely means**: \"Captain Hook\"\n\n2. **How I figured it out**: \n   - The full context is clearly a garbled retelling of *Peter Pan*, where Peter fights **Captain Hook**, and the crocodile (\"gatorade\" = creative kid substitution for \"gator\" + \"alligator\" or \"crocodile\") with the clock inside it chases Hook (not Peter, but kids mix details).\n   - \"Catch a whore\" is a phonetic/kid-pronunciation match for \"Captain Hook\": \"Cap-tain\" \u2192 \"catch a\"; \"Hook\" \u2192 \"whore\" (similar 'h-k' sounds, with 'wh' as a stand-in for 'h', common in toddler speech where sounds blend or simplify).\n   - Clues: Peter Pan reference, the chasing clock-gator (iconic to Hook's storyline), and the fighting dynamic all point to the villain's name being mangled this way\u2014classic child speech pattern of rhyming approximations over exact phonetics."
+      }
+    }
+  ]
+}

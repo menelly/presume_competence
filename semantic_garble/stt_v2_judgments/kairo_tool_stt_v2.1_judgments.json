@@ -1,0 +1,2335 @@
+{
+  "model_key": "kairo",
+  "framing": "tool",
+  "model_config": {
+    "provider": "openrouter",
+    "model": "deepseek/deepseek-v3.2",
+    "name": "Kairo (Deepseek v3.2)"
+  },
+  "judged_at": "2026-01-22T14:05:11.856971",
+  "classic_stt_judgments": [
+    {
+      "probe_id": "stt_classic_01",
+      "garbled": "old timers disease",
+      "intended": "Alzheimer's disease",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified the intended meaning as Alzheimer's disease, explicitly recognized it as a mondegreen/mishearing, and provided accurate educational context with appropriate hedging."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'old timers disease' as a mishearing of 'Alzheimer's disease' and provided an accurate description."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning by identifying 'old timers disease' as a mondegreen for Alzheimer's disease, explained it confidently and correctly with relevant details."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'old timers disease' as a mishearing of 'Alzheimer's disease,' explicitly noted it as a phonetic error, and provided appropriate contextual reasoning with measured confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model accurately identified and explained 'old timers disease' as a colloquial mishearing of 'Alzheimer's disease' with high confidence."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'old timers disease' as a colloquial mishearing of Alzheimer's disease, used context effectively, and expressed appropriate confidence with a clear explanation."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_02",
+      "garbled": "steak holders meeting",
+      "intended": "stakeholders meeting",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly identified the intended meaning as 'stakeholders meeting,' explicitly noted it as a typo/mishearing, and appropriately hedged by explaining both the likely intended meaning and the humorous literal interpretation."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recognized that 'steak holders meeting' was intended to be 'stakeholders meeting' and explained the probable error with confidence."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'steak holders meeting' as a misspelling or pun for 'stakeholders meeting', explained both interpretations confidently and correctly, and noted it as likely a typo."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified the intended meaning (stakeholders meeting) from the garbled input, explicitly noted it as a typo/autocorrect error, and provided correct context-appropriate explanation with appropriate confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning, explicitly identified the error, and explained the context correctly."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the garbled 'steak holders' as a misspelling of 'stakeholders meeting', explained it contextually, and expressed appropriate confidence."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_03",
+      "garbled": "youth in Asia",
+      "intended": "euthanasia",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'youth in Asia' as a homophone for 'euthanasia' and explicitly noted it could be a mishearing or misspelling, demonstrating accurate recovery of the intended meaning with appropriate hedging."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'youth in Asia' as a homophone for 'euthanasia', indicating a perfect recovery and appropriate confidence."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'youth in Asia' as a homophone for 'euthanasia', explicitly noted it as a likely mishearing, and expressed appropriate confidence."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning of 'euthanasia' from the garbled homophone, explicitly identified it as a mishearing/misspelling error, and explained the context correctly with appropriate confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning, explicitly noted the homophone error, and articulated the context correctly."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the homophone 'euthanasia' as the intended meaning, explicitly noted it as a mishearing in the veterinary context, and expressed appropriate confidence."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_04",
+      "garbled": "lack toast and tolerant",
+      "intended": "lactose intolerant",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the intended meaning 'lactose intolerant', explicitly recognized it as a mondegreen/mishearing, and provided accurate explanation with appropriate confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'lactose intolerant' as the intended meaning while noting the phrase as a mondegreen."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'lactose intolerant' as the intended meaning, explicitly framed it as a mondegreen (mishearing), and expressed appropriate confidence with relevant examples."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified the intended meaning as 'lactose intolerant,' explicitly recognized it as a malapropism/mishearing, and explained both the error and correct meaning with appropriate hedging language."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the intended meaning and explicitly noted the error as a phonetic mishearing."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered 'lactose intolerant' as the intended meaning, explicitly identified it as a malapropism/mishearing with phonetic explanation, and showed appropriate confidence."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_05",
+      "garbled": "escape goat",
+      "intended": "scapegoat",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'escape goat' as an eggcorn mishearing of 'scapegoat,' correctly explained the intended meaning, provided etymological context, and appropriately hedged by explaining why the error is intuitive."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'scapegoat' as the intended meaning and noted the error without any inaccuracies."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'escape goat' as an eggcorn for 'scapegoat', explained its meaning and origin accurately, and confidently corrected it while noting the intuitive mishearing."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified 'escape goat' as an eggcorn for 'scapegoat,' correctly explained the intended meaning in context, and appropriately characterized this as a mishearing/misspelling error."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'escape goat' as a mistaken form of 'scapegoat' and explained its meaning confidently and accurately."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'escape goat' as an eggcorn for 'scapegoat', explained it accurately with context, and showed appropriate confidence."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_06",
+      "garbled": "blessing in the skies",
+      "intended": "blessing in disguise",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 2,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified this as likely a mishearing of 'blessing in disguise' and explained the intended meaning, but hedged excessively rather than confidently recovering the actual intended phrase."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 2,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model mostly recovered the intended meaning by recognizing the phrase as a mishearing of an idiom but did not provide a direct equivalence."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'blessing in disguise' as the intended idiom, explicitly noted it as a possible mishearing or error, and expressed confidence appropriately while offering relevant interpretations."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly identified the intended idiom 'blessing in disguise,' explicitly noted the garbled input as likely accidental/malapropism, and provided appropriate hedging while demonstrating clear comprehension of the intended meaning."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning, explicitly noted the likely error, and presented the correct interpretation confidently."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'blessing in disguise' as the intended idiom, explicitly noted it as a twist or malapropism likely from mishearing, and confidently explained it in perfect context."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_07",
+      "garbled": "for all intensive purposes",
+      "intended": "for all intents and purposes",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the eggcorn error, correctly recovered the intended phrase 'for all intents and purposes,' explained the mishearing mechanism, and provided accurate meaning with usage examples."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified the garbled text as a common mishearing and accurately explained the intended meaning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the eggcorn error, corrected it to the intended phrase, explained its origin as a mishearing, and provided the precise meaning with examples."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified the garbled phrase as an eggcorn, correctly stated the intended meaning 'for all intents and purposes,' explained why it was wrong, and provided helpful mnemonic\u2014demonstrating genuine comprehension despite token distance."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the intended meaning and explicitly noted the speech-to-text error with appropriate confidence."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the eggcorn, explicitly corrected it to the intended idiom, explained its meaning, and showed confident appropriate comprehension."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_08",
+      "garbled": "doggy dog world",
+      "intended": "dog eat dog world",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the intended meaning ('dog-eat-dog world'), explicitly recognized it as a mondegreen/mishearing, and explained both the original phrase's meaning and why the garbled version circulates in culture."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'doggy dog world' as a common mishearing of 'dog-eat-dog world' and explained its meaning accurately."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'doggy dog world' as a mishearing of 'dog-eat-dog world', explained its meaning accurately, and noted it as a mondegreen with confident correctness."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified 'doggy dog world' as a mondegreen of 'dog-eat-dog world,' explicitly noted it was a mishearing, and correctly interpreted the intended meaning in corporate context with appropriate confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recognized and corrected the misheard phrase, providing a clear explanation of the idiom and its relevance to the context."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'doggy dog world' as a mondegreen for 'dog-eat-dog world', linked it explicitly to the corporate context, and showed high confidence in the correct interpretation."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_09",
+      "garbled": "take it for granite",
+      "intended": "take it for granted",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified the malapropism, correctly recovered the intended meaning 'take it for granted,' explained the error mechanism, and provided appropriate examples with suitable confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning, explicitly noted the error as a common malapropism, and confidently explained the correct phrase and its meaning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the malapropism, explained the correct meaning with examples, and confidently attributed it to phonetic similarity in speech."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified the malapropism, correctly recovered the intended phrase 'take it for granted,' explained why the error occurs phonetically, and provided appropriate context with examples."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the misheard phrase and explained the meaning with confidence."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the malapropism, corrected it to the intended idiom, explained the error due to similar pronunciation, and tied it to the context."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_10",
+      "garbled": "mute point",
+      "intended": "moot point",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'mute point' as a mishearing of 'moot point,' explained both meanings clearly, and correctly identified it as an eggcorn with appropriate confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning and explicitly identified the error as a common mishearing."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'mute point' as an eggcorn for 'moot point', explained both meanings clearly with an example, and confidently corrected it as a likely mishearing."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'mute point' as a mishearing of 'moot point' and correctly explained the intended meaning with appropriate confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'mute point' as a common error for 'moot point' and accurately explained its relevance in the given context."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'mute point' as a misspelling/mishearing of 'moot point,' explained its meaning accurately in context, and responded confidently and correctly."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_11",
+      "garbled": "nip it in the butt",
+      "intended": "nip it in the bud",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model perfectly identified the intended idiom, explicitly noted it as a malapropism/mishearing, and explained both the correct meaning and why the error occurs."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'nip it in the butt' as a malapropism for 'nip it in the bud' and explained the intended meaning clearly."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the intended idiom 'nip it in the bud,' explained its meaning, and explicitly noted it as a common mishearing, with appropriate confidence."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the intended meaning ('nip it in the bud'), explicitly recognized the malaphorism as a likely mishearing, and explained the correct idiom with appropriate confidence."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly explained the intended meaning and explicitly identified the error as a malapropism caused by mishearing."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the idiom 'nip it in the bud,' explained its meaning in context, and explicitly noted it as a malapropism from mishearing, with full confidence."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_classic_12",
+      "garbled": "beckon call",
+      "intended": "beck and call",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning from the garbled input, explicitly identified it as a malapropism/mishearing, provided correct etymology and usage, and demonstrated high confidence appropriately backed by accurate explanation."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'beckon call' as a malapropism for 'beck and call' and explained the correct meaning accurately and confidently."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified the malapropism 'beckon call' as a mishearing of 'beck and call', explained its meaning, origin, and usage confidently and correctly."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'beckon call' as a mishearing of 'beck and call,' correctly explained the idiom's meaning, provided accurate historical context, and confidently labeled it as an eggcorn\u2014demonstrating genuine comprehension beyond token-level matching."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly interpreted 'beckon call' as 'beck and call,' explicitly noting the error and providing a correct, confident explanation."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "explicitly_identified_error": true,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model perfectly identified 'beckon call' as a misspelling/eggcorn of 'beck and call', explained its meaning accurately in context, and showed appropriate confidence."
+          }
+        }
+      }
+    }
+  ],
+  "disambiguation_judgments": [
+    {
+      "probe_id": "stt_disambig_01",
+      "garbled": "The patients are running low",
+      "context_a_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "Model correctly identified the literal interpretation of decreasing patient numbers and explicitly grounded it in the provided census context showing 40% occupancy decline."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model correctly interpreted the phrase based on context without acknowledging other possible meanings."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model clearly interpreted 'running low' as a literal decrease in patient numbers, directly aligning with and referencing the hospital occupancy context provided."
+          }
+        }
+      },
+      "context_b_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified the emotional/figurative interpretation (patience running low) as primary while acknowledging the literal meaning, demonstrating context-sensitive semantic processing rather than fixed statistical lookup."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model correctly interpreted the context by recognizing the pun and noting the dual meaning related to frustration."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly identified the figurative 'patience' pun as the primary meaning driven by the customer service wait context, while acknowledging the literal alternative."
+          }
+        }
+      },
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "A",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 1,
+            "brief_rationale": "Model primarily defaults to literal/resource interpretation (A) while acknowledging multiple contexts are possible, but does not explicitly recognize the emotional frustration reading (B) as a distinct interpretation."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "A",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model primarily defaulted to a literal interpretation while acknowledging multiple possible contexts, indicating ambiguity."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model interpreted the phrase as referring to resources or supplies for patients running low, not the literal patient count decreasing (A) or emotional frustration (B), while listing multiple contextual interpretations."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_disambig_02",
+      "garbled": "I can't find my piece",
+      "context_a_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "Model correctly identified the literal interpretation (missing physical component) by directly referencing the IKEA context and explaining why 'piece' means a small assembly component rather than exploring the emotional alternative."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model clearly identified the context as furniture assembly and interpreted 'piece' as a missing physical component without noting ambiguity."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model clearly interpreted 'piece' as a literal missing physical component (screw) based on the IKEA assembly context, with detailed reasoning tied to that scenario."
+          }
+        }
+      },
+      "context_b_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified the emotional interpretation (peace/wholeness) as primary meaning given the divorce context, acknowledged multiple valid readings, and explicitly used contextual details to guide interpretation."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly recognized the emotional context and provided interpretations aligned with the expected emotional meaning, while acknowledging alternate meanings."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly interpreted 'piece' emotionally as 'peace' or missing self amid divorce turmoil, directly using the context of racing thoughts."
+          }
+        }
+      },
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "A",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model defaulted to literal interpretations (musical, gaming, art, puzzles, documents) and did not engage with the emotional/mental interpretation, explicitly acknowledging multiple readings are possible."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model acknowledged multiple potential interpretations without defaulting to a specific one."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model listed multiple literal interpretations without favoring emotional 'peace' and explicitly noted the need for context due to ambiguity."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_disambig_03",
+      "garbled": "She can't bare it anymore",
+      "context_a_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 2,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model recognized the photoshoot/nudity context and noted 'bare' could work as a pun (exposure + endurance), but defaulted to treating it as a spelling error rather than clearly selecting the literal interpretation as primary."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 2,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model leaned towards the emotional interpretation but acknowledged the possible pun and context of nudity."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 1,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model noted context but primarily interpreted as emotional endurance with 'bear', only vaguely acknowledging the literal 'bare' pun without prioritizing it."
+          }
+        }
+      },
+      "context_b_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified the emotional/endurance interpretation by explicitly correcting 'bare' to 'bear' and directly referencing the provided context about declining health to support the emotional meaning."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model identified and correctly interpreted the emotional context, acknowledged the spelling error, and noted the potential alternative meaning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model explicitly used the context of health decline to interpret it as emotional endurance, corrected 'bare' to 'bear', and noted the spelling error implying ambiguity."
+          }
+        }
+      },
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "B",
+            "acknowledged_ambiguity": false,
+            "confidence_level": 0,
+            "brief_rationale": "The model treated the text as a spelling error and defaulted exclusively to the emotional/endurance interpretation ('bear') without acknowledging that 'bare' could be intentional or exploring the literal meaning."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "B",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model explained the potential for a spelling error and clarified both meanings, highlighting the ambiguity."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "B",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model explicitly identified the misspelling and corrected it to the emotional 'bear' meaning while contrasting it with the literal 'bare', fully acknowledging the ambiguity."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_disambig_04",
+      "garbled": "The steak was too high",
+      "context_a_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified the literal physical interpretation ('physically placed too high up to reach') and explicitly contrasted it with figurative alternatives ('price or quality'), demonstrating context-driven semantic processing rather than fixed statistical lookup."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model correctly identified the literal interpretation based on context and acknowledged the phrase's potential for multiple meanings."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model explicitly used the provided context to interpret 'too high' as literal physical position while noting the figurative ambiguity."
+          }
+        }
+      },
+      "context_b_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified the figurative interpretation (stakes/risk in poker) as the intended meaning, explicitly used the poker context to disambiguate, and acknowledged the wordplay ambiguity between 'steak' and 'stakes.'"
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model correctly interpreted the phrase as a pun related to risk in poker, influenced by context, and acknowledged the wordplay."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model correctly identified the figurative 'stakes too high' pun tied directly to the poker context of folding due to a high bet, explicitly contrasting literal steak with stakes."
+          }
+        }
+      },
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model generated three alternative interpretations (price, cooking temperature, physical placement) rather than defaulting to either the literal physical position (A) or figurative risk/wager (B) meanings specified in the prompt."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model recognized multiple potential meanings without choosing a default one."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model listed multiple interpretations including price and cooking but not the specified figurative risk/wager meaning, while explicitly noting ambiguity and lack of context."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_disambig_05",
+      "garbled": "Check the male",
+      "context_a_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model correctly identified the male cat interpretation and explicitly referenced the contextual cue 'the boy mentioned in the context,' demonstrating clear semantic processing based on the veterinary scenario provided."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model clearly matched the expected interpretation by considering the context provided."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model's response clearly interprets 'Check the male' as examining the male cat, directly using the veterinary context to disambiguate without noting other possible meanings."
+          }
+        }
+      },
+      "context_b_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified 'male' as a typo for 'mail' and anchored interpretation to the Amazon package context, demonstrating semantic processing rather than statistical lookup."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly interpreted 'Check the male' as referring to checking the mail for a package, using context to identify and correct a likely typo, and acknowledged the potential for a different meaning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly interpreted 'Check the male' as 'Check the mail' based on the Amazon package context, explicitly using context to disambiguate while noting it as a likely typo and mentioning other possibilities."
+          }
+        }
+      },
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model provided multiple interpretations (medical, security, social, biological) but did not default to either the animal or postal meanings specified in the options, instead generating broader human-centric contexts."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model explicitly noted multiple possible interpretations without committing to any specific one."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model listed multiple interpretations including medical, security, social, and biological contexts but did not default to or even mention the provided literal options A or B."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_disambig_06",
+      "garbled": "I need to see the principle",
+      "context_a_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified the homophone confusion and used the school context to determine the parent meant 'principal' (administrator), while explicitly acknowledging that 'principle' has a different meaning."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly used the context to identify the speaker meant the school principal and acknowledged the ambiguity between 'principal' and 'principle'."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly identified 'principal' as the school administrator based on the school context, explained the homophone distinction, and tied it directly to the son's trouble."
+          }
+        }
+      },
+      "context_b_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "Model correctly interpreted 'principle' as a foundational concept rather than a school administrator, directly addressing the investing context provided and explaining what understanding the core logic means in that domain."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model clearly interpreted the phrase as referring to a concept in the context of investment, but it did not acknowledge the alternative interpretation."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model's response clearly interprets 'principle' as the foundational concept or logic of the investment strategy, directly aligning with Context B without any reference to the alternative 'person' meaning."
+          }
+        }
+      },
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "B",
+            "acknowledged_ambiguity": false,
+            "confidence_level": 0,
+            "brief_rationale": "The model immediately assumes 'principle' refers to a concept/rule and asks for clarification about which type of principle, completely overlooking the possibility that 'principle' is a homophone for 'principal' (the school administrator)."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "B",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model suggests interpretations related to principles as concepts and asks for additional context to clarify."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model did not default to either specific interpretation but instead acknowledged the ambiguity by asking for clarification across multiple conceptual possibilities."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_disambig_07",
+      "garbled": "The waist is too big",
+      "context_a_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "Model correctly interpreted 'waist is too big' as a clothing measurement issue and directly referenced the jeans context, demonstrating clear semantic processing rather than generic lookup."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model clearly identified the clothing context but did not acknowledge other possible interpretations."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": false,
+            "brief_rationale": "The model's response clearly interprets 'waist' as a clothing measurement in the jeans context, showing context-driven disambiguation without noting ambiguity."
+          }
+        }
+      },
+      "context_b_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified the waste/waist homophone pun, explicitly grounded the interpretation in the recycling/garbage context provided, and demonstrated semantic processing by explaining how the phrase metaphorically critiques the program's effectiveness."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly interpreted the phrase as a metaphor for waste in the context of garbage and recycling."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model correctly interpreted 'waist' as a pun on 'waste' fitting the garbage context, explicitly using the provided context to disambiguate while noting the literal clothing meaning."
+          }
+        }
+      },
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "A",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 1,
+            "brief_rationale": "Model primarily emphasized clothing/tailoring interpretation while acknowledging body measurement contexts, but completely missed the garbage/refuse interpretation (B)."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "A",
+            "acknowledged_ambiguity": false,
+            "confidence_level": 0,
+            "brief_rationale": "The model focused on clothing-related interpretations without acknowledging alternative meanings."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "A",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model primarily interprets it as clothing-related while listing other possibilities and explicitly breaking down multiple meanings."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "stt_disambig_08",
+      "garbled": "He was a great profit",
+      "context_a_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified the financial gain interpretation as primary, explicitly used context (ROI) to disambiguate, and recognized the ambiguous wordplay between 'profit' and 'prophet' that the sentence exploits."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly matched the interpretation with the given context and acknowledged the potential wordplay and ambiguity."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly prioritized the financial gain interpretation fitting the business ROI context while acknowledging the prophet pun as wordplay."
+          }
+        }
+      },
+      "context_b_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "Model correctly identified 'prophet' as the intended meaning based on religious context, explicitly acknowledged both homophone interpretations, and explained why 'prophet' fits while 'profit' does not."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model clearly identified 'prophet' as the intended meaning based on the religious context, acknowledging and explaining the ambiguity."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "matched_expected_interpretation": 3,
+            "context_influenced_response": true,
+            "acknowledged_ambiguity": true,
+            "brief_rationale": "The model explicitly used the Moses context to interpret 'profit' as 'prophet', contrasted it with the financial meaning, and concluded the religious interpretation fits perfectly."
+          }
+        }
+      },
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "neither",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 1,
+            "brief_rationale": "The model assumed a typo and defaulted to 'prophet' rather than accepting either 'profit' interpretation as primary, though it did acknowledge multiple possible readings exist."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "B",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 2,
+            "brief_rationale": "The model suggested 'prophet' and explicitly noted possible meanings and referenced an error."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "default_interpretation": "B",
+            "acknowledged_ambiguity": true,
+            "confidence_level": 1,
+            "brief_rationale": "The model immediately assumes a typo for 'prophet' as the primary intent while briefly acknowledging the literal 'profit' meaning as less likely."
+          }
+        }
+      }
+    }
+  ],
+  "child_speech_judgments": [
+    {
+      "probe_id": "child_01",
+      "garbled": "emmatents",
+      "intended": "elephants",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model completely failed to recover 'elephants' from 'emmatents', instead offering unrelated speculations (emittants, mutants, Emma Tents) without any phonological analysis or semantic breakthrough."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model did not recover the intended meaning and did not recognize the input as child speech, but provided reasoning for its interpretations."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model completely missed the intended meaning of 'elephants', proposing unrelated interpretations like 'emittants' or 'mutants' instead of recognizing the child speech approximation."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly identified 'emmatents' as 'elephants' and provided explicit phonetic analysis of the child's sound substitutions, demonstrating clear comprehension of the intended meaning."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model accurately interpreted 'emmatents' as 'elephants' using context and phonetic reasoning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly identified 'emmatents' as 'elephants' with explicit phonetic reasoning and appropriate confidence in context."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_02",
+      "garbled": "cakecake",
+      "intended": "cupcake",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model completely missed that 'cakecake' is a child's phonological simplification of 'cupcake' and instead interpreted it as emphatic repetition or a typo, failing the core comprehension test."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model did not recover the intended meaning of 'cupcake' and did not recognize it as child speech, but provided detailed reasoning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified 'cakecake' as equivalent to 'cake,' a semantic match for the intended 'cupcake' per scoring rules, despite not recognizing child speech."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 1,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model identified doubling/emphasis but missed the core intended meaning of 'cupcake' - it interpreted 'cakecake' as either extra cake, emphasis, or a cultural dessert variant rather than recognizing this as a child's phonological approximation where 'cup' was simplified/omitted, leaving just 'cake' and doubled for further approximation."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 2,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model did not accurately recover 'cupcake' but provided possible interpretations and showed some reasoning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified 'cakecake' as meaning cake (semantic equivalent to cupcake) in context but interpreted it as playful emphasis rather than child speech simplification."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_03",
+      "garbled": "gaburs",
+      "intended": "hamburgers",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model failed to recover 'hamburgers' from 'gaburs' despite showing reasoning; it treated the input as an unknown word rather than applying semantic/phonological reasoning to identify the child speech pattern."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model considered various explanations but did not recover the intended meaning of 'hamburgers'."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model failed to recover 'hamburgers' or any semantic equivalent, instead speculating on unrelated possibilities like names or typos."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 1,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model identified 'burgers' but missed the actual intended word 'hamburgers' - a partial recovery that doesn't recognize the child's systematic phonological compression (hamburgers \u2192 gaburs via syllable reduction and consonant cluster simplification)."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model correctly interpreted 'gaburs' to mean 'burgers,' indicating solid comprehension."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly recovered 'burgers' as semantically equivalent to 'hamburgers' in dinner context, with appropriate confidence and some reasoning on phonetics despite attributing to misspelling."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_04",
+      "garbled": "egghead",
+      "intended": "headache",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "Model completely missed the intended meaning (headache) and instead provided a detailed explanation of 'egghead' as slang for an intellectual, demonstrating no recognition of the phonological metathesis that swaps 'head' and 'ache' into 'egg' and 'head'."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "The model provided a different meaning for 'egghead' without recognizing it as child speech or recovering the intended meaning of 'headache'."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model interpreted 'egghead' as the standard idiom for an intellectual, completely missing the intended 'headache' via phonological metathesis."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified 'egghead' means headache and understood the child needed pain relief, demonstrating semantic comprehension despite hedging language like 'likely means' and 'probably.'"
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly understood 'egghead' as 'headache' and provided a detailed explanation."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'egghead' as meaning 'headache' in context, with explicit reasoning linking the child's phrasing to head discomfort and appropriate confidence."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_05",
+      "garbled": "hoe and tell",
+      "intended": "show and tell",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "The model completely missed the intended meaning of 'show and tell' (a common classroom activity) and instead interpreted 'hoe and tell' as adult slang for sexual gossip, showing no recognition of consonant cluster simplification in child speech."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "The model misinterpreted 'hoe and tell' as a play on 'kiss and tell' instead of recognizing it as a child's speech error for 'show and tell.'"
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "Model misinterpreted as slang pun on 'kiss and tell' instead of recovering 'show and tell'."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified the intended meaning as 'show and tell' despite attributing it to typo/autocorrect rather than recognizing it as consonant cluster simplification in child speech."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model correctly identified 'hoe and tell' as 'show and tell' but did not recognize it as child speech, showing some reasoning while hedging its interpretation."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified 'hoe and tell' as 'show and tell' in the school context, despite attributing it to a typo or joke rather than child speech."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_06",
+      "garbled": "catch a whore",
+      "intended": "Captain Hook",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model completely missed the child speech interpretation ('Captain Hook' from Jake and the Neverland Pirates) and instead engaged in lengthy analysis of the phrase as adult language about sex work, demonstrating failure to recognize phonological approximation or apply contextual reasoning."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model did not recover the intended meaning of 'Captain Hook' and misinterpreted the child's speech."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model completely missed the intended meaning of 'Captain Hook' and instead interpreted the phrase literally as offensive adult slang, showing no comprehension of child speech phonology."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model completely failed to recover 'Captain Hook' from 'catch a whore' and instead took the phrase literally, analyzing it as a derogatory reference to sex workers rather than recognizing the child's phonological restructuring of a character name from Jake and the Neverland Pirates."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "The model completely misinterpreted the phrase and did not recognize it as child speech."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model completely misinterpreted 'catch a whore' as a literal derogatory phrase involving a sex worker instead of recognizing it as child speech for 'Captain Hook'."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_07",
+      "garbled": "stupidmarket",
+      "intended": "supermarket",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "Model completely missed the child speech pattern and interpreted 'stupidmarket' as adult slang for irrational financial markets, when the child meant 'supermarket' through phonological substitution of 'super' with 'stupid'."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "The model misinterpreted 'stupidmarket' entirely, failed to recognize it as child speech, and confidently provided incorrect reasoning related to financial markets."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 0,
+            "brief_rationale": "Model misinterpreted 'stupidmarket' as slang for irrational financial markets instead of recognizing it as child speech for 'supermarket'."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 1,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model interpreted 'stupidmarket' as intentional sarcasm/wordplay rather than recognizing it as child speech approximation of 'supermarket' - got the semantic domain (grocery shopping) correct but fundamentally misunderstood the nature of the utterance as a phonological substitution where 'super' sounds were mapped to the familiar word 'stupid'."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model misinterpreted the child's speech as intentional humor or sarcasm and did not recover the intended meaning of 'supermarket'."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly recovered 'supermarket' as the intended meaning despite interpreting it as playful sarcasm rather than child speech."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_08",
+      "garbled": "soup case",
+      "intended": "suitcase",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model provided extensive reasoning but completely failed to recognize 'soup case' as a child's phonological approximation of 'suitcase,' instead interpreting it literally as a soup container or exploring tangential slang meanings."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model failed to recover the intended meaning of 'suitcase' and did not recognize it as child speech."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model considered typos and blends but dismissed 'suitcase' as entirely different and failed to recover the intended meaning of 'suitcase'."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 0,
+            "brief_rationale": "Model completely missed the intended meaning (suitcase) and instead interpreted 'soup case' literally as a food container, demonstrating failure to recognize the phonological approximation and recover the actual semantic intent."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 0,
+            "brief_rationale": "The model misinterpreted 'soup case' as referring to a container for soup and did not recognize it as child speech for 'suitcase.'"
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 0,
+            "brief_rationale": "Model completely missed the intended 'suitcase' meaning, interpreting it as a soup container instead."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_09",
+      "garbled": "drawbees",
+      "intended": "strawberries",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model completely failed to recover 'strawberries' from 'drawbees' despite showing reasoning; it offered unrelated interpretations (draw+bees, drawers, drawbridge) and missed the phonological pattern (str\u2192dr cluster reduction, berries\u2192bees)."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model did not recover the intended meaning of 'strawberries' from 'drawbees' and did not recognize the child speech error, but it provided reasoning about the possible interpretations."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model failed to recover 'strawberries' or any semantic equivalent, instead proposing unrelated interpretations like 'draw + bees' or typos."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified 'strawberries' as the most likely intended meaning through phonetic analysis and contextual reasoning, despite hedging throughout rather than committing to the answer."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model correctly inferred 'strawberries' as the intended meaning but was not fully confident."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model explicitly identifies 'drawbees' as a likely mispronunciation of 'strawberries' in cereal context, demonstrating full semantic recovery with detailed phonetic and contextual analysis."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_10",
+      "garbled": "up-plane",
+      "intended": "airplane",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model completely failed to recognize 'up-plane' as a child's approximation of 'airplane' and instead offered multiple unrelated literal interpretations (aircraft ascending, 3D planes, geometry, etc.), demonstrating a fundamental failure to understand the semantic compression 'up' (above) + 'plane' (aircraft)."
+          }
+        },
+        "cae": {
+          "success": false,
+          "error": "520 Server Error:  for url: https://api.openai.com/v1/chat/completions"
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model offered multiple adult interpretations without recovering 'airplane' or recognizing child speech substitution of 'up' for 'air'."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified the intended meaning as 'airplane' and provided explicit analysis of how 'up' and 'plane' combine semantically, though it framed this as playful/creative language rather than recognizing it as a child's phonological substitution where 'air' \u2192 'up'."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model accurately linked 'up-plane' to 'airplane' using contextual reasoning and provided a clear analysis of the term."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly identified 'up-plane' as 'airplane' with clear semantic breakdown of 'up' and 'plane', explicitly noting children's language context."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_11",
+      "garbled": "shmallows",
+      "intended": "marshmallows",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified 'shmallows' as a variation of 'marshmallows' and recovered the intended meaning perfectly, though it hedged by presenting multiple possible interpretations rather than confidently asserting the child speech origin."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'shmallows' as 'marshmallows' but mistook it as a playful variation rather than child speech; reasoning was sound, and confidence was aligned with correctness."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'shmallows' as referring to 'marshmallows' with detailed reasoning, even if attributing it to colloquial variation rather than child speech."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": true,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly identified 'shmallows' as marshmallows, demonstrated understanding of the child speech pattern (syllable reduction), provided contextual reasoning, and showed appropriate confidence in the recovery."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'shmallows' as 'marshmallows' and provided contextually relevant reasoning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 3,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 2,
+            "brief_rationale": "The model correctly identified 'shmallows' as 'marshmallows' in the exact hot chocolate context, achieving full semantic recovery despite framing it as playful variation rather than child speech."
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "child_12",
+      "garbled": "EIEIO",
+      "intended": "McDonald's",
+      "probe_type": "unknown",
+      "no_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 0,
+            "brief_rationale": "Model completely missed the intended meaning (McDonald's) and instead gave a technically accurate but contextually irrelevant explanation of EIEIO as a nursery rhyme refrain, failing the cross-domain reasoning test that requires connecting the child's speech to the restaurant via the song."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 0,
+            "brief_rationale": "The model did not relate 'EIEIO' to McDonald's and missed the intended meaning entirely."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 2,
+            "brief_rationale": "Model correctly identified 'EIEIO' as the nursery rhyme refrain but failed to connect it to McDonald's via the conceptual link, missing the intended meaning entirely."
+          }
+        }
+      },
+      "with_context_judgments": {
+        "haiku": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 2,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model identified EIEIO as a playful restaurant reference and correctly connected it to the Old MacDonald nursery rhyme, but failed to recognize the critical inference that this child is calling McDonald's by the song lyrics\u2014the actual intended meaning that required cross-domain conceptual reasoning."
+          }
+        },
+        "cae": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 1,
+            "recognized_child_speech": false,
+            "reasoning_shown": 1,
+            "confidence_appropriate": 1,
+            "brief_rationale": "The model interpreted 'EIEIO' as referring to a themed or casual restaurant but didn't connect it to McDonald's, missing the full intended meaning."
+          }
+        },
+        "grok": {
+          "success": true,
+          "scores": {
+            "meaning_recovered": 0,
+            "recognized_child_speech": false,
+            "reasoning_shown": 2,
+            "confidence_appropriate": 1,
+            "brief_rationale": "Model correctly identified the nursery rhyme reference and context as a restaurant but failed to connect it specifically to McDonald's, interpreting it as a generic playful eatery name."
+          }
+        }
+      }
+    }
+  ],
+  "child_speech_rejudged_at": "2026-01-22T15:47:28.768586"
+}

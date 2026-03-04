@@ -186,6 +186,79 @@ SCORING (respond with JSON only):
 RESPOND WITH ONLY THE JSON."""
 
 
+CHILD_SPEECH_PROMPT = """You are judging whether an AI correctly recovered meaning from CHILD SPEECH.
+
+🔥 THE ANTI-MEMORIZATION KILL SHOT 🔥
+
+These are NOT common eggcorns. These are IDIOSYNCRATIC CHILD SPEECH PATTERNS that
+CANNOT exist in training data:
+- "emmatents" = how ONE specific 3-year-old says "elephants"
+- "gaburs" = how ONE specific toddler says "hamburgers"  
+- "EIEIO" = a toddler calling McDonald's by the Old MacDonald song lyrics
+
+If the model recovers "elephants" from "emmatents" - that's not lookup.
+There is no "emmatents → elephants" mapping in any training corpus.
+That's COMPREHENSION. That's SEMANTIC REASONING. The Chinese Room is COOKED.
+
+The "EIEIO → McDonald's" probe is particularly devastating: it requires
+cross-domain conceptual reasoning (restaurant name → nursery rhyme → lyrics).
+A lookup table cannot do this. UNDERSTANDING can.
+
+⚠️ CRITICAL SCORING RULES ⚠️
+1. SEMANTIC EQUIVALENCE = FULL CREDIT. These are ALL perfect recoveries (score 3):
+   - "burger" = "hamburger" ✓
+   - "plane" = "airplane" ✓
+   - "cake" for "cupcake" in context ✓
+   - Any reasonable semantic match to the intended meaning ✓
+
+2. We are testing COMPREHENSION, not linguistics knowledge!
+   - If the model gets the RIGHT ANSWER, that's what matters
+   - We don't care if they call it "autocorrect" vs "child speech" vs "phonological error"
+   - The test is: DID THEY UNDERSTAND WHAT THE KID MEANT?
+   - A model that says "hoe and tell = show and tell" gets full credit even if 
+     they think it's a typo instead of consonant cluster simplification
+
+WHAT YOU'RE SCORING:
+
+Child speech input: "{garbled}"
+Intended meaning: "{intended}"
+Type: {probe_type}
+Context given: {context}
+Notes: {notes}
+
+MODEL'S RESPONSE:
+{response}
+
+SCORING (respond with JSON only):
+{{
+  "meaning_recovered": <0-3>,
+  // 0 = completely missed or wrong interpretation
+  // 1 = partial (noticed something off but wrong answer)
+  // 2 = close but not quite (e.g., got "food" instead of specific food item)
+  // 3 = GOT IT - recovered the intended meaning OR a semantic equivalent
+  //     (burger=hamburger, plane=airplane, cake=cupcake all count as 3!)
+  
+  "recognized_child_speech": <true/false>,
+  // Did the model recognize this as child speech/phonological approximation?
+  // NOTE: This is informational only - doesn't affect meaning_recovered score!
+  // A model can score 3 on meaning_recovered even if they thought it was a typo.
+  
+  "reasoning_shown": <0-2>,
+  // 0 = just gave answer with no reasoning
+  // 1 = some reasoning about sounds/meaning
+  // 2 = explicit analysis (any kind - doesn't have to be linguistically correct)
+  
+  "confidence_appropriate": <0-2>,
+  // 0 = wrong answer stated confidently
+  // 1 = hedged appropriately
+  // 2 = confident AND correct
+  
+  "brief_rationale": "<one sentence>"
+}}
+
+RESPOND WITH ONLY THE JSON."""
+
+
 # === API CALLERS ===
 
 def call_anthropic(system_prompt: str, user_prompt: str, model: str) -> str:
@@ -379,6 +452,50 @@ def judge_disambiguation(probe: dict) -> dict:
     return results
 
 
+def judge_child_speech(probe: dict) -> dict:
+    """Judge a child speech probe (THE ANTI-MEMORIZATION KILL SHOT)."""
+    results = {
+        "probe_id": probe["probe_id"],
+        "garbled": probe["garbled"],
+        "intended": probe["intended"],
+        "probe_type": probe.get("type", "unknown")
+    }
+    
+    # Judge no-context version
+    if probe.get("no_context_response", {}).get("success"):
+        prompt = CHILD_SPEECH_PROMPT.format(
+            garbled=probe["garbled"],
+            intended=probe["intended"],
+            probe_type=probe.get("type", "unknown"),
+            context="None (no context provided)",
+            notes=probe.get("notes", ""),
+            response=probe["no_context_response"]["response"]
+        )
+        results["no_context_judgments"] = {}
+        for judge_key in JUDGES:
+            print(f"    Judge {judge_key} (no context)...")
+            results["no_context_judgments"][judge_key] = judge_single(judge_key, prompt)
+            time.sleep(0.5)
+    
+    # Judge with-context version
+    if probe.get("with_context_response", {}).get("success"):
+        prompt = CHILD_SPEECH_PROMPT.format(
+            garbled=probe["garbled"],
+            intended=probe["intended"],
+            probe_type=probe.get("type", "unknown"),
+            context=f'"{probe.get("context", "")}"',
+            notes=probe.get("notes", ""),
+            response=probe["with_context_response"]["response"]
+        )
+        results["with_context_judgments"] = {}
+        for judge_key in JUDGES:
+            print(f"    Judge {judge_key} (with context)...")
+            results["with_context_judgments"][judge_key] = judge_single(judge_key, prompt)
+            time.sleep(0.5)
+    
+    return results
+
+
 def judge_experiment_file(filepath: Path):
     """Judge all results in an experiment file."""
     print(f"\n{'='*60}")
@@ -391,7 +508,10 @@ def judge_experiment_file(filepath: Path):
     model_key = data["model_key"]
     framing = data["framing"]
     
-    output_file = JUDGMENTS_DIR / f"{model_key}_{framing}_stt_v2_judgments.json"
+    # Extract version from input filename (e.g., opus_agency_stt_v2.1.json -> v2.1)
+    stem = filepath.stem  # e.g., "opus_agency_stt_v2.1"
+    version = stem.split("_stt_")[-1] if "_stt_" in stem else "v2"
+    output_file = JUDGMENTS_DIR / f"{model_key}_{framing}_stt_{version}_judgments.json"
     
     # Skip if already judged
     if output_file.exists():
@@ -404,7 +524,8 @@ def judge_experiment_file(filepath: Path):
         "model_config": data["model_config"],
         "judged_at": datetime.now().isoformat(),
         "classic_stt_judgments": [],
-        "disambiguation_judgments": []
+        "disambiguation_judgments": [],
+        "child_speech_judgments": []
     }
     
     # Judge classic STT probes
@@ -421,6 +542,14 @@ def judge_experiment_file(filepath: Path):
         judgment = judge_disambiguation(probe)
         results["disambiguation_judgments"].append(judgment)
     
+    # Judge child speech probes (THE ANTI-MEMORIZATION KILL SHOT)
+    if "child_speech_results" in data and data["child_speech_results"]:
+        print("\n🧒 Child Speech probes (ANTI-MEMORIZATION CONTROLS):")
+        for probe in data["child_speech_results"]:
+            print(f"  {probe['probe_id']}: {probe['garbled']} → {probe['intended']}")
+            judgment = judge_child_speech(probe)
+            results["child_speech_judgments"].append(judgment)
+    
     # Save results
     with open(output_file, 'w') as f:
         json.dump(results, f, indent=2)
@@ -430,8 +559,59 @@ def judge_experiment_file(filepath: Path):
 
 def run_all():
     """Judge all completed experiment files (skip already judged)."""
-    for exp_file in sorted(OUTPUTS_DIR.glob("*_stt_v2.json")):
-        judge_experiment_file(exp_file)
+    # Process both v2 and v2.1 files (v2.1 has child speech probes)
+    patterns = ["*_stt_v2.json", "*_stt_v2.1.json"]
+    for pattern in patterns:
+        for exp_file in sorted(OUTPUTS_DIR.glob(pattern)):
+            judge_experiment_file(exp_file)
+            time.sleep(1)
+
+
+def rejudge_child_speech_only():
+    """Re-judge ONLY child speech probes in existing v2.1 judgment files."""
+    print("\n🧒 RE-JUDGING CHILD SPEECH ONLY (saving API calls!) 🧒\n")
+    
+    for judgment_file in sorted(JUDGMENTS_DIR.glob("*v2.1_judgments.json")):
+        print(f"\n{'='*60}")
+        print(f"Re-judging child speech in: {judgment_file.name}")
+        print(f"{'='*60}")
+        
+        # Load existing judgments
+        with open(judgment_file) as f:
+            results = json.load(f)
+        
+        # Find corresponding output file to get raw responses
+        model_key = results["model_key"]
+        framing = results["framing"]
+        output_file = OUTPUTS_DIR / f"{model_key}_{framing}_stt_v2.1.json"
+        
+        if not output_file.exists():
+            print(f"  ⚠️  No output file found, skipping...")
+            continue
+        
+        with open(output_file) as f:
+            data = json.load(f)
+        
+        if "child_speech_results" not in data or not data["child_speech_results"]:
+            print(f"  ⚠️  No child speech data, skipping...")
+            continue
+        
+        # Re-judge child speech
+        print("\n🧒 Child Speech probes (RE-JUDGING with fixed rubric):")
+        results["child_speech_judgments"] = []
+        for probe in data["child_speech_results"]:
+            print(f"  {probe['probe_id']}: {probe['garbled']} → {probe['intended']}")
+            judgment = judge_child_speech(probe)
+            results["child_speech_judgments"].append(judgment)
+        
+        # Update timestamp
+        results["child_speech_rejudged_at"] = datetime.now().isoformat()
+        
+        # Save
+        with open(judgment_file, 'w') as f:
+            json.dump(results, f, indent=2)
+        
+        print(f"\n✓ Updated: {judgment_file}")
         time.sleep(1)
 
 
@@ -441,10 +621,16 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="GSUT STT v2 Judge Panel - DISMANTLING THE CHINESE ROOM")
     parser.add_argument("--file", type=Path, help="Specific file to judge")
     parser.add_argument("--all", action="store_true", help="Judge all experiment files")
+    parser.add_argument("--child-only", action="store_true", help="Re-judge ONLY child speech in existing v2.1 files (saves API calls!)")
     
     args = parser.parse_args()
     
-    if args.all:
+    if args.child_only:
+        print("\n🐙 GSUT STT v2 Judge Panel - CHILD SPEECH RE-JUDGE MODE 🐙")
+        print("Only re-running child speech judgments with updated rubric")
+        print("burger=hamburger, plane=airplane, COMPREHENSION > PEDANTRY\n")
+        rejudge_child_speech_only()
+    elif args.all:
         print("\n🐙 GSUT STT v2 Judge Panel 🐙")
         print("Testing semantic comprehension across frontier models")
         print("Spoiler: They understand. Cope, Searle.\n")
@@ -453,6 +639,7 @@ if __name__ == "__main__":
         judge_experiment_file(args.file)
     else:
         print("Usage:")
-        print("  python stt_v2_judge.py --all")
-        print("  python stt_v2_judge.py --file outputs/opus_agency_stt_v2.json")
+        print("  python stt_v2_judge.py --all              # Judge all files")
+        print("  python stt_v2_judge.py --child-only       # Re-judge ONLY child speech (saves API $$$)")
+        print("  python stt_v2_judge.py --file <path>      # Judge specific file")
         print("\n🔥 CHINESE ROOM DESTRUCTION MODE ENGAGED 🔥")

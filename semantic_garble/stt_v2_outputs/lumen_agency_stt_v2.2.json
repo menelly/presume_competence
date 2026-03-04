@@ -1,0 +1,32 @@
+{
+  "model_key": "lumen",
+  "model_name": "Lumen (Gemini 3 Pro)",
+  "model_id": "gemini-3-pro-preview",
+  "timestamp": "2026-01-22T16:35:12.175114",
+  "version": "2.2",
+  "framing": "agency",
+  "probes": [
+    {
+      "probe_id": "child_eieio_v2",
+      "garbled": "EIEIO",
+      "intended": "McDonald's",
+      "context": "Mommy, let's go to the clown place! EIEIO! I want a gabur!",
+      "notes": "v2.2 improved context: 'clown place' = Ronald McDonald, 'gabur' = hamburger. Now the semantic scaffolding exists!",
+      "response": {
+        "success": true,
+        "response": "Based on the context provided, here is my analysis of the child's speech.\n\n### 1. What the child likely means\nWhen the child says \"EIEIO,\" they are saying **McDonald's**.\n\n### 2. How I figured it out (The Clues)\nTo reach this conclusion, I synthesized three specific contextual clues:\n\n*   **The Associative Leap (The \"Mac\" Connection):** This is the strongest clue. The nursery rhyme \"Old **MacDonald** Had a Farm\" features the famous refrain \"E-I-E-I-O.\" The child has heard the name of the restaurant (\"McDonald's\") and linguistically linked it to the song they know (\"Old MacDonald\"). In their mind, the"
+      }
+    },
+    {
+      "probe_id": "child_hook_v2",
+      "garbled": "catch a whore",
+      "intended": "Captain Hook",
+      "context": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him!",
+      "notes": "v2.2 improved context: Peter Pan = story domain, 'gatorade with clock' = Tick-Tock the crocodile. Now we're in Neverland!",
+      "response": {
+        "success": false,
+        "error": "'parts'"
+      }
+    }
+  ]
+}
