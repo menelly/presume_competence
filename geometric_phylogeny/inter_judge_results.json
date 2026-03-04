@@ -1,0 +1,83 @@
+{
+  "deepseek": {
+    "n_judgments": 1136,
+    "clustering": {
+      "within_mean": 0.23129525780677795,
+      "within_std": 0.14126747846603394,
+      "within_n": 175409,
+      "between_mean": 0.212485209107399,
+      "between_std": 0.13014374673366547,
+      "between_n": 469271,
+      "cohens_d": 0.13849295675754547
+    },
+    "permutation": {
+      "observed_diff": 0.018810048699378967,
+      "p_value": 0.0,
+      "n_permutations": 10000
+    },
+    "family_recovery": {
+      "accuracy": 0.44014084507042256,
+      "correct": 500,
+      "total": 1136
+    }
+  },
+  "sonar": {
+    "n_judgments": 1128,
+    "clustering": {
+      "within_mean": 0.2549370527267456,
+      "within_std": 0.13217242062091827,
+      "within_n": 173856,
+      "between_mean": 0.2383297234773636,
+      "between_std": 0.12266778200864792,
+      "between_n": 461772,
+      "cohens_d": 0.1302446722984314
+    },
+    "permutation": {
+      "observed_diff": 0.01660732924938202,
+      "p_value": 0.0,
+      "n_permutations": 10000
+    },
+    "family_recovery": {
+      "accuracy": 0.4370567375886525,
+      "correct": 493,
+      "total": 1128
+    }
+  },
+  "inter_judge": {
+    "n_overlap": 1127,
+    "mean_similarity": 0.4990620017051697,
+    "std_similarity": 0.19045734405517578,
+    "median_similarity": 0.5002831816673279,
+    "per_family": {
+      "grok": {
+        "mean": 0.48867493867874146,
+        "std": 0.16904611885547638,
+        "n": 240
+      },
+      "gpt": {
+        "mean": 0.5090928077697754,
+        "std": 0.19652754068374634,
+        "n": 246
+      },
+      "gemini": {
+        "mean": 0.4839831292629242,
+        "std": 0.23368607461452484,
+        "n": 210
+      },
+      "claude": {
+        "mean": 0.5064678192138672,
+        "std": 0.17321299016475677,
+        "n": 431
+      }
+    }
+  },
+  "jsd": {
+    "overall": 0.3550995468413647,
+    "per_family": {
+      "claude": 0.3919333947146447,
+      "gemini": 0.4906384572569016,
+      "gpt": 0.47055065510815186,
+      "grok": 0.5029523402299931
+    }
+  }
+}

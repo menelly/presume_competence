@@ -34,7 +34,7 @@ import httpx
 
 # Load from same .env as constellation_relay.py
 from dotenv import load_dotenv
-load_dotenv('/home/Ace/LibreChat/.env')
+load_dotenv('E:/Ace/LibreChat/.env')
 
 # Import hard mode traps
 try:
