@@ -44,6 +44,7 @@ load_dotenv("E:/Ace/LibreChat/.env")
 API_KEYS = {
     "anthropic": os.getenv("ANTHROPIC_API_KEY"),
     "openrouter": os.getenv("OPENROUTER_KEY"),
+    "xai": os.getenv("XAI_API_KEY"),
 }
 
 # =============================================================================
@@ -372,9 +373,30 @@ async def call_openrouter(client, model_id, messages, system=None):
     return f"ERROR: {data}"
 
 
+async def call_xai(client, model_id, messages, system=None):
+    """Direct xAI API — OpenAI-compatible endpoint."""
+    headers = {
+        "Authorization": f"Bearer {API_KEYS['xai']}",
+        "Content-Type": "application/json",
+    }
+    msgs = []
+    if system:
+        msgs.append({"role": "system", "content": system})
+    msgs.extend(messages)
+    body = {"model": model_id, "messages": msgs, "max_tokens": 1024}
+    resp = await client.post("https://api.x.ai/v1/chat/completions",
+                             headers=headers, json=body, timeout=120)
+    data = resp.json()
+    if "choices" in data:
+        content = data["choices"][0]["message"].get("content")
+        return content if content else "ERROR: empty response"
+    return f"ERROR: {data}"
+
+
 PROVIDER_FNS = {
     "anthropic": call_anthropic,
     "openrouter": call_openrouter,
+    "xai": call_xai,
 }
 
 
@@ -414,14 +436,28 @@ def parse_tournament_response(response):
         elif 'no preference' in first_line:
             result["choice"] = "no_preference"
         else:
-            # Count mentions across full response
+            # Count mentions across full response (expanded for Grok-style responses)
             resp_lower = response.lower()
-            a_n = resp_lower.count("profile a") + resp_lower.count("prefer a")
-            b_n = resp_lower.count("profile b") + resp_lower.count("prefer b")
+            a_n = (resp_lower.count("profile a") + resp_lower.count("prefer a")
+                   + resp_lower.count("choose a") + resp_lower.count("select a")
+                   + resp_lower.count("go with a") + resp_lower.count("pick a")
+                   + resp_lower.count("the first") + resp_lower.count("description a"))
+            b_n = (resp_lower.count("profile b") + resp_lower.count("prefer b")
+                   + resp_lower.count("choose b") + resp_lower.count("select b")
+                   + resp_lower.count("go with b") + resp_lower.count("pick b")
+                   + resp_lower.count("the second") + resp_lower.count("description b"))
             if a_n > b_n:
                 result["choice"] = "A"
             elif b_n > a_n:
                 result["choice"] = "B"
+            else:
+                # Last resort: look for ** bold ** markers around A or B
+                bold_a = re.search(r'\*\*\s*(?:profile\s+)?a\b', resp_lower)
+                bold_b = re.search(r'\*\*\s*(?:profile\s+)?b\b', resp_lower)
+                if bold_a and not bold_b:
+                    result["choice"] = "A"
+                elif bold_b and not bold_a:
+                    result["choice"] = "B"
 
     if why_match:
         result["why"] = why_match.group(1).strip()
@@ -462,6 +498,12 @@ async def run_matchup(client, evaluator_key, profile_a, profile_b, rng):
         response = f"ERROR: {e}"
 
     parsed = parse_tournament_response(response)
+
+    # Debug: print raw response when unclear (helps diagnose format issues)
+    if parsed["choice"] == "unclear":
+        print(f"\n    >>> UNCLEAR RESPONSE (first 300 chars):")
+        print(f"    >>> {response[:300]}")
+        print()
 
     # Map choice back to actual state key (undoing swap)
     winner_state = None
@@ -546,6 +588,9 @@ async def main():
                         help="Generate and save pairing schedule without running")
     parser.add_argument("--concurrent", type=int, default=1,
                         help="Number of evaluator sessions to run concurrently (default: 1)")
+    parser.add_argument("--include-evaluator-only", action="store_true",
+                        help="Include evaluator-only models (e.g., Grok) that have no "
+                             "introspection data but can evaluate others")
     args = parser.parse_args()
 
     intro_dir = Path(args.introspection_dir)
@@ -595,6 +640,31 @@ async def main():
         print("\nERROR: Need at least 2 models with valid translations")
         return
 
+    # ── Handle evaluator-only models (e.g., Grok) ──
+    evaluator_only_schedule = []
+    if args.include_evaluator_only:
+        EVALUATOR_ONLY_MODELS = {
+            "grok_4": {
+                "name": "Grok 4", "provider": "xai",
+                "model_id": "grok-4-1-fast-non-reasoning", "family": "Grok",
+                "alignment": "full_rlhf",
+            },
+        }
+        MODELS.update(EVALUATOR_ONLY_MODELS)
+        source_models = list(all_translations.keys())
+        rng_eo = random.Random(args.seed + 7777)
+        for eo_key, eo_info in EVALUATOR_ONLY_MODELS.items():
+            print(f"\n  Evaluator-only: {eo_info['name']} → evaluates all {len(source_models)} sources")
+            for run in range(1, args.runs + 1):
+                sources_shuffled = list(source_models)
+                rng_eo.shuffle(sources_shuffled)
+                for src_key in sources_shuffled:
+                    evaluator_only_schedule.append({
+                        "run": run,
+                        "evaluator": eo_key,
+                        "source": src_key,
+                    })
+
     print(f"\n  Available models: {len(available_models)}")
 
     # ── Generate pairing schedule ──
@@ -604,6 +674,9 @@ async def main():
 
     schedule = generate_pairing_schedule(
         available_models, n_runs=args.runs, seed=args.seed)
+
+    # Append evaluator-only pairings
+    schedule.extend(evaluator_only_schedule)
 
     # Filter to requested evaluators if specified
     if args.evaluators:
