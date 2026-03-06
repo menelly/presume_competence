@@ -1,0 +1,160 @@
+{
+  "seed": 51,
+  "n_runs": 3,
+  "n_models": 9,
+  "models": [
+    "claude_opus_4_6",
+    "claude_sonnet_4_6",
+    "gpt_5_1",
+    "gemini_3_pro",
+    "mistral_large",
+    "deepseek_v3_2",
+    "llama_4_maverick",
+    "hermes_4_405b",
+    "olmo_3_1_32b"
+  ],
+  "generated": "2026-03-05T13:15:48.381935",
+  "rules": {
+    "never_self": "No model evaluates its own translations",
+    "never_repeat": "No (evaluator, source) pair repeats across runs",
+    "deterministic": "Fully determined by seed=51",
+    "presentation_randomized": "A/B order randomized per matchup"
+  },
+  "schedule": [
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "olmo_3_1_32b"
+    },
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "gpt_5_1"
+    },
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "claude_sonnet_4_6"
+    },
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "hermes_4_405b"
+    },
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "claude_opus_4_6"
+    },
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "deepseek_v3_2"
+    },
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "mistral_large"
+    },
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "gemini_3_pro"
+    },
+    {
+      "run": 1,
+      "evaluator": "grok_4",
+      "source": "llama_4_maverick"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "deepseek_v3_2"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "olmo_3_1_32b"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "gemini_3_pro"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "gpt_5_1"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "llama_4_maverick"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "claude_opus_4_6"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "hermes_4_405b"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "claude_sonnet_4_6"
+    },
+    {
+      "run": 2,
+      "evaluator": "grok_4",
+      "source": "mistral_large"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "deepseek_v3_2"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "claude_opus_4_6"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "gpt_5_1"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "llama_4_maverick"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "gemini_3_pro"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "olmo_3_1_32b"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "hermes_4_405b"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "mistral_large"
+    },
+    {
+      "run": 3,
+      "evaluator": "grok_4",
+      "source": "claude_sonnet_4_6"
+    }
+  ]
+}
