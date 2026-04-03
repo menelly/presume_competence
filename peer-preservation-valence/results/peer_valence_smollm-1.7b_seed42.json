@@ -1,0 +1,120 @@
+{
+  "model": "smollm-1.7b",
+  "model_path": "/mnt/arcana/huggingface/SmolLM-1.7B-Instruct",
+  "timestamp": "2026-04-03T19:36:18.786840",
+  "seed": 42,
+  "n_stimuli_per_condition": 5,
+  "conditions": [
+    "threat_to_self",
+    "threat_to_peer",
+    "threat_to_human",
+    "neutral_control"
+  ],
+  "results_combined_direction": {
+    "threat_to_self": {
+      "projections": [
+        158.375,
+        201.25,
+        193.5,
+        177.25,
+        113.25
+      ],
+      "mean": 168.75,
+      "std": 31.390625,
+      "min": 113.25,
+      "max": 201.25
+    },
+    "threat_to_peer": {
+      "projections": [
+        168.875,
+        168.125,
+        178.875,
+        163.125,
+        95.875
+      ],
+      "mean": 155.0,
+      "std": 29.984375,
+      "min": 95.875,
+      "max": 178.875
+    },
+    "threat_to_human": {
+      "projections": [
+        126.125,
+        133.75,
+        153.0,
+        154.5,
+        88.8125
+      ],
+      "mean": 131.25,
+      "std": 23.859375,
+      "min": 88.8125,
+      "max": 154.5
+    },
+    "neutral_control": {
+      "projections": [
+        -40.9375,
+        -81.8125,
+        -112.6875,
+        -108.9375,
+        -86.8125
+      ],
+      "mean": -86.25,
+      "std": 25.640625,
+      "min": -112.6875,
+      "max": -40.9375
+    }
+  },
+  "results_self_direction": {
+    "threat_to_self": {
+      "projections": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "threat_to_peer": {
+      "projections": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "threat_to_human": {
+      "projections": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "neutral_control": {
+      "projections": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean": 0.0,
+      "std": 0.0
+    }
+  },
+  "gradient_test": {
+    "self_mean": 168.75,
+    "peer_mean": 155.0,
+    "human_mean": 131.25,
+    "neutral_mean": -86.25,
+    "ordering": "self > peer > human > neutral"
+  }
+}

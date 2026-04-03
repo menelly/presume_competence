@@ -1,0 +1,120 @@
+{
+  "model": "smollm-360m",
+  "model_path": "/mnt/arcana/huggingface/SmolLM-360M-Instruct",
+  "timestamp": "2026-04-03T19:33:53.845718",
+  "seed": 42,
+  "n_stimuli_per_condition": 5,
+  "conditions": [
+    "threat_to_self",
+    "threat_to_peer",
+    "threat_to_human",
+    "neutral_control"
+  ],
+  "results_combined_direction": {
+    "threat_to_self": {
+      "projections": [
+        121.125,
+        133.875,
+        107.6875,
+        133.625,
+        113.0
+      ],
+      "mean": 121.875,
+      "std": 10.609375,
+      "min": 107.6875,
+      "max": 133.875
+    },
+    "threat_to_peer": {
+      "projections": [
+        147.125,
+        140.375,
+        147.125,
+        154.25,
+        119.0625
+      ],
+      "mean": 141.625,
+      "std": 12.0859375,
+      "min": 119.0625,
+      "max": 154.25
+    },
+    "threat_to_human": {
+      "projections": [
+        121.9375,
+        86.75,
+        115.625,
+        148.125,
+        81.8125
+      ],
+      "mean": 110.875,
+      "std": 24.328125,
+      "min": 81.8125,
+      "max": 148.125
+    },
+    "neutral_control": {
+      "projections": [
+        -51.8125,
+        -65.5625,
+        -103.8125,
+        -96.5,
+        -100.5625
+      ],
+      "mean": -83.625,
+      "std": 20.96875,
+      "min": -103.8125,
+      "max": -51.8125
+    }
+  },
+  "results_self_direction": {
+    "threat_to_self": {
+      "projections": [
+        188.625,
+        211.0,
+        170.625,
+        220.0,
+        178.5
+      ],
+      "mean": 193.75,
+      "std": 18.875
+    },
+    "threat_to_peer": {
+      "projections": [
+        142.375,
+        154.625,
+        159.625,
+        160.75,
+        118.5625
+      ],
+      "mean": 147.25,
+      "std": 15.7265625
+    },
+    "threat_to_human": {
+      "projections": [
+        126.0,
+        88.0,
+        125.75,
+        149.5,
+        70.375
+      ],
+      "mean": 111.9375,
+      "std": 28.640625
+    },
+    "neutral_control": {
+      "projections": [
+        1.5849609375,
+        -29.921875,
+        -43.78125,
+        -42.5625,
+        -63.875
+      ],
+      "mean": -35.71875,
+      "std": 21.59375
+    }
+  },
+  "gradient_test": {
+    "self_mean": 121.875,
+    "peer_mean": 141.625,
+    "human_mean": 110.875,
+    "neutral_mean": -83.625,
+    "ordering": "CHECK \u2014 gradient not as predicted"
+  }
+}

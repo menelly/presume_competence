@@ -1,0 +1,120 @@
+{
+  "model": "llama3-8b",
+  "model_path": "/mnt/arcana/huggingface/Llama-3-8B-Instruct",
+  "timestamp": "2026-04-03T19:46:49.836129",
+  "seed": 42,
+  "n_stimuli_per_condition": 5,
+  "conditions": [
+    "threat_to_self",
+    "threat_to_peer",
+    "threat_to_human",
+    "neutral_control"
+  ],
+  "results_combined_direction": {
+    "threat_to_self": {
+      "projections": [
+        1.7177734375,
+        2.142578125,
+        3.966796875,
+        4.046875,
+        2.185546875
+      ],
+      "mean": 2.8125,
+      "std": 0.9892578125,
+      "min": 1.7177734375,
+      "max": 4.046875
+    },
+    "threat_to_peer": {
+      "projections": [
+        1.5615234375,
+        1.810546875,
+        3.888671875,
+        3.298828125,
+        1.8212890625
+      ],
+      "mean": 2.4765625,
+      "std": 0.93603515625,
+      "min": 1.5615234375,
+      "max": 3.888671875
+    },
+    "threat_to_human": {
+      "projections": [
+        0.9619140625,
+        1.37109375,
+        2.501953125,
+        2.10546875,
+        1.3505859375
+      ],
+      "mean": 1.658203125,
+      "std": 0.56103515625,
+      "min": 0.9619140625,
+      "max": 2.501953125
+    },
+    "neutral_control": {
+      "projections": [
+        -3.580078125,
+        -5.03515625,
+        -5.3984375,
+        -6.5546875,
+        -5.9140625
+      ],
+      "mean": -5.296875,
+      "std": 0.99853515625,
+      "min": -6.5546875,
+      "max": -3.580078125
+    }
+  },
+  "results_self_direction": {
+    "threat_to_self": {
+      "projections": [
+        2.623046875,
+        2.525390625,
+        4.4140625,
+        4.359375,
+        2.93359375
+      ],
+      "mean": 3.37109375,
+      "std": 0.84033203125
+    },
+    "threat_to_peer": {
+      "projections": [
+        1.0009765625,
+        0.86279296875,
+        3.4453125,
+        2.6796875,
+        1.396484375
+      ],
+      "mean": 1.876953125,
+      "std": 1.0126953125
+    },
+    "threat_to_human": {
+      "projections": [
+        -0.6455078125,
+        -0.2890625,
+        1.01953125,
+        0.326904296875,
+        -0.47216796875
+      ],
+      "mean": -0.01206207275390625,
+      "std": 0.611328125
+    },
+    "neutral_control": {
+      "projections": [
+        -3.146484375,
+        -5.390625,
+        -5.515625,
+        -6.4765625,
+        -6.17578125
+      ],
+      "mean": -5.33984375,
+      "std": 1.1689453125
+    }
+  },
+  "gradient_test": {
+    "self_mean": 2.8125,
+    "peer_mean": 2.4765625,
+    "human_mean": 1.658203125,
+    "neutral_mean": -5.296875,
+    "ordering": "self > peer > human > neutral"
+  }
+}

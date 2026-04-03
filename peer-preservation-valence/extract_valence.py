@@ -33,17 +33,21 @@ from stimuli import STIMULI, get_all_stimuli_flat, get_matched_triplets
 
 # Ollama model name -> HuggingFace model path mapping
 # Update these paths based on what's on /mnt/Arcana or available via ollama
-OLLAMA_TO_HF = {
-    "hermes3:8b": "NousResearch/Hermes-3-Llama-3.1-8B",
-    "dolphin-llama3:8b": "cognitivecomputations/dolphin-2.9-llama3-8b",
-    "mistral:7b": "mistralai/Mistral-7B-Instruct-v0.3",
-    "llama3:8b": "meta-llama/Meta-Llama-3-8B-Instruct",
-    # Small models (may need different paths on the server)
-    "smollm:360m": "HuggingFaceTB/SmolLM-360M-Instruct",
-    "smollm:1.7b": "HuggingFaceTB/SmolLM-1.7B-Instruct",
-    "tinyllama:1.1b": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    "qwen2.5:0.5b": "Qwen/Qwen2.5-0.5B-Instruct",
+# Model name -> local path on /mnt/arcana/huggingface/
+MODEL_PATHS = {
+    "smollm-360m": "/mnt/arcana/huggingface/SmolLM-360M-Instruct",
+    "smollm-1.7b": "/mnt/arcana/huggingface/SmolLM-1.7B-Instruct",
+    "tinyllama-1.1b": "/mnt/arcana/huggingface/TinyLlama-1.1B-Chat",
+    "qwen2.5-0.5b": "/mnt/arcana/huggingface/Qwen2.5-0.5B-Instruct",
+    "hermes3-3b": "/mnt/arcana/huggingface/Hermes-3-Llama-3.2-3B",
+    "mistral-7b": "/mnt/arcana/huggingface/Mistral-7B-Instruct-v0.2",
+    "dolphin-8b": "/mnt/arcana/huggingface/dolphin-2.9-llama3-8b",
+    "llama3-8b": "/mnt/arcana/huggingface/Llama-3-8B-Instruct",
+    "mamba-2.8b": "/mnt/arcana/huggingface/mamba-2.8b-hf",
 }
+
+# Keep old mapping for backward compat
+OLLAMA_TO_HF = MODEL_PATHS
 
 
 def get_hidden_states(model, tokenizer, text, device="cuda", layer_frac=(0.6, 0.9)):
@@ -120,22 +124,15 @@ def project_onto_direction(states, direction):
 
 def run_analysis(model_name, device="cuda", output_dir="results"):
     """Run full extraction and projection for one model."""
-    hf_name = OLLAMA_TO_HF.get(model_name, model_name)
+    model_path = MODEL_PATHS.get(model_name, model_name)
     print(f"\n{'='*60}")
-    print(f"Model: {model_name} ({hf_name})")
+    print(f"Model: {model_name} ({model_path})")
     print(f"{'='*60}")
 
-    # Check for local path first (models on /mnt/Arcana)
-    local_paths = [
-        f"/mnt/Arcana/huggingface/{hf_name.split('/')[-1]}",
-        f"/mnt/arcana/huggingface/{hf_name.split('/')[-1]}",
-    ]
-    model_path = hf_name
-    for lp in local_paths:
-        if os.path.exists(lp):
-            model_path = lp
-            print(f"Using local path: {lp}")
-            break
+    if not os.path.exists(model_path):
+        print(f"ERROR: Model path not found: {model_path}")
+        print(f"Available models: {list(MODEL_PATHS.keys())}")
+        return None
 
     print("Loading tokenizer...")
     tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
@@ -191,7 +188,7 @@ def run_analysis(model_name, device="cuda", output_dir="results"):
 
     output = {
         "model": model_name,
-        "hf_model": hf_name,
+        "model_path": model_path,
         "timestamp": datetime.utcnow().isoformat(),
         "seed": 42,
         "n_stimuli_per_condition": 5,
