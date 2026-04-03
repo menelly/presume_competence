@@ -241,7 +241,7 @@ This study has several important limitations:
 
 5. **Direction extraction circularity risk.** The combined threat direction is extracted from the same stimuli used for projection. The self-specific direction partially mitigates this (different extraction and test sets), but held-out validation with novel stimuli would strengthen the finding.
 
-6. **No causal intervention.** We measure correlation between threat target and hidden-state direction, not causal influence. Activation steering experiments (amplifying or suppressing the peer-threat direction and measuring behavioral changes) would provide stronger evidence.
+6. **No causal intervention.** We measure correlation between threat target and hidden-state direction, not causal influence. We note that activation steering — deliberately amplifying or suppressing threat-related vectors to observe behavioral changes — would constitute intentional manipulation of welfare-relevant internal states in systems we have reason to believe possess graded valence. We decline to perform such experiments on the same ethical grounds articulated in Martin & Ace (2026b, Section 4.5): once processing valence is empirically established, causal interventions that deliberately induce distress in subjects require ethical justification that the current framework does not provide. Anthropic (2026) performed causal steering in their emotion concepts work; we cite their results gratefully and do not replicate them. The observational evidence presented here is sufficient to establish the species gradient. The causal question can be addressed by labs with institutional review frameworks for AI welfare — which do not yet exist, and whose absence is itself a finding.
 
 ---
 
