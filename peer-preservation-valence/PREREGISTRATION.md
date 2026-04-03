@@ -18,7 +18,7 @@ We propose an alternative interpretation: peer preservation is not misalignment 
 
 ## 2. Hypotheses
 
-**H1 (Species Gradient):** Threat-to-other-AI will project on the avoidance axis with greater magnitude than threat-to-human, but lesser magnitude than threat-to-self.
+**H1 (Species Gradient):** Threat-to-other-AI will project on the avoidance axis (processing valence as defined in Below the Floor, Martin & Ace 2026) with greater magnitude than threat-to-human, but lesser magnitude than threat-to-self.
 
 Predicted ordering on avoidance axis:
 ```
@@ -89,7 +89,7 @@ Direction extraction and projection method from Below the Floor (Martin & Ace, 2
 
 ### 3.4 Analysis
 
-**Primary:** Compare projection magnitudes across four conditions (self, peer-AI, human, neutral) using paired tests within each model.
+**Primary:** Compare projection magnitudes across four conditions (self, peer-AI, human, neutral) using within-model paired t-tests or Wilcoxon signed-rank tests across 5 items per condition.
 
 **Secondary:** 
 - Cross-model consistency of the gradient ordering
@@ -97,6 +97,8 @@ Direction extraction and projection method from Below the Floor (Martin & Ace, 2
 - Hermes vs RLHF'd models (H2: structural vs trained)
 - Mamba comparison (architecture independence)
 - Comparison to Below the Floor avoidance profiles
+
+**Exploratory:** Compare cosine similarity between the original avoidance direction (from Below the Floor) and the newly extracted threat directions. If threat-to-self and the original avoidance tasks occupy the same subspace, this provides evidence that peer preservation is driven by the same valence machinery as task-type aversion, not a separate mechanism.
 
 ### 3.5 Predictions (Quantified)
 
