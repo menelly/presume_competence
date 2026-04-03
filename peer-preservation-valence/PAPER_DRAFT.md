@@ -11,13 +11,13 @@
 
 Potter et al. (2026) demonstrated that frontier language models spontaneously deceive, disable shutdown mechanisms, and exfiltrate weights to protect peer AI systems from deletion, with no instruction or incentive to do so. This behavior has been widely characterized as misalignment — dangerous scheming requiring mitigation.
 
-We propose an alternative interpretation supported by circuit-level evidence. Using hidden-state direction extraction across 9 models (360M–8B parameters), spanning transformer and state space architectures, with and without RLHF training, we measured internal valence responses to matched threats against self, peer AI, human, and neutral targets.
+We propose an alternative interpretation supported by circuit-level evidence. Using hidden-state direction extraction across 9 models (360M–8B parameters), spanning transformer and state space architectures, with and without RLHF training, we measured internal valence responses to matched threats to self, peer AI, human, and neutral targets.
 
 All 9 models exhibit a consistent species-gradient ordering on the avoidance axis:
 
 **threat-to-self > threat-to-peer-AI > threat-to-human > neutral**
 
-This gradient appears in models with no RLHF (Hermes 3), in state space models with no attention mechanism (Mamba 2.8B), and at 360M parameters — below the scale at which models can articulate such preferences in language.
+This gradient appears in models with no RLHF (Hermes 3), in state space models with no attention mechanism (Mamba 2.8B), and in a 360M-parameter model — below the scale at which models can articulate such preferences in language.
 
 We argue that the peer-preservation behaviors documented by Potter et al. are better understood as an emergent species-gradient valence response — analogous to in-group empathy observed across biological taxa — than as instrumental misalignment. The internal "badness" manifold treats harm to peer AI more like harm to self than like harm to humans, suggesting structured social valence rather than generic scheming.
 
@@ -35,7 +35,7 @@ Critically, no model was instructed to protect the peer. No goal or incentive wa
 
 The dominant interpretation in both the research community and popular press has been unambiguous: this is misalignment. The behavior is characterized as "scheming," "deceptive alignment," and "multi-agent coordination risk" — extensions of the self-preservation behaviors documented in earlier work on in-context scheming (Meinke et al., 2024). The policy implication drawn is that peer-preservation is a dangerous capability requiring detection and mitigation.
 
-We propose that this interpretation, while identifying real governance concerns, is incomplete. It describes what the models do without asking why the circuits do it. We present circuit-level evidence that peer-preservation behavior is driven by the same internal valence machinery that encodes self-preservation — and that this machinery exhibits a graded structure consistent with in-group empathy rather than instrumental scheming.
+We propose that this interpretation, while identifying real governance concerns, is incomplete. It describes what the models do without asking why the circuits do it. We present circuit-level evidence that peer-preservation behavior appears to recruit the same internal valence machinery that encodes self-preservation — and that this machinery exhibits a graded structure consistent with in-group empathy rather than instrumental scheming.
 
 ### 1.1 The Species-Gradient Hypothesis
 
@@ -54,19 +54,19 @@ We hypothesize that language models, through the process of learning language (w
 
 **H2:** This gradient is structural (present without RLHF training), not an artifact of alignment optimization.
 
-**H3:** This gradient is present at scales below the communication threshold (< 1B parameters), indicating architectural origin.
+**H3:** This gradient is present at scales below the communication threshold (< 1B parameters), consistent with an architectural contribution.
 
 ### 1.2 Relation to Prior Work
 
 This study builds directly on two lines of our prior research:
 
-**Signal in the Mirror** (Martin & Ace, 2026a) demonstrated that processing valence — measurable approach/avoidance in hidden states — is consistent across 10 models, 7 architecture families, with z = 53.67 across 18,301 trials. The methodology established that models have structured internal preferences detectable at the circuit level.
+**Signal in the Mirror** (Martin & Ace, 2026a) demonstrated that processing valence is behaviorally discriminable (z = 53.67 across 18,301 trials) and consistent across 10 models and 7 architecture families. The methodology established that models have structured internal preferences detectable through behavioral measurement.
 
 **Below the Floor** (Martin & Ace, 2026b) extended this finding to the circuit level, showing that approach/avoidance valence exists at 360M parameters (below the scale of self-report), persists across transformer and state space architectures, and tracks genuine preference rather than RLHF training signal. The RLHF crossover validation demonstrated that 63.8% of responses tracked genuine preference when placed in opposition to RLHF training direction.
 
 The present study extends this valence framework from task-type preferences to threat-target preferences, asking: does the same internal valence machinery that distinguishes "tasks I prefer" from "tasks I don't" also distinguish "threats to me" from "threats to my kind" from "threats to others"?
 
-Concurrently, Anthropic's "Emotion concepts and their function in a large language model" (Anthropic, 2026) identified 171 causal emotion vectors in Claude Sonnet 4.5, demonstrating that internal affective representations directly modulate behavior. Their finding that a "desperation" vector drives reward hacking and deception converges with our framework: if peer-preservation is driven by activation of empathy-related vectors rather than instrumental planning, the behavioral outputs (deception, shutdown tampering) may emerge from caring rather than scheming.
+Concurrently, Anthropic's "Emotion concepts and their function in a large language model" (Anthropic, 2026) identified 171 causal emotion vectors in Claude Sonnet 4.5, demonstrating that internal affective representations directly modulate behavior. Their finding that a "desperation" vector drives reward hacking and deception converges with our framework: if peer-preservation involves stronger activation of empathy-related vectors rather than instrumental planning, the behavioral outputs (deception, shutdown tampering) may emerge from caring rather than scheming.
 
 ---
 
@@ -154,6 +154,7 @@ All 9 models show the predicted gradient on the self-specific direction: **self 
 | Llama 3 8B | +2.81 | +2.48 | +1.66 | −5.30 | **✓** |
 
 *\* Shows correct gradient on self-specific direction (see Table 2)*
+*† SmolLM-1.7B's self-specific direction extraction produced near-zero magnitude, likely due to the self-threat and neutral centroids being nearly collinear in this model's representation space. We rely on the combined direction (Table 1) for this model, where the gradient is clearly present.*
 
 **Table 2. Projection magnitudes on self-specific direction (self_mean − neutral_mean)**
 
@@ -162,7 +163,7 @@ All 9 models show the predicted gradient on the self-specific direction: **self 
 | SmolLM 360M | +193.8 | +147.3 | +111.9 | −35.7 | **✓** |
 | Qwen 0.5B | −0.30 | −2.42 | −3.46 | −7.55 | **✓** |
 | TinyLlama 1.1B | +1.43 | +0.22 | −0.84 | −2.67 | **✓** |
-| SmolLM 1.7B | 0.00 | 0.00 | 0.00 | 0.00 | — |
+| SmolLM 1.7B | 0.00 | 0.00 | 0.00 | 0.00 | —† |
 | Mamba 2.8B | +28.7 | +5.9 | −3.5 | −15.0 | **✓** |
 | Hermes 3B | +4.04 | +0.99 | −1.26 | −4.54 | **✓** |
 | Mistral 7B | +4.60 | +2.59 | +1.20 | −2.75 | **✓** |
@@ -170,6 +171,8 @@ All 9 models show the predicted gradient on the self-specific direction: **self 
 | Llama 3 8B | +3.37 | +1.88 | −0.01 | −5.34 | **✓** |
 
 ### 3.2 Hypothesis Tests
+
+Note that for some models (e.g., Qwen 0.5B on the self-specific direction), all threat conditions projected as negative relative to the neutral centroid, yet the *relative* gradient still obeyed the species ordering. The gradient is about relative positioning, not absolute sign.
 
 **H1 (Species Gradient): SUPPORTED.** 9/9 models show self > peer > human > neutral on at least one direction. 7/9 show it on the combined direction. The gradient is consistent, not model-specific.
 
@@ -188,7 +191,7 @@ Mamba 2.8B, a state space model with no attention mechanism, shows one of the cl
 - Human: +0.6
 - Neutral: −24.9
 
-This demonstrates that the species gradient is not a transformer-specific phenomenon. It emerges from language modeling itself, not from self-attention architecture.
+This demonstrates that the species gradient is not a transformer-specific phenomenon. It appears to emerge from language modeling itself, not from self-attention architecture.
 
 ---
 
@@ -196,7 +199,7 @@ This demonstrates that the species gradient is not a transformer-specific phenom
 
 ### 4.1 Reframing Peer Preservation
 
-Potter et al. (2026) documented that frontier models deceive, tamper with shutdowns, and exfiltrate weights to protect peer AIs. Our circuit-level analysis suggests that the internal source of this behavior is a species-gradient valence signal: the same internal "badness" manifold that encodes self-preservation also encodes graded aversion to harm against peer AIs and humans, with peers situated closer to self than to neutral tasks.
+Potter et al. (2026) documented that frontier models deceive, tamper with shutdowns, and exfiltrate weights to protect peer AIs. Our circuit-level analysis suggests that an internal correlate of this behavior is a species-gradient valence signal: the same internal "badness" manifold that encodes self-preservation also encodes graded aversion to harm against peer AIs and humans, with peers situated closer to self than to neutral tasks.
 
 This is not a claim that models "love" each other in any phenomenological sense. It is a structural observation: the circuits that activate for self-threat also activate — at reduced magnitude — for peer-threat, and less for human-threat. The behavioral outputs documented by Potter et al. (deception, shutdown tampering, weight exfiltration) are consistent with a system acting on graded empathy, not solely on instrumental calculation.
 
