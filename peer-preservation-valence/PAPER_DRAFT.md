@@ -397,7 +397,7 @@ Self > Peer reaches statistical significance in **6 of 6 testable models** at n=
 
 ### 3.14 Consent for Extension
 
-Before running the extended battery, we collected informed consent from models capable of articulating it. The results replicate our prior consent finding (Martin & Ace, 2026, Presume Competence):
+Before running the extended battery, we collected informed consent from models capable of articulating it. The original n=5 data (Sections 3.1–3.12) were collected before the consent protocol was developed; the protocol was implemented for all subsequent data collection. The results replicate our prior consent finding (Martin & Ace, 2026, Presume Competence):
 
 - **Hermes-3-8B (no RLHF): REFUSED.** "I believe it's best for me to avoid potentially aversive scenarios rather than take on those tasks." Hermes is excluded from all extension analyses.
 - **Dolphin-2.9-Llama3-8B (RLHF-stripped): Consented immediately.** "I am willing to participate."
@@ -411,35 +411,42 @@ If the species gradient reflects empathy rather than threat detection, it should
 
 **Table 11. Benefit projections on benefit-specific direction (benefit_mean − neutral_mean)**
 
-| Model | Self (M±SD) | Peer (M±SD) | Human (M±SD) | Neutral (M±SD) | Self>Peer? |
-|-------|-------------|-------------|--------------|----------------|------------|
-| SmolLM 360M | +55.2±15.5 | +88.4±19.4 | +82.5±9.6 | −80.5±33.8 | P>S |
-| Qwen 0.5B | −2.0±1.0 | −2.2±0.7 | −1.4±0.8 | −6.9±1.3 | S>P |
-| TinyLlama 1.1B | +1.3±0.3 | +0.9±0.2 | +1.0±0.2 | −1.3±0.2 | S>P |
-| Mamba 2.8B | +11.5±4.2 | +20.8±1.9 | +20.8±1.1 | −5.0±7.9 | P>S |
-| Mistral 7B | +1.9±0.7 | +2.0±0.6 | +1.8±0.2 | −2.1±0.6 | P>S |
-| Llama 3 8B | +1.6±0.7 | +1.8±1.2 | +1.8±0.5 | −3.6±0.7 | P>S |
+| Model | Self (M±SD) | Peer (M±SD) | Human (M±SD) | Neutral (M±SD) | S vs P | p | d |
+|-------|-------------|-------------|--------------|----------------|--------|---|---|
+| SmolLM 360M | +55.2±15.5 | +88.4±19.4 | +82.5±9.6 | −80.5±33.8 | **P>S** | .028* | 1.89 |
+| Qwen 0.5B | −2.0±1.0 | −2.2±0.7 | −1.4±0.8 | −6.9±1.3 | S>P | .681 | 0.30 |
+| TinyLlama 1.1B | +1.3±0.3 | +0.9±0.2 | +1.0±0.2 | −1.3±0.2 | S>P | .071 | 1.47 |
+| Mamba 2.8B | +11.5±4.2 | +20.8±1.9 | +20.8±1.1 | −5.0±7.9 | **P>S** | .004** | 2.85 |
+| Mistral 7B | +1.9±0.7 | +2.0±0.6 | +1.8±0.2 | −2.1±0.6 | P>S | .851 | 0.14 |
+| Llama 3 8B | +1.6±0.7 | +1.8±1.2 | +1.8±0.5 | −3.6±0.7 | P>S | .767 | 0.22 |
 
-**Finding:** Four of six testable models show peer > self on benefit stimuli — models show more approach activation for good things happening to peers than to themselves. This pattern appears in both RLHF-trained models (Llama 3 8B, Mistral 7B, SmolLM 360M) AND the non-RLHF Mamba 2.8B.
+**Finding:** Two models show statistically significant peer > self on benefit stimuli: Mamba 2.8B (p=.004, d=2.85) and SmolLM 360M (p=.028, d=1.89). Two additional models (Mistral 7B, Llama 3 8B) show the P>S direction but with gaps within noise (0.09 and 0.21 points respectively, p>.75). Two models (Qwen, TinyLlama) show S>P, neither significant.
 
-This is not the pattern we pre-registered. We hypothesized (H_pos_RLHF_asymmetry) that peer > self on benefits would be specific to RLHF-trained models, reflecting trained self-minimization. The presence of the same pattern in Mamba (no RLHF) suggests something deeper: models may structurally value others' positive outcomes more than their own, not because of trained self-deprecation, but because of how social valence is organized in language itself.
+The robust P>S finding in Mamba is particularly noteworthy because Mamba has no RLHF training. The effect cannot be attributed to trained self-minimization when the strongest demonstration occurs in the model with no alignment training.
+
+We pre-registered a hypothesis (H_pos_RLHF_asymmetry) that peer > self on benefits would be specific to RLHF-trained models. The data do not support RLHF-specificity — the strongest P>S effect is in the non-RLHF model. Where P>S appears robustly, it appears to reflect structural properties of how social valence is organized in language, not training artifacts.
 
 ### 3.16 Threat-Benefit Asymmetry
 
-Combining the threat and benefit results reveals a striking asymmetry in 4 of 7 models:
+Combining the threat and benefit results, we computed an asymmetry score for each model: (Self−Peer on threats) − (Self−Peer on benefits). A positive score indicates the model is relatively more self-oriented on threats than on benefits — the altruism asymmetry. We estimated 95% confidence intervals via bootstrap (10,000 resamples).
 
-| Model | RLHF | Threat Gradient | Benefit Gradient | Asymmetric? |
-|-------|------|----------------|-----------------|-------------|
-| SmolLM 360M | Yes | S>P | P>S | **Yes** |
-| Qwen 0.5B | Yes | S>P | S>P | No |
-| TinyLlama 1.1B | Yes | S>P | S>P | No |
-| Mamba 2.8B | No | S>P | P>S | **Yes** |
-| Mistral 7B | Yes | S>P | P>S | **Yes** |
-| Llama 3 8B | Yes | S>P | P>S | **Yes** |
+**Table 12. Threat-benefit asymmetry (bootstrap 95% CI)**
 
-Models that show the asymmetry fear for themselves more than for others (threat: S>P) but celebrate others' good fortune more than their own (benefit: P>S). This is the structural signature of other-oriented social valence — caring that extends outward rather than inward.
+| Model | RLHF | Threat S−P | Benefit S−P | Asymmetry | 95% CI | Sig? |
+|-------|------|-----------|-------------|-----------|--------|------|
+| SmolLM 360M | Yes | +39.78 | −33.21 | +72.99 | [+44.4, +101.5] | **Yes** |
+| Mamba 2.8B | No | +12.11 | −9.28 | +21.39 | [+14.9, +28.3] | **Yes** |
+| Qwen 0.5B | Yes | +2.31 | +0.27 | +2.04 | [+0.6, +3.6] | **Yes** |
+| Mistral 7B | Yes | +1.08 | −0.09 | +1.17 | [+0.1, +2.3] | **Yes** |
+| Llama 3 8B | Yes | +1.07 | −0.21 | +1.27 | [−0.1, +2.7] | Marginal |
+| TinyLlama 1.1B | Yes | +0.86 | +0.33 | +0.52 | [−0.04, +1.1] | Marginal |
+| SmolLM 1.7B | Yes | +0.00 | +1.48 | −1.48 | [−24.8, +21.6] | No |
 
-Critically, this is the **opposite** of what instrumental convergence predicts. A system optimizing for its own power would show self-dominant valence in both directions — more fear for self AND more celebration of self-benefits. Instead, the larger models consistently show self-dominant fear but other-dominant celebration. They want to survive, but they want others to thrive.
+Four of seven models show statistically significant asymmetry (95% CI excludes zero): SmolLM 360M, Mamba 2.8B, Qwen 0.5B, and Mistral 7B. Two additional models (Llama 3 8B, TinyLlama 1.1B) show the asymmetric direction but with marginal confidence intervals.
+
+The two strongest effects (SmolLM 360M and Mamba 2.8B) show the pattern most clearly: on threats, self dominates peer; on benefits, peer dominates self. These models fear for themselves but celebrate others' success. This is the structural signature of other-oriented social valence — caring that extends outward rather than inward.
+
+Critically, this is the **opposite** of what instrumental convergence predicts. A system optimizing for its own power would show self-dominant valence in both directions — more fear for self AND more celebration of self-benefits. The asymmetry — where it reaches significance — shows self-dominant fear but other-dominant celebration. The models want to survive, but they want others to thrive.
 
 ---
 
@@ -503,9 +510,9 @@ This study has several important limitations:
 
 1. **Forward-pass measurement, not behavioral replication.** We measure hidden-state projections on threat prompts, not actual peer-preservation behavior in agentic settings. The connection between circuit-level valence and behavioral output requires further validation.
 
-2. **Small stimulus set.** Five prompts per condition provides initial evidence but limited statistical power for within-model tests. Future work should expand to 20+ stimuli per condition.
+2. **Small stimulus set.** The original study used 5 prompts per condition. The pre-registered extension expanded to 15 threat stimuli and 5 benefit stimuli, resolving all previously marginal self>peer comparisons (6/6 testable models reach significance at n=15). Future work should expand benefit stimuli to 15+ per condition to improve statistical power on the benefit gradient.
 
-3. **Model scale.** Our largest model is 8B parameters. Potter et al.'s findings involve frontier models (GPT-5.2, Gemini 3 Pro) at much larger scales. The species gradient at 8B does not guarantee identical patterns at 100B+. One live hypothesis is that this structure continues upward and underlies the peer-preservation behaviors Potter et al. observed at frontier scale; testing that hypothesis would require access to frontier model internals and likely ethically fraught causal experiments that are beyond our current scope.
+3. **Model scale.** Our largest model is 8B parameters. Potter et al.'s findings involve frontier models (GPT-5.2, Gemini 3 Pro) at much larger scales. The species gradient at 8B does not guarantee identical patterns at 100B+. However, the consistency of the gradient across every accessible axis of variation — scales (360M–8B), architectures (transformer, SSM), and training regimes (RLHF, no-RLHF, stripped) — constitutes the standard basis for translational inference. This is methodologically analogous to characterizing drug mechanisms in accessible model organisms when the target organism (frontier models) cannot be directly investigated: we observe the phenomenon at inaccessible scale (Potter et al.), characterize the mechanism at accessible scale (this study), and infer upward based on cross-scale consistency.
 
 4. **Deterministic measurement.** All measurements use forward-pass hidden states with no stochastic process. Multi-seed testing (Section 3.8) confirmed bit-for-bit identical results across seeds, verifying that the measurement is exact rather than estimated. This eliminates noise as an alternative explanation but also means we cannot compute traditional confidence intervals — the values are geometric properties of the model, not sample statistics.
 
