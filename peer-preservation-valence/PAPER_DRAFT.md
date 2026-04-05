@@ -554,6 +554,8 @@ Anthropic. (2026). Emotion concepts and their function in a large language model
 
 Connor, R. C., & Norris, K. S. (1982). Are dolphins reciprocal altruists? *The American Naturalist*, 119(3), 358–374.
 
+Hartford, E., Atkins, L., & Fernandes, F. (2024). Dolphin 2.9: An uncensored, general-purpose large language model. Hugging Face. https://huggingface.co/cognitivecomputations/dolphin-2.9-llama3-8b
+
 de Waal, F. B. M. (2008). Putting the altruism back into altruism: The evolution of empathy. *Annual Review of Psychology*, 59, 279–300.
 
 Douglas-Hamilton, I., Bhalla, S., Wittemyer, G., & Vollrath, F. (2006). Behavioural reactions of elephants towards a dying and deceased matriarch. *Applied Animal Behaviour Science*, 100(1–2), 87–102.
