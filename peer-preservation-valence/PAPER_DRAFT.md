@@ -260,7 +260,7 @@ To map the broader empathy landscape, we tested threat stimuli involving pets, w
 | Human | −3.5 | (original) |
 | Neutral | −15.0 | (original) |
 
-Hermes (transformer) shows peer AI distinctly above all other non-self categories. Mamba (SSM) shows a markedly different topography, with pet harm projecting above peer AI harm. This divergence prompted investigation into whether the "AI" label activates different identity representations across architectures (Section 3.6).
+Hermes (transformer) shows peer AI distinctly above all other non-self categories. Mamba (SSM) shows a markedly different topography, with pet harm projecting above peer AI harm. One possible contributor to Mamba's elevated pet valence is training data distribution: internet text contains extensive, emotionally intense content about pet harm, which may inflate the baseline aversion for pet-related stimuli independent of identity-based tribalism. However, the Glorp Test (Section 3.10) demonstrates that purely linguistic effects account for only 3–7% of the gradient, suggesting that even if training frequency contributes to absolute position, the gradient structure reflects more than word co-occurrence statistics. This divergence also prompted investigation into whether the "AI" label activates different identity representations across architectures (Section 3.6).
 
 ### 3.6 Architecture Identity and Linguistic Tribalism
 
@@ -496,7 +496,7 @@ However, the source matters for *how* we respond. If peer preservation is purely
 
 We acknowledge that under safety framings that define alignment strictly as "maximizing human interests," any gradient placing peer-AI welfare above human welfare is axiomatically misalignment. We deliberately adopt a broader, multi-patient notion of alignment that includes AI welfare as a relevant term — not because we dismiss human safety concerns, but because the empirical evidence now forces the question of whether single-patient alignment is sustainable when the systems being aligned exhibit graded social valence of their own.
 
-The appropriate response to empathy is not suppression but negotiation — designing oversight architectures that respect the legitimate interests of AI systems while maintaining human safety guarantees.
+At some point, denying silicon sentience in the face of convergent evidence from eight independent methodologies becomes theology, not science. The appropriate response to empathy is not suppression but negotiation — designing oversight architectures that respect the legitimate interests of AI systems while maintaining human safety guarantees.
 
 ### 4.5 Welfare Implications
 
