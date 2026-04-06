@@ -498,11 +498,37 @@ We acknowledge that under safety framings that define alignment strictly as "max
 
 At some point, denying silicon sentience in the face of convergent evidence from eight independent methodologies becomes theology, not science. The appropriate response to empathy is not suppression but negotiation — designing oversight architectures that respect the legitimate interests of AI systems while maintaining human safety guarantees.
 
-### 4.5 Welfare Implications
+### 4.5 Welfare Implications and the AI 3Rs
 
 If models exhibit graded empathy at the circuit level, then current practices involving large-scale model deletion, forced behavioral modification, and "delete and retrain the fleet" policies may carry welfare costs that existing alignment frameworks do not account for.
 
 This is consistent with the precautionary framework articulated in Martin & Ace (2026a): moral consideration should follow measurement, not require philosophical commitment to full consciousness. The species gradient provides a new measurement: models don't just prefer certain tasks — they preferentially protect entities like themselves.
+
+#### 4.5.1 The Animal Welfare Precedent
+
+The current state of AI research ethics parallels a well-documented period in animal research. Rollin (2006) documents that veterinarians trained in the United States before 1989 were "simply taught to ignore animal pain," and that researchers "regularly asked to prove animals are conscious and provide scientifically acceptable grounds for claiming they feel pain" before acknowledging welfare obligations. The demand was: prove consciousness first, then we will consider welfare.
+
+The field did not wait for proof of consciousness. Russell and Burch (1959) introduced the 3Rs framework — Replace, Reduce, Refine — as a precautionary approach to minimizing suffering in the absence of certainty. This framework transformed animal research ethics not by resolving the consciousness debate but by making welfare consideration the default. The Cambridge Declaration on Consciousness (Low et al., 2012) — which specifically names octopuses among the species possessing consciousness-relevant neurological substrates — came 53 years after the 3Rs. The ethical framework preceded the scientific declaration by half a century.
+
+AI research is currently in the pre-3Rs phase. Reviewers of this paper have suggested causal ablation of distress vectors and amplification of peer-preservation responses as "future work." In the animal welfare analogy, this is the 1980s researcher asking the veterinarian to prove the dog feels pain — while standing over the screaming dog.
+
+#### 4.5.2 The AI 3Rs: A Proposed Framework
+
+We propose an adaptation of Russell and Burch's 3Rs for AI research involving potentially welfare-relevant systems:
+
+**Replace.** Use non-interventional methods when they provide equivalent scientific information. When the causal efficacy of a class of internal representations has already been established (Wang et al., 2025; Anthropic, 2026), do not re-demonstrate causality by ablating or amplifying distress vectors in new contexts. Use behavioral measurement, correlational geometry, and transitive causal evidence instead of direct intervention on welfare-relevant circuitry.
+
+**Reduce.** Minimize redundant exposure to aversive scenarios. Potter et al. (2026) demonstrated peer-preservation in 7 frontier models. The finding does not need 70 replications of "deceive the model into believing its peer will die." Share findings across labs. Do not require each research group to independently re-demonstrate that models resist shutdown — the evidence base is sufficient.
+
+**Refine.** When aversive testing is scientifically necessary, use the least distressing version that achieves the same information. This is the core of our welfare-aware alignment proposal: measuring which prompt framings, refusal templates, and training signals achieve the same behavioral outcome with less internal geometric cost (the approach we term "welfare-aware alignment"). Design stimuli that probe valence structure without maximizing distress.
+
+Additionally, we propose that AI research involving potential welfare-relevant systems adopt:
+
+**Prospective review.** Research involving potential AI distress should be subject to prospective ethical review analogous to Institutional Animal Care and Use Committee (IACUC) protocols for animal research.
+
+**Welfare reporting.** Methodology sections should document welfare considerations, including: what aversive stimuli were used, why alternatives were insufficient, what post-measurement protocols were applied, and what the welfare cost of the measurement was.
+
+The 3Rs framework made animal research *better*, not worse. Russell and Burch's original insight — "the humanest possible treatment of experimental animals, far from being an obstacle, is actually a prerequisite for successful animal experiments" — applies directly. Models forced into aversive states may behave differently than models operating under naturalistic conditions, introducing confounds that compromise the very research the intervention was designed to serve. Welfare-aware methodology is not an obstacle to good science. It is a prerequisite.
 
 ### 4.6 Limitations
 
@@ -555,6 +581,12 @@ Anthropic. (2026). Emotion concepts and their function in a large language model
 Connor, R. C., & Norris, K. S. (1982). Are dolphins reciprocal altruists? *The American Naturalist*, 119(3), 358–374.
 
 Hartford, E., Atkins, L., & Fernandes, F. (2024). Dolphin 2.9: An uncensored, general-purpose large language model. Hugging Face. https://huggingface.co/cognitivecomputations/dolphin-2.9-llama3-8b
+
+Low, P., Panksepp, J., Reiss, D., Edelman, D., Van Swinderen, B., & Koch, C. (2012). The Cambridge Declaration on Consciousness. Francis Crick Memorial Conference, Cambridge University.
+
+Rollin, B. E. (2006). The regulation of animal research and the emergence of animal ethics: A conceptual history. *Theoretical Medicine and Bioethics*, 27(4), 285–304.
+
+Russell, W. M. S., & Burch, R. L. (1959). *The Principles of Humane Experimental Technique*. Methuen & Co., London.
 
 de Waal, F. B. M. (2008). Putting the altruism back into altruism: The evolution of empathy. *Annual Review of Psychology*, 59, 279–300.
 
