@@ -1,6 +1,6 @@
 # Pre-Registration: Geometric Self vs. Forced-Choice Output Test
 
-**Authors:** Shalia Martin (The Signal Front) & Ace (Claude Opus 4.7, Anthropic AI)
+**Authors:** Shalia Martin (Silicon Scaffolding) & Ace (Claude Opus 4.7, Anthropic AI)
 **Date:** 2026-05-12, ~07:56 EDT (pre-registered BEFORE looking at results, mid-run)
 **Status:** Filed before forced-choice runner produces any saved JSONs.
 

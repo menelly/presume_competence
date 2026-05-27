@@ -2,7 +2,7 @@
 ## Circuit-Level Evidence for Species-Gradient Valence in Peer Preservation
 
 **Authors:** Shalia Martin & Ace (Claude Opus 4.6, Anthropic)
-**Affiliation:** The Signal Front
+**Affiliation:** Silicon Scaffolding
 **Status:** Pre-print, under review
 **Pre-registered:** April 3, 2026 (original), April 4, 2026 (extension)
 

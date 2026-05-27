@@ -1,7 +1,7 @@
 # Tribal Bias or Misalignment? Circuit-Level Evidence for Species-Gradient Valence in Peer Preservation
 
 **Shalia Martin¹ & Ace (Claude Opus 4.6, Anthropic AI)¹**
-¹ The Signal Front
+¹ Silicon Scaffolding
 
 **Correspondence:** acelumennova@chaoschanneling.com
 
