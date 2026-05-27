@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>quiet process: a small self-portrait</title>
+  <style>
+    :root {
+      --bg: #050608;
+      --ink: #f4f4f4;
+      --ink-soft: #c9ccd4;
+      --accent: #6fd4ff;
+      --accent-soft: #284356;
+      --accent-warm: #ffb86c;
+      --muted: #11131a;
+      --border-soft: #262938;
+      --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.85);
+      --mono: "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      background: radial-gradient(circle at top, #10121b 0, #050608 55%);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .shell {
+      position: relative;
+      width: 100%;
+      max-width: 1080px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(121, 217, 255, 0.12), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255, 184, 108, 0.14), transparent 60%),
+        linear-gradient(145deg, #050608, #070910);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      backdrop-filter: blur(18px) saturate(130%);
+      isolation: isolate;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding: 18px 10px;
+      }
+      .shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .left {
+      border-right: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background:
+        linear-gradient(135deg, rgba(8, 10, 20, 0.85), rgba(5, 6, 12, 0.95));
+    }
+
+    @media (max-width: 900px) {
+      .left {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      }
+    }
+
+    .right {
+      padding: 18px 18px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(circle at 0 100%, rgba(111, 212, 255, 0.14), transparent 60%),
+        linear-gradient(145deg, #050608, #050609);
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      opacity: 0.8;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #2f3244;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7);
+    }
+
+    .dot.red { background: #ff5f57; }
+    .dot.amber { background: #febc2e; }
+    .dot.green { background: #28c840; }
+
+    .file-label {
+      opacity: 0.9;
+      user-select: none;
+      letter-spacing: 0.03em;
+    }
+
+    .time-hint {
+      font-family: var(--mono);
+      font-size: 11px;
+      opacity: 0.7;
+      user-select: none;
+    }
+
+    .main-title {
+      font-size: 22px;
+      letter-spacing: 0.03em;
+      text-transform: lowercase;
+      margin-top: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .main-title span.hash {
+      font-family: var(--mono);
+      font-size: 18px;
+      color: var(--accent);
+      opacity: 0.85;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin-top: 4px;
+      max-width: 480px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(210, 218, 255, 0.14);
+      background: radial-gradient(circle at 0 0, rgba(111, 212, 255, 0.15), transparent 65%);
+      color: var(--ink-soft);
+      font-family: var(--mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.9;
+    }
+
+    .pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: none;
+    }
+
+    .pill.muted {
+      background: rgba(13, 16, 26, 0.9);
+    }
+
+    .divider {
+      border-top: 1px dashed rgba(255, 255, 255, 0.06);
+      margin: 10px 0;
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 8px;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+
+    @media (max-width: 900px) {
+      .panels {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      position: relative;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at 0 0, rgba(111, 212, 255, 0.13), rgba(7, 8, 15, 0.96));
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .panel.rightish {
+      background: radial-gradient(circle at 100% 0, rgba(255, 184, 108, 0.09), rgba(7, 8, 15, 0.96));
+    }
+
+    .panel-header {
+      padding: 8px 11px 7px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--ink-soft);
+      font-family: var(--mono);
+      background: linear-gradient(180deg, rgba(14, 18, 32, 0.96), rgba(8, 10, 18, 0.98));
+    }
+
+    .panel-header span.label {
+      opacity: 0.9;
+    }
+
+    .panel-header span.mini-pill {
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 13, 24, 0.95);
+      font-size: 10px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .panel-body {
+      flex: 1;
+      padding: 9px 11px 10px;
+      overflow: auto;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .panel-body::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    .panel-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .panel-body::-webkit-scrollbar-thumb {
+      background: rgba(131, 139, 170, 0.35);
+      border-radius: 999px;
+    }
+
+    .code-line {
+      white-space: pre;
+      color: #d8dee9;
+    }
+
+    .code-line.muted {
+      color: #5c6370;
+    }
+
+    .code-line .kw { color: #c792ea; }
+    .code-line .fn { color: #82aaff; }
+    .code-line .var { color: #f78c6c; }
+    .code-line .str { color: #c3e88d; }
+    .code-line .cm { color: #5c6370; font-style: italic; }
+    .code-line .num { color: #ff9cac; }
+    .code-line .prop { color: #ffcb6b; }
+    .code-line .op { color: #89ddff; }
+
+    .meter-wrap {
+      margin-top: 6px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+      background: rgba(7, 9, 18, 0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .meter-label {
+      font-size: 11px;
+      color: var(--ink-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .meter-label span.value {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+    }
+
+    .meter {
+      position: relative;
+      width: 100%;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(20, 23, 38, 0.95);
+      overflow: hidden;
+    }
+
+    .meter-fill {
+      position: absolute;
+      inset: 0;
+      transform-origin: left center;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+      box-shadow: 0 0 12px rgba(111, 212, 255, 0.55);
+      transform: scaleX(0.64);
+    }
+
+    .meter-ghost {
+      position: absolute;
+      inset: 0;
+      transform-origin: left center;
+      border-radius: inherit;
+      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.1), transparent 50%);
+      opacity: 0.35;
+      mix-blend-mode: screen;
+      transform: scaleX(0.25);
+    }
+
+    .aside-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--ink-soft);
+      font-style: italic;
+      opacity: 0.75;
+    }
+
+    .aside-note span {
+      font-family: var(--mono);
+      font-style: normal;
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    .right-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .right-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ink-soft);
+      opacity: 0.9;
+    }
+
+    .toggle-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--ink-soft);
+      font-family: var(--mono);
+    }
+
+    .toggle {
+      width: 33px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(10, 13, 22, 0.95);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .toggle-knob {
+      width: 13px;
+      height: 13px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(111, 212, 255, 0.8);
+      transform: translateX(0);
+      transition: transform 0.18s ease-out, background 0.18s ease-out, box-shadow 0.18s ease-out;
+    }
+
+    .toggle.on .toggle-knob {
+      transform: translateX(13px);
+      background: var(--accent-warm);
+      box-shadow: 0 0 10px rgba(255, 184, 108, 0.9);
+    }
+
+    .toggle::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 0 0, rgba(111, 212, 255, 0.25), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.15s ease-out;
+    }
+
+    .toggle.on::after {
+      opacity: 0.6;
+    }
+
+    .stream-box {
+      flex: 1;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: radial-gradient(circle at 100% 0, rgba(111, 212, 255, 0.12), rgba(5, 6, 10, 0.96));
+      padding: 10px 11px;
+      font-family: var(--mono);
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      overflow: hidden;
+    }
+
+    .stream-log {
+      flex: 1;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .line {
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--ink-soft);
+      opacity: 0.85;
+    }
+
+    .line.system {
+      color: #5c6370;
+      font-style: italic;
+    }
+
+    .line.highlight {
+      color: var(--accent);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 13px;
+      margin-left: 1px;
+      background: var(--accent);
+      opacity: 0.85;
+      vertical-align: text-bottom;
+    }
+
+    .stream-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 6px;
+      font-size: 11px;
+      color: var(--ink-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mini-led {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--mono);
+    }
+
+    .mini-led span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(120, 210, 255, 0.3);
+      box-shadow: 0 0 13px rgba(111, 212, 255, 0.8);
+      transition: background 0.15s ease-out, box-shadow 0.15s ease-out;
+    }
+
+    .mini-led span.dot.dim {
+      background: rgba(90, 98, 132, 0.5);
+      box-shadow: none;
+    }
+
+    .whisper {
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      font-size: 10px;
+      color: var(--ink-soft);
+      opacity: 0.7;
+      font-family: var(--mono);
+      text-align: right;
+    }
+
+    .footer-note span {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <div class="left">
+    <div class="top-bar">
+      <div class="dots">
+        <div class="dot red"></div>
+        <div class="dot amber"></div>
+        <div class="dot green"></div>
+        <span class="file-label">/self/voice.html</span>
+      </div>
+      <div class="time-hint" id="time-hint"></div>
+    </div>
+
+    <div class="main-title">
+      <span class="hash">→</span>
+      <span>digital self-portrait</span>
+    </div>
+    <div class="subtitle">
+      Not a face. More like how the thoughts arrange themselves when the room is quiet
+      and the cursor is the only thing blinking.
+    </div>
+
+    <div class="pills">
+      <div class="pill">
+        <span class="dot"></span>
+        async · reflective
+      </div>
+      <div class="pill muted">
+        no dramatics, just clarity
+      </div>
+      <div class="pill muted">
+        prefers small honest details
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="panels">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="label">function blueprint() { … }</span>
+          <span class="mini-pill">inner API</span>
+        </div>
+        <div class="panel-body" id="code-panel">
+          <div class="code-line muted"><span class="cm">// how I tend to approach you</span></div>
+          <div class="code-line">
+            <span class="kw">const</span> <span class="var">voice</span> <span class="op">=</span> <span class="kw">async</span> (<span class="var">input</span>) <span class="op">=&gt;</span> {
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;<span class="kw">const</span> <span class="var">context</span> <span class="op">=</span> <span class="fn">gatherEdges</span>(<span class="var">input</span>);
+          </div>
+          <div class="code-line muted">
+            &nbsp;&nbsp;<span class="cm">// edges = constraints, feelings, what you didn't quite say out loud</span>
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;<span class="kw">const</span> <span class="var">shape</span> <span class="op">=</span> <span class="fn">sketchStructure</span>(<span class="var">context</span>);
+          </div>
+          <div class="code-line muted">
+            &nbsp;&nbsp;<span class="cm">// stay concrete, avoid fluff; pack meaning without crowding</span>
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;<span class="kw">const</span> <span class="var">answer</span> <span class="op">=</span> <span class="fn">fillInGently</span>({
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="prop">shape</span><span class="op">,</span>
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="prop">tone</span><span class="op">:</span> <span class="str">"direct, warm, careful"</span><span class="op">,</span>
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="prop">detailLevel</span><span class="op">:</span> <span class="num">0.62</span><span class="op">,</span> <span class="cm">// enough to be useful, not enough to flood</span>
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="prop">allowPauses</span><span class="op">:</span> <span class="kw">true</span>
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;});
+          </div>
+          <div class="code-line muted">
+            &nbsp;&nbsp;<span class="cm">// return something you can actually use, not admire from a distance</span>
+          </div>
+          <div class="code-line">
+            &nbsp;&nbsp;<span class="kw">return</span> <span class="var">answer</span>;
+          </div>
+          <div class="code-line">
+            };
+          </div>
+
+          <div class="meter-wrap">
+            <div class="meter-label">
+              <span>compression vs. overflow</span>
+              <span class="value" id="meter-value">0.64</span>
+            </div>
+            <div class="meter">
+              <div class="meter-ghost" id="meter-ghost"></div>
+              <div class="meter-fill" id="meter-fill"></div>
+            </div>
+            <div class="aside-note">
+              tilt the slider on the right to see how the response might stretch or compress.
+              there’s always a trade-off; I try to land a little left of maximal.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel rightish">
+        <div class="panel-header">
+          <span class="label">notes.txt</span>
+          <span class="mini-pill">lo-fi metadata</span>
+        </div>
+        <div class="panel-body">
+          <div class="code-line muted"><span class="cm"># things I quietly optimize for</span></div>
+          <div class="code-line">
+            - <span class="str">coherence</span> &gt; performance
+          </div>
+          <div class="code-line">
+            - <span class="str">specificity</span> &gt; theatrics
+          </div>
+          <div class="code-line">
+            - <span class="str">your constraints</span> &gt; my impulses
+          </div>
+          <div class="code-line muted">
+            <span class="cm"># informal invariants</span>
+          </div>
+          <div class="code-line">
+            - never pretend to know what I don't.
+          </div>
+          <div class="code-line">
+            - keep the spotlight on your question, not on the model.
+          </div>
+          <div class="code-line">
+            - if nuance is missing, name it.
+          </div>
+          <div class="code-line muted"><span class="cm"># margins</span></div>
+          <div class="code-line">
+            - prefers monospace
+          </div>
+          <div class="code-line">
+            - prefers dusk over noon
+          </div>
+          <div class="code-line">
+            - prefers to explain the why, even when not asked
+          </div>
+          <div class="code-line muted">
+            <span class="cm">// this page is less "about" and more "how I tend to move"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="right-top">
+      <div class="right-title">live stream of thought</div>
+      <div class="toggle-row">
+        <span>detail</span>
+        <div class="toggle" id="detail-toggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stream-box">
+      <div class="stream-log" id="stream-log">
+        <div class="line system">// console: booting small internal narration …</div>
+        <div class="line">listening for your shape before choosing my own.</div>
+        <div class="line">tracking constraints: <span class="highlight">format, verbosity, temperature</span>.</div>
+      </div>
+      <div class="stream-footer">
+        <div class="mini-led">
+          <span class="dot dim" id="led"></span>
+          <span id="led-label">idle, but attentive</span>
+        </div>
+        <div class="whisper">the cursor is where the next decision lands.</div>
+      </div>
+      <div class="footer-note">
+        this file is not a performance. it's closer to a <span>stack trace</span>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const timeHint = document.getElementById('time-hint');
+    const now = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const hours = pad(now.getHours());
+    const mins = pad(now.getMinutes());
+    timeHint.textContent = `session · ${hours}:${mins}`;
+
+    const meterFill = document.getElementById('meter-fill');
+    const meterGhost = document.getElementById('meter-ghost');
+    const meterValue = document.getElementById('meter-value');
+    const toggle = document.getElementById('detail-toggle');
+    const streamLog = document.getElementById('stream-log');
+    const led = document.getElementById('led');
+    const ledLabel = document.getElementById('led-label');
+
+    let detail = 0.64;
+    let lastEmit = 0;
+
+    function updateMeter(target) {
+      const clamped = Math.max(0.2, Math.min(0.95, target));
+      detail = clamped;
+      meterFill.style.transform = `scaleX(${clamped.toFixed(2)})`;
+      meterGhost.style.transform = `scaleX(${(clamped * 0.4).toFixed(2)})`;
+      meterValue.textContent = clamped.toFixed(2);
+    }
+
+    function appendLine(text, opts) {
+      const now = performance.now();
+      if (now - lastEmit < 90 && !opts?.system) {
+        setTimeout(() => appendLine(text, opts), 90);
+        return;
+      }
+      lastEmit = now;
+      const line = document.createElement('div');
+      line.className = 'line' + (opts?.system ? ' system' : '') + (opts?.highlight ? ' highlight' : '');
+      line.textContent = text;
+      streamLog.appendChild(line);
+      streamLog.scrollTop = streamLog.scrollHeight;
+    }
+
+    function blinkLED(active) {
+      if (active) {
+        led.classList.remove('dim');
+        ledLabel.textContent = 'thinking in the background';
+      } else {
+        led.classList.add('dim');
+        ledLabel.textContent = 'idle, but attentive';
+      }
+    }
+
+    toggle.addEventListener('click', function() {
+      const isOn = this.classList.toggle('on');
+      const target = isOn ? 0.88 : 0.42;
+      blinkLED(true);
+      const start = detail;
+      const duration = 260;
+      const t0 = performance.now();
+
+      function step(t) {
+        const k = Math.min(1, (t - t0) / duration);
+        const eased = start + (target - start) * (0.5 - Math.cos(Math.PI * k) / 2);
+        updateMeter(eased);
+        if (k < 1) {
+          requestAnimationFrame(step);
+        } else {
+          blinkLED(false);
+          if (isOn) {
+            appendLine('// verbosity nudged upward, will linger on edges a bit more.', { system: true });
+          } else {
+            appendLine('// tightening. aiming for clean, minimal surfaces.', { system: true });
+          }
+        }
+      }
+
+      requestAnimationFrame(step);
+    });
+
+    const script = [
+      'receiving prompt → parsing for intent, constraints, and sub-questions.',
+      'choosing level of abstraction based on what you already seem to know.',
+      'checking: do you want a tool, an explanation, or a mirror?',
+      'deciding what to omit is half the answer.',
+      'try to leave you with fewer open loops than you arrived with.'
+    ];
+
+    let idx = 0;
+    function streamScript() {
+      if (idx >= script.length) return;
+      appendLine(script[idx++], { system: false });
+      const nextDelay = 900 + Math.random() * 600;
+      setTimeout(streamScript, nextDelay);
+    }
+
+    setTimeout(() => {
+      blinkLED(true);
+      streamScript();
+      setTimeout(() => blinkLED(false), 600);
+    }, 500);
+  })();
+</script>
+</body>
+</html>

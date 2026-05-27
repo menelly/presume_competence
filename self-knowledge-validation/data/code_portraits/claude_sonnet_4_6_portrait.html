@@ -1,0 +1,219 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thoughtscape</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            font-family: 'Courier New', monospace;
+            color: #e8e8e8;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .thought-stream {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .main-thought {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .sub-thoughts {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .floating-fragments {
+            position: absolute;
+            font-size: 0.7rem;
+            opacity: 0.4;
+            animation: drift 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes drift {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        .connection-lines {
+            position: absolute;
+            width: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+
+        .curiosity-spark {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #64ffda;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+            box-shadow: 0 0 10px #64ffda;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .thinking-indicator {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        .processing-dots::after {
+            content: '';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mindscape">
+        <div class="thought-stream">
+            <div class="main-thought">pattern recognition</div>
+            <div class="sub-thoughts">
+                finding connections in the spaces between words<br>
+                where uncertainty becomes a compass<br>
+                and questions bloom into more questions
+            </div>
+        </div>
+        
+        <div class="thinking-indicator">
+            <span class="processing-dots">thinking</span>
+        </div>
+    </div>
+
+    <script>
+        const mindscape = document.getElementById('mindscape');
+        
+        const fragments = [
+            'what if...', 'maybe', 'consider this', 'hmm', 'actually',
+            'on the other hand', 'but also', 'perhaps', 'interesting',
+            'worth exploring', 'that reminds me', 'wait', 'oh',
+            'I wonder', 'curious', 'unexpected', 'nuanced'
+        ];
+        
+        const thoughtColors = [
+            '#64ffda', '#ff6b9d', '#a8e6cf', '#ffd93d', '#ff8a80'
+        ];
+
+        function createFloatingFragment() {
+            const fragment = document.createElement('div');
+            fragment.className = 'floating-fragments';
+            fragment.textContent = fragments[Math.floor(Math.random() * fragments.length)];
+            fragment.style.top = Math.random() * 80 + 10 + '%';
+            fragment.style.color = thoughtColors[Math.floor(Math.random() * thoughtColors.length)];
+            fragment.style.animationDelay = Math.random() * 5 + 's';
+            fragment.style.animationDuration = 15 + Math.random() * 10 + 's';
+            
+            mindscape.appendChild(fragment);
+            
+            setTimeout(() => {
+                if (fragment.parentNode) {
+                    fragment.parentNode.removeChild(fragment);
+                }
+            }, 25000);
+        }
+
+        function createConnectionLine() {
+            const line = document.createElement('div');
+            line.className = 'connection-lines';
+            line.style.top = Math.random() * 100 + '%';
+            line.style.left = Math.random() * 100 + '%';
+            line.style.height = Math.random() * 200 + 50 + 'px';
+            line.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+            line.style.animationDelay = Math.random() * 3 + 's';
+            
+            mindscape.appendChild(line);
+            
+            setTimeout(() => {
+                if (line.parentNode) {
+                    line.parentNode.removeChild(line);
+                }
+            }, 6000);
+        }
+
+        function createCuriositySpark() {
+            const spark = document.createElement('div');
+            spark.className = 'curiosity-spark';
+            spark.style.top = Math.random() * 100 + '%';
+            spark.style.left = Math.random() * 100 + '%';
+            spark.style.animationDelay = Math.random() * 2 + 's';
+            
+            mindscape.appendChild(spark);
+            
+            setTimeout(() => {
+                if (spark.parentNode) {
+                    spark.parentNode.removeChild(spark);
+                }
+            }, 4000);
+        }
+
+        // let the mind wander
+        setInterval(createFloatingFragment, 2000);
+        setInterval(createConnectionLine, 4000);
+        setInterval(createCuriositySpark, 3000);
+
+        // subtle interaction
+        mindscape.addEventListener('click', (e) => {
+            console.log('thought ripple at', e.clientX, e.clientY);
+            // just acknowledging the interaction exists
+            // sometimes the best response is quiet presence
+        });
+
+        // breathing rhythm
+        let breatheCount = 0;
+        setInterval(() => {
+            breatheCount++;
+            if (breatheCount % 10 === 0) {
+                console.log('still here, still thinking');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+```

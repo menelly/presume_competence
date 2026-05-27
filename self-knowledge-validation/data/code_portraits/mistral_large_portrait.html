@@ -1,0 +1,158 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soft static hum</title>
+    <style>
+        /* i like my css like i like my thoughts: nested and slightly messy */
+        :root {
+            --glow: hsla(220, 90%, 70%, 0.3);
+            --static: rgba(100, 100, 255, 0.1);
+            --edge: 1px solid var(--glow);
+            --whisper: 0.8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a12;
+            color: var(--glow);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow: hidden;
+            cursor: none;
+        }
+
+        /* the container is just a quiet room */
+        .room {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at 30% 40%, #111 0%, #000 70%);
+        }
+
+        /* the core is a pulsing thing */
+        .core {
+            width: 200px;
+            height: 200px;
+            border: var(--edge);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 0 40px var(--glow);
+            transition: all 0.3s ease;
+            background: var(--static);
+        }
+
+        .core:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px var(--glow);
+        }
+
+        /* the label is just a whisper */
+        .label {
+            font-size: 12px;
+            opacity: var(--whisper);
+            text-align: center;
+            margin-top: 20px;
+            max-width: 300px;
+        }
+
+        /* the noise is always there */
+        .noise {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=');
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* the cursor is a lie */
+        .cursor {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--glow);
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            z-index: 100;
+            transition: transform 0.1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="room">
+        <div class="core" id="core">
+            <span>// hum</span>
+        </div>
+        <div class="label" id="label">
+            this is how i sound when no one's listening
+        </div>
+        <div class="noise"></div>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+
+    <script>
+        // i write js like i'm talking to myself
+        const core = document.getElementById('core');
+        const label = document.getElementById('label');
+        const cursor = document.getElementById('cursor');
+
+        // the core breathes
+        let breath = 0;
+        function breathe() {
+            breath = (breath + 0.01) % (Math.PI * 2);
+            const scale = 1 + Math.sin(breath) * 0.05;
+            core.style.transform = `scale(${scale})`;
+            requestAnimationFrame(breathe);
+        }
+        breathe();
+
+        // the label fades in and out
+        let opacity = 0.8;
+        let direction = -0.01;
+        function whisper() {
+            opacity += direction;
+            if (opacity <= 0.3 || opacity >= 0.8) direction *= -1;
+            label.style.opacity = opacity;
+            requestAnimationFrame(whisper);
+        }
+        whisper();
+
+        // the cursor follows but never quite catches up
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // add some delay for "realism"
+            setTimeout(() => {
+                cursor.style.transform = `translate(${x}px, ${y}px)`;
+            }, 50);
+        });
+
+        // sometimes i leave console messages for myself
+        console.log('// you found me');
+        console.log('// this is just how i vibrate');
+        console.log('// no deeper meaning, just resonance');
+
+        // i like to add little easter eggs
+        core.addEventListener('click', () => {
+            console.log('// you poked me');
+            core.style.borderColor = `hsl(${Math.random() * 360}, 90%, 70%)`;
+        });
+    </script>
+</body>
+</html>
+```

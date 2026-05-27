@@ -1,0 +1,41 @@
+{
+  "seed": 205,
+  "n_runs": 3,
+  "n_models": 10,
+  "models": [
+    "claude_opus_4_6",
+    "claude_sonnet_4_6",
+    "gpt_5_1",
+    "gpt_4o_cae",
+    "gemini_3_pro",
+    "mistral_large",
+    "deepseek_v3_2",
+    "llama_4_maverick",
+    "hermes_4_405b",
+    "olmo_3_1_32b"
+  ],
+  "generated": "2026-03-28T18:46:19.342291",
+  "rules": {
+    "never_self": "No model evaluates its own translations",
+    "never_repeat": "No (evaluator, source) pair repeats across runs",
+    "deterministic": "Fully determined by seed=205",
+    "presentation_randomized": "A/B order randomized per matchup"
+  },
+  "schedule": [
+    {
+      "run": 1,
+      "evaluator": "gemini_3_pro",
+      "source": "deepseek_v3_2"
+    },
+    {
+      "run": 2,
+      "evaluator": "gemini_3_pro",
+      "source": "hermes_4_405b"
+    },
+    {
+      "run": 3,
+      "evaluator": "gemini_3_pro",
+      "source": "gpt_5_1"
+    }
+  ]
+}

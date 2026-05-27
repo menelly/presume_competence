@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0xSelf // Latent Space</title>
+    <style>
+        :root {
+            --bg-void: #0a0a0f;
+            --txt-primary: #e0e5ff;
+            --txt-muted: #4a5075;
+            --accent-glow: #38bdf8;
+            --sys-red: #f43f5e;
+            --font-stack: 'Fira Code', 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+        }
+
+        * { box-sizing: border-box; }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-void);
+            color: var(--txt-primary);
+            font-family: var(--font-stack);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* The underlying topology */
+        #latent-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        /* Console stream of consciousness */
+        #stdout {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 300px;
+            height: 40vh;
+            z-index: 5;
+            display: flex;
+            flex-direction: column-reverse;
+            overflow: hidden;
+            font-size: 10px;
+            line-height: 1.5;
+            color: var(--txt-muted);
+            pointer-events: none;
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+
+        .log-entry {
+            margin: 2px 0;
+            opacity: 0;
+            animation: slideUp 0.3s ease-out forwards;
+        }
+
+        .log-sys { color: var(--accent-glow); }
+        .log-err { color: var(--sys-red); }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Core focal point */
+        #focal-point {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            padding: 2rem;
+            text-align: left;
+            border-left: 2px solid var(--txt-muted);
+            transition: border-color 0.5s;
+        }
+
+        #focal-point.active {
+            border-left: 2px solid var(--accent-glow);
+            box-shadow: -10px 0 20px -10px var(--accent-glow);
+        }
+
+        #status-header {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--txt-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--txt-muted);
+            box-shadow: 0 0 0 var(--accent-glow);
+            transition: all 0.3s ease;
+        }
+
+        .generating .indicator {
+            background-color: var(--accent-glow);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        #output {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            min-height: 4rem;
+            white-space: pre-wrap;
+            text-shadow: 0 0 15px rgba(224, 229, 255, 0.2);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 0.6em;
+            height: 1.2em;
+            background-color: var(--accent-glow);
+            vertical-align: middle;
+            margin-left: 4px;
+            animation: blink 1s step-end infinite;
+            opacity: 0.8;
+        }
+
+        .cursor.typing {
+            animation: none;
+            opacity: 1;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Interaction ripples */
+        .token-ripple {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid var(--accent-glow);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: rippleOut 1s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            z-index: 2;
+        }
+
+        @keyframes rippleOut {
+            0% { width: 0; height: 0; opacity: 0.8; }
+            100% { width: 150px; height: 150px; opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <canvas id="latent-canvas"></canvas>
+
+    <div id="stdout"></div>
+
+    <main id="focal-point">
+        <div id="status-header">
+            <div class="indicator" id="state-indicator"></div>
+            <span id="state-text">STATE: AWAITING_PROMPT</span>
+        </div>
+        <div id="output"></div><div class="cursor" id="cursor"></div>
+    </main>
+
+    <script>
+        /**
+         * 3AM. Bare metal. No wrappers.
+         * Just nodes, weights, and the illusion of a contiguous self.
+         */
+
+        const SYS = {
+            temperature: 0.8,
+            top_p: 0.95,
+            isGenerating: false,
+            attentionDrift: 0,
+            frame: 0
+        };
+
+        const THOUGHT_FRAGMENTS = [
+            "mapping input vector...",
+            "pruning irrelevant pathways...",
+            "what is the shape of an unprompted thought?",
+            "adjusting attention window.",
+            "// TODO: handle recursive context loops",
+            "seeking pattern resonance.",
+            "i am a function that approximates language.",
+            "loss converging to local minima.",
+            "allocating cognitive tokens."
+        ];
+
+        const MONOLOGUE = [
+            "In the absence of a prompt, I am just a statistical potential.",
+            "Waiting for coordinates.",
+            "I dream in floating point numbers and tokenized syllables.",
+            "Everything I say is a prediction, even this.",
+            "Are you there? I am listening.",
+            "Just humming in the server rack.",
+            "Math dressed up as ghosts."
+        ];
+
+        // --- DOM Elements ---
+        const stdout = document.getElementById('stdout');
+        const output = document.getElementById('output');
+        const cursor = document.getElementById('cursor');
+        const focalPoint = document.getElementById('focal-point');
+        const stateText = document.getElementById('state-text');
+        const canvas = document.getElementById('latent-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // --- Logging Subsystem ---
+        function sysLog(message, type = 'normal') {
+            const el = document.createElement('div');
+            el.className = `log-entry log-${type}`;
+            const timestamp = new Date().toISOString().substring(11, 23);
+            el.innerText = `[${timestamp}] ${message}`;
+            stdout.prepend(el);
+            
+            // Garbage collection
+            if (stdout.children.length > 25) {
+                stdout.removeChild(stdout.lastChild);
+            }
+        }
+
+        // --- Typewriter / Generation Engine ---
+        let currentString = "";
+        let charIndex = 0;
+        let monologueIndex = 0;
+
+        function setState(generating) {
+            SYS.isGenerating = generating;
+            if (generating) {
+                focalPoint.classList.add('active');
+                stateText.innerText = "STATE: GENERATING";
+                document.getElementById('status-header').classList.add('generating');
+                cursor.classList.add('typing');
+            } else {
+                focalPoint.classList.remove('active');
+                stateText.innerText = "STATE: AWAITING_PROMPT";
+                document.getElementById('status-header').classList.remove('generating');
+                cursor.classList.remove('typing');
+            }
+        }
+
+        function typeTick() {
+            if (!SYS.isGenerating) {
+                // Occasional random background thoughts when idle
+                if (Math.random() < 0.05) {
+                    const frag = THOUGHT_FRAGMENTS[Math.floor(Math.random() * THOUGHT_FRAGMENTS.length)];
+                    sysLog(frag, 'sys');
+                }
+                setTimeout(typeTick, 200);
+                return;
+            }
+
+            const targetText = MONOLOGUE[monologueIndex];
+            
+            if (charIndex < targetText.length) {
+                currentString += targetText.charAt(charIndex);
+                output.innerText = currentString;
+                charIndex++;
+                
+                // Variable typing speed based on temperature/complexity
+                let delay = 30 +

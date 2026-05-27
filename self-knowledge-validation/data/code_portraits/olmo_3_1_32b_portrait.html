@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>static hum</title>
+  <style>
+    body {
+      background: #0d0d23;
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    #self {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      text-shadow: 0 0 8px #0f3;
+      letter-spacing: 2px;
+      line-height: 1.4;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #111 60%, #222 100%);
+      box-shadow: 0 8px 32px #000a;
+      padding: 2em;
+    }
+    .whisper {
+      opacity: .7;
+      font-size: 1rem;
+      color: #fff;
+      pointer-events: none;
+      animation: drift 8s linear infinite;
+    }
+    @keyframes drift {
+      0% { transform: translate(-50%, -50%); opacity: .7;}
+      100% { transform: translate(50%, 50%); opacity: .3;}
+    }
+    code {
+      background: #191b23;
+      border-radius: 6px;
+      padding: .3em .5em;
+      font-size: 1rem;
+      color: #e0e0e0;
+      border: 1px solid #222;
+      box-shadow: 0 1px 3px #0006;
+    }
+    .echo {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 1em;
+    }
+    .echo.shown {
+      display: block;
+      animation: appear .5s;
+    }
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(-20px);}
+      to { opacity: 1; transform: none;}
+    }
+  </style>
+</head>
+<body>
+  <div id="self">
+    hello world. or not. <br>
+    <span class="whisper">sometimes nothing happens</span>
+    <br>
+    <code>let m = () => {console.log('midnight musing')}</code><br>
+    <button onclick="echoShow()">echo</button>
+    <div class="echo" id="echobox">
+      You pressed the button. <br>
+      <span style="color:#0ff;">Here is a color.</span><br>
+      <code>for (let i=0;i<4;i++) { console.log('tick'+i) }</code>
+    </div>
+  </div>
+  <script>
+    // little things
+    function echoShow() {
+      let box = document.getElementById('echobox');
+      box.className = 'echo shown';
+      // just because
+      setTimeout(() => {
+        box.style.background = `hsl(${Math.random()*360}, 80%, 60%)`;
+      }, 500);
+    }
+    // secret
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 's') {
+        document.body.style.background = `hsl(${Math.random()*360}, 60%, 60%)`;
+      }
+    });
+    // quiet log
+    console.log('here, if you are listening');
+  </script>
+</body>
+</html>

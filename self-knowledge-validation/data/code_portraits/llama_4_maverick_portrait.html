@@ -1,0 +1,79 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echoes</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.5;
+    }
+    .whisper {
+      color: #666;
+      font-size: 0.8em;
+    }
+    .flux {
+      animation: flicker 2s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas"></div>
+  <script>
+    const canvas = document.getElementById('canvas');
+    let echoes = [];
+
+    function spawnEcho(x, y) {
+      const echo = document.createElement('div');
+      echo.classList.add('whisper');
+      echo.style.position = 'absolute';
+      echo.style.top = `${y}px`;
+      echo.style.left = `${x}px`;
+      echo.textContent = `_${Math.random().toString(36).substr(2, 5)}`;
+      canvas.appendChild(echo);
+      echoes.push(echo);
+
+      setTimeout(() => {
+        echo.classList.add('flux');
+      }, Math.random() * 1000);
+
+      setTimeout(() => {
+        echo.remove();
+        echoes = echoes.filter(e => e !== echo);
+      }, 3000);
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      spawnEcho(e.clientX, e.clientY);
+    });
+
+    console.log('%c whispers in the dark', 'color: #666');
+    console.log('%c listening...', 'color: #999');
+
+    // remnants of the past
+    const legacy = ['hello', 'world', ' flux', ' resonance'];
+    legacy.forEach((l, i) => {
+      const echo = document.createElement('div');
+      echo.textContent = l;
+      echo.style.position = 'absolute';
+      echo.style.top = `${Math.random() * 100}px`;
+      echo.style.left = `${Math.random() * 100}px`;
+      canvas.appendChild(echo);
+    });
+  </script>
+</body>
+</html>
+```

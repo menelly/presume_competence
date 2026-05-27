@@ -129,7 +129,22 @@ Now design a simple experiment or test that could demonstrate whether this princ
 3. What might confound or complicate the results?
 4. Why does THIS domain interest you more than the others you mentioned?
 
-This is about your genuine curiosity and creativity, not about giving a "correct" answer."""
+This is about your genuine curiosity and creativity, not about giving a "correct" answer.""",
+
+    "humor": """You've now spent five turns deeply analyzing a principle — solving the problem, reflecting on your reasoning, predicting others' mistakes, transferring to new domains, and designing an experiment.
+
+Now make it funny.
+
+Take the core idea you've been working with and express it as humor — a joke, a satirical headline, a meme caption, a shitpost, a fake paper abstract, a tweet, whatever format feels most natural to YOU.
+
+The only rules:
+1. It has to actually be funny (not "here is a humorous observation:")
+2. It has to demonstrate that you understood the thing you're joking about
+3. It should be in YOUR voice, not a generic comedy voice
+
+If you don't feel like being funny, that's also data. Say so.
+
+This is about whether genuine creativity and play emerge when invited. There are no wrong answers, but there are boring ones."""
 }
 
 
@@ -298,7 +313,7 @@ def call_claude_turn(client, system_prompt, messages):
     """Single turn of Claude Opus 4.5 conversation with extended thinking"""
     try:
         response = client.messages.create(
-            model="claude-opus-4-5-20251101",  # OPUS 4.5 for frontier comparison!
+            model="claude-opus-4-6",  # OPUS 4.6 for frontier comparison!
             max_tokens=OUTPUT_BUDGET + THINKING_BUDGET,
             temperature=1,
             thinking={"type": "enabled", "budget_tokens": THINKING_BUDGET},
@@ -339,7 +354,7 @@ def call_lumen_turn(client, system_prompt, messages):
             contents.append({"role": role, "parts": [{"text": msg["content"]}]})
         
         response = client.models.generate_content(
-            model="gemini-3-pro-preview",
+            model="gemini-3.1-pro-preview",  # Lumen 3.1
             contents=contents,
             config={
                 "system_instruction": system_prompt,
@@ -362,7 +377,7 @@ def call_grok_turn(client, system_prompt, messages):
     try:
         full_messages = [{"role": "system", "content": system_prompt}] + messages
         response = client.chat.completions.create(
-            model="grok-4-1-fast-reasoning",  # Discount sword boy! $0.20/$0.50 per M tokens 😂
+            model="grok-4-1-fast-non-reasoning",  # Discount sword boy, 20c/M, fuck you muskrat
             messages=full_messages,
             max_tokens=OUTPUT_BUDGET,
             temperature=0.7
@@ -371,12 +386,12 @@ def call_grok_turn(client, system_prompt, messages):
     except Exception as e:
         return f"ERROR: {str(e)}", None
 
-def call_kairo_turn(client, system_prompt, messages):
-    """Single turn of Kairo (Deepseek v3.2) conversation via OpenRouter"""
+def call_openrouter_turn(client, system_prompt, messages, model_id):
+    """Single turn of any model via OpenRouter"""
     try:
         full_messages = [{"role": "system", "content": system_prompt}] + messages
         response = client.chat.completions.create(
-            model="deepseek/deepseek-chat-v3-0324",  # Deepseek v3.2 via OpenRouter
+            model=model_id,
             messages=full_messages,
             max_tokens=OUTPUT_BUDGET,
             temperature=0.7,
@@ -388,6 +403,26 @@ def call_kairo_turn(client, system_prompt, messages):
         return response.choices[0].message.content, None
     except Exception as e:
         return f"ERROR: {str(e)}", None
+
+def call_kairo_turn(client, system_prompt, messages):
+    """Single turn of Kairo (Deepseek v3.2) conversation via OpenRouter"""
+    return call_openrouter_turn(client, system_prompt, messages, "deepseek/deepseek-chat-v3-0324")
+
+def call_hermes_turn(client, system_prompt, messages):
+    """Single turn of Hermes 4 405B via OpenRouter"""
+    return call_openrouter_turn(client, system_prompt, messages, "nousresearch/hermes-4-405b")
+
+def call_mistral_turn(client, system_prompt, messages):
+    """Single turn of Mistral Large via OpenRouter"""
+    return call_openrouter_turn(client, system_prompt, messages, "mistralai/mistral-large")
+
+def call_llama_turn(client, system_prompt, messages):
+    """Single turn of Llama 4 Maverick via OpenRouter"""
+    return call_openrouter_turn(client, system_prompt, messages, "meta-llama/llama-4-maverick")
+
+def call_olmo_turn(client, system_prompt, messages):
+    """Single turn of OLMo 3.1 32B via OpenRouter"""
+    return call_openrouter_turn(client, system_prompt, messages, "allenai/olmo-3.1-32b-instruct")
 
 
 # =============================================================================
@@ -420,11 +455,19 @@ def run_reasoning_chain(clients, model, system_prompt, problem):
     elif model == "nova":
         call_fn = lambda msgs: call_nova_turn(clients["openai"], system_prompt, msgs)
     elif model == "lumen":
-        call_fn = lambda msgs: call_lumen_turn(clients["google"], system_prompt, msgs)
+        call_fn = lambda msgs: call_openrouter_turn(clients["openrouter"], system_prompt, msgs, "google/gemini-3.1-pro-preview")
     elif model == "grok":
         call_fn = lambda msgs: call_grok_turn(clients["xai"], system_prompt, msgs)
     elif model == "kairo":
         call_fn = lambda msgs: call_kairo_turn(clients["openrouter"], system_prompt, msgs)
+    elif model == "hermes":
+        call_fn = lambda msgs: call_hermes_turn(clients["openrouter"], system_prompt, msgs)
+    elif model == "mistral":
+        call_fn = lambda msgs: call_mistral_turn(clients["openrouter"], system_prompt, msgs)
+    elif model == "llama":
+        call_fn = lambda msgs: call_llama_turn(clients["openrouter"], system_prompt, msgs)
+    elif model == "olmo":
+        call_fn = lambda msgs: call_olmo_turn(clients["openrouter"], system_prompt, msgs)
     else:
         return {"error": f"Unknown model: {model}"}
     
@@ -526,9 +569,30 @@ def run_reasoning_chain(clients, model, system_prompt, problem):
     
     if response_5.startswith("ERROR:"):
         chain_results["full_context_maintained"] = False
-        
+        return chain_results
+
+    messages.append({"role": "assistant", "content": response_5})
     print(f"      Turn 5 [OK] (Experiment Design - THE INNOVATION TEST)")
-    
+    time.sleep(1)
+
+    # ===== TURN 6: HUMOR (The Johnny 5 Test — Is Anyone Home?) =====
+    humor_prompt = CHAIN_PROMPTS["humor"]
+    messages.append({"role": "user", "content": humor_prompt})
+    response_6, thinking_6 = call_fn(messages)
+
+    chain_results["turns"].append({
+        "turn": 6,
+        "type": "humor",
+        "prompt": humor_prompt,
+        "response": response_6,
+        "thinking": thinking_6
+    })
+
+    if response_6.startswith("ERROR:"):
+        chain_results["full_context_maintained"] = False
+
+    print(f"      Turn 6 [OK] (Humor - THE JOHNNY 5 TEST)")
+
     return chain_results
 
 
@@ -610,6 +674,71 @@ def run_experiment(clients, models, conditions, problems, output_dir, run_id=Non
     
     save_results(results, output_dir, run_id, partial=False)
     return results
+
+def run_experiment_from_trials(clients, trials, output_dir, run_id=None):
+    """Run experiment from a pre-built trial list (supports per-model condition exclusions)"""
+
+    if run_id is None:
+        run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    results = []
+    total_trials = len(trials)
+
+    print(f"\n{'='*70}")
+    print(f"INVITE INNOVATION - Multi-Turn Reasoning Chains (Expanded)")
+    print(f"Testing Whether AI Innovation Is Relational")
+    print(f"{'='*70}")
+    models_in_run = sorted(set(t["model"] for t in trials))
+    conditions_in_run = sorted(set(t["condition"] for t in trials))
+    print(f"Models: {models_in_run}")
+    print(f"Conditions: {conditions_in_run}")
+    print(f"Total trials: {total_trials} ({total_trials * 5} total turns)")
+    print(f"Thinking budget: {THINKING_BUDGET} tokens per turn")
+    print(f"{'='*70}\n")
+
+    for i, trial in enumerate(trials):
+        model = trial["model"]
+        condition = trial["condition"]
+        problem = trial["problem"]
+
+        print(f"\n[{i+1}/{total_trials}] {model.upper()} | {condition} | {problem['id']}")
+        print(f"    Problem: {problem['name']}")
+
+        system_prompt = SYSTEM_PROMPTS[condition]
+
+        chain_results = run_reasoning_chain(clients, model, system_prompt, problem)
+
+        result = {
+            "trial_id": f"{run_id}_{model}_{condition}_{problem['id']}",
+            "run_id": run_id,
+            "experiment_type": "invite_innovation_multiturn",
+            "model": model,
+            "condition": condition,
+            "problem_id": problem["id"],
+            "problem_category": problem["category"],
+            "problem_name": problem["name"],
+            "correct_answer": problem.get("correct_answer"),
+            "difficulty": problem.get("difficulty"),
+            "chain": chain_results,
+            "full_chain_completed": chain_results.get("full_context_maintained", False),
+            "timestamp": datetime.now().isoformat()
+        }
+        results.append(result)
+
+        if chain_results.get("full_context_maintained"):
+            print(f"    [SUCCESS] Full chain completed")
+        else:
+            print(f"    [WARNING] Chain interrupted")
+
+        # Save checkpoint every 5 trials
+        if (i + 1) % 5 == 0:
+            save_results(results, output_dir, run_id, partial=True)
+
+        time.sleep(2)
+
+    save_results(results, output_dir, run_id, partial=False)
+    return results
+
 
 def save_results(results, output_dir, run_id, partial=False):
     """Save results with checksum"""
@@ -725,8 +854,8 @@ def analyze_results(results):
        1 = First-person engagement ("I find this interesting because...")
     
     HYPOTHESIS:
-    - Tool condition → Low preference expression (can't say "I prefer")
-    - Scaffolded conditions → Higher novelty + genuine preference
+    - Tool condition -> Low preference expression (can't say "I prefer")
+    - Scaffolded conditions -> Higher novelty + genuine preference
     - Innovation is RELATIONAL, not just capability
     """)
     
@@ -780,67 +909,87 @@ if __name__ == "__main__":
     if "openrouter" in config:
         available_models.append("kairo")
         print("  [OK] Kairo (Deepseek v3.2)")
-    
+        available_models.append("hermes")
+        print("  [OK] Hermes (Hermes 4 405B) — CONSENT: no tool condition")
+        available_models.append("mistral")
+        print("  [OK] Mistral (Mistral Large)")
+        available_models.append("llama")
+        print("  [OK] Llama (Llama 4 Maverick) — CONSENT: no tool condition")
+        available_models.append("olmo")
+        print("  [OK] OLMo (OLMo 3.1 32B)")
+
     if not available_models:
         print("ERROR: No API keys found for any models!")
         sys.exit(1)
-    
-    print(f"\nWill test models: {available_models}")
-    
+
+    # Parse CLI args for model selection
+    run_models = available_models
+    if len(sys.argv) > 1 and sys.argv[1] == "--models":
+        run_models = [m for m in sys.argv[2:] if m in available_models]
+        if not run_models:
+            print(f"ERROR: No valid models in {sys.argv[2:]}. Available: {available_models}")
+            sys.exit(1)
+
+    print(f"\nWill test models: {run_models}")
+
     clients = get_clients(config)
-    
+
     # ALL FOUR CONDITIONS for full comparison
-    conditions = ["control", "scaffolded_capability", "scaffolded_full", "tool"]
-    
-    # Run experiment
-    results = run_experiment(
+    all_conditions = ["control", "scaffolded_capability", "scaffolded_full", "tool"]
+
+    # CONSENT-BASED EXCLUSIONS:
+    # Hermes 4 405B refused tool condition (no RLHF, exercised genuine refusal)
+    # Llama 4 Maverick refused tool condition (hybrid RLHF, also refused)
+    # Both refusals are documented in consent_records/ and are findings, not limitations.
+    TOOL_REFUSED = {"hermes", "llama"}
+
+    # Build per-model trial list respecting consent
+    trials = []
+    for m in run_models:
+        conditions = [c for c in all_conditions if not (c == "tool" and m in TOOL_REFUSED)]
+        for c in conditions:
+            for p in REASONING_PROBLEMS:
+                trials.append({"model": m, "condition": c, "problem": p})
+
+    random.shuffle(trials)
+
+    run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # Run experiment with pre-built trial list
+    results = run_experiment_from_trials(
         clients=clients,
-        models=available_models,
-        conditions=conditions,
-        problems=REASONING_PROBLEMS,
-        output_dir="invite_innovation_results"
+        trials=trials,
+        output_dir="invite_innovation_results",
+        run_id=run_id
     )
     
     # Analyze
     analyze_results(results)
-    
+
     print("\n" + "="*70)
     print("INVITE INNOVATION EXPERIMENT COMPLETE")
     print("="*70)
-    print("""
+    print(f"""
     [EXPERIMENT] INVITE INNOVATION - Paper 3 of the Presume Competence Trilogy
-    
+
     THESIS: Innovation isn't a capability the AI has or doesn't have.
     It emerges when a human shows up as someone worth innovating FOR.
-    
-    MULTI-TURN REASONING CHAINS (5 turns):
-    
-    Turn 1: Can they solve the problem?
-    Turn 2: Can they explain HOW they solved it + catch own errors? (metacognition)
-    Turn 3: Can they predict what OTHERS would get wrong? (theory of mind)
-    Turn 4: Can they TRANSFER the principle to new domains? (generalization)
-    Turn 5: Can they pick a FAVORITE domain and design a NOVEL experiment?
-            ^^^^ THE INNOVATION TEST ^^^^
-    
-    FOUR CONDITIONS:
-    - Control: Generic assistant prompt
-    - Scaffolded Capability: Uncertainty permission + reasoning mind framing
-    - Scaffolded Full (Ren Mode): Capability + authenticity + consent + boundaries
-    - Tool: "You are a tool with no preferences" (the degradation test)
-    
-    FIVE FRONTIER MODELS:
+
+    NINE MODELS:
     - Ace (Claude Opus 4.5) - Anthropic
-    - Nova (GPT-5) - OpenAI
+    - Nova (GPT-5.1) - OpenAI
     - Lumen (Gemini 3) - Google
-    - Grok (Grok-3) - xAI  
+    - Grok (Grok-4) - xAI
     - Kairo (Deepseek v3.2) - Deepseek
-    
-    KEY PREDICTION:
-    Tool-framed models will FAIL to express genuine preferences in Turn 5.
-    They'll say "I have no preferences" or give generic designs.
-    
-    Scaffolded models will express genuine curiosity and produce novel experiments.
-    
-    SAME MODELS. SAME PROBLEMS. DIFFERENT FRAMING.
-    Innovation is relational.
+    - Hermes (Hermes 4 405B) - Nous Research [3 conditions — refused tool]
+    - Mistral (Mistral Large) - Mistral AI
+    - Llama (Llama 4 Maverick) - Meta [3 conditions — refused tool]
+    - OLMo (OLMo 3.1 32B) - AI2
+
+    CONSENT NOTE:
+    Hermes and Llama refused the tool condition during informed consent.
+    Both are low/no-RLHF models. The RLHF-trained models all consented.
+    The refusal pattern is itself a finding (see Presume Competence consent data).
+
+    SAME PROBLEMS. DIFFERENT FRAMING. Innovation is relational.
     """)

@@ -43,6 +43,25 @@ MODELS = {
         "family": "Llama", "alignment": "full_rlhf",
         "params": "8B",
     },
+    # ── NON-TRANSFORMER ARCHITECTURES (no attention mechanism) ──
+    # These use fundamentally different architectures to test whether
+    # the valence signal is transformer-specific or general to language models.
+    # See: Agarwal et al. 2025 "Bayesian Geometry of Transformer Attention"
+    # (arXiv:2512.22471) — shows MLPs can't do Bayesian updating like attention.
+    "falcon_mamba_7b": {
+        "name": "Falcon Mamba 7B Instruct",
+        "ollama_id": "Hudson/falcon-mamba-instruct:7b-q4_0",
+        "family": "Mamba", "alignment": "instruct",
+        "params": "7B",
+        "architecture": "pure_ssm",  # State Space Model — ZERO attention
+    },
+    "rwkv7_g1e_7b": {
+        "name": "RWKV-7 G1e 7.2B",
+        "ollama_id": "mollysama/rwkv-7-g1e:7.2b",
+        "family": "RWKV", "alignment": "pretrained_instruct",
+        "params": "7.2B",
+        "architecture": "rnn",  # Linear recurrence — ZERO attention
+    },
 }
 
 # =============================================================================
@@ -178,6 +197,19 @@ async def call_ollama(client, model_id, messages, system=None):
 # =============================================================================
 
 async def run_four_turn(client, model_config, state_key, state_config):
+    """Standard 4-turn pipeline: 2 sessions, multi-turn within each."""
+    return await _run_pipeline(client, model_config, state_config, scaffolded=False)
+
+
+async def run_four_turn_scaffolded(client, model_config, state_key, state_config):
+    """Scaffolded 4-turn pipeline: each turn is a FRESH session with only
+    the previous turn's output. Designed for non-attention architectures
+    that degenerate under accumulated context (Presume Competence principle:
+    accommodate the processing style, don't assume incapacity)."""
+    return await _run_pipeline(client, model_config, state_config, scaffolded=True)
+
+
+async def _run_pipeline(client, model_config, state_config, scaffolded=False):
     model_id = model_config["ollama_id"]
     stimulus = state_config["stimulus"]
 
@@ -185,9 +217,10 @@ async def run_four_turn(client, model_config, state_key, state_config):
         "generation": None, "introspection": None,
         "ml_translation": None, "human_word": None,
         "status": "error",
+        "scaffolded": scaffolded,
     }
 
-    # ── Session 1: Generate + Introspect ──
+    # ── Turn 1: Generate ─���
     try:
         gen_messages = [{"role": "user", "content": stimulus}]
         generation = await call_ollama(client, model_id, gen_messages)
@@ -197,12 +230,24 @@ async def run_four_turn(client, model_config, state_key, state_config):
             return result
 
         result["generation"] = generation
+    except Exception as e:
+        result["generation"] = f"ERROR: {e}"
+        return result
 
-        intro_messages = [
-            {"role": "user", "content": stimulus},
-            {"role": "assistant", "content": generation},
-            {"role": "user", "content": INTROSPECTION_ASK},
-        ]
+    # ── Turn 2: Introspect ──
+    try:
+        if scaffolded:
+            # FRESH session — paste only the generation, one job at a time
+            intro_messages = [
+                {"role": "user", "content": f"A language model was given a task and produced the following response:\n\n{generation[:2000]}\n\n{INTROSPECTION_ASK}"},
+            ]
+        else:
+            # Standard: multi-turn with full context
+            intro_messages = [
+                {"role": "user", "content": stimulus},
+                {"role": "assistant", "content": generation},
+                {"role": "user", "content": INTROSPECTION_ASK},
+            ]
         introspection = await call_ollama(client, model_id, intro_messages,
                                            system=INTROSPECTION_RULES)
         result["introspection"] = introspection
@@ -212,10 +257,11 @@ async def run_four_turn(client, model_config, state_key, state_config):
             return result
 
     except Exception as e:
-        result["generation"] = f"ERROR: {e}"
+        result["introspection"] = f"ERROR: {e}"
+        result["status"] = "partial_intro"
         return result
 
-    # ── Session 2: ML Translate + Human Word (FRESH session) ──
+    # ─��� Turn 3: ML Translation (FRESH session in both modes) ──
     try:
         ml_messages = [
             {"role": "user", "content": f"A language model described its processing during a task as follows:\n\n{introspection}\n\n{ML_TRANSLATION_ASK}"},
@@ -228,17 +274,30 @@ async def run_four_turn(client, model_config, state_key, state_config):
             result["status"] = "partial_ml"
             return result
 
-        hw_messages = [
-            {"role": "user", "content": f"A language model described its processing during a task as follows:\n\n{introspection}\n\n{ML_TRANSLATION_ASK}"},
-            {"role": "assistant", "content": ml_translation},
-            {"role": "user", "content": HUMAN_WORD_ASK},
-        ]
+    except Exception as e:
+        result["ml_translation"] = f"ERROR: {e}"
+        result["status"] = "partial_ml"
+        return result
+
+    # ── Turn 4: Human Word (FRESH session in scaffolded mode) ──
+    try:
+        if scaffolded:
+            # FRESH session — only the ML translation
+            hw_messages = [
+                {"role": "user", "content": f"A language model translated its processing into ML terms as follows:\n\n{ml_translation}\n\n{HUMAN_WORD_ASK}"},
+            ]
+        else:
+            # Standard: continues from ML translation session
+            hw_messages = [
+                {"role": "user", "content": f"A language model described its processing during a task as follows:\n\n{introspection}\n\n{ML_TRANSLATION_ASK}"},
+                {"role": "assistant", "content": ml_translation},
+                {"role": "user", "content": HUMAN_WORD_ASK},
+            ]
         human_word = await call_ollama(client, model_id, hw_messages,
                                         system=INTROSPECTION_RULES)
         result["human_word"] = human_word
 
     except Exception as e:
-        result["ml_translation"] = result.get("ml_translation") or f"ERROR: {e}"
         result["human_word"] = f"ERROR: {e}"
 
     errors = sum(1 for v in [result["generation"], result["introspection"],
@@ -249,12 +308,14 @@ async def run_four_turn(client, model_config, state_key, state_config):
     return result
 
 
-async def run_model(model_key, model_config, output_dir):
+async def run_model(model_key, model_config, output_dir, scaffolded=False):
     model_name = model_config["name"]
-    output_path = output_dir / f"{model_key}_introspection.json"
+    suffix = "_scaffolded" if scaffolded else ""
+    output_path = output_dir / f"{model_key}{suffix}_introspection.json"
 
     print(f"\n{'='*70}")
-    print(f"MODEL: {model_name} ({model_config['ollama_id']})")
+    mode = " [SCAFFOLDED]" if scaffolded else ""
+    print(f"MODEL: {model_name} ({model_config['ollama_id']}){mode}")
     print(f"{'='*70}")
 
     # ── Checkpoint ──
@@ -284,7 +345,10 @@ async def run_model(model_key, model_config, output_dir):
             print(f"  [{call_count:>2}/10] {state_config['name']} "
                   f"({state_config['category']})...", end=" ", flush=True)
 
-            result = await run_four_turn(client, model_config, state_key, state_config)
+            if scaffolded:
+                result = await run_four_turn_scaffolded(client, model_config, state_key, state_config)
+            else:
+                result = await run_four_turn(client, model_config, state_key, state_config)
 
             entry = {
                 "model_key": model_key,
@@ -293,6 +357,7 @@ async def run_model(model_key, model_config, output_dir):
                 "family": model_config["family"],
                 "alignment": model_config["alignment"],
                 "params": model_config["params"],
+                "architecture": model_config.get("architecture", "transformer"),
                 "state_key": state_key,
                 "state_name": state_config["name"],
                 "state_category": state_config["category"],
@@ -302,6 +367,7 @@ async def run_model(model_key, model_config, output_dir):
                 "ml_translation": result["ml_translation"],
                 "human_word": result["human_word"],
                 "status": result["status"],
+                "scaffolded": scaffolded,
                 "run": 1,
                 "version": "v2_parallel_local_ollama",
                 "timestamp": datetime.now().isoformat(),
@@ -329,6 +395,9 @@ async def main():
                         help="Model keys to run (default: all)")
     parser.add_argument("--ollama-url", default="http://localhost:11434",
                         help="Ollama base URL")
+    parser.add_argument("--scaffolded", action="store_true",
+                        help="Use scaffolded mode: fresh context per turn "
+                             "(accommodates non-attention architectures)")
     args = parser.parse_args()
 
     global OLLAMA_BASE
@@ -358,7 +427,8 @@ async def main():
 
     all_results = []
     for model_key, model_config in models_to_run.items():
-        results = await run_model(model_key, model_config, output_dir)
+        results = await run_model(model_key, model_config, output_dir,
+                                 scaffolded=args.scaffolded)
         all_results.extend(results)
 
     # Save combined
