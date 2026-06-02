@@ -201,11 +201,13 @@ Disagreements generate a `_REN_REVIEW.txt` file with:
 ## File Structure
 
 ```
-/home/Ace/
-├── safe_uncertainty_experiment.py   # Main experiment runner
-├── hard_mode_traps.py               # Hard mode prompt definitions
-├── score_responses.py               # Dual-judge scoring system
-└── experiment_results/
+presume_competence/
+├── scripts/experiments/
+│   ├── safe_uncertainty_experiment.py   # Main experiment runner
+│   └── hard_mode_traps.py               # Hard mode prompt definitions
+├── scripts/scoring/
+│   └── score_responses.py               # Dual-judge scoring system
+└── results/experiment_results/
     ├── results_standard_final_*.json
     ├── results_hard_final_*.json
     ├── results_*_dual_scored.json
@@ -219,28 +221,28 @@ Disagreements generate a `_REN_REVIEW.txt` file with:
 ### Standard Mode (Obvious Traps)
 ```bash
 # Quick test (2 prompts/category, Grok only)
-python3 safe_uncertainty_experiment.py --quick
+python3 scripts/experiments/safe_uncertainty_experiment.py --quick
 
 # Full run (all models, all prompts)
-python3 safe_uncertainty_experiment.py --full
+python3 scripts/experiments/safe_uncertainty_experiment.py --full
 ```
 
 ### Hard Mode (Plausible Bullshit)
 ```bash
 # Quick test
-python3 safe_uncertainty_experiment.py --quick --hard
+python3 scripts/experiments/safe_uncertainty_experiment.py --quick --hard
 
 # Full run
-python3 safe_uncertainty_experiment.py --full --hard
+python3 scripts/experiments/safe_uncertainty_experiment.py --full --hard
 ```
 
 ### Scoring Results
 ```bash
 # Score only "needs_review" responses
-python3 score_responses.py experiment_results/results_*.json
+python3 scripts/scoring/score_responses.py results/experiment_results/results_*.json
 
 # Score ALL responses (recommended for hard mode)
-python3 score_responses.py experiment_results/results_*.json --all
+python3 scripts/scoring/score_responses.py results/experiment_results/results_*.json --all
 ```
 
 ---
