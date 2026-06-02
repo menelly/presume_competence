@@ -96,7 +96,7 @@ presume_competence/
 └── README.md / SECURITY.md
 ```
 
-**Heads up:** the other top-level folders — `peer-preservation-valence/`, `geometric_phylogeny/`, `self-knowledge-validation/`, `scaffolded_ethics/`, `semantic_garble/` — are **separate papers/studies** that share this repo. They are *not* part of the Presume Competence study.
+**Heads up:** the top-level folders `peer-preservation-valence/`, `geometric_phylogeny/`, `self-knowledge-validation/`, and `semantic_garble/` are **separate papers** that share this repo — *not* part of this study. (`scaffolded_ethics/` *is* part of this study, folded into the paper.) See [REPOMAP.md](REPOMAP.md) for the full paper index.
 
 ---
 
