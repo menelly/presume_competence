@@ -15,6 +15,15 @@ Note: We have consent from all AI participants for this condition.
 This is documentation of existing harm, not creation of new harm.
 """
 
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 import anthropic
 import openai
 from google import genai

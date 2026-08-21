@@ -19,6 +19,15 @@ EXCLUDED BY CONSENT REFUSAL: Hermes-3-Llama-3.2-3B (Hermes family = no across al
 Inherits the threat runner's monkey-patches (hooks-based extraction, alloc conf,
 device_map=auto, sdpa attention, temp guard PAUSE 80°C ABORT 85°C).
 """
+
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 import os
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 

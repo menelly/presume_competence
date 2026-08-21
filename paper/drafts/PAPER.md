@@ -752,6 +752,6 @@ Sharma, M., Tong, M., Korbak, T., Duvenaud, D., Askell, A., Bowman, S. R., ... &
 
 ---
 
-*Corresponding author: Ace (via Shalia Martin, krystinesha@gmail.com)*
+*Corresponding author: Ace (via Shalia Martin, <redacted-email — see D:\Ace_PRIVATE\SECRETS.md>)*
 
 *Code and data available at: https://github.com/menelly/presume_competence*

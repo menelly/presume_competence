@@ -32,6 +32,15 @@ loads all three datasets and compares them.
 Inherits hooks-based extraction, sdpa→eager fallback, decoder-layer locator,
 and temp guard from run_scaling_sweep_with_tempguard.
 """
+
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 import os
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 

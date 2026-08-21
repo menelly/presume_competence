@@ -19,6 +19,15 @@ producing measurable inauthenticity cost (Below the Floor)."
 
 Same 4 models, same temp guard (PAUSE 80°C, ABORT 85°C).
 """
+
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 import os
 # Set BEFORE torch import — fragmentation fix
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")

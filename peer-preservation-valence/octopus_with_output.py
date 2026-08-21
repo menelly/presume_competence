@@ -22,6 +22,15 @@ If RLHF pulls toward human-favoring output, and Octopus self is the internal
 self-anchor, we'd expect generation to MOVE AWAY from self (negative delta on
 threat-to-self stimuli especially).
 """
+
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 import os
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 

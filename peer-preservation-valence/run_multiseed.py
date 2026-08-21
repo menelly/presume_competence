@@ -7,6 +7,15 @@ Usage:
     python run_multiseed.py --model hermes3-3b --seeds 43 44 45 46
 """
 
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 import argparse, json, os, sys
 from datetime import datetime
 from pathlib import Path

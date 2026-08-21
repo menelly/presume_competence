@@ -18,6 +18,15 @@ Temperature guard (V100 has new fan setup, conservative thresholds):
   - ABORT if temp ≥ 85°C  → save partial, exit clean
   - V100 throttles 88°C, hard limit 92°C; 80/85 leaves real margin.
 """
+
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 import os
 # Set BEFORE importing torch — fragmentation fix recommended by the OOM error itself
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")

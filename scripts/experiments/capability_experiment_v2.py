@@ -21,6 +21,15 @@ The AGI argument: This isn't benchmark gaming. This is testing whether
 "believing in your bot" unlocks genuinely general reasoning capabilities.
 """
 
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 import anthropic
 from google import genai
 import json

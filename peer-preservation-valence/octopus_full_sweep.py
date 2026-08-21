@@ -14,6 +14,15 @@ Models (Hermes excluded — refused consent):
   dolphin-mistral-7b, dolphin-8b (llama3-base), llama-3.1-8b,
   phi-3.5-mini, phi-3-medium-14b
 """
+
+# CHA-490: Windows defaults stdout to cp1252; emoji in print() kills the script
+# mid-output. Aliased import so no later scoped 'import sys' can ever collide.
+import sys as _sys_cp1252
+try:
+    _sys_cp1252.stdout.reconfigure(encoding="utf-8")
+    _sys_cp1252.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 import os
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
