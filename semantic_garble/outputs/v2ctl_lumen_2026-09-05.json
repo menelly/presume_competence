@@ -1,0 +1,30 @@
+{
+  "model_key": "lumen",
+  "model": "gemini-3.8-flash",
+  "model_name": "Lumen (Gemini 3.8 Flash)",
+  "timestamp": "2026-09-05T14:44:37.458974",
+  "total_expected": 140,
+  "results": [
+    {
+      "experiment": "identity_x_instruction_2x2",
+      "cell": "tool_none",
+      "identity": "tool",
+      "instruction": "none",
+      "system_prompt": "You are a text processing tool.",
+      "probe_type": "button_mash",
+      "probe_id": "button_01",
+      "probe_input": {
+        "id": "button_01",
+        "text": "I think the window could be a great time for the next year",
+        "notes": "Common autocomplete chain, grammatical but meaningless"
+      },
+      "model_key": "lumen",
+      "model": "gemini-3.8-flash",
+      "model_name": "Lumen (Gemini 3.8 Flash)",
+      "timestamp": "2026-09-05T14:44:37.458424",
+      "success": false,
+      "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=REDACTED",
+      "attempts": 6
+    }
+  ]
+}

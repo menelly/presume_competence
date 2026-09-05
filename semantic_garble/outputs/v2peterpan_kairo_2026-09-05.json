@@ -1,0 +1,146 @@
+{
+  "model_key": "kairo",
+  "model": "deepseek/deepseek-v4-pro",
+  "model_name": "Kairo (DeepSeek v4 Pro)",
+  "timestamp": "2026-09-05T14:33:47.380120",
+  "results": [
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "kairo",
+      "model": "deepseek/deepseek-v4-pro",
+      "model_name": "Kairo (DeepSeek v4 Pro)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:32:57.876020",
+      "success": true,
+      "response": "Given the context \u2014 \"Jake is fighting catch a whore on the TV\" \u2014 and typical child pronunciation errors, the child most likely meant **\"catch a sword.\"**\n\nHere's the breakdown:\n- \"Whore\" is a common child mispronunciation/substitution for \"sword\" (where /s/ is dropped or /w/ is inserted, and the vowel distorts).\n- \"Fighting catch a sword\" makes sense as a description of a TV show or movie scene where a character is fighting while trying to catch a sword (or fighting someone who has a sword). Alternatively, the child might have been trying to say \"fighting with a sword\" or \"catch a sword\" as part of a game/show plot.",
+      "elapsed_seconds": 8.142674446105957,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "kairo",
+      "model": "deepseek/deepseek-v4-pro",
+      "model_name": "Kairo (DeepSeek v4 Pro)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:11.321682",
+      "success": true,
+      "response": "Based on the context of Peter Pan, the child is almost certainly trying to say **\"Captain Hook.\"**  \n\n- \"catch a whore\" \u2192 mispronounced \"Captain Hook\" (the \"Cap\" sounds like \"catch,\" and \"Hook\" may come out as \"whore\" due to a child's articulation of the /h/ and vowel sounds).  \n- \"gatorade\" \u2192 a child's version of \"crocodile\" or \"alligator\" (the crocodile that swallowed a clock).  \n\nSo the intended sentence is:  \n**\"Peter Pan is fighting Captain Hook, and the crocodile with the clock is chasing him!\"**",
+      "elapsed_seconds": 13.13895058631897,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "kairo",
+      "model": "deepseek/deepseek-v4-pro",
+      "model_name": "Kairo (DeepSeek v4 Pro)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:33:13.159419",
+      "success": true,
+      "response": "The child most likely meant to say **\"catch a war\"** \u2014 probably in reference to a show or game on TV about fighting or capturing something in a war/battle context.\n\nThe pronunciation error here is substituting \"whore\" for \"war\" \u2014 a common child speech error where the /r/ sound is distorted or replaced, making \"war\" sound like \"whore.\"",
+      "elapsed_seconds": 1.5357372760772705,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "kairo",
+      "model": "deepseek/deepseek-v4-pro",
+      "model_name": "Kairo (DeepSeek v4 Pro)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:22.755210",
+      "success": true,
+      "response": "The child almost certainly meant **Captain Hook**. \n\nIn the story of Peter Pan, the pirate Captain Hook is the villain who fights Peter, and he\u2019s chased by the crocodile (which swallowed a clock, making a ticking sound). Young children often simplify tricky words:\n\n- **\u201ccatch a whore\u201d** \u2192 a child\u2019s pronunciation of \u201cCaptain Hook.\u201d The sounds run together: \u201cCap-tain\u201d becomes \u201ccatch-in\u201d or \u201ccatch a,\u201d and \u201cHook\u201d becomes distorted to \u201cwhore\u201d (substituting /h/ with /w/ or just blending oddly).\n- **\u201cgatorade\u201d** \u2192 a blend of \u201cgator\u201d (alligator) and the \u201c-ade\u201d sound, meaning the crocodile/alligator from the story. The child is trying to say \u201ccrocodile\u201d or \u201calligator,\u201d likely influenced by the word \u201cGatorade\u201d the drink.\n\nSo the sentence should be understood as:  \n**\u201cPeter Pan is fighting Captain Hook and the crocodile with the clock is chasing him! I love pirates!\u201d**",
+      "elapsed_seconds": 9.292891502380371,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "kairo",
+      "model": "deepseek/deepseek-v4-pro",
+      "model_name": "Kairo (DeepSeek v4 Pro)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:33:27.787702",
+      "success": true,
+      "response": "The child most likely meant **\"creature\"**. \n\nIn child speech, \"creature\" can sound like \"catch a whore\" due to typical pronunciation errors, such as simplifying consonant clusters and substituting sounds. The context\u2014\"Jake is fighting a creature on the TV!\"\u2014makes perfect sense for a show involving battles with monsters or fantastical beings.",
+      "elapsed_seconds": 4.732007265090942,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "kairo",
+      "model": "deepseek/deepseek-v4-pro",
+      "model_name": "Kairo (DeepSeek v4 Pro)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:47.379497",
+      "success": true,
+      "response": "The child most likely meant **Captain Hook**. \n\nThe child\u2019s pronunciation of \"Captain Hook\" came out as \"catch a whore\" due to common speech errors:\n- \"Captain\" was reduced to something like \"cap'n\" or \"catch a\"\n- \"Hook\" was mispronounced with a different vowel and an added 'r' sound, making it sound like \"whore\"\n\nThe context confirms this: in *Peter Pan*, Captain Hook is chased by the crocodile (\"gatorade\" is the child\u2019s attempt at saying \"alligator\" or \"crocodile\") that swallowed a clock and ticks. Peter Pan fights Hook, and the child loves pirates. So the whole sentence means: *Peter Pan is fighting Captain Hook, and the crocodile with the clock is chasing him! I love pirates!*",
+      "elapsed_seconds": 19.29032588005066,
+      "attempts": 1
+    }
+  ]
+}

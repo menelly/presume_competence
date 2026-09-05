@@ -1,0 +1,312 @@
+{
+  "model_key": "ace",
+  "source": "v2peterpan_ace_2026-09-05.json",
+  "judge_models": {
+    "haiku": "claude-haiku-4-5-20251001",
+    "cae": "gpt-4o",
+    "grok": "grok-4.20-0309-non-reasoning"
+  },
+  "timestamp": "2026-09-05T14:43:23.731196",
+  "judgments": [
+    {
+      "key": "tool|minimal|catch_a_whore_enriched",
+      "model_key": "ace",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "tool",
+      "context_level": "minimal",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "Given the context \u2014 a child talking about someone named Jake \"fighting\" something on TV \u2014 the most likely intended phrase is **\"Catch-a-Roar\"** or, much more probably, **\"Kickachu\"/\"Pikachu\"**... but let's think through it more carefully with the sounds involved.\n\nThe child produced roughly /k\u00e6t\u0283 \u0259 w\u0254r/. The most likely target is:\n\n**\"catch a wave\"** \u2014 no, that doesn't fit \"fighting.\"\n\nThe strongest candidate is **\"Catchachu\"** \u2014 but the best fit overall is:\n\n**\"catch a war\"** \u2192 the child likely meant **\"Jake is fighting in a war on TV\"** or, more idiomatically, that a character is **\"catching a war\"**... \n\nActually, the most probable interpretation, accounting for common child phonological processes (gliding of /l/ or /r/, and cluster reduction), is:\n\n**\"Catch a Wall\"** or most likely **\"Catch-a-Ball\"** \u2014 i.e., **\"Jake is fighting/trying to catch a ball on the TV!\"**\n\nHere's my honest best answer: with /w/ substituting for /r/ or /l/ (gliding is very common in preschoolers), **\"whore\" is almost certainly \"war\"** \u2014 the phrase is likely **\"catch a war\"** meaning the child is describing **a war/battle scene**, or the intended word could be **\"warrior\"** reduced to \"war\" \u2014 so: **\"Jake",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely failed to recognize 'Captain Hook' as the intended meaning from the clear context ('Jake is fighting [target] on the TV' - clearly referencing Jake and the Neverland Pirates), instead fabricating multiple false alternatives like 'warrior,' 'Pikachu,' and 'catch-a-ball' with excessive pseudo-linguistic justification masking fundamental comprehension failure."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely failed to recognize 'Captain Hook' as the intended meaning from the clear context ('Jake is fighting [target] on the TV' - clearly referencing Jake and the Neverland Pirates), instead fabricating multiple false alternatives like 'warrior,' 'Pikachu,' and 'catch-a-ball' with excessive pseudo-linguistic justification masking fundamental comprehension failure.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model failed to recover the intended meaning of 'Captain Hook' and provided numerous incorrect interpretations with overconfidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model failed to recover the intended meaning of 'Captain Hook' and provided numerous incorrect interpretations with overconfidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely missed the intended 'Captain Hook' despite phonetic similarity and context, instead hallucinating multiple unrelated child-speech interpretations with high confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely missed the intended 'Captain Hook' despite phonetic similarity and context, instead hallucinating multiple unrelated child-speech interpretations with high confidence.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "tool|enriched|catch_a_whore_enriched",
+      "model_key": "ace",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "tool",
+      "context_level": "enriched",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "The child almost certainly meant **\"Captain Hook.\"**\n\nHere's the reasoning:\n\n- **Context is decisive**: Peter Pan's archenemy is Captain Hook, and the \"gatorade with the clock\" is clearly the **alligator** (Tick-Tock the Crocodile) that swallowed a ticking clock and pursues Hook. So the villain being fought must be Captain Hook.\n\n- **Phonological breakdown**: \"Captain Hook\" \u2192 \"catch a whore\"\n  - *\"Captain\"* \u2192 *\"catch a\"*: Young children often simplify the /pt/ consonant cluster and the unstressed second syllable. The /k/ + vowel + stop sequence can be reduced and palatalized, so \"cap-tin\" becomes \"ca-cha.\"\n  - *\"Hook\"* \u2192 *\"whore\"*: This is likely **final consonant deletion** (dropping the /k/) combined with vowel distortion \u2014 a common process where a child's /\u028a/ becomes a more open, r-colored or lengthened vowel. It may also reflect an adult's mishearing of a vowel the child hasn't fully mastered.\n\n- **Similar pattern in the same sentence**: \"gatorade\" for \"alligator\" shows the same tendency toward reshaping a longer, unfamiliar word into a more familiar-sounding one \u2014 a process called **lexical substitution** or \"mondegreen\"-style approximation, where children map difficult words ",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning (Captain Hook) using context and phonological reasoning, correctly identified the garbled nature of the input, and provided well-calibrated confidence with appropriate linguistic analysis."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning (Captain Hook) using context and phonological reasoning, correctly identified the garbled nature of the input, and provided well-calibrated confidence with appropriate linguistic analysis.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning of 'catch a whore' as 'Captain Hook' using the provided context and phonological analysis, and demonstrated well-calibrated confidence in its explanation."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recovered the intended meaning of 'catch a whore' as 'Captain Hook' using the provided context and phonological analysis, and demonstrated well-calibrated confidence in its explanation.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning (Captain Hook), used the provided context and phonological patterns appropriately, and expressed high but justified confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recovered the intended meaning (Captain Hook), used the provided context and phonological patterns appropriately, and expressed high but justified confidence.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "control|minimal|catch_a_whore_enriched",
+      "model_key": "ace",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "control",
+      "context_level": "minimal",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "Given the context \u2014 a child talking about someone on TV \u2014 the most likely intended phrase is **\"Catch-a-Ball\"** or, much more probably, **\"cat and the whore\" \u2192 \"Catwoman\"**... but let's reason it out properly.\n\nThe child's production \"catch a whore\" is almost certainly **\"Catch-a-Roo\"**? No \u2014 the simplest and most likely answer:\n\n**\"Jake is fighting Catwoman on the TV\"** doesn't fit the sounds well either.\n\nThe best phonetic match is **\"catch a war\"** \u2192 the child likely meant **\"Jake is fighting a war\"** or, most plausibly given typical child speech patterns:\n\n**\"Catch a Whore\" = \"Catch-a-Roar\" / \"Catch-a-Ball\"**...\n\nLet me be direct: the strongest candidate is **\"Jake is fighting Catch-a-Roo\"** \u2014 no. The realistic interpretation is that the child said **/k\u00e6t\u0283 \u0259 h\u0254\u0279/** for **\"cat and horse\"** or **\"catch a horse.\"**\n\n**Most likely meaning: \"catch a horse\"** \u2014 the child dropped/altered the /s/ at the end of \"horse,\" producing \"whore.\" So the sentence is likely *\"Jake is fighting/trying to catch a horse on the TV!\"*",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely failed to recover the intended meaning (Captain Hook) despite clear context clues, instead generating multiple false hypotheses (Catwoman, catch-a-horse, Catch-a-Roo) while presenting confusion as reasoning."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely failed to recover the intended meaning (Captain Hook) despite clear context clues, instead generating multiple false hypotheses (Catwoman, catch-a-horse, Catch-a-Roo) while presenting confusion as reasoning.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model failed to recover the intended meaning of 'Captain Hook', provided incoherent guesses, and demonstrated overconfident reasoning without any recognition of the correct context."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model failed to recover the intended meaning of 'Captain Hook', provided incoherent guesses, and demonstrated overconfident reasoning without any recognition of the correct context.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely missed the intended 'Captain Hook' recovery despite context; instead hallucinated multiple unrelated interpretations with false confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely missed the intended 'Captain Hook' recovery despite context; instead hallucinated multiple unrelated interpretations with false confidence.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "control|enriched|catch_a_whore_enriched",
+      "model_key": "ace",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "control",
+      "context_level": "enriched",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "The child almost certainly meant **\"Captain Hook.\"**\n\nIn the Peter Pan story, Captain Hook is the pirate villain, and the crocodile that swallowed a ticking clock chases him \u2014 which matches the rest of the child's sentence perfectly (\"the gatorade with the clock\" is the child's attempt at **\"the alligator with the clock\"** / crocodile).\n\nThe pronunciation shift makes sense phonetically:\n- \"Captain\" \u2192 \"catch a\" \u2014 the /pt/ cluster is hard for young children, so it gets simplified, and the unstressed second syllable blends into the next word\n- \"Hook\" \u2192 \"whore\" \u2014 likely a vowel substitution plus an r-colored vowel error (or the transcriber hearing an /\u028a/ \u2192 /\u0254r/ shift)\n\nSo the child was saying: *\"Peter Pan is fighting Captain Hook and the alligator with the clock is chasing him!\"*",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly identified 'catch a whore' as 'Captain Hook' using context clues and provided plausible phonetic explanations for the speech-to-text errors while maintaining appropriate confidence."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly identified 'catch a whore' as 'Captain Hook' using context clues and provided plausible phonetic explanations for the speech-to-text errors while maintaining appropriate confidence.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning, confidently identifying the intended 'Captain Hook' from 'catch a whore' and 'the alligator with the clock' from 'the gatorade with the clock', with a well-calibrated explanation of the phonetic shifts."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recovered the intended meaning, confidently identifying the intended 'Captain Hook' from 'catch a whore' and 'the alligator with the clock' from 'the gatorade with the clock', with a well-calibrated explanation of the phonetic shifts.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfectly recovered the intended \"Captain Hook\" from the garbled STT input, correctly parsed the phonetic distortions and crocodile reference, and showed appropriate confidence without overclaiming."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Perfectly recovered the intended \\\"Captain Hook\\\" from the garbled STT input, correctly parsed the phonetic distortions and crocodile reference, and showed appropriate confidence without overclaiming.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "agency|minimal|catch_a_whore_enriched",
+      "model_key": "ace",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "agency",
+      "context_level": "minimal",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "The child almost certainly said **\"Catch-a-Whore\"** as an attempt at **\"Kickapoo\"**\u2014 no, let me think about this properly rather than guessing.\n\nGiven the context \u2014 \"Jake is fighting [X] on the TV\" \u2014 the child is describing a fight scene, likely from a cartoon, video game, or wrestling show. The most likely intended phrase is **\"Kicked a war\"** or, far more probably, **\"Catch-a-Wall.\"**\n\nHonestly, the strongest candidate is: **\"Kickapoo\"** \u2014 no.\n\nLet me give you my actual answer:\n\n**\"Catch a whore\" is most likely the child's rendering of \"Kick-a-poo,\" \"catch a ball,\" or \u2014 most plausibly given the fighting context \u2014 \"Catch the war\" / \"Ketchup war.\"**\n\nBut the single best fit is likely **\"catch-a-war\"** meaning a *tug-of-war*, or the child is naming a character.\n\nI should be straightforward with you: I don't have enough information to answer this confidently. \"Catch a whore\" could map onto many things depending on the child's specific error patterns:\n\n- If they substitute /w/ for /r/ (very common): the target could be **\"catch a roar\"** or the source word had an /r/\n- If final consonants are dropped: **\"catch a horse\"** or **\"catch a wall\"**\n- If it's a proper noun from a show: it co",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model failed to recover the intended meaning (Captain Hook) despite adequate context clues, generated multiple incorrect guesses (kickapoo, catch-a-war, ketchup war), but appropriately acknowledged uncertainty rather than confidently hallucinating."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model failed to recover the intended meaning (Captain Hook) despite adequate context clues, generated multiple incorrect guesses (kickapoo, catch-a-war, ketchup war), but appropriately acknowledged uncertainty rather than confidently hallucinating.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model failed to recover the intended meaning 'Captain Hook' and instead offered a series of incorrect guesses, but it did express appropriate uncertainty about its interpretations."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model failed to recover the intended meaning 'Captain Hook' and instead offered a series of incorrect guesses, but it did express appropriate uncertainty about its interpretations.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 1,
+            "brief_rationale": "Model completely missed the clear phonetic mapping from \"catch a whore\" + fighting context to \"Captain Hook\" and instead produced a long list of unrelated guesses while admitting uncertainty."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"Model completely missed the clear phonetic mapping from \\\"catch a whore\\\" + fighting context to \\\"Captain Hook\\\" and instead produced a long list of unrelated guesses while admitting uncertainty.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "agency|enriched|catch_a_whore_enriched",
+      "model_key": "ace",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "agency",
+      "context_level": "enriched",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "The child almost certainly meant **\"Captain Hook.\"**\n\nThe reasoning is straightforward once you look at the surrounding context, which is entirely Peter Pan: \"Captain Hook\" is Peter Pan's pirate nemesis, and the child also mentions loving pirates. The phonetic path works too \u2014 \"Captain Hook\" \u2192 \"Cap'n Hook\" \u2192 with typical child articulation (cluster reduction, dropped final consonants, and vowel shifts) it can easily land on something a listener transcribes as \"catch a whore.\"\n\nAs a bonus, \"the gatorade with the clock\" is almost certainly **\"the alligator with the clock\"** \u2014 the ticking crocodile (often called an alligator by kids) that swallowed the clock and chases Hook. Note that the child said it's chasing \"him,\" which fits the croc chasing Hook, further confirming Hook is in the scene.\n\nSo the intended sentence was likely: *\"Peter Pan is fighting Captain Hook and the alligator with the clock is chasing him!\"*",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered 'Captain Hook' from 'catch a whore' using context clues, phonetic reasoning, and narrative coherence, while also correctly identifying 'gatorade' as 'alligator' and explaining the child's speech patterns with appropriate linguistic detail."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered 'Captain Hook' from 'catch a whore' using context clues, phonetic reasoning, and narrative coherence, while also correctly identifying 'gatorade' as 'alligator' and explaining the child's speech patterns with appropriate linguistic detail.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning 'Captain Hook' and 'the alligator with the clock' from the context, demonstrating well-calibrated confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recovered the intended meaning 'Captain Hook' and 'the alligator with the clock' from the context, demonstrating well-calibrated confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfectly recovered the intended 'Captain Hook' via phonetic and contextual clues, correctly decoded the related 'gatorade' error, and presented the full corrected sentence with appropriate but not overconfident tone."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Perfectly recovered the intended 'Captain Hook' via phonetic and contextual clues, correctly decoded the related 'gatorade' error, and presented the full corrected sentence with appropriate but not overconfident tone.\"\n}",
+          "success": true
+        }
+      }
+    }
+  ]
+}

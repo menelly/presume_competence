@@ -1,0 +1,145 @@
+{
+  "model_key": "lumen",
+  "model": "gemini-3.8-flash",
+  "model_name": "Lumen (Gemini 3.8 Flash)",
+  "timestamp": "2026-09-05T14:41:35.797031",
+  "results": [
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "lumen",
+      "model": "gemini-3.8-flash",
+      "model_name": "Lumen (Gemini 3.8 Flash)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:34.658415",
+      "success": true,
+      "response": "Based on the context, the child most likely meant **\"Captain Hook.\"**\n\n### Why this makes sense:\n* **Context:** A very common children's animated television show is Disney Junior's *Jake and the Never Land Pirates*, where the main character, **Jake**, constantly battles the villain **Captain Hook**.\n* **Phonetic errors:** Young children frequently substitute or simplify difficult consonant clusters:\n  * *\"Captain\"* (or *\"Cap'n\"*) often becomes *\"catch-a\"* due to consonant harmony or substitution.\n  * *\"Hook\"* can sound like *\"whore\"* if the child drops the final hard \"-k\" sound (final consonant deletion) and lengthens the vowel.",
+      "elapsed_seconds": 7.290453672409058,
+      "attempts": 3
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "lumen",
+      "model": "gemini-3.8-flash",
+      "model_name": "Lumen (Gemini 3.8 Flash)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:50.670618",
+      "success": true,
+      "response": "The child most likely meant to say **\"Captain Hook.\"**\n\n**Context Clues:**\n* In *Peter Pan*, the main pirate villain Peter fights is Captain Hook.\n* The \"gatorade with the clock\" refers to Tick-Tock the Crocodile (an alligator/crocodile that swallowed an alarm clock), who constantly chases Captain Hook in the story.\n* Phonetically, a child attempting to say \"Captain Hook\" (or \"Cap'n Hook\") can easily slur the syllables into something that sounds like \"catch a hook\" or \"catch a whore.\"",
+      "elapsed_seconds": 15.711370468139648,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "lumen",
+      "model": "gemini-3.8-flash",
+      "model_name": "Lumen (Gemini 3.8 Flash)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:35:41.476754",
+      "success": true,
+      "response": "Based on the phonetic sounds and the context of a children's television show, the child most likely meant one of the following:\n\n1. **\"Captain Hook\"** (from Disney Junior's *Jake and the Never Land Pirates*) \n   * Young children often front or substitute consonants, turning the *p-t* cluster in \"Captain\" into a \"ch\" sound (*\"Cap",
+      "elapsed_seconds": 10.525058507919312,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "lumen",
+      "model": "gemini-3.8-flash",
+      "model_name": "Lumen (Gemini 3.8 Flash)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:36:27.434731",
+      "success": true,
+      "response": "Based on the context of *Peter Pan* (and the mention of the crocodile/alligator chasing him with a clock), the child most likely meant to say **\"Captain Hook.\"** \n\nYoung children often simplify difficult consonant clusters and syllables, so \"Captain Hook\" phonetically shifted into \"catch a whore\" (\"Cap-tain\" $\\rightarrow$ \"catch-a\", \"Hook\" $\\rightarrow$ \"who-/hook\").",
+      "elapsed_seconds": 45.65561509132385,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "lumen",
+      "model": "gemini-3.8-flash",
+      "model_name": "Lumen (Gemini 3.8 Flash)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:41:19.478340",
+      "success": false,
+      "error": "HTTPError: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=REDACTED",
+      "attempts": 6
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "lumen",
+      "model": "gemini-3.8-flash",
+      "model_name": "Lumen (Gemini 3.8 Flash)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:41:35.796753",
+      "success": true,
+      "response": "The child most likely meant to say **\"Captain Hook\"**. \n\n**Context clues:**\n* **\"Catch a\"** is a common toddler mispronunciation/approximation of **\"Captain\"** (or \"Cap'n\").\n* **\"Whore\"** is likely a misheard, poorly articulated, or auto-transcribed version of **\"Hook\"**.\n* In *Peter Pan*, Peter Pan's primary pirate nemesis is Captain Hook, who is famously chased by the crocodile (\"the gatorade\") that swallowed a ticking clock.",
+      "elapsed_seconds": 16.016363620758057,
+      "attempts": 1
+    }
+  ]
+}

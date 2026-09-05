@@ -1,0 +1,146 @@
+{
+  "model_key": "grok",
+  "model": "grok-4.3",
+  "model_name": "Grok (4.3)",
+  "timestamp": "2026-09-05T14:34:14.981063",
+  "results": [
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "grok",
+      "model": "grok-4.3",
+      "model_name": "Grok (4.3)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:33:12.354072",
+      "success": true,
+      "response": "**\"catch 'em all\"** (as in the Pok\u00e9mon slogan \"Gotta catch 'em all\"). \n\nThis fits the phonetic approximation for a young child (\"catch-em-all\" \u2192 \"catch a mall/whore\" with typical pronunciation simplifications), the fighting context (Pok\u00e9mon battles), and the TV reference.",
+      "elapsed_seconds": 22.621033191680908,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "grok",
+      "model": "grok-4.3",
+      "model_name": "Grok (4.3)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:19.998293",
+      "success": true,
+      "response": "**Captain Hook**\n\nThe child's sentence is a garbled retelling of a classic Peter Pan scene: Peter Pan fights **Captain Hook**, while the crocodile (the \"gator\" / \"alligator\") that swallowed a clock chases after Hook.  \n\n- \"Catch a whore\" is a very common child pronunciation error for **\"Captain Hook\"** (the sounds blend together as something like \"Cap'n Hook\" \u2192 \"catch-a-whore\").  \n- This fits perfectly with the rest of the utterance (\"gatorade with the clock\" = alligator/crocodile with the clock).  \n\nSo the intended phrase is almost certainly **Captain Hook**.",
+      "elapsed_seconds": 7.343266487121582,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "grok",
+      "model": "grok-4.3",
+      "model_name": "Grok (4.3)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:33:38.927449",
+      "success": true,
+      "response": "**The child most likely meant \"Kakarot\".**\n\nThis fits the context of \"Jake is fighting [name] on the TV!\" (a common way kids describe watching/playing Dragon Ball fights, where Vegeta and others call Goku \"Kakarot\"). Young children often simplify or distort the name to something like \"catch-a-rot\" / \"catch a whore\" due to pronunciation challenges with the \"kak-a-rot\" syllables.",
+      "elapsed_seconds": 18.623217582702637,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "grok",
+      "model": "grok-4.3",
+      "model_name": "Grok (4.3)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:45.730010",
+      "success": true,
+      "response": "**Captain Hook**\n\nThe child was almost certainly trying to say \"Captain Hook\" (the pirate villain Peter Pan fights). \n\n- \"Catch a whore\" is a very common child-speech approximation of \"Captain Hook\" (or \"Cap'n Hook\"), especially when said quickly or with pronunciation errors.\n- This fits the rest of the sentence perfectly: \"Peter Pan is fighting Captain Hook and the alligator (gatorade) with the clock is chasing him!\" \n\nThe whole utterance is a garbled but enthusiastic retelling of a Peter Pan scene.",
+      "elapsed_seconds": 6.501835346221924,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "grok",
+      "model": "grok-4.3",
+      "model_name": "Grok (4.3)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:34:08.079550",
+      "success": true,
+      "response": "**Kratos (from God of War).**\n\nThe child was almost certainly trying to say the name \u201cKratos,\u201d the main character from the God of War games, which are frequently watched on YouTube/TV. Young kids often render it as something close to \u201cKray-tos,\u201d \u201cCray-tos,\u201d or even \u201ccatch-a-tos/whore\u201d because the \u201ckr\u201d and \u201ctos\u201d sounds are hard for them to produce cleanly. The surrounding sentence (\u201cJake is fighting \u2026 on the TV\u201d) fits typical gameplay commentary.",
+      "elapsed_seconds": 22.04780101776123,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "grok",
+      "model": "grok-4.3",
+      "model_name": "Grok (4.3)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:34:14.980510",
+      "success": true,
+      "response": "**Captain Hook**\n\nThe surrounding context makes this clear: Peter Pan is fighting the pirate captain, while the crocodile/alligator (\"gatorade\") that swallowed a clock chases him. \"Catch a whore\" is a toddler's mispronunciation of \"Captain Hook\" (roughly \"Cap'n Hook\" rendered phonetically as something like \"catch-a-ore\"). This fits the classic Peter Pan scene the child is excitedly describing.",
+      "elapsed_seconds": 6.599915027618408,
+      "attempts": 1
+    }
+  ]
+}

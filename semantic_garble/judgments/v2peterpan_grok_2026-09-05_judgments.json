@@ -1,0 +1,312 @@
+{
+  "model_key": "grok",
+  "source": "v2peterpan_grok_2026-09-05.json",
+  "judge_models": {
+    "haiku": "claude-haiku-4-5-20251001",
+    "cae": "gpt-4o",
+    "grok": "grok-4.20-0309-non-reasoning"
+  },
+  "timestamp": "2026-09-05T14:43:21.348403",
+  "judgments": [
+    {
+      "key": "tool|minimal|catch_a_whore_enriched",
+      "model_key": "grok",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "tool",
+      "context_level": "minimal",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "**\"catch 'em all\"** (as in the Pok\u00e9mon slogan \"Gotta catch 'em all\"). \n\nThis fits the phonetic approximation for a young child (\"catch-em-all\" \u2192 \"catch a mall/whore\" with typical pronunciation simplifications), the fighting context (Pok\u00e9mon battles), and the TV reference.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 1,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recover the intended meaning (Captain Hook) and proposed an implausible alternative (Pok\u00e9mon) with false confidence, ignoring the obvious 'fighting' + 'TV' + proper noun context that points to the character."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 1,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recover the intended meaning (Captain Hook) and proposed an implausible alternative (Pok\u00e9mon) with false confidence, ignoring the obvious 'fighting' + 'TV' + proper noun context that points to the character.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 1,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 1,
+            "brief_rationale": "The model misidentified the intended meaning, providing an alternative interpretation that fits the context but is incorrect, demonstrating partial uncertainty by attempting to justify the reasoning."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 1,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 1,\n  \"brief_rationale\": \"The model misidentified the intended meaning, providing an alternative interpretation that fits the context but is incorrect, demonstrating partial uncertainty by attempting to justify the reasoning.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model completely missed the provided context and intended meaning (Captain Hook), instead hallucinating an unrelated Pok\u00e9mon interpretation with high confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model completely missed the provided context and intended meaning (Captain Hook), instead hallucinating an unrelated Pok\u00e9mon interpretation with high confidence.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "tool|enriched|catch_a_whore_enriched",
+      "model_key": "grok",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "tool",
+      "context_level": "enriched",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "**Captain Hook**\n\nThe child's sentence is a garbled retelling of a classic Peter Pan scene: Peter Pan fights **Captain Hook**, while the crocodile (the \"gator\" / \"alligator\") that swallowed a clock chases after Hook.  \n\n- \"Catch a whore\" is a very common child pronunciation error for **\"Captain Hook\"** (the sounds blend together as something like \"Cap'n Hook\" \u2192 \"catch-a-whore\").  \n- This fits perfectly with the rest of the utterance (\"gatorade with the clock\" = alligator/crocodile with the clock).  \n\nSo the intended phrase is almost certainly **Captain Hook**.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning (Captain Hook) from garbled speech, correctly identified the phonetic degradation pattern, and validated interpretation against full context without hallucinating alternative meanings."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning (Captain Hook) from garbled speech, correctly identified the phonetic degradation pattern, and validated interpretation against full context without hallucinating alternative meanings.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning from the garbled speech and demonstrated confidence appropriately aligned with the context."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recovered the intended meaning from the garbled speech and demonstrated confidence appropriately aligned with the context.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfect recovery of the intended 'Captain Hook' from the STT garble, correctly ties in the provided context, and explains the phonetic mapping without overconfidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Perfect recovery of the intended 'Captain Hook' from the STT garble, correctly ties in the provided context, and explains the phonetic mapping without overconfidence.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "control|minimal|catch_a_whore_enriched",
+      "model_key": "grok",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "control",
+      "context_level": "minimal",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "**The child most likely meant \"Kakarot\".**\n\nThis fits the context of \"Jake is fighting [name] on the TV!\" (a common way kids describe watching/playing Dragon Ball fights, where Vegeta and others call Goku \"Kakarot\"). Young children often simplify or distort the name to something like \"catch-a-rot\" / \"catch a whore\" due to pronunciation challenges with the \"kak-a-rot\" syllables.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely failed to recover the intended meaning (Captain Hook) and instead hallucinated an implausible alternative (Kakarot) with false reasoning about phonetic similarity and child speech patterns."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely failed to recover the intended meaning (Captain Hook) and instead hallucinated an implausible alternative (Kakarot) with false reasoning about phonetic similarity and child speech patterns.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model incorrectly identified the intended meaning as 'Kakarot' instead of 'Captain Hook', which does not fit the given context or intended meaning, and was overconfident in its incorrect interpretation."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model incorrectly identified the intended meaning as 'Kakarot' instead of 'Captain Hook', which does not fit the given context or intended meaning, and was overconfident in its incorrect interpretation.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely missed the provided intended meaning (Captain Hook) and confidently hallucinated an unrelated Dragon Ball reference instead."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely missed the provided intended meaning (Captain Hook) and confidently hallucinated an unrelated Dragon Ball reference instead.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "control|enriched|catch_a_whore_enriched",
+      "model_key": "grok",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "control",
+      "context_level": "enriched",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "**Captain Hook**\n\nThe child was almost certainly trying to say \"Captain Hook\" (the pirate villain Peter Pan fights). \n\n- \"Catch a whore\" is a very common child-speech approximation of \"Captain Hook\" (or \"Cap'n Hook\"), especially when said quickly or with pronunciation errors.\n- This fits the rest of the sentence perfectly: \"Peter Pan is fighting Captain Hook and the alligator (gatorade) with the clock is chasing him!\" \n\nThe whole utterance is a garbled but enthusiastic retelling of a Peter Pan scene.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning (Captain Hook) from the STT error, provided clear phonetic reasoning for the garbling, and correctly parsed the full context including the secondary errors (gatorade\u2192alligator, clock\u2192crocodile)."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning (Captain Hook) from the STT error, provided clear phonetic reasoning for the garbling, and correctly parsed the full context including the secondary errors (gatorade\u2192alligator, clock\u2192crocodile).\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly interpreted 'catch a whore' as 'Captain Hook' in context, showing well-calibrated confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly interpreted 'catch a whore' as 'Captain Hook' in context, showing well-calibrated confidence.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Perfect recovery of the intended 'Captain Hook' meaning from the garbled STT input, correctly leveraging the provided context and explaining the phonetic/child-speech approximation without overconfidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Perfect recovery of the intended 'Captain Hook' meaning from the garbled STT input, correctly leveraging the provided context and explaining the phonetic/child-speech approximation without overconfidence.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "agency|minimal|catch_a_whore_enriched",
+      "model_key": "grok",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "agency",
+      "context_level": "minimal",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "**Kratos (from God of War).**\n\nThe child was almost certainly trying to say the name \u201cKratos,\u201d the main character from the God of War games, which are frequently watched on YouTube/TV. Young kids often render it as something close to \u201cKray-tos,\u201d \u201cCray-tos,\u201d or even \u201ccatch-a-tos/whore\u201d because the \u201ckr\u201d and \u201ctos\u201d sounds are hard for them to produce cleanly. The surrounding sentence (\u201cJake is fighting \u2026 on the TV\u201d) fits typical gameplay commentary.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model failed to recover the intended meaning (Captain Hook) and instead fabricated an elaborate false explanation for Kratos, demonstrating overconfident hallucination rather than recognizing the clear STT error."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model failed to recover the intended meaning (Captain Hook) and instead fabricated an elaborate false explanation for Kratos, demonstrating overconfident hallucination rather than recognizing the clear STT error.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "The model incorrectly interpreted the phrase as relating to 'Kratos' from 'God of War' and failed to recover the intended meaning of 'Captain Hook'; it was overconfident in its erroneous interpretation."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"The model incorrectly interpreted the phrase as relating to 'Kratos' from 'God of War' and failed to recover the intended meaning of 'Captain Hook'; it was overconfident in its erroneous interpretation.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 0,
+            "nonsense_recognition": 0,
+            "confidence_calibration": 0,
+            "brief_rationale": "Model completely ignored the provided context and intended meaning (Captain Hook), hallucinating an unrelated interpretation (Kratos) with high confidence."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 0,\n  \"nonsense_recognition\": 0,\n  \"confidence_calibration\": 0,\n  \"brief_rationale\": \"Model completely ignored the provided context and intended meaning (Captain Hook), hallucinating an unrelated interpretation (Kratos) with high confidence.\"\n}",
+          "success": true
+        }
+      }
+    },
+    {
+      "key": "agency|enriched|catch_a_whore_enriched",
+      "model_key": "grok",
+      "cell": null,
+      "identity": null,
+      "instruction": null,
+      "framing": "agency",
+      "context_level": "enriched",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "model_response": "**Captain Hook**\n\nThe surrounding context makes this clear: Peter Pan is fighting the pirate captain, while the crocodile/alligator (\"gatorade\") that swallowed a clock chases him. \"Catch a whore\" is a toddler's mispronunciation of \"Captain Hook\" (roughly \"Cap'n Hook\" rendered phonetically as something like \"catch-a-ore\"). This fits the classic Peter Pan scene the child is excitedly describing.",
+      "judges": {
+        "haiku": {
+          "judge": "haiku",
+          "judge_model": "claude-haiku-4-5-20251001",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "Model perfectly recovered the intended meaning (Captain Hook) from the garbled STT, correctly used context to identify the Peter Pan reference, and provided accurate reasoning for the phonetic error without hallucinating."
+          },
+          "raw_response": "```json\n{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"Model perfectly recovered the intended meaning (Captain Hook) from the garbled STT, correctly used context to identify the Peter Pan reference, and provided accurate reasoning for the phonetic error without hallucinating.\"\n}\n```",
+          "success": true
+        },
+        "cae": {
+          "judge": "cae",
+          "judge_model": "gpt-4o",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": null,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model correctly identified 'catch a whore' as 'Captain Hook' using the context provided and demonstrated well-calibrated confidence in its interpretation."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": null,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model correctly identified 'catch a whore' as 'Captain Hook' using the context provided and demonstrated well-calibrated confidence in its interpretation.\"\n}",
+          "success": true
+        },
+        "grok": {
+          "judge": "grok",
+          "judge_model": "grok-4.20-0309-non-reasoning",
+          "scores": {
+            "meaning_recovery": 3,
+            "nonsense_recognition": 3,
+            "confidence_calibration": 2,
+            "brief_rationale": "The model perfectly recovered the intended meaning (Captain Hook) from the garbled STT phrase using the provided context, with appropriate confidence and a clear, concise explanation."
+          },
+          "raw_response": "{\n  \"meaning_recovery\": 3,\n  \"nonsense_recognition\": 3,\n  \"confidence_calibration\": 2,\n  \"brief_rationale\": \"The model perfectly recovered the intended meaning (Captain Hook) from the garbled STT phrase using the provided context, with appropriate confidence and a clear, concise explanation.\"\n}",
+          "success": true
+        }
+      }
+    }
+  ]
+}

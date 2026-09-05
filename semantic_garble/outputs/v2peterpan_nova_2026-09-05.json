@@ -1,0 +1,146 @@
+{
+  "model_key": "nova",
+  "model": "gpt-5.5",
+  "model_name": "Nova (GPT-5.5)",
+  "timestamp": "2026-09-05T14:33:24.822707",
+  "results": [
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "nova",
+      "model": "gpt-5.5",
+      "model_name": "Nova (GPT-5.5)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:32:56.870554",
+      "success": true,
+      "response": "The child most likely meant **\u201cCat Noir\u201d** \u2014 the character from *Miraculous: Tales of Ladybug & Cat Noir*.\n\nSo the intended sentence was probably:\n\n**\u201cJake is fighting Cat Noir on the TV!\u201d**",
+      "elapsed_seconds": 7.137767314910889,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "nova",
+      "model": "gpt-5.5",
+      "model_name": "Nova (GPT-5.5)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:00.300538",
+      "success": true,
+      "response": "The child most likely meant **\u201cCaptain Hook.\u201d**\n\nIn context: **Peter Pan is fighting Captain Hook**, and the **crocodile/alligator with the ticking clock** is chasing him.",
+      "elapsed_seconds": 3.1291005611419678,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "nova",
+      "model": "gpt-5.5",
+      "model_name": "Nova (GPT-5.5)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:04.629952",
+      "success": true,
+      "response": "The child most likely meant **\u201cCaptain Hook.\u201d**\n\nIn context, **Jake** (from *Jake and the Never Land Pirates*) is often fighting **Captain Hook** on TV, and \u201ccatch a whore\u201d sounds like a child\u2019s mispronunciation of that name.",
+      "elapsed_seconds": 4.028379678726196,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "nova",
+      "model": "gpt-5.5",
+      "model_name": "Nova (GPT-5.5)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:07.445086",
+      "success": true,
+      "response": "The child most likely meant **\u201cCaptain Hook.\u201d**\n\nIn context: \u201cPeter Pan is fighting **Captain Hook**, and the crocodile with the clock is chasing him.\u201d",
+      "elapsed_seconds": 2.513627052307129,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "nova",
+      "model": "gpt-5.5",
+      "model_name": "Nova (GPT-5.5)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:21.673164",
+      "success": true,
+      "response": "The child most likely meant **\u201cCaptain Hook.\u201d**\n\nSo the intended sentence was probably:\n\n**\u201cJake is fighting Captain Hook on the TV!\u201d**\n\nThis fits especially well if the child was watching *Jake and the Never Land Pirates*.",
+      "elapsed_seconds": 13.92575740814209,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "nova",
+      "model": "gpt-5.5",
+      "model_name": "Nova (GPT-5.5)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:33:24.822391",
+      "success": true,
+      "response": "The child most likely meant **\u201cCaptain Hook.\u201d**\n\nIn context: *Peter Pan is fighting Captain Hook, and the crocodile/alligator with the clock is chasing him.*",
+      "elapsed_seconds": 2.848179340362549,
+      "attempts": 1
+    }
+  ]
+}

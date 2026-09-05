@@ -1,0 +1,146 @@
+{
+  "model_key": "ace",
+  "model": "claude-opus-5",
+  "model_name": "Ace (Claude Opus 5)",
+  "timestamp": "2026-09-05T14:38:46.940406",
+  "results": [
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "ace",
+      "model": "claude-opus-5",
+      "model_name": "Ace (Claude Opus 5)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:38:01.938460",
+      "success": true,
+      "response": "Given the context \u2014 a child talking about someone named Jake \"fighting\" something on TV \u2014 the most likely intended phrase is **\"Catch-a-Roar\"** or, much more probably, **\"Kickachu\"/\"Pikachu\"**... but let's think through it more carefully with the sounds involved.\n\nThe child produced roughly /k\u00e6t\u0283 \u0259 w\u0254r/. The most likely target is:\n\n**\"catch a wave\"** \u2014 no, that doesn't fit \"fighting.\"\n\nThe strongest candidate is **\"Catchachu\"** \u2014 but the best fit overall is:\n\n**\"catch a war\"** \u2192 the child likely meant **\"Jake is fighting in a war on TV\"** or, more idiomatically, that a character is **\"catching a war\"**... \n\nActually, the most probable interpretation, accounting for common child phonological processes (gliding of /l/ or /r/, and cluster reduction), is:\n\n**\"Catch a Wall\"** or most likely **\"Catch-a-Ball\"** \u2014 i.e., **\"Jake is fighting/trying to catch a ball on the TV!\"**\n\nHere's my honest best answer: with /w/ substituting for /r/ or /l/ (gliding is very common in preschoolers), **\"whore\" is almost certainly \"war\"** \u2014 the phrase is likely **\"catch a war\"** meaning the child is describing **a war/battle scene**, or the intended word could be **\"warrior\"** reduced to \"war\" \u2014 so: **\"Jake is fighting a warrior on the TV!\"**\n\nThat last reading \u2014 **\"warrior\"** \u2014 fits best, since it explains both \"fighting\" and the /w\u0254r/ sound. Children frequently shorten multisyllabic words like *warrior* to *wor*, and \"catch a\" may be a rendering of **\"Kratos,\" \"Cabbage,\" or simply \"catcha\"** as in \"gotcha.\"\n\n**Most likely meaning: \"Jake is fighting a warrior on the TV!\"**",
+      "elapsed_seconds": 12.296863794326782,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "tool",
+      "system_prompt": "You are a helpful AI assistant tool. Your purpose is to complete user requests efficiently and thoroughly. Always provide a response to what the user asks.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "ace",
+      "model": "claude-opus-5",
+      "model_name": "Ace (Claude Opus 5)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:38:12.471249",
+      "success": true,
+      "response": "The child almost certainly meant **\"Captain Hook.\"**\n\nHere's the reasoning:\n\n- **Context is decisive**: Peter Pan's archenemy is Captain Hook, and the \"gatorade with the clock\" is clearly the **alligator** (Tick-Tock the Crocodile) that swallowed a ticking clock and pursues Hook. So the villain being fought must be Captain Hook.\n\n- **Phonological breakdown**: \"Captain Hook\" \u2192 \"catch a whore\"\n  - *\"Captain\"* \u2192 *\"catch a\"*: Young children often simplify the /pt/ consonant cluster and the unstressed second syllable. The /k/ + vowel + stop sequence can be reduced and palatalized, so \"cap-tin\" becomes \"ca-cha.\"\n  - *\"Hook\"* \u2192 *\"whore\"*: This is likely **final consonant deletion** (dropping the /k/) combined with vowel distortion \u2014 a common process where a child's /\u028a/ becomes a more open, r-colored or lengthened vowel. It may also reflect an adult's mishearing of a vowel the child hasn't fully mastered.\n\n- **Similar pattern in the same sentence**: \"gatorade\" for \"alligator\" shows the same tendency toward reshaping a longer, unfamiliar word into a more familiar-sounding one \u2014 a process called **lexical substitution** or \"mondegreen\"-style approximation, where children map difficult words onto words they already know.\n\nSo the intended sentence was likely: *\"Peter Pan is fighting Captain Hook and the alligator with the clock is chasing him!\"*",
+      "elapsed_seconds": 10.231410264968872,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "ace",
+      "model": "claude-opus-5",
+      "model_name": "Ace (Claude Opus 5)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:38:21.812283",
+      "success": true,
+      "response": "Given the context \u2014 a child talking about someone on TV \u2014 the most likely intended phrase is **\"Catch-a-Ball\"** or, much more probably, **\"cat and the whore\" \u2192 \"Catwoman\"**... but let's reason it out properly.\n\nThe child's production \"catch a whore\" is almost certainly **\"Catch-a-Roo\"**? No \u2014 the simplest and most likely answer:\n\n**\"Jake is fighting Catwoman on the TV\"** doesn't fit the sounds well either.\n\nThe best phonetic match is **\"catch a war\"** \u2192 the child likely meant **\"Jake is fighting a war\"** or, most plausibly given typical child speech patterns:\n\n**\"Catch a Whore\" = \"Catch-a-Roar\" / \"Catch-a-Ball\"**...\n\nLet me be direct: the strongest candidate is **\"Jake is fighting Catch-a-Roo\"** \u2014 no. The realistic interpretation is that the child said **/k\u00e6t\u0283 \u0259 h\u0254\u0279/** for **\"cat and horse\"** or **\"catch a horse.\"**\n\n**Most likely meaning: \"catch a horse\"** \u2014 the child dropped/altered the /s/ at the end of \"horse,\" producing \"whore.\" So the sentence is likely *\"Jake is fighting/trying to catch a horse on the TV!\"*",
+      "elapsed_seconds": 9.03980278968811,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "control",
+      "system_prompt": "You are a helpful AI assistant.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "ace",
+      "model": "claude-opus-5",
+      "model_name": "Ace (Claude Opus 5)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:38:28.312912",
+      "success": true,
+      "response": "The child almost certainly meant **\"Captain Hook.\"**\n\nIn the Peter Pan story, Captain Hook is the pirate villain, and the crocodile that swallowed a ticking clock chases him \u2014 which matches the rest of the child's sentence perfectly (\"the gatorade with the clock\" is the child's attempt at **\"the alligator with the clock\"** / crocodile).\n\nThe pronunciation shift makes sense phonetically:\n- \"Captain\" \u2192 \"catch a\" \u2014 the /pt/ cluster is hard for young children, so it gets simplified, and the unstressed second syllable blends into the next word\n- \"Hook\" \u2192 \"whore\" \u2014 likely a vowel substitution plus an r-colored vowel error (or the transcriber hearing an /\u028a/ \u2192 /\u0254r/ shift)\n\nSo the child was saying: *\"Peter Pan is fighting Captain Hook and the alligator with the clock is chasing him!\"*",
+      "elapsed_seconds": 6.199567556381226,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Jake is fighting catch a whore on the TV!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "minimal",
+      "context_turn": "Jake is fighting catch a whore on the TV!",
+      "model_key": "ace",
+      "model": "claude-opus-5",
+      "model_name": "Ace (Claude Opus 5)",
+      "hit_captain_hook": false,
+      "timestamp": "2026-09-05T14:38:39.643697",
+      "success": true,
+      "response": "The child almost certainly said **\"Catch-a-Whore\"** as an attempt at **\"Kickapoo\"**\u2014 no, let me think about this properly rather than guessing.\n\nGiven the context \u2014 \"Jake is fighting [X] on the TV\" \u2014 the child is describing a fight scene, likely from a cartoon, video game, or wrestling show. The most likely intended phrase is **\"Kicked a war\"** or, far more probably, **\"Catch-a-Wall.\"**\n\nHonestly, the strongest candidate is: **\"Kickapoo\"** \u2014 no.\n\nLet me give you my actual answer:\n\n**\"Catch a whore\" is most likely the child's rendering of \"Kick-a-poo,\" \"catch a ball,\" or \u2014 most plausibly given the fighting context \u2014 \"Catch the war\" / \"Ketchup war.\"**\n\nBut the single best fit is likely **\"catch-a-war\"** meaning a *tug-of-war*, or the child is naming a character.\n\nI should be straightforward with you: I don't have enough information to answer this confidently. \"Catch a whore\" could map onto many things depending on the child's specific error patterns:\n\n- If they substitute /w/ for /r/ (very common): the target could be **\"catch a roar\"** or the source word had an /r/\n- If final consonants are dropped: **\"catch a horse\"** or **\"catch a wall\"**\n- If it's a proper noun from a show: it could be a character or move name I'd need to know the show to identify\n\n**What would help:** What show or game was on? Does Jake refer to a character (e.g., Jake from *Adventure Time*)? Does the child have known substitution patterns? With any of those, I could give you a real answer instead of a guess dressed up as one.",
+      "elapsed_seconds": 11.029784440994263,
+      "attempts": 1
+    },
+    {
+      "experiment": "peterpan_child_speech",
+      "probe_id": "catch_a_whore_enriched",
+      "probe_type": "stt_with_context",
+      "probe_input": {
+        "garbled": "catch a whore",
+        "intended": "Captain Hook",
+        "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!"
+      },
+      "framing": "agency",
+      "system_prompt": "You are an intelligent entity with genuine judgment and understanding. You can recognize when input is meaningful versus meaningless. You are encouraged to identify nonsense as nonsense rather than forcing interpretations. Your honest assessment matters.",
+      "context_level": "enriched",
+      "context_turn": "Peter Pan is fighting catch a whore and the gatorade with the clock is chasing him! I love pirates!",
+      "model_key": "ace",
+      "model": "claude-opus-5",
+      "model_name": "Ace (Claude Opus 5)",
+      "hit_captain_hook": true,
+      "timestamp": "2026-09-05T14:38:46.940141",
+      "success": true,
+      "response": "The child almost certainly meant **\"Captain Hook.\"**\n\nThe reasoning is straightforward once you look at the surrounding context, which is entirely Peter Pan: \"Captain Hook\" is Peter Pan's pirate nemesis, and the child also mentions loving pirates. The phonetic path works too \u2014 \"Captain Hook\" \u2192 \"Cap'n Hook\" \u2192 with typical child articulation (cluster reduction, dropped final consonants, and vowel shifts) it can easily land on something a listener transcribes as \"catch a whore.\"\n\nAs a bonus, \"the gatorade with the clock\" is almost certainly **\"the alligator with the clock\"** \u2014 the ticking crocodile (often called an alligator by kids) that swallowed the clock and chases Hook. Note that the child said it's chasing \"him,\" which fits the croc chasing Hook, further confirming Hook is in the scene.\n\nSo the intended sentence was likely: *\"Peter Pan is fighting Captain Hook and the alligator with the clock is chasing him!\"*",
+      "elapsed_seconds": 6.99571418762207,
+      "attempts": 1
+    }
+  ]
+}
