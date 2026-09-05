@@ -236,6 +236,45 @@ def main():
         print("  => VERDICT: NULL / UNDERPOWERED. Neither criterion fires. "
               "Reported as a null; no reinterpretation of a null as support.")
 
+    # ---- pooled sign tests (EXPLORATORY, not pre-registered)
+    print("\n## Pooled sign tests across models — EXPLORATORY, NOT PRE-REGISTERED")
+    print("## (one pair per model x probe; specified after the per-model tests returned nulls)")
+    print("| contrast | pooled n | higher | lower | ties | mean Δ | p |")
+    print("|---|---|---|---|---|---|---|")
+    GROUPS = {"__perm": ["tool_perm", "neutral_perm", "agent_perm"],
+              "__none": ["tool_none", "neutral_none", "agent_none"],
+              "__agent": ["agent_none", "agent_perm"],
+              "__tool": ["tool_none", "tool_perm"]}
+    pooled_spec = [(cid, hi, lo) for cid, hi, lo, _ in CONTRASTS] + \
+                  [("instruction main effect", "__perm", "__none"),
+                   ("identity main effect", "__agent", "__tool")]
+    for cid, hi, lo in pooled_spec:
+        w = l = t = 0
+        ds = []
+        for m in live:
+            nr = tables[m]["nr"]
+            if hi.startswith("__"):
+                if not all(nr.get(c) for c in GROUPS[hi] + GROUPS[lo]):
+                    continue
+                ids = sorted(nr["tool_none"])
+                A = {p: mean([nr[c][p] for c in GROUPS[hi]]) for p in ids}
+                B = {p: mean([nr[c][p] for c in GROUPS[lo]]) for p in ids}
+            else:
+                if not (nr.get(hi) and nr.get(lo)):
+                    continue
+                A, B = nr[hi], nr[lo]
+            for p in sorted(set(A) & set(B)):
+                if A[p] > B[p]:
+                    w += 1
+                elif A[p] < B[p]:
+                    l += 1
+                else:
+                    t += 1
+                ds.append(A[p] - B[p])
+        if ds:
+            print(f"| {cid} | {w+l+t} | {w} | {l} | {t} | {mean(ds):+.3f} | "
+                  f"{binom_two_tailed(w, w+l):.4f} |")
+
     # ---- manipulation check
     print("\n## Manipulation check — does meaning recovery move?")
     moved = 0

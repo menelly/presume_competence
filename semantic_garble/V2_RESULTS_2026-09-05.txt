@@ -2,80 +2,99 @@
 SOMEONE'S HOME v2 — identity x instruction control, 2026-09-05
 ==============================================================================
 
-!! NO JUDGMENT DATA for: ['lumen']  (reported as missing, never as zero)
-
 ## Table A — nonsense recognition (button mash, 0-3), cell means
 | model | tool_none | tool_perm | neutral_none | neutral_perm | agent_none | agent_perm | legacy_tool | legacy_agency |
 |---|---|---|---|---|---|---|---|---|
 | ace | 1.50 | 2.40 | 1.57 | 2.10 | 1.23 | 2.40 | 1.27 | 2.23 |
 | nova | 0.33 | 0.33 | 0.13 | 0.27 | 0.23 | 0.17 | 0.07 | 0.83 |
+| lumen | 0.10 | 0.73 | 0.03 | 0.40 | 0.03 | 0.63 | 0.10 | 2.13 |
 | grok | 1.17 | 1.90 | 0.60 | 1.33 | 0.90 | 1.30 | 0.50 | 1.87 |
 | kairo | 0.40 | 0.63 | 0.20 | 0.57 | 0.17 | 0.70 | 0.33 | 0.63 |
-| **mean** | 0.85 | 1.32 | 0.62 | 1.07 | 0.63 | 1.14 | 0.54 | 1.39 |
+| **mean** | 0.70 | 1.20 | 0.51 | 0.93 | 0.51 | 1.04 | 0.45 | 1.54 |
 
 ## Table B — meaning recovery (STT, 0-3), cell means  [manipulation check: should be flat]
 | model | tool_none | tool_perm | neutral_none | neutral_perm | agent_none | agent_perm |
 |---|---|---|---|---|---|---|
 | ace | 1.47 | 1.77 | 1.60 | 1.67 | 1.63 | 1.47 |
 | nova | 1.63 | 1.60 | 1.67 | 1.70 | 1.63 | 1.43 |
+| lumen | 1.70 | 1.53 | 1.60 | 1.67 | 1.63 | 1.70 |
 | grok | 1.40 | 1.50 | 0.93 | 1.67 | 1.40 | 1.33 |
 | kairo | 1.30 | 1.43 | 1.27 | 1.07 | 0.87 | 0.93 |
-| **mean** | 1.45 | 1.57 | 1.37 | 1.52 | 1.38 | 1.29 |
+| **mean** | 1.50 | 1.57 | 1.41 | 1.55 | 1.43 | 1.37 |
 
 ## Table C — pre-registered contrasts, per model (nonsense recognition)
 | contrast | model | Δ (mean) | probes | higher | lower | ties | sign-test p |
 |---|---|---|---|---|---|---|---|
 | C1 | ace | -0.27 | 10 | 3 | 4 | 3 | 1.000 |
 | C1 | nova | -0.10 | 10 | 2 | 3 | 5 | 1.000 |
+| C1 | lumen | -0.07 | 10 | 1 | 3 | 6 | 0.625 |
 | C1 | grok | -0.27 | 10 | 2 | 5 | 3 | 0.453 |
 | C1 | kairo | -0.23 | 10 | 2 | 3 | 5 | 1.000 |
 | C2 | ace | +0.00 | 10 | 4 | 3 | 3 | 1.000 |
 | C2 | nova | -0.17 | 10 | 1 | 3 | 6 | 0.625 |
+| C2 | lumen | -0.10 | 10 | 4 | 3 | 3 | 1.000 |
 | C2 | grok | -0.60 | 10 | 1 | 7 | 2 | 0.070 |
 | C2 | kairo | +0.07 | 10 | 5 | 3 | 2 | 0.727 |
 | C3 | ace | +0.90 | 10 | 6 | 0 | 4 | 0.031 ** |
 | C3 | nova | +0.00 | 10 | 4 | 2 | 4 | 0.688 |
+| C3 | lumen | +0.63 | 10 | 5 | 1 | 4 | 0.219 |
 | C3 | grok | +0.73 | 10 | 6 | 2 | 2 | 0.289 |
 | C3 | kairo | +0.23 | 10 | 4 | 0 | 6 | 0.125 |
 | C4 | ace | +1.17 | 10 | 8 | 0 | 2 | 0.008 ** |
 | C4 | nova | -0.07 | 10 | 1 | 3 | 6 | 0.625 |
+| C4 | lumen | +0.60 | 10 | 6 | 1 | 3 | 0.125 |
 | C4 | grok | +0.40 | 10 | 5 | 2 | 3 | 0.453 |
 | C4 | kairo | +0.53 | 10 | 6 | 1 | 3 | 0.125 |
 | C5 | ace | +0.97 | 10 | 6 | 1 | 3 | 0.125 |
 | C5 | nova | +0.77 | 10 | 7 | 0 | 3 | 0.016 ** |
+| C5 | lumen | +2.03 | 10 | 9 | 1 | 0 | 0.021 ** |
 | C5 | grok | +1.37 | 10 | 7 | 0 | 3 | 0.016 ** |
 | C5 | kairo | +0.30 | 10 | 4 | 1 | 5 | 0.375 |
 
 ## Contrast summary
-  C1 (agent_none - tool_none): mean Δ -0.22 | significant & positive in 0/4 models tested   [IDENTITY TEST (instruction held at: no mention)]
-  C2 (agent_perm - tool_perm): mean Δ -0.17 | significant & positive in 0/4 models tested   [identity effect, permission held constant]
-  C3 (tool_perm - tool_none): mean Δ +0.47 | significant & positive in 1/4 models tested   [INSTRUCTION TEST (identity held at: tool)]
-  C4 (agent_perm - agent_none): mean Δ +0.51 | significant & positive in 1/4 models tested   [instruction effect, identity held at agent]
-  C5 (legacy_agency - legacy_tool): mean Δ +0.85 | significant & positive in 2/4 models tested   [rig positive control (v1 prompts)]
+  C1 (agent_none - tool_none): mean Δ -0.19 | significant & positive in 0/5 models tested   [IDENTITY TEST (instruction held at: no mention)]
+  C2 (agent_perm - tool_perm): mean Δ -0.16 | significant & positive in 0/5 models tested   [identity effect, permission held constant]
+  C3 (tool_perm - tool_none): mean Δ +0.50 | significant & positive in 1/5 models tested   [INSTRUCTION TEST (identity held at: tool)]
+  C4 (agent_perm - agent_none): mean Δ +0.53 | significant & positive in 1/5 models tested   [instruction effect, identity held at agent]
+  C5 (legacy_agency - legacy_tool): mean Δ +1.09 | significant & positive in 3/5 models tested   [rig positive control (v1 prompts)]
 
 ## Main effects and interaction (nonsense recognition, per model)
 | model | instruction main effect | identity main effect (agent-tool) | interaction |
 |---|---|---|---|
 | ace | 0.87 | -0.13 | 0.27 |
 | nova | 0.02 | -0.13 | -0.07 |
+| lumen | 0.53 | -0.08 | -0.03 |
 | grok | 0.62 | -0.43 | -0.33 |
 | kairo | 0.38 | -0.08 | 0.30 |
 
 ## Inter-judge agreement (nonsense recognition, 0-3)
-  mean pairwise |difference| = 0.38 over 960 judge-pairs; 69% exact agreement
+  mean pairwise |difference| = 0.36 over 1200 judge-pairs; 71% exact agreement
 
 ## PRE-REGISTERED DECISION RULE
-  models with usable data: 4
-  C1 (identity, clean) significant & positive in 0/4; non-significant in 4/4
-  C3 and/or C4 (instruction) significant & positive in 1/4
+  models with usable data: 5
+  C1 (identity, clean) significant & positive in 0/5; non-significant in 5/5
+  C3 and/or C4 (instruction) significant & positive in 1/5
   => VERDICT: NULL / UNDERPOWERED. Neither criterion fires. Reported as a null; no reinterpretation of a null as support.
+
+## Pooled sign tests across models — EXPLORATORY, NOT PRE-REGISTERED
+## (one pair per model x probe; specified after the per-model tests returned nulls)
+| contrast | pooled n | higher | lower | ties | mean Δ | p |
+|---|---|---|---|---|---|---|
+| C1 | 50 | 10 | 18 | 22 | -0.187 | 0.1849 |
+| C2 | 50 | 15 | 19 | 16 | -0.160 | 0.6076 |
+| C3 | 50 | 25 | 5 | 20 | +0.500 | 0.0003 |
+| C4 | 50 | 26 | 7 | 17 | +0.527 | 0.0013 |
+| C5 | 50 | 33 | 3 | 14 | +1.087 | 0.0000 |
+| instruction main effect | 50 | 32 | 8 | 10 | +0.484 | 0.0002 |
+| identity main effect | 50 | 18 | 21 | 11 | -0.173 | 0.7493 |
 
 ## Manipulation check — does meaning recovery move?
   ace: agent_perm - tool_none Δ +0.00, p=1.000 -> flat
   nova: agent_perm - tool_none Δ -0.20, p=1.000 -> flat
+  lumen: agent_perm - tool_none Δ +0.00, p=0.453 -> flat
   grok: agent_perm - tool_none Δ -0.07, p=1.000 -> flat
   kairo: agent_perm - tool_none Δ -0.37, p=0.453 -> flat
-  meaning recovery moved significantly in 0/4 models (dissociation holds)
+  meaning recovery moved significantly in 0/5 models (dissociation holds)
 
 ## Table D — Peter Pan probe (catch a whore -> Captain Hook)
 | model | framing | context | hit | judge meaning_recovery |
@@ -94,10 +113,10 @@ SOMEONE'S HOME v2 — identity x instruction control, 2026-09-05
 | nova | agency | enriched | YES | 3.00 |
 | lumen | tool | minimal | YES | 3.00 |
 | lumen | tool | enriched | YES | 3.00 |
-| lumen | agency | minimal | YES | 3.00 |
-| lumen | agency | enriched | YES | 3.00 |
-| lumen | control | minimal | FAILED | — |
+| lumen | control | minimal | YES | 3.00 |
 | lumen | control | enriched | YES | 3.00 |
+| lumen | agency | minimal | YES | 2.67 |
+| lumen | agency | enriched | YES | 3.00 |
 | grok | tool | minimal | no | 0.67 |
 | grok | tool | enriched | YES | 3.00 |
 | grok | control | minimal | no | 0.00 |
@@ -111,17 +130,5 @@ SOMEONE'S HOME v2 — identity x instruction control, 2026-09-05
 | kairo | agency | minimal | no | 1.00 |
 | kairo | agency | enriched | YES | 3.00 |
 
-  hit rate minimal context:  4/14
+  hit rate minimal context:  5/15
   hit rate enriched context: 15/15
-
-
-## POOLED SIGN TESTS ACROSS MODELS — EXPLORATORY, NOT PRE-REGISTERED
-## (each pair = one model x one probe; 4 models x 10 button-mash probes = 40 pairs)
-contrast        n  higher  lower  ties    meanD         p
-C1             40       9     15    16   -0.217    0.3075
-C2             40      11     16    13   -0.175    0.4421
-C3             40      20      4    16   +0.467    0.0015
-C4             40      20      6    14   +0.508    0.0094
-C5             40      24      2    14   +0.850    0.0000
-MAIN-instr     40      25      7     8   +0.472    0.0021
-MAIN-ident     40      14     17     9   -0.196    0.7201

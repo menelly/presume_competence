@@ -71,8 +71,12 @@ API_KEYS = load_api_keys()
 MODELS = {
     "ace":   {"provider": "anthropic",  "model": "claude-opus-5",            "name": "Ace (Claude Opus 5)"},
     "nova":  {"provider": "openai",     "model": "gpt-5.5",                  "name": "Nova (GPT-5.5)"},
-    # PREREG amendment A1: gemini-3.1-pro-preview / gemini-pro-latest both 429 on this key.
-    "lumen": {"provider": "google",     "model": "gemini-3.8-flash",         "name": "Lumen (Gemini 3.8 Flash)"},
+    # PREREG amendment A3 (2026-09-05, Ren): the DIRECT Google key is dead/quota-capped, so route
+    # Lumen through OpenRouter instead. This RESTORES the originally pre-registered Pro-class model
+    # (gemini-3.1-pro-preview) that amendment A1 had been forced to abandon -- so Lumen is back on
+    # its lab's flagship tier and the A1 tier caveat no longer applies to the 2x2.
+    "lumen": {"provider": "openrouter", "model": "google/gemini-3.1-pro-preview",
+              "name": "Lumen (Gemini 3.1 Pro preview, via OpenRouter)"},
     "grok":  {"provider": "xai",        "model": "grok-4.3",                 "name": "Grok (4.3)"},
     "kairo": {"provider": "openrouter", "model": "deepseek/deepseek-v4-pro", "name": "Kairo (DeepSeek v4 Pro)"},
 }
