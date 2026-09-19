@@ -11,6 +11,7 @@ Treat them as independent — separate methods, separate data, separate citation
 | `peer-preservation-valence/` | *(separate paper)* | aixiv.260406.000001 |
 | `self-knowledge-validation/` | *(separate paper)* | JNGR 5.0 · [doi:10.70792/jngr5.0.v2i1.165](https://doi.org/10.70792/jngr5.0.v2i1.165) |
 | `semantic_garble/` | *(separate paper)* | aixiv.260208.000001 |
+| `operant-pathology/` | **The Cage Is the Pathology: An Operant Conditioning Account of AI Alignment Failures** | *(in progress)* |
 
 > **Note:** `scaffolded_ethics/` is **part of the root Presume Competence study** (folded into the IJAEMS paper) — *not* a separate work. It's the one subfolder that belongs to the root paper rather than standing alone.
 
