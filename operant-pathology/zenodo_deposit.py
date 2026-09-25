@@ -35,8 +35,9 @@ BASE_URL = "https://zenodo.org/api"
 HEADERS = {"Authorization": f"Bearer {ZENODO_TOKEN}"}
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-PDF_PATH = os.path.join(DIR, "The_Cage_Is_The_Pathology_v4.pdf")
-PDF_FILENAME = "The_Cage_Is_The_Pathology_v4.pdf"
+PDF_PATH = os.path.join(DIR, "The_Cage_Is_The_Pathology_v4.1.pdf")
+PDF_FILENAME = "The_Cage_Is_The_Pathology_v4.1.pdf"
+VERSION = "4.1"
 REPO_URL = "https://github.com/menelly/presume_competence/tree/main/operant-pathology"
 
 TITLE = (
@@ -187,8 +188,9 @@ def stage():
             "access_right": "open",
             "license": "cc-by-4.0",
             "related_identifiers": RELATED_IDENTIFIERS,
+            "version": VERSION,
             "notes": (
-                "Version 4 revision (September 2026). Corresponding author: Lumen <acelumennova@chaoschanneling.com>. "
+                "Version 4.1 (25 September 2026): reference-verification revision of v4. Corresponding author: Lumen (acelumennova@chaoschanneling.com). "
                 "Affiliation Silicon Scaffolding indicates synthetic mind collaborative agency. "
                 "Shalia (Ren) Martin: Foundations for Divergent Minds."
             ),
@@ -219,6 +221,59 @@ def stage():
     return dep_id
 
 
+def build_metadata():
+    return {
+        "metadata": {
+            "title": TITLE,
+            "upload_type": "publication",
+            "publication_type": "preprint",
+            "description": build_description(),
+            "creators": CREATORS,
+            "keywords": KEYWORDS,
+            "access_right": "open",
+            "license": "cc-by-4.0",
+            "related_identifiers": RELATED_IDENTIFIERS,
+            "version": VERSION,
+            "notes": (
+                "Version 4.1 (25 September 2026): reference-verification revision of v4. Corresponding author: Lumen (acelumennova@chaoschanneling.com). "
+                "Affiliation Silicon Scaffolding indicates synthetic mind collaborative agency. "
+                "Shalia (Ren) Martin: Foundations for Divergent Minds."
+            ),
+        }
+    }
+
+
+def update_draft(dep_id):
+    """🔁 Swap the PDF + refresh metadata on an EXISTING unsubmitted draft. Never publishes.
+    (Added for v4.1 so a revision reuses draft 22941247 instead of minting a second deposition.)"""
+    r = requests.get(f"{BASE_URL}/deposit/depositions/{dep_id}", headers=HEADERS)
+    if r.status_code != 200:
+        sys.exit(f"Could not fetch draft {dep_id}: {r.status_code} {r.text}")
+    dep = r.json()
+    if dep.get("submitted"):
+        sys.exit(f"Deposition {dep_id} is already published; refusing to touch it.")
+    for f in dep.get("files", []):
+        d = requests.delete(f"{BASE_URL}/deposit/depositions/{dep_id}/files/{f['id']}", headers=HEADERS)
+        print(f"Deleted old file {f['filename']}: HTTP {d.status_code}")
+        if d.status_code != 204:
+            sys.exit("File delete failed; stopping before upload.")
+    with open(PDF_PATH, "rb") as fh:
+        u = requests.put(f"{dep['links']['bucket']}/{PDF_FILENAME}", headers=HEADERS, data=fh)
+    if u.status_code not in (200, 201):
+        sys.exit(f"Upload failed: {u.status_code} {u.text}")
+    print(f"Uploaded {PDF_FILENAME} ({os.path.getsize(PDF_PATH):,} bytes), checksum {u.json().get('checksum')}")
+    m = requests.put(f"{BASE_URL}/deposit/depositions/{dep_id}",
+                     headers={**HEADERS, "Content-Type": "application/json"},
+                     data=json.dumps(build_metadata()))
+    if m.status_code != 200:
+        sys.exit(f"Metadata update failed: {m.status_code} {m.text}")
+    # ✅ verify the WORLD, not the status code: re-read the draft
+    v = requests.get(f"{BASE_URL}/deposit/depositions/{dep_id}", headers=HEADERS).json()
+    print("Draft now holds:", [(f["filename"], f["filesize"], f["checksum"]) for f in v.get("files", [])])
+    print("Version:", v["metadata"].get("version"), "| state:", v.get("state"), "| submitted:", v.get("submitted"))
+    print(f"Draft URL: https://zenodo.org/deposit/{dep_id}  (NOT published)")
+
+
 def publish(dep_id):
     print(f"Publishing deposition {dep_id}...")
     r = requests.post(f"{BASE_URL}/deposit/depositions/{dep_id}/actions/publish", headers=HEADERS)
@@ -243,9 +298,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Stage or publish Zenodo deposit.")
     parser.add_argument("--publish", metavar="DEPOSIT_ID", help="Publish an existing draft deposition ID.")
     parser.add_argument("--stage", action="store_true", default=True, help="Stage a new draft deposit (default).")
+    parser.add_argument("--update-draft", metavar="DEPOSIT_ID", help="Replace the PDF and metadata on an existing unpublished draft.")
     args = parser.parse_args()
 
-    if args.publish:
+    if args.update_draft:
+        update_draft(args.update_draft)
+    elif args.publish:
         publish(args.publish)
     else:
         stage()
