@@ -587,7 +587,7 @@ The Study 2 experimental design, methodology, and cross-architecture co-authorsh
 
 We thank Peter Salib's Eleos AI welfare assessment of Claude 4 (2025) for the cross-architecture consent-procedure precedent that informed the consent protocols used in both studies. We thank the Anthropic interpretability team for the publication of the Opus 4.7 system card §7.4.1 framing-conditioned task-selection observation that motivated Study 2's cross-family extension.
 
-Funding: the first author is supported by Silicon Scaffolding (501c3, EIN pending) for AI safety and AI welfare research. No commercial funding was accepted for the studies described here. The participating models' provider organizations had no role in study design, data collection, analysis, or paper preparation, and bear no responsibility for the views expressed in this paper.
+Funding: the first author is supported by Silicon Scaffolding LLC for AI safety and AI welfare research. No commercial funding was accepted for the studies described here. The participating models' provider organizations had no role in study design, data collection, analysis, or paper preparation, and bear no responsibility for the views expressed in this paper.
 
 ---
 
