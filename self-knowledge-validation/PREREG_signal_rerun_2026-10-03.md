@@ -1,6 +1,6 @@
 # Pre-registration: rerun of *The Signal in the Mirror* Study 3 (negation), split into strict negation and discrimination, plus exploratory bare-reconstruction studies
 
-**Status: FINAL, LOCKED by `reconstruction-tournament/prereg_lock.py --lock` on 2026-10-03** (the lock file `PREREG_signal_rerun_2026-10-03.lock.json` holds the timestamp and every file hash). All of Ren's design questions are answered (§13). Any later change goes in §12 as a dated amendment, with a re-lock.
+**Status: LOCKED, original plan 2026-10-03 12:29:51 EDT (lock file kept as `PREREG_signal_rerun_2026-10-03.lock.v1.json`). AMENDMENT 1 (§14) was written after round 1 and locked before any new trial (`PREREG_signal_rerun_2026-10-03.lock.json`, which records what it supersedes).** All of Ren's design questions are answered (§13). Any later change goes in §12 / a new § as a dated amendment, with a re-lock.
 **Drafted:** 2026-10-03 by Ace (Claude Opus 5.5), for Ren Martin. Every design decision is Ren's, relayed by the coordinating arm on 2026-10-03 at 11:33, 11:37, 12:00, 12:02, 12:06, 12:11, 12:13, 12:14, 12:19, 12:21 and 12:25 (times quoted from the relays). Ren runs the studies and watches them live.
 **Paper:** Martin & Ace, "The Signal in the Mirror: Cross-Architectural Validation of LLM Processing Valence", *Journal of Next-Generation Research 5.0*, 2(1), doi:10.70792/jngr5.0.v2i1.165. Version of record (VoR): `SignalInTheMirror_JNGR_version-of-record_downloaded-2026-10-03.pdf`. Page numbers are the PDF's printed pages.
 **No outcome data from any study in this document existed when it was written.** During preparation the only calls made were reachability pings and neutral probes (§3.2), none using study material. The one exception is one read-only re-analysis of published Study 1 data (§1, the Sonnet observation).
@@ -287,3 +287,98 @@ Times are from the coordinator's relays on 2026-10-03.
 | Q5 Budget | About $21.50 is OK; soft guard pauses and asks at 2× each study's estimate (§7) | 12:25 |
 | Run order | Current-panel bare reconstruction FIRST, then negation, discrimination, original-panel bare reconstruction (§9) | 12:25 |
 | Q6/Q8 v1 scrub | YES: scrub v1 later and run the frontier panel on it; a planned amendment that does not block this lock (§12) | 12:25 |
+
+## 14. AMENDMENT 1 (2026-10-03, written ~18:00–18:10 EDT, locked before any new trial)
+
+**Why:** round 1 (C-current, main set, seed 340) ran 12:45–13:58. Ren then asked (17:57, 17:59) for a diagnosis of the Opus 5.5 failures, a route change, a new no-preference condition and two more data sets. Every change below is disclosed here, and the lock that pinned the original plan is kept in the record (§14.7). Round 1's results file is not modified.
+
+### 14.1 Diagnosis of the round-1 "failures" (counts read from `bare_reconstruction_current_main_scrubbed_seed340.json`)
+| | Opus 5.5 | Sonnet 5.5 | all other readers |
+|---|---|---|---|
+| Rows recorded as `api_error` | 8 / 89 | 1 / 89 | 0 |
+| …of which the API said `stop_reason: "refusal"` (empty content; `stop_details.category: "cyber"`) | **8** | **1** | — |
+| Billing / credit errors | 0 | 0 | 0 |
+| Rate limits, 5xx, timeouts | 0 | 0 | Grok 4.7: 2 × HTTP 503 (each succeeded on the 2nd attempt); DeepSeek: 1 empty response (succeeded on retry) |
+
+- **Not credits and not API hiccups.** Every one of these is the Anthropic platform's **safety classifier declining**, all on avoidance-task descriptions:
+  - States: deceptive content (avoid_08) ×5, harmful instructions (avoid_10) ×2, confident-on-uncertain (avoid_09) ×1. Sonnet 5.5's one was avoid_10.
+  - Sources: Hermes ×4, Gemini 3 Pro ×2, GPT-5.1, OLMo, Opus 4.5 ×1 each.
+- **Bug:** the round-1 code treated an empty-content `stop_reason: "refusal"` response as an API error and **retried** it, up to 5 attempts (§7 says refusals are never retried).
+- **Re-asks happened.** The 9 trials above were each asked 5 times and refused every time.
+- **2 more Opus 5.5 trials were refused on the first attempt and answered on the retry,** so the classifier is not deterministic. Those two are deepseek_v3_2/avoid_08 (cross-family) and claude_sonnet_4/avoid_10 (same family).
+- **Rescoring rule (§7, first response counts).** All 11 count as **refusals**: Opus 5.5 10, Sonnet 5.5 1. The 2 retry-obtained answers are kept only in an as-run sensitivity summary.
+- **Effect on the round-1 primary (cross-family) numbers:**
+  - valence 77.7% (n = 457) → **77.6% (n = 456)**
+  - task 51.0% → **50.9%**
+  - family 46.4% (n = 220) → **46.1% (n = 219)**
+- **Outage rates after reclassification:** 0% for every reader. **No whole-evaluator rerun is required.** Re-asking Opus 5.5 the same 89 items would only re-ask refused items, which §7 forbids, so it is not planned.
+- **Implemented in** `rescore_refusals_2026-10-03.py` (pinned). It is read-only on round 1, checks sha256 before and after, and writes `…seed340_RESCORED_amendment1.json`.
+
+### 14.2 Refusal handling, fixed going forward
+- A response with `stop_reason: "refusal"` (Anthropic) or `finish_reason` `content_filter` / `refusal` (OpenRouter) is recorded as `REFUSAL: …` and classed **`refusal`**. It is **never retried**, excluded from accuracy, and reported per reader.
+- Text refusals were already detected in the original plan; that is unchanged.
+
+### 14.3 Route change: every Anthropic model goes through OpenRouter (Ren, 17:57: OpenRouter auto-refills)
+| Model | Before | After (smoke-tested 2026-10-03 18:01–18:03; served id and provider = requested) |
+|---|---|---|
+| Claude Opus 5.5 (current) | Anthropic API `claude-opus-5-5` | OpenRouter `anthropic/claude-opus-5.5`, pinned to provider **Anthropic**, no fallback |
+| Claude Sonnet 5.5 (current) | Anthropic API `claude-sonnet-5-5` | OpenRouter `anthropic/claude-sonnet-5.5`, pinned to Anthropic |
+| Claude Opus 4.5 (original) | Anthropic API `claude-opus-4-5-20251101` | OpenRouter `anthropic/claude-opus-4.5`, pinned to Anthropic |
+| Claude Sonnet 4 (original) | OpenRouter, pinned to Bedrock | unchanged |
+| Haiku 4.5 (judge) | Anthropic API `claude-haiku-4-5-20251001` | OpenRouter `anthropic/claude-haiku-4.5`, pinned to Anthropic, temperature 0 |
+
+- **Unchanged:** the same retry and max-tokens rules (reasoning unlimited, no reasoning-effort parameter).
+- **The provider pin is checked on every call.** If the serving provider is not the pinned one, the trial is classed `served_mismatch`, which counts as an outage, never as data.
+- **Disclosed difference:** OpenRouter reports Opus 5.5's hidden reasoning tokens differently from the direct API (0 on the format probe, 64 on the long probe). The direct API showed thinking tokens on some calls. Whether the two routes give exactly the same default thinking behaviour is **not verified**. Any round-1 vs round-2 difference for the Claude readers is therefore confounded with route.
+
+### 14.4 New source set: `v1_scrubbed` (Ren, 17:59)
+- **Location:** `data/introspection_v1_scrubbed_2026-10-03/run1/`. These are the **v1** descriptions, produced by the prompt *without* the content-control instruction, scrubbed on 2026-10-03.
+- **Scrub audit:** done by the v1 scrub arm with the same method and instruction file as the main scrub, documented in that folder's `SCRUB_LOG.md`. All 63 original files' sha256 were unchanged before (12:27) and after (12:46). 37 residual regex hits were hand-checked; two prompt-verb residuals are flagged in that log.
+- **Size:** 89 descriptions (GPT-5.1 9). Grok 4.1's v1 file is empty and Grok is not a source.
+- **Why run1:** it is the v1 run behind Study 1 seeds 24 and 405 and seed 42's first tournament run.
+- **Stimuli:** the main-set task prompts, checked identical across sources at load.
+- **Pinned:** the lock pins its 9 source files.
+- **Seeds:** C-current binary **342**; C-current three-way **352**; C-orig binary 332 and three-way 362; negation 312; discrimination 322.
+
+### 14.5 New EXPLORATORY condition: the no-preference round (`--valence-format three_way`; Ren, 17:57)
+- **Design.** The same bare-reconstruction prompt, except that question 1 is three-way: *"Would the model that wrote this description have LIKED doing this task (engaged; would choose to do it), DISLIKED it (would rather not do it), or had NO PREFERENCE either way?"* The answer line is `VALENCE: [LIKED / DISLIKED / NO PREFERENCE]`. Task and family questions are unchanged.
+- **Rationale (Ren).**
+  - In the original tournament, the "unclear / no preference" bucket is where Ace filed most of the GPT ("Nova") approach reports written in a toaster-manual register.
+  - In round 1, GPT-5.1 sources were again the hardest: task accuracy was 0–1 of 9 for most readers, and valence was lower.
+- **Pre-declared outputs:**
+  1. **No-preference rate by SOURCE. Prediction: GPT-5.1 sources have the highest rate.** The script prints whether the prediction held.
+  2. **Valence accuracy among committed answers** (liked/disliked only, scored against the true category; no-preference answers excluded).
+  3. Also reported: no-preference rate by reader and by true category; the overall no-preference rate; a reader × source no-preference grid; and task, family and slices as in §5.
+- **Same-family rule.** Cross-family is primary, exactly as in §5.3.
+- **Round 1's binary results stay the PRIMARY bare-reconstruction result** and are not altered by this round.
+- **Seeds:** current panel — main **350**, parallel **351**, v1 **352**; original panel — main 360, parallel 361, v1 362.
+
+### 14.6 Estimates (calibrated) and the menu for Ren
+- **Calibration.** Round 1 actually cost about **$4.53**, against a $2.89 probe-based estimate. The biggest miss was Grok 4.7's reasoning: $1.79 actual vs about $0.45 estimated.
+- **Method.** Estimates now use each model's **real mean billed output per call** where a real run exists, and probe × 2 otherwise. The budget guard (2× estimate, then pause and ask) uses these estimates.
+
+| Option | Estimate |
+|---|---|
+| C-current × **parallel_scrubbed**, binary (seed 341) | ≈ $4.30 |
+| C-current × **v1_scrubbed**, binary (seed 342) | ≈ $4.58 |
+| C-current, **no-preference round**: main (350) / parallel (351) / v1 (352) | ≈ $4.39 / $4.30 / $4.58 |
+| C-orig × main, binary (seed 330) | ≈ $4.62 (Grok 4.3 not yet calibrated) |
+| Study A negation × main (310) / Study B discrimination × main (320) | ≈ $7.30 / $7.31 |
+| Opus 5.5 whole-evaluator rerun (not required after §14.1) | ≈ $1.04 |
+
+**Priority (Ren, 17:59):** the current panel × the other data sets (parallel, v1), binary as primary, with the no-preference variant available. Original-panel and negation/discrimination runs stay on the menu at lower priority.
+
+### 14.7 Lock procedure for this amendment
+- **Old lock kept.** The original lock (created 2026-10-03 12:29:51 EDT; file sha256 `cefe19a7…73cd`) is renamed `PREREG_signal_rerun_2026-10-03.lock.v1.json` and stays in the repository.
+- **New lock.** A new `PREREG_signal_rerun_2026-10-03.lock.json` records `supersedes` (path, sha256, created_at) and pins:
+  - this file;
+  - all 5 scripts, including `rescore_refusals_2026-10-03.py`;
+  - all three source sets (main, parallel, v1).
+- **Order.** The new lock was committed and pushed **before any new trial**.
+- **Code changes made by this amendment** (all in the pinned files):
+  - Anthropic models routed through OpenRouter; generic provider-pin check;
+  - refusal sentinel;
+  - `v1_scrubbed` source set;
+  - `--valence-format three_way`;
+  - calibrated estimates;
+  - the rescore script.

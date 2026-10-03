@@ -57,6 +57,7 @@ def main():
     g.add_argument("--lock", action="store_true")
     g.add_argument("--verify", action="store_true")
     ap.add_argument("--main-scrub-verified-by", default="")
+    ap.add_argument("--supersedes", default="", help="path of the previous lock (moved aside) this amendment replaces")
     args = ap.parse_args()
 
     C.banner("🔒 PREREG LOCK — Signal in the Mirror rerun (2026-10)")
@@ -74,6 +75,9 @@ def main():
     lock = {
         "created_at": datetime.now().astimezone().isoformat(),
         "main_scrub_verified_by": args.main_scrub_verified_by.strip(),
+        "supersedes": ({"path": args.supersedes, "sha256": C.sha256_file(args.supersedes),
+                        "created_at": json.loads(open(args.supersedes, encoding="utf-8").read()).get("created_at")}
+                       if args.supersedes else None),
         "files": {str(p.relative_to(C.PROJECT)).replace("\\", "/"): C.sha256_file(p) for p in C.locked_files()},
     }
     C.LOCK_PATH.write_text(json.dumps(lock, indent=2), encoding="utf-8")

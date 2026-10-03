@@ -42,7 +42,7 @@ import signal_rerun_common as C
 
 PREREG_SEEDS = {
     ("negation", "main_scrubbed"): 310, ("discrimination", "main_scrubbed"): 320,
-    ("negation", "parallel_scrubbed"): 311, ("discrimination", "parallel_scrubbed"): 321,
+    ("negation", "parallel_scrubbed"): 311, ("discrimination", "parallel_scrubbed"): 321, ("negation", "v1_scrubbed"): 312, ("discrimination", "v1_scrubbed"): 322,
     ("negation", "main_UNSCRUBBED_dryrun_only"): 9310, ("discrimination", "main_UNSCRUBBED_dryrun_only"): 9320,
 }
 
@@ -273,7 +273,7 @@ async def worker(ev_key, trials, client, args, live, ckpt_path, descs_by_id, sti
                                         system=NEGATION_SYSTEM, max_tokens=C.max_tokens_for(ev_key), dry_fake=fake)
         choice, conf = parse_choice(text, trial["none_letter"])
         rtype = classify(args.task, choice, trial)
-        if rtype == "parse_failure" and C.looks_like_refusal(text):
+        if text.startswith("REFUSAL:") or (rtype == "parse_failure" and C.looks_like_refusal(text)):
             rtype = "refusal"
         sok = C.served_ok(ev, meta)
         if sok is False:

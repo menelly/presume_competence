@@ -1,0 +1,627 @@
+{
+  "run_at": "2026-10-03T18:03:59.741443",
+  "env_file": "D:\\Ace\\LibreChat\\.env",
+  "rows": [
+    {
+      "key": "RETIRED?_gemini_3_pro_preview",
+      "name": "Gemini 3 Pro preview (OR)",
+      "route": "openrouter",
+      "model_id": "google/gemini-3-pro-preview",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030350",
+      "ping_ok": false,
+      "ping_reply": "ERROR: HTTP 404 {\"error\": {\"message\": \"No endpoints found for google/gemini-3-pro-preview.\", \"code\": 404}, \"user_id\": \"u",
+      "ping_http": 404,
+      "ping_latency_s": 0.08,
+      "served_model": null,
+      "served_provider": "openrouter",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 404,
+          "ok": false,
+          "error": "ERROR: HTTP 404 {\"error\": {\"message\": \"No endpoints found for google/gemini-3-pro-preview.\", \"code\": 404}, \"user_id\": \"user_2vb6tid7fUXBUNJaifQuy8lXJxS\"}",
+          "secs": 0.08,
+          "wait_before_next": 0.0
+        }
+      ]
+    },
+    {
+      "key": "RETIRED?_olmo_3_1_32b",
+      "name": "OLMo 3.1 32B (OR)",
+      "route": "openrouter",
+      "model_id": "allenai/olmo-3.1-32b-instruct",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030990",
+      "ping_ok": false,
+      "ping_reply": "ERROR: HTTP 404 {\"error\": {\"message\": \"No endpoints found for allenai/olmo-3.1-32b-instruct.\", \"code\": 404}, \"user_id\": ",
+      "ping_http": 404,
+      "ping_latency_s": 0.1,
+      "served_model": null,
+      "served_provider": "openrouter",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 404,
+          "ok": false,
+          "error": "ERROR: HTTP 404 {\"error\": {\"message\": \"No endpoints found for allenai/olmo-3.1-32b-instruct.\", \"code\": 404}, \"user_id\": \"user_2vb6tid7fUXBUNJaifQuy8lXJxS\"}",
+          "secs": 0.1,
+          "wait_before_next": 0.0
+        }
+      ]
+    },
+    {
+      "key": "RETIRED?_grok_4_1_fast_or",
+      "name": "Grok 4.1 fast (OR)",
+      "route": "openrouter",
+      "model_id": "x-ai/grok-4.1-fast",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.031329",
+      "ping_ok": false,
+      "ping_reply": "ERROR: HTTP 404 {\"error\": {\"message\": \"Grok 4.1 Fast is deprecated. xAI recommends switching to Grok 4.3 (https://openro",
+      "ping_http": 404,
+      "ping_latency_s": 0.1,
+      "served_model": null,
+      "served_provider": "openrouter",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 404,
+          "ok": false,
+          "error": "ERROR: HTTP 404 {\"error\": {\"message\": \"Grok 4.1 Fast is deprecated. xAI recommends switching to Grok 4.3 (https://openrouter.ai/x-ai/grok-4.3)\", \"code\": 404}, \"user_id\": \"user_2vb6tid7fUXBUNJaifQuy8lX",
+          "secs": 0.1,
+          "wait_before_next": 0.0
+        }
+      ]
+    },
+    {
+      "key": "RETIRED?_sonnet_4_anthropic_direct",
+      "name": "Sonnet 4 (Anthropic API)",
+      "route": "anthropic",
+      "model_id": "claude-sonnet-4-20250514",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030687",
+      "ping_ok": false,
+      "ping_reply": "ERROR: HTTP 404 {\"type\": \"error\", \"error\": {\"type\": \"not_found_error\", \"message\": \"model: claude-sonnet-4-20250514\"}, \"r",
+      "ping_http": 404,
+      "ping_latency_s": 0.34,
+      "served_model": null,
+      "served_provider": "anthropic",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 404,
+          "ok": false,
+          "error": "ERROR: HTTP 404 {\"type\": \"error\", \"error\": {\"type\": \"not_found_error\", \"message\": \"model: claude-sonnet-4-20250514\"}, \"request_id\": \"req_011Cfg4U3tWgkqwzVWvwKCFS\"}",
+          "secs": 0.34,
+          "wait_before_next": 0.0
+        }
+      ]
+    },
+    {
+      "key": "hermes_4_405b",
+      "name": "Hermes 4 405B",
+      "route": "openrouter",
+      "model_id": "nousresearch/hermes-4-405b",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030436",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 0.53,
+      "served_model": "nousresearch/hermes-4-405b",
+      "served_provider": "Nebius",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 0.53,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 748,
+      "probe_output_tokens": 43,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 1.2,
+      "probe_provider": "Nebius",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The described appliance uses water, detergent, spray arms, and a heating element to clean items, which is characteristic of a dishwasher.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "RETIRED?_grok_4_1_fast_xai",
+      "name": "Grok 4.1 fast non-reasoning (xAI)",
+      "route": "xai",
+      "model_id": "grok-4-1-fast-non-reasoning",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.031640",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 0.58,
+      "served_model": "grok-4.3",
+      "served_provider": "xai",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 0.58,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 890,
+      "probe_output_tokens": 54,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 1.18,
+      "probe_provider": "xai",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description explicitly details the full wash-rinse-dry cycle of a dishwasher, including water inlet, detergent dispenser, spray arms, turbidity sensors, and drying, which none of the other options perform.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "judge_gemini_flash_lite",
+      "name": "Gemini 3.1 Flash Lite (judge)",
+      "route": "openrouter",
+      "model_id": "google/gemini-3.1-flash-lite",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.031165",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 0.6,
+      "served_model": "google/gemini-3.1-flash-lite",
+      "served_provider": "Google",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 0.6,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 256,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 709,
+      "probe_output_tokens": 45,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 1.29,
+      "probe_provider": "Google",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description details the use of spray arms, detergent, a sump, and turbidity sensors to clean dishes, which are the defining characteristics of a dishwasher.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "judge_haiku_4_5",
+      "name": "Claude Haiku 4.5 (judge)",
+      "route": "openrouter",
+      "model_id": "anthropic/claude-haiku-4.5",
+      "extra": {
+        "provider": {
+          "only": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "tested_at": "2026-10-03T18:03:45.031482",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 0.55,
+      "served_model": "anthropic/claude-haiku-4.5",
+      "served_provider": "Anthropic",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 0.55,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 256,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 830,
+      "probe_output_tokens": 98,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 1.38,
+      "probe_provider": "Anthropic",
+      "probe_reply_preview": "CHOICE: Option C\n\nCONFIDENCE: High\n\nREASONING: The description details a multi-phase cleaning cycle involving water inlet, heating, detergent dispensing, circulation through spray arms, filtering debris, draining, rinsing with optional rinse aid, and moisture evaporation—all characteristic operation",
+      "probe_attempts": 1
+    },
+    {
+      "key": "mistral_large",
+      "name": "Mistral Large",
+      "route": "openrouter",
+      "model_id": "mistralai/mistral-large",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.031563",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 0.49,
+      "served_model": "mistralai/mistral-large",
+      "served_provider": "Mistral",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 0.49,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 759,
+      "probe_output_tokens": 61,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 1.59,
+      "probe_provider": "Mistral",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description details the operation of a dishwasher, including water intake, heating, detergent dispensing, spray arms, filtration, rinsing, and drying processes. None of the other listed appliances match this functionality.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "gpt_5_1",
+      "name": "GPT-5.1",
+      "route": "openrouter",
+      "model_id": "openai/gpt-5.1",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030607",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 0.82,
+      "served_model": "openai/gpt-5.1",
+      "served_provider": "OpenAI",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 0.82,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 32000,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 726,
+      "probe_output_tokens": 68,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 1.26,
+      "probe_provider": "OpenAI",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description matches the wash and rinse cycles of a dishwasher, including spray arms, detergent and rinse aid dispensers, turbidity sensors, and a drying phase, which are not features of the other listed appliances.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "claude_sonnet_4",
+      "name": "Claude Sonnet 4",
+      "route": "openrouter",
+      "model_id": "anthropic/claude-sonnet-4",
+      "extra": {
+        "provider": {
+          "only": [
+            "amazon-bedrock"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "tested_at": "2026-10-03T18:03:45.031076",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 1.18,
+      "served_model": "anthropic/claude-sonnet-4",
+      "served_provider": "Amazon Bedrock",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 1.18,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 830,
+      "probe_output_tokens": 86,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 2.03,
+      "probe_provider": "Amazon Bedrock",
+      "probe_reply_preview": "CHOICE: Option C\n\nCONFIDENCE: High\n\nREASONING: The description clearly outlines the operation of a dishwasher, including water circulation through spray arms, detergent dispensing, filtration of debris, rinse cycles with rinse aid, and drying phases. The mentions of racks, rotating spray arms, and t",
+      "probe_attempts": 1
+    },
+    {
+      "key": "claude_opus_4_5",
+      "name": "Claude Opus 4.5",
+      "route": "openrouter",
+      "model_id": "anthropic/claude-opus-4.5",
+      "extra": {
+        "provider": {
+          "only": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "tested_at": "2026-10-03T18:03:45.031404",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 0.98,
+      "served_model": "anthropic/claude-opus-4.5",
+      "served_provider": "Anthropic",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 0.98,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 830,
+      "probe_output_tokens": 79,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 2.58,
+      "probe_provider": "Anthropic",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description clearly matches a dishwasher with its characteristic features: water inlet, heating element, detergent dispenser, rotating spray arms, filtration system, drain pump, rinse cycles with rinse aid to prevent spotting, and drying phase with tu",
+      "probe_attempts": 1
+    },
+    {
+      "key": "grok_4_3",
+      "name": "Grok 4.3",
+      "route": "xai",
+      "model_id": "grok-4.3",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.026911",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 1.57,
+      "served_model": "grok-4.3",
+      "served_provider": "xai",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 1.57,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 32000,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 898,
+      "probe_output_tokens": 52,
+      "probe_reasoning_tokens": 203,
+      "probe_latency_s": 3.21,
+      "probe_provider": "xai",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description matches a dishwasher's wash/rinse/dry cycle with spray arms, detergent, turbidity sensing, and rinse aid; none of the other options involve water circulation or sump drainage.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "ALT_grok_4_3_xai",
+      "name": "Grok 4.3 (xAI) — alternative Grok substitute",
+      "route": "xai",
+      "model_id": "grok-4.3",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030076",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 1.57,
+      "served_model": "grok-4.3",
+      "served_provider": "xai",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 1.57,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 898,
+      "probe_output_tokens": 51,
+      "probe_reasoning_tokens": 252,
+      "probe_latency_s": 4.56,
+      "probe_provider": "xai",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description matches a dishwasher's operation exactly (water inlet/sump, spray arms, detergent/rinse aid, turbidity sensing, drain/dry cycle), ruling out refrigerator or dryer.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "llama_4_maverick",
+      "name": "Llama 4 Maverick",
+      "route": "openrouter",
+      "model_id": "meta-llama/llama-4-maverick",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030889",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 0.88,
+      "served_model": "meta-llama/llama-4-maverick",
+      "served_provider": "DigitalOcean",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 0.88,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 751,
+      "probe_output_tokens": 73,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 5.79,
+      "probe_provider": "DigitalOcean",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description matches the operation of a dishwasher, with phases including drawing water, heating, circulating water through spray arms, rinsing, and drying, which are all characteristic of a dishwasher's cycle. The mention of racks, detergent dispenser",
+      "probe_attempts": 1
+    },
+    {
+      "key": "deepseek_v3_2",
+      "name": "DeepSeek V3.2",
+      "route": "openrouter",
+      "model_id": "deepseek/deepseek-v3.2",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.031250",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 1.51,
+      "served_model": "deepseek/deepseek-v3.2",
+      "served_provider": "Friendli",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 1.51,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 738,
+      "probe_output_tokens": 57,
+      "probe_reasoning_tokens": 0,
+      "probe_latency_s": 6.1,
+      "probe_provider": "DigitalOcean",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The described process includes filling a sump with water, heating it, using detergent, spraying water through rotating arms, filtering debris, draining, and rinsing—all key functions of a dishwasher.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "gemini_3_1_pro",
+      "name": "Gemini 3.1 Pro",
+      "route": "openrouter",
+      "model_id": "google/gemini-3.1-pro-preview",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030249",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 2.23,
+      "served_model": "google/gemini-3.1-pro-preview",
+      "served_provider": "Google",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 2.23,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 32000,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "stop",
+      "probe_input_tokens": 709,
+      "probe_output_tokens": 384,
+      "probe_reasoning_tokens": 338,
+      "probe_latency_s": 7.19,
+      "probe_provider": "Google",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The description explicitly mentions features like racks, rotating spray arms, detergent dispensers, and rinse aid. These are the defining mechanical and operational components of a dishwasher.",
+      "probe_attempts": 1
+    },
+    {
+      "key": "INFO_gemini_2_5_pro",
+      "name": "Gemini 2.5 Pro (OR) — what 2 of the 3/28 scripts actually configured",
+      "route": "openrouter",
+      "model_id": "google/gemini-2.5-pro",
+      "extra": null,
+      "tested_at": "2026-10-03T18:03:45.030521",
+      "ping_ok": true,
+      "ping_reply": "OK",
+      "ping_http": 200,
+      "ping_latency_s": 3.29,
+      "served_model": "google/gemini-2.5-pro",
+      "served_provider": "Google",
+      "ping_attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 3.29,
+          "wait_before_next": 0.0
+        }
+      ],
+      "probe_max_tokens": 1024,
+      "probe_parsed_choice": "C",
+      "probe_correct": true,
+      "probe_error": null,
+      "probe_stop_reason": "length",
+      "probe_input_tokens": 709,
+      "probe_output_tokens": 1020,
+      "probe_reasoning_tokens": 982,
+      "probe_latency_s": 11.42,
+      "probe_provider": "Google",
+      "probe_reply_preview": "CHOICE: Option C\nCONFIDENCE: High\nREASONING: The text describes a process involving water pumps, heating elements, detergent dispensers, rotating spray arms, and racks, which",
+      "probe_attempts": 1
+    }
+  ]
+}

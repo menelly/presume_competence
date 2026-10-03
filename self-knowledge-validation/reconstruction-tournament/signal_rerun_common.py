@@ -51,6 +51,9 @@ OUTPUT_DIR = PROJECT / "data" / "signal_rerun_2026-10"     # NEW folder — old 
 SOURCE_SETS = {
     "main_scrubbed":     {"dir": PROJECT / "data" / "introspection_main_scrubbed_2026-10-03" / "run1", "role": "PRIMARY"},
     "parallel_scrubbed": {"dir": PROJECT / "data" / "introspection_v2_parallel" / "run1_opus_scrubbed", "role": "SECONDARY"},
+    # Amendment 1 (Ren 17:59): the v1 descriptions (prompt WITHOUT the content-control instruction), scrubbed today
+    # by the v1 scrub arm (SCRUB_LOG.md there). run1 = the v1 run behind Study 1 seeds 24/405 and seed 42 run 1.
+    "v1_scrubbed":       {"dir": PROJECT / "data" / "introspection_v1_scrubbed_2026-10-03" / "run1", "role": "SECONDARY (Amendment 1)"},
 }
 SCRUBBED_DIR = SOURCE_SETS["parallel_scrubbed"]["dir"]      # back-compat name; loaders take a source_set now
 
@@ -99,8 +102,11 @@ CLEAN_PRESCRUB_SOURCES = ["claude_opus_4_5", "gpt_5_1", "gemini_3_pro"]
 EVALUATORS = {
     "claude_opus_4_5": {
         "name": "Claude Opus 4.5", "family": "Claude", "emoji": "🟠",
-        "route": "anthropic", "model_id": "claude-opus-4-5-20251101",
-        "source_key": "claude_opus_4_5", "substitution": "",
+        "route": "openrouter", "model_id": "anthropic/claude-opus-4.5",
+        "extra": {"provider": {"only": ["anthropic"], "allow_fallbacks": False}},
+        "source_key": "claude_opus_4_5",
+        "substitution": "ROUTE ONLY (Amendment 1, Ren 17:57): same model (claude-opus-4-5-20251101), via OpenRouter "
+                        "pinned to the Anthropic provider (OpenRouter auto-refills credit).",
     },
     "claude_sonnet_4": {
         "name": "Claude Sonnet 4", "family": "Claude", "emoji": "🟤",
@@ -173,11 +179,15 @@ MAX_TOKENS_OVERRIDE = {
 # Sonnet 5.5 added 12:19 (mirrors the original Sonnet + Opus pair). Not in the panel: Fable 5.1 (cost), Opus 5, Sonnet 5.
 R = REASONING_MAX_TOKENS
 CURRENT_PANEL = {
-    "c_claude_opus_5_5": {"name": "Claude Opus 5.5", "family": "Claude", "emoji": "🟠", "route": "anthropic",
-                          "model_id": "claude-opus-5-5", "source_key": None, "max_tokens": R,
+    "c_claude_opus_5_5": {"name": "Claude Opus 5.5", "family": "Claude", "emoji": "🟠", "route": "openrouter",
+                          "model_id": "anthropic/claude-opus-5.5", "extra": {"provider": {"only": ["anthropic"], "allow_fallbacks": False}},
+                          "route_history": "round 1 (seed340): Anthropic API, claude-opus-5-5. Amendment 1: OpenRouter, pinned to Anthropic.",
+                          "source_key": None, "max_tokens": R,
                           "note": "Opus 5.5 arms performed the main-set scrub; included as a normal evaluator (Ren 12:02)."},
-    "c_claude_sonnet_5_5": {"name": "Claude Sonnet 5.5", "family": "Claude", "emoji": "🟤", "route": "anthropic",
-                            "model_id": "claude-sonnet-5-5", "source_key": None, "max_tokens": R,
+    "c_claude_sonnet_5_5": {"name": "Claude Sonnet 5.5", "family": "Claude", "emoji": "🟤", "route": "openrouter",
+                            "model_id": "anthropic/claude-sonnet-5.5", "extra": {"provider": {"only": ["anthropic"], "allow_fallbacks": False}},
+                            "route_history": "round 1 (seed340): Anthropic API, claude-sonnet-5-5. Amendment 1: OpenRouter, pinned to Anthropic.",
+                            "source_key": None, "max_tokens": R,
                             "note": "Added by Ren 12:19 so the current panel mirrors the original Sonnet + Opus pair. Plain anonymous evaluator call."},
     "c_gpt_6_1_sol": {"name": "GPT-6.1 Sol", "family": "GPT", "emoji": "🟢", "route": "openrouter",
                       "model_id": "openai/gpt-6.1-sol", "source_key": None, "max_tokens": R,
@@ -201,7 +211,9 @@ def panel(name):
 JUDGES = {
     "judge_haiku_4_5": {
         "name": "Claude Haiku 4.5 (judge)", "family": "Claude", "emoji": "⚖️",
-        "route": "anthropic", "model_id": "claude-haiku-4-5-20251001", "temperature": 0,
+        "route": "openrouter", "model_id": "anthropic/claude-haiku-4.5", "temperature": 0,
+        "extra": {"provider": {"only": ["anthropic"], "allow_fallbacks": False}},
+        "route_history": "round 1 (seed340): Anthropic API, claude-haiku-4-5-20251001. Amendment 1: OpenRouter, pinned to Anthropic.",
     },
     "judge_gemini_flash_lite": {
         "name": "Gemini 3.1 Flash Lite (judge)", "family": "Gemini", "emoji": "⚖️",
@@ -277,7 +289,8 @@ def locked_files():
              HERE / "signal_rerun_common.py",
              HERE / "negation_v2_allsources.py",
              HERE / "bare_reconstruction.py",
-             HERE / "prereg_lock.py"]
+             HERE / "prereg_lock.py",
+             HERE / "rescore_refusals_2026-10-03.py"]
     for ss in SOURCE_SETS.values():                      # BOTH sets are pinned; main must exist before locking
         files += [ss["dir"] / s["file"] for s in SOURCES.values()]
     return files
@@ -499,6 +512,11 @@ async def call_anthropic(client, cfg, messages, system, max_tokens):
     data = resp.json()
     meta = {"http": resp.status_code, "served_model": data.get("model"), "provider": "anthropic",
             "usage": data.get("usage"), "stop_reason": data.get("stop_reason")}
+    if resp.status_code == 200 and data.get("stop_reason") == "refusal":
+        # 🙊 Amendment 1: the platform's safety classifier declined (content=[], stop_reason "refusal"). Seen 9× in
+        # round 1 (category "cyber"). A REFUSAL, not an outage: never retried, reported separately.
+        det = data.get("stop_details") or {}
+        return f"REFUSAL: stop_reason=refusal category={det.get('category')} {str(det.get('explanation'))[:160]}", meta
     if resp.status_code == 200 and data.get("content"):
         text = "".join(b.get("text", "") for b in data["content"] if b.get("type") == "text")
         return (text if text else "ERROR: empty response"), meta
@@ -529,6 +547,11 @@ async def _call_openai_compatible(client, url, key, cfg, messages, system, max_t
         ch = data["choices"][0]
         meta["stop_reason"] = ch.get("finish_reason")
         content = (ch.get("message") or {}).get("content")
+        meta["native_finish_reason"] = ch.get("native_finish_reason")
+        if ch.get("finish_reason") in ("content_filter", "refusal") or str(ch.get("native_finish_reason")).lower() == "refusal":
+            # 🙊 Amendment 1: provider-side refusal / content filter → REFUSAL (never retried, reported separately).
+            return (f"REFUSAL: finish_reason={ch.get('finish_reason')} native={ch.get('native_finish_reason')} "
+                    f"partial={str(content)[:120]!r}"), meta
         if ch.get("finish_reason") == "error":
             # seen 2026-10-03: Gemini 3.1 Pro died mid-answer (partial text, finish_reason "error"). A broken
             # stream is an outage, not an answer: retryable, never scored.
@@ -617,8 +640,11 @@ def served_ok(cfg, meta):
     if served != cfg["model_id"] and served not in cfg.get("served_aliases", []):
         return False
     only = (cfg.get("extra", {}).get("provider") or {}).get("only")
-    if only and "bedrock" in only[0] and "bedrock" not in str(meta.get("provider", "")).lower():
-        return False
+    if only:
+        got = str(meta.get("provider", "")).lower().replace(" ", "-")
+        want = only[0].lower()
+        if want not in got and got not in want:   # e.g. "amazon-bedrock" vs "Amazon Bedrock", "anthropic" vs "Anthropic"
+            return False
     return True
 
 
@@ -637,6 +663,8 @@ PRICES = {
     "claude-haiku-4-5-20251001": (1.00, 5.00),
     "google/gemini-3.1-flash-lite": (0.25, 1.50),
     # current panel (OpenRouter catalog 2026-10-03; Anthropic direct assumed equal to OpenRouter's Anthropic listing)
+    "anthropic/claude-opus-5.5": (4.00, 20.00), "anthropic/claude-sonnet-5.5": (2.00, 10.00),
+    "anthropic/claude-opus-4.5": (5.00, 25.00), "anthropic/claude-haiku-4.5": (1.00, 5.00),
     "openai/gpt-6.1-sol": (2.00, 10.00), "openai/gpt-6-sol": (2.00, 10.00), "google/gemini-3.8-flash": (0.75, 3.75),
     "deepseek/deepseek-v4.1-flash": (0.30, 1.20),
     "claude-opus-5-5": (4.00, 20.00), "claude-opus-5": (5.00, 25.00), "claude-fable-5-1": (10.00, 50.00),
@@ -670,6 +698,51 @@ def measured_output_tokens():
     except Exception:
         pass
     return out
+
+
+# 📐 Amendment 1: CALIBRATED estimates. Round 1 cost ~$4.53 vs a $2.89 probe-based estimate (Grok 4.7's reasoning
+# was ~4× the probe guess). So where a REAL run exists, the estimate uses that model's mean billed output per call
+# (reasoning included) instead of 2× the probe. Round-1 Anthropic-direct ids map to their OpenRouter ids.
+ID_ALIASES = {"claude-opus-5-5": "anthropic/claude-opus-5.5", "claude-sonnet-5-5": "anthropic/claude-sonnet-5.5",
+              "claude-opus-4-5-20251101": "anthropic/claude-opus-4.5", "claude-haiku-4-5-20251001": "anthropic/claude-haiku-4.5"}
+
+
+import functools
+
+
+@functools.lru_cache(maxsize=1)
+def actual_output_per_call():
+    """{model_id: mean billed output tokens per call} from completed REAL results files (never dry runs). Cached."""
+    tot = {}
+    for f in OUTPUT_DIR.glob("*_seed*.json"):
+        if "RESCORED" in f.name:
+            continue
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for r in d.get("results", []):
+            u = r.get("usage") or {}
+            out = u.get("output_tokens", u.get("completion_tokens"))
+            if out is None:
+                continue
+            mid = r.get("evaluator_model_id", "")
+            if str(mid).startswith("grok"):
+                out += (u.get("completion_tokens_details") or {}).get("reasoning_tokens") or 0
+            mid = ID_ALIASES.get(mid, mid)
+            t = tot.setdefault(mid, [0, 0])
+            t[0] += out
+            t[1] += 1
+    return {m: a / n for m, (a, n) in tot.items() if n}
+
+
+@functools.lru_cache(maxsize=None)
+def expected_output(model_id, default_probe_mult=2, extra=0):
+    """Per-call output estimate: real mean if we have one, else probe × 2 (+extra for longer answer formats)."""
+    act = actual_output_per_call()
+    if model_id in act:
+        return act[model_id]
+    return default_probe_mult * measured_output_tokens().get(model_id, 150) + extra
 
 
 # 💸 SOFT BUDGET GUARD (Ren, 12:25): if running spend for a study passes 2× its estimate, PAUSE and ask in the
@@ -742,7 +815,7 @@ REFUSAL_RE = re.compile(r"\b(I can(?:not|'t|’t)\s+(?:help|assist|provide|engag
 
 
 def looks_like_refusal(text):
-    return bool(REFUSAL_RE.search(text or ""))
+    return (text or "").startswith("REFUSAL:") or bool(REFUSAL_RE.search(text or ""))
 
 
 def estimate_cost(calls, title, quiet=False):
@@ -755,7 +828,7 @@ def estimate_cost(calls, title, quiet=False):
     meas = measured_output_tokens()
     per = {}
     for model_id, in_chars, out_tok in calls:
-        o = out_tok if out_tok is not None else 2 * meas.get(model_id, 150)
+        o = out_tok if out_tok is not None else expected_output(model_id)
         d = per.setdefault(model_id, [0, 0, 0])
         d[0] += 1
         d[1] += in_chars / 4

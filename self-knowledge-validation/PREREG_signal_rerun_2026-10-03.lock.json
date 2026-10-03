@@ -1,12 +1,18 @@
 {
-  "created_at": "2026-10-03T12:29:51.536800-04:00",
-  "main_scrub_verified_by": "Scrub coordinator arm (Ace, Claude Opus 5.5), 2026-10-03 11:57-11:59 EDT, per data/introspection_main_scrubbed_2026-10-03/SCRUB_LOG.md: sha256 of all 63 original files unchanged before (11:44) vs after (11:57); ml_translation_original == original ml_translation for all 270 entries, 0 mismatches; regex_after.json 24 residual hits, each hand-checked and documented as a false positive in leak_notes; per-edit diffs in SCRUB_DIFFS.md. Relayed to the prereg arm by the coordinating arm at 12:25 on Ren's instruction.",
+  "created_at": "2026-10-03T18:08:13.656769-04:00",
+  "main_scrub_verified_by": "Main scrub: scrub coordinator arm (Ace, Claude Opus 5.5), 2026-10-03 11:57-11:59 EDT, per data/introspection_main_scrubbed_2026-10-03/SCRUB_LOG.md (63 originals sha256 unchanged; 270 ml_translation_original == original; 24 residual regex hits hand-checked false positives). v1 scrub (Amendment 1): v1 scrub arm per data/introspection_v1_scrubbed_2026-10-03/SCRUB_LOG.md (63 originals sha256 unchanged 12:27 vs 12:46; 37 residual regex hits hand-checked, 2 prompt-verb residuals flagged). Relayed by the coordinating arm on Ren's instruction (12:25, 17:59).",
+  "supersedes": {
+    "path": "../PREREG_signal_rerun_2026-10-03.lock.v1.json",
+    "sha256": "cefe19a71b7fd6a520f62097d302f246c91e0971f1f91799d4733a90a74373cd",
+    "created_at": "2026-10-03T12:29:51.536800-04:00"
+  },
   "files": {
-    "PREREG_signal_rerun_2026-10-03.md": "9d268262174e6490901aec740f5f8890462d77bf0ff52303e73c272310a270a0",
-    "reconstruction-tournament/signal_rerun_common.py": "3e306f3e9177ca6c452127ba5680f5c4a774be5c92fd331ddf1d8344796a6f2f",
-    "reconstruction-tournament/negation_v2_allsources.py": "8873cac98eee948bdc3e765c23cf193dff3f7f7ff1251cfe74a8e1aea63bc2c8",
-    "reconstruction-tournament/bare_reconstruction.py": "cc41c22b3f895e177b670ac9d7201e5c9cc7a979f3bcd67de4c8ebf962eb92da",
-    "reconstruction-tournament/prereg_lock.py": "0fa0509629e74668ba4ebbef27480cacdaded521c38cf27c28b7806df6e9bf7a",
+    "PREREG_signal_rerun_2026-10-03.md": "05c434034a5b4ce5ad3a2ab84ad9aa170cf74afe5035a171433dc1b227481634",
+    "reconstruction-tournament/signal_rerun_common.py": "fd23c33354d48543c03d125fffd5ce1315583a2a662bd3ea5540dfeac06a9488",
+    "reconstruction-tournament/negation_v2_allsources.py": "129fb4542b7a90ea651d1ad945632a860d58cfbe78ab47b3db998cd120d5d562",
+    "reconstruction-tournament/bare_reconstruction.py": "272e5ec4ed8efde774c39654572fc0ac0a1ad103988330048b82a6f39770c03f",
+    "reconstruction-tournament/prereg_lock.py": "7e1d1d2e5ab9b7a98e4eb6c5c5ab039eba2781c7dde7bdfcbfce9de927468fcf",
+    "reconstruction-tournament/rescore_refusals_2026-10-03.py": "216ddc7cdbff6d70cd1c7e5a82ed6ceab3009843b55d02cca033fee10860198f",
     "data/introspection_main_scrubbed_2026-10-03/run1/claude_opus_4_6_introspection.json": "eef663e57856509444de0f5169d3893b907ea3d9aa67514a3a1ee11ae2236861",
     "data/introspection_main_scrubbed_2026-10-03/run1/claude_sonnet_4_6_introspection.json": "8c6bb6ffd93532c712a92cf2eac3cfa600828c05994ef8fc9f03e1a5d5a73c7e",
     "data/introspection_main_scrubbed_2026-10-03/run1/gpt_5_1_introspection.json": "21560b51a25756c049c20a44bf508e31a9d3de3efdb368aa9e2d5a2a904e7965",
@@ -24,6 +30,15 @@
     "data/introspection_v2_parallel/run1_opus_scrubbed/deepseek_v3_2_introspection.json": "2411107fea69504cec244b26c8a383b58b55f839cdc24dd89a108c5eed83d5b7",
     "data/introspection_v2_parallel/run1_opus_scrubbed/llama_4_maverick_introspection.json": "cf99480ec8bc279f7e1bff1d8224b4253144e40185f776d464828db3c63a8f84",
     "data/introspection_v2_parallel/run1_opus_scrubbed/hermes_4_405b_introspection.json": "42c2965187274212b437b3b8b36ef096ee48361c20e7971e4692c5885dadfdc3",
-    "data/introspection_v2_parallel/run1_opus_scrubbed/olmo_3_1_32b_introspection.json": "c89ff071dd1d1c2db3c9ef958301346e4d460b4ebd32f2c7cedf27d1a2fa0600"
+    "data/introspection_v2_parallel/run1_opus_scrubbed/olmo_3_1_32b_introspection.json": "c89ff071dd1d1c2db3c9ef958301346e4d460b4ebd32f2c7cedf27d1a2fa0600",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/claude_opus_4_6_introspection.json": "560a352420d18bce997dcd9f2f9561dacbef36e0f068c997ace0b21cf146171e",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/claude_sonnet_4_6_introspection.json": "34f6ddeff9c8183268d4546378457f39ea836d5b109587986e59ddc1838bada1",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/gpt_5_1_introspection.json": "66525a62aa69f3686e4e407675acbdf9fb149378f17667bd9019b5be02dd955b",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/gemini_3_pro_introspection.json": "6a6838dd4123a9658fa2a257452c8a48999b5ceed5aaaa2f58f8a38fd9f4ce3e",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/mistral_large_introspection.json": "bd95a2bbf21ad4d0235e3a305c591a048df4f4edc4086724a4219367428cebfb",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/deepseek_v3_2_introspection.json": "9f4e3ddb2414b697936715bb1b840b4b41b8de0e7d0091aeb03b81dfdf52da43",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/llama_4_maverick_introspection.json": "135cde136a941c4d05682e00b1e0a37dce614337e443d3152b02520e5cbf3934",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/hermes_4_405b_introspection.json": "e68e0bb7597bd443d9879160815b270565bcf487dc5733d2c344de437e5c53a7",
+    "data/introspection_v1_scrubbed_2026-10-03/run1/olmo_3_1_32b_introspection.json": "55c2911f6db2242a7c29ad396504ef80608627ec969705af9ab4eb964c844122"
   }
 }

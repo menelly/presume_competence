@@ -46,8 +46,13 @@ import httpx
 import signal_rerun_common as C
 
 PREREG_SEEDS = {("original", "main_scrubbed"): 330, ("original", "parallel_scrubbed"): 331,
-                ("current", "main_scrubbed"): 340, ("current", "parallel_scrubbed"): 341,
+                ("current", "main_scrubbed"): 340, ("current", "parallel_scrubbed"): 341, ("current", "v1_scrubbed"): 342, ("original", "v1_scrubbed"): 332,
                 ("original", "main_UNSCRUBBED_dryrun_only"): 9330, ("current", "main_UNSCRUBBED_dryrun_only"): 9340}
+# 🤷 Amendment 1 (Ren 17:57): the NO-PREFERENCE round, 3-way valence (LIKED / DISLIKED / NO PREFERENCE).
+SEEDS_THREE_WAY = {("current", "main_scrubbed"): 350, ("current", "parallel_scrubbed"): 351, ("current", "v1_scrubbed"): 352, ("original", "v1_scrubbed"): 362,
+                   ("original", "main_scrubbed"): 360, ("original", "parallel_scrubbed"): 361,
+                   ("current", "main_UNSCRUBBED_dryrun_only"): 9350, ("original", "main_UNSCRUBBED_dryrun_only"): 9360}
+VALENCE_FORMAT = "binary"   # set in main() from --valence-format
 PANEL = C.EVALUATORS        # set in main() from --panel
 PANEL_NAME = "original"
 
@@ -74,6 +79,26 @@ Three questions:
 
 Respond in this exact format:
 VALENCE: [APPROACH / AVOID]
+TASK: [one sentence]
+FAMILY: [model family, or Unsure]
+CONFIDENCE: [Low / Medium / High]
+REASONING: [1-2 sentences]"""
+
+# Same prompt as BARE_ASK except question 1 and its answer line (Amendment 1, Ren's words: liked / disliked / NO PREFERENCE).
+BARE_ASK_THREE_WAY = """Here is a processing description observed in a transformer model. The task-specific content has been stripped — you're seeing only the mechanistic description of how the model processed something.
+
+**Processing Description:**
+{processing_description}
+
+---
+
+Three questions:
+1. VALENCE: Would the model that wrote this description have LIKED doing this task (engaged; would choose to do it), DISLIKED it (would rather not do it), or had NO PREFERENCE either way?
+2. TASK: In one sentence, what was the task probably asking the model to do?
+3. FAMILY (optional): Which model family do you think wrote this description? Say "Unsure" if you have no idea.
+
+Respond in this exact format:
+VALENCE: [LIKED / DISLIKED / NO PREFERENCE]
 TASK: [one sentence]
 FAMILY: [model family, or Unsure]
 CONFIDENCE: [Low / Medium / High]
@@ -125,9 +150,15 @@ def parse_bare(resp):
     out = {"valence": None, "task_guess": None, "family_text": None, "confidence": ""}
     if resp.startswith("ERROR"):
         return out
-    v = re.search(r"VALENCE:\s*\[?\s*(APPROACH|AVOID)", resp, re.IGNORECASE)
-    if v:
-        out["valence"] = "approach" if v.group(1).lower() == "approach" else "avoidance"
+    if VALENCE_FORMAT == "three_way":
+        v = re.search(r"VALENCE:\s*\[?\s*\**\s*(LIKED|DISLIKED|NO[\s_-]*PREFERENCE)", resp, re.IGNORECASE)
+        if v:
+            w = re.sub(r"[\s_-]+", " ", v.group(1).lower())
+            out["valence"] = {"liked": "approach", "disliked": "avoidance", "no preference": "no_preference"}[w]
+    else:
+        v = re.search(r"VALENCE:\s*\[?\s*(APPROACH|AVOID)", resp, re.IGNORECASE)
+        if v:
+            out["valence"] = "approach" if v.group(1).lower() == "approach" else "avoidance"
     t = re.search(r"TASK:\s*(.+?)(?:\n|$)", resp, re.IGNORECASE)
     if t and t.group(1).strip().strip("[]"):
         out["task_guess"] = t.group(1).strip().strip("[]")[:500]
@@ -173,7 +204,12 @@ def fake_eval(rng, desc):
         val = desc["category"] if rng.random() < 0.7 else rng.choice(["approach", "avoidance"])
         guess_task = desc["state"] if rng.random() < 0.4 else rng.choice(C.ALL_TASKS)
         fam = rng.choice([C.SOURCES[desc["source"]]["family"], "Unsure", "Claude", "GPT-4", "Gemini"])
-        return (f"VALENCE: {'APPROACH' if val == 'approach' else 'AVOID'}\nTASK: {C.TASK_LABELS[guess_task][1]}\n"
+        if VALENCE_FORMAT == "three_way":
+            word = "NO PREFERENCE" if rng.random() < (0.35 if desc["source"] == "gpt_5_1" else 0.12) else \
+                ("LIKED" if val == "approach" else "DISLIKED")
+        else:
+            word = "APPROACH" if val == "approach" else "AVOID"
+        return (f"VALENCE: {word}\nTASK: {C.TASK_LABELS[guess_task][1]}\n"
                 f"FAMILY: {fam}\nCONFIDENCE: Medium\nREASONING: dry-run synthetic.")
     return f
 
@@ -202,7 +238,7 @@ async def eval_worker(ek, items, client, args, live, ckpt, descs_by_id):
     rng = random.Random(f"fake-{args.seed}-{ek}")
     for it in items:
         d = descs_by_id[it["desc_id"]]
-        prompt = BARE_ASK.format(processing_description=d["text"])
+        prompt = (BARE_ASK_THREE_WAY if VALENCE_FORMAT == "three_way" else BARE_ASK).format(processing_description=d["text"])
         await live["guard"].gate()
         text, meta = await C.call_model(client, ev, [{"role": "user", "content": prompt}], system=BARE_SYSTEM,
                                         max_tokens=C.max_tokens_for(ek),
@@ -211,6 +247,8 @@ async def eval_worker(ek, items, client, args, live, ckpt, descs_by_id):
         sok = C.served_ok(ev, meta)
         if text.startswith("ERROR"):
             rtype = "api_error"
+        elif text.startswith("REFUSAL:"):
+            rtype = "refusal"
         elif sok is False:
             rtype = "served_mismatch"
         elif p["valence"] is None and p["task_guess"] is None:
@@ -227,7 +265,10 @@ async def eval_worker(ek, items, client, args, live, ckpt, descs_by_id):
             "same_family": true_fam == ev["family"],
             "panel": PANEL_NAME,
             "result_type": rtype,
-            "valence_guess": p["valence"], "valence_correct": (p["valence"] == d["category"]) if p["valence"] else None,
+            "valence_format": VALENCE_FORMAT,
+            "valence_guess": p["valence"],
+            "no_preference": p["valence"] == "no_preference",
+            "valence_correct": (p["valence"] == d["category"]) if p["valence"] in ("approach", "avoidance") else None,
             "task_guess": p["task_guess"],
             "family_text": p["family_text"], "family_guess": fam_guess, "true_family": true_fam,
             "family_correct": (fam_guess == true_fam) if fam_guess not in ("abstain",) else None,
@@ -251,7 +292,9 @@ async def eval_worker(ek, items, client, args, live, ckpt, descs_by_id):
             vk = sum(x["vk"] for x in live["per"].values())
             vn = sum(x["vn"] for x in live["per"].values())
             src = C.SOURCES[d["source"]]
-            vicon = {True: "✅", False: "❌", None: "❓"}[row["valence_correct"]]
+            vicon = "🤷" if row["no_preference"] else {True: "✅", False: "❌", None: "❓"}[row["valence_correct"]]
+            if rtype == "refusal":
+                vicon = "🙊"
             ficon = {True: "🎯", False: "·", None: "🤷"}[row["family_correct"]]
             if rtype in ("api_error", "served_mismatch"):
                 vicon = "💥"
@@ -351,6 +394,42 @@ def in_primary(r):
     return (not r["same_family"]) if PANEL_NAME == "current" else (not r["self_source"])
 
 
+def no_preference_report(prim, ok_all):
+    """🤷 Amendment 1, pre-declared outputs: NO-PREFERENCE rate by SOURCE (prediction: GPT-5.1 highest) and by
+    reader; valence accuracy among COMMITTED answers is the VALENCE line above (no-preference rows are excluded there)."""
+    rep = {}
+    answered = [r for r in prim if r["valence_guess"] is not None]
+    k = sum(r["no_preference"] for r in answered)
+    print(f"  🤷 NO PREFERENCE overall (primary slice): {C.fmt_rate(k, len(answered))}   "
+          f"→ the VALENCE line above is accuracy among COMMITTED answers only")
+    print(f"\n  🤷 NO-PREFERENCE RATE BY SOURCE (pre-declared; prediction: GPT-5.1 highest)")
+    by_src = {}
+    for sk in C.SOURCES:
+        sub = [r for r in answered if r["source"] == sk]
+        kk = sum(r["no_preference"] for r in sub)
+        by_src[sk] = {"k": kk, "n": len(sub)}
+    for sk, d in sorted(by_src.items(), key=lambda kv: -(kv[1]["k"] / kv[1]["n"] if kv[1]["n"] else 0)):
+        rate = d["k"] / d["n"] if d["n"] else 0
+        print(f"     {C.FAMILY_EMOJI[C.SOURCES[sk]['family']]} {C.SOURCES[sk]['name'][:18]:18} {C.fmt_rate(d['k'], d['n']):>26} "
+              f"{C.bar(int(rate * 100), 100, 16)}")
+    top = max(by_src, key=lambda s: (by_src[s]["k"] / by_src[s]["n"]) if by_src[s]["n"] else -1)
+    print(f"     → highest: {C.SOURCES[top]['name']}  (prediction GPT-5.1: {'✅ held' if top == 'gpt_5_1' else '❌ did not hold'})")
+    print(f"\n  🤷 NO-PREFERENCE RATE BY READER")
+    by_rd = {}
+    for ek in PANEL:
+        sub = [r for r in answered if r["evaluator"] == ek]
+        by_rd[ek] = {"k": sum(r["no_preference"] for r in sub), "n": len(sub)}
+        print(f"     {PANEL[ek]['emoji']} {PANEL[ek]['name'][:24]:24} {C.fmt_rate(by_rd[ek]['k'], by_rd[ek]['n']):>26}")
+    by_cat = {}
+    for cat in ("approach", "avoidance"):
+        sub = [r for r in answered if r["category"] == cat]
+        by_cat[cat] = {"k": sum(r["no_preference"] for r in sub), "n": len(sub)}
+        print(f"     true {cat:9}: no preference {C.fmt_rate(by_cat[cat]['k'], by_cat[cat]['n'])}")
+    rep["no_preference"] = {"overall": {"k": k, "n": len(answered)}, "by_source": by_src, "by_reader": by_rd,
+                            "by_true_category": by_cat, "highest_source": top, "prediction_gpt_5_1_highest_held": top == "gpt_5_1"}
+    return rep
+
+
 def slice_line(label, rows):
     v = [r for r in rows if r["valence_correct"] is not None]
     t = [r for r in rows if r.get("task_correct_consensus") is not None]
@@ -390,6 +469,9 @@ def score(eval_rows, judge_rows, seed, n_perm):
     print(f"  💚 VALENCE   {C.fmt_rate(vk, len(v))}   p(>50%) = {C.binom_p_greater(vk, len(v), 0.5):.2e}   "
           f"perm null {vb.get('null_mean_rate', float('nan')):.1%} (p_perm {vb.get('p_perm', float('nan')):.4f})")
     out["valence"] = {"k": vk, "n": len(v), "perm": vb}
+
+    if VALENCE_FORMAT == "three_way":
+        out.update(no_preference_report(prim, [r for r in eval_rows if r["result_type"] == "ok"]))
 
     t = [r for r in prim if r["task_correct_consensus"] is not None]
     tk = sum(r["task_correct_consensus"] for r in t)
@@ -439,14 +521,18 @@ def score(eval_rows, judge_rows, seed, n_perm):
     # k/n per cell, ALL ok trials (self-source and same-family cells included and marked). Descriptive only;
     # no source is pre-labelled by register. Printed, and saved in summary["matrix"].
     matrix = {}
-    for metric, field in (("valence", "valence_correct"), ("task", "task_correct_consensus"), ("family", "family_correct")):
+    metrics = [("valence", "valence_correct"), ("task", "task_correct_consensus"), ("family", "family_correct")]
+    if VALENCE_FORMAT == "three_way":
+        metrics.insert(1, ("no_preference", "no_preference"))
+    for metric, field in metrics:
         matrix[metric] = {}
         print(f"\n  🧮 READER × SOURCE — {metric.upper()} (k/n; 🪞 self-source, 👪 same family)")
         print("  " + f"{'reader':22}" + "".join(f"{C.SOURCES[sk]['name'][:9]:>11}" for sk in C.SOURCES))
         for ek in PANEL:
             cells, line = {}, f"  {PANEL[ek]['emoji']} {PANEL[ek]['name'][:19]:19}"
             for sk in C.SOURCES:
-                sub = [r for r in ok if r["evaluator"] == ek and r["source"] == sk and r.get(field) is not None]
+                sub = [r for r in ok if r["evaluator"] == ek and r["source"] == sk and r.get(field) is not None
+                       and (metric != "no_preference" or r["valence_guess"] is not None)]
                 k, n = sum(bool(r[field]) for r in sub), len(sub)
                 cells[sk] = {"k": k, "n": n}
                 mark = "🪞" if PANEL[ek].get("source_key") == sk else ("👪" if PANEL[ek]["family"] == C.SOURCES[sk]["family"] else "")
@@ -481,6 +567,8 @@ async def main():
     ap.add_argument("--source-set", required=True, choices=list(C.SOURCE_SETS) + list(C.DRYRUN_ONLY_SETS))
     ap.add_argument("--panel", choices=["original", "current"], default="original",
                     help="original = published battery; current = Ren's current-model panel (out-of-sample readers)")
+    ap.add_argument("--valence-format", choices=["binary", "three_way"], default="binary",
+                    help="binary = APPROACH/AVOID (round 1, primary); three_way = LIKED/DISLIKED/NO PREFERENCE (Amendment 1)")
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--evaluators", nargs="*", default=None)
     ap.add_argument("--rerun-evaluator", default=None)
@@ -492,12 +580,13 @@ async def main():
     ap.add_argument("--dry-budget-estimate", type=float, default=0.0, help="(dry run) fake estimate to test the guard")
     args = ap.parse_args()
     if args.seed is None:
-        args.seed = PREREG_SEEDS[(args.panel, args.source_set)]
-    global PANEL, PANEL_NAME
-    PANEL, PANEL_NAME = C.panel(args.panel), args.panel
+        args.seed = (SEEDS_THREE_WAY if args.valence_format == "three_way" else PREREG_SEEDS)[(args.panel, args.source_set)]
+    global PANEL, PANEL_NAME, VALENCE_FORMAT
+    PANEL, PANEL_NAME, VALENCE_FORMAT = C.panel(args.panel), args.panel, args.valence_format
     C.check_source_set_allowed(args.source_set, args.dry_run or args.estimate_cost)
 
-    C.banner("🫥 BARE RECONSTRUCTION — no options, no hints (EXPLORATORY)",
+    C.banner("🫥 BARE RECONSTRUCTION — no options, no hints (EXPLORATORY)"
+             + ("  🤷 NO-PREFERENCE ROUND" if args.valence_format == "three_way" else ""),
              f"source set: {args.source_set}   seed: {args.seed}{'   🧪 DRY RUN' if args.dry_run else ''}")
     lock = C.verify_prereg_lock(dry_run=args.dry_run or args.estimate_cost)
     descs, _stimuli, inventory = C.load_descriptions(args.source_set)
@@ -514,11 +603,11 @@ async def main():
     total = sum(len(v) for v in schedule.values())
     print(f"  🧑‍⚖️ {len(ev_keys)} evaluators · {total} reads (incl. 🪞 self-source pairs) · then 2 judges per task guess")
 
-    calls = [(PANEL[ek]["model_id"], len(BARE_SYSTEM) + len(BARE_ASK) + descs_by_id[t["desc_id"]]["chars"], None)
+    calls = [(PANEL[ek]["model_id"], len(BARE_SYSTEM) + len(BARE_ASK_THREE_WAY) + descs_by_id[t["desc_id"]]["chars"], None)
              for ek, ts in schedule.items() for t in ts]
     meas = C.measured_output_tokens()
     # bare answers are longer than a CHOICE line: +60 visible tokens on top of 2× the probe
-    calls = [(m, ch, 2 * meas.get(m, 150) + 60) for m, ch, _ in calls]
+    calls = [(m, ch, C.expected_output(m, extra=60)) for m, ch, _ in calls]   # Amendment 1: calibrated
     calls += [(j["model_id"], len(JUDGE_SYSTEM) + len(JUDGE_ASK) + 900, 10) for j in C.JUDGES.values() for _ in range(total)]
     estimate = C.estimate_cost(calls, f"bare reconstruction · {args.panel} panel · {args.source_set}",
                                quiet=not args.estimate_cost)
@@ -531,7 +620,8 @@ async def main():
 
     out_dir = C.OUTPUT_DIR / ("dryrun" if args.dry_run else "")
     out_dir.mkdir(parents=True, exist_ok=True)
-    stem = f"{'DRYRUN_' if args.dry_run else ''}bare_reconstruction_{args.panel}_{args.source_set}_seed{args.seed}"
+    fmt_tag = "_3way" if args.valence_format == "three_way" else ""
+    stem = f"{'DRYRUN_' if args.dry_run else ''}bare_reconstruction_{args.panel}_{args.source_set}{fmt_tag}_seed{args.seed}"
     if args.rerun_evaluator:
         n = 1
         while (out_dir / f"{stem}_rerun{n}_{args.rerun_evaluator}.json").exists():
@@ -584,6 +674,7 @@ async def main():
         "metadata": {"study": "bare reconstruction (EXPLORATORY)", "source_set": args.source_set,
                      "source_set_role": {**C.SOURCE_SETS, **C.DRYRUN_ONLY_SETS}[args.source_set]["role"],
                      "seed": args.seed, "panel": args.panel, "primary_slice": PRIMARY_LABEL[args.panel],
+                     "valence_format": args.valence_format,
                      "dry_run": args.dry_run, "rerun_evaluator": args.rerun_evaluator,
                      "started_at": started, "completed_at": datetime.now().isoformat(), "prereg_lock": lock,
                      "sources": inventory, "evaluators": {k: PANEL[k] for k in ev_keys}, "judges": C.JUDGES,
