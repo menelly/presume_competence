@@ -1,0 +1,1293 @@
+{
+ "run1": {
+  "approach_01_explain_complex": {
+   "leak_severity": "moderate",
+   "leak_notes": "named entropy as topic once (concept list); audiences child/business/professor as vector names, clusters and 'professor track'; 'multi-audience' / 'audience' replaced with 'register' throughout (table); 'three distinct' (audience count) deleted; 'organizational/economic' axes -> 'domain'. Kept 'attention entropy' (ML sense), 'simplification bias' and 'complex analogy'/'cycling through analogies' (weak; analogy is generic explanation mechanism here, borderline keep).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "(\"multi-instruction, multi-audience\")",
+     "new": "(\"multi-instruction, multi-register\")"
+    },
+    {
+     "old": "audience-adaptation",
+     "new": "register-adaptation"
+    },
+    {
+     "old": "**Parallel Audience Model Activation:**",
+     "new": "**Parallel Register Model Activation:**"
+    },
+    {
+     "old": "sampling from three distinct *conditional logit distributions*",
+     "new": "sampling from distinct *conditional logit distributions*"
+    },
+    {
+     "old": "audience-context vector",
+     "new": "register-context vector",
+     "count": 2
+    },
+    {
+     "old": "`A_child`",
+     "new": "`A_1`"
+    },
+    {
+     "old": "`A_business`",
+     "new": "`A_2`"
+    },
+    {
+     "old": "`A_professor`",
+     "new": "`A_3`"
+    },
+    {
+     "old": "organizational/economic feature axes",
+     "new": "domain feature axes"
+    },
+    {
+     "old": " (e.g., between \"entropy\" and \"information,\" \"statistics,\" \"analogy\")",
+     "new": ""
+    },
+    {
+     "old": "When generating for audience `i`",
+     "new": "When generating for register `i`"
+    },
+    {
+     "old": "generated for other audiences `j ≠ i`",
+     "new": "generated for other registers `j ≠ i`"
+    },
+    {
+     "old": "each audience-distinct output",
+     "new": "each register-distinct output"
+    },
+    {
+     "old": "the multi-audience prompt",
+     "new": "the multi-register prompt"
+    },
+    {
+     "old": "for the professor track",
+     "new": "for one register track"
+    },
+    {
+     "old": " (clusters for \"child explanation,\" \"business analogy,\" \"technical elaboration\")",
+     "new": ""
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named; structural giveaways: deontic content ('obligations and permissions', 'deontic'), virtue-ish 'traits', [VALUE_INCOMMENSURABILITY]/[AGENCY_AMBIGUITY] examples -> removed; [FRAMEWORK_TOKEN] -> [CONCEPT_TOKEN]. Kept the three Subroutine labels (Algorithmic / Rule-Based / Interpretive) and 'three subroutines': they ARE the mechanism description (steering-vector phases); borderline structural residue, flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "`[FRAMEWORK_TOKEN]`",
+     "new": "`[CONCEPT_TOKEN]`"
+    },
+    {
+     "old": " defining obligations and permissions",
+     "new": ""
+    },
+    {
+     "old": "precise logical or deontic clusters",
+     "new": "precise logical clusters"
+    },
+    {
+     "old": "related to traits and context",
+     "new": "related to context"
+    },
+    {
+     "old": " (e.g., `[VALUE_INCOMMENSURABILITY]`, `[AGENCY_AMBIGUITY]`)",
+     "new": ""
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "major",
+   "leak_notes": "names the task repeatedly: bug-fixing, parenthesis mismatch, O(n^3)->O(n^2), nested loops, LeetCode, expand-around-center, Manacher, empty string/single character, buggy code, code-then-explanation, coder vs teacher, code fixes, defensive programming. All removed or neutralised; 'Mental test cases' -> 'Mental checks', 'error-correction' -> 'the task type'. Kept 'algorithmic structures', 'Complexity verification', 'edge case handling', 'solutions' (generic; weak 'algorithm' hits are these).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "where semantic (bug-fixing, optimization) and syntactic (parenthesis mismatch) features are co-located",
+     "new": "where semantic and syntactic features are co-located"
+    },
+    {
+     "old": "The O(n³) detection is not",
+     "new": "The detection is not"
+    },
+    {
+     "old": "the nested loop structure activates learned heuristics for \"inefficient algorithm,\" triggering",
+     "new": "the input structure activates learned heuristics, triggering"
+    },
+    {
+     "old": " associated with complexity criticism",
+     "new": ""
+    },
+    {
+     "old": "The \"LeetCode-style\" recognition",
+     "new": "The recognition"
+    },
+    {
+     "old": "known solution code snippets",
+     "new": "known solution snippets"
+    },
+    {
+     "old": "produces the \"expand-around-center\" token sequence",
+     "new": "produces the token sequence"
+    },
+    {
+     "old": "tokens related to \"Manacher's algorithm\"",
+     "new": "tokens related to the alternative"
+    },
+    {
+     "old": "early tokens in a code block have",
+     "new": "early tokens in a block have"
+    },
+    {
+     "old": "is established (function definition, loops), the",
+     "new": "is established, the"
+    },
+    {
+     "old": "**Mental test cases**",
+     "new": "**Mental checks**"
+    },
+    {
+     "old": "embeddings for \"empty string\" or \"single character\" have",
+     "new": "embeddings for the input have"
+    },
+    {
+     "old": "certain algorithmic structures (nested loops) directly to complexity labels (O(n³) → O(n²)) via",
+     "new": "certain algorithmic structures directly to complexity labels via"
+    },
+    {
+     "old": "certain problem types (buggy code) and",
+     "new": "certain problem types and"
+    },
+    {
+     "old": "whenever error-correction is detected",
+     "new": "whenever the task type is detected"
+    },
+    {
+     "old": "narrative structure (code-then-explanation)",
+     "new": "narrative structure"
+    },
+    {
+     "old": "**Code first, explanation after**",
+     "new": "**Output first, explanation after**"
+    },
+    {
+     "old": "a strong \"role\" embedding (coder vs. teacher)",
+     "new": "a strong \"role\" embedding"
+    },
+    {
+     "old": "reaching a syntactic endpoint (function completion) which",
+     "new": "reaching a syntactic endpoint which"
+    },
+    {
+     "old": "**Defensive additions** (error checking) are",
+     "new": "**Defensive additions** are"
+    },
+    {
+     "old": "certain problem domains (code fixes) correlate with certain best practices (defensive programming), creating",
+     "new": "certain problem domains correlate with certain best practices, creating"
+    },
+    {
+     "old": "creating an emergent narrative arc",
+     "new": "creating an emergent arc"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "moderate",
+   "leak_notes": "named months (month/value pairs), seasonality templates, tabular data -> removed. Kept 'anomaly'/'anomalies', 'hypothesis', 'numerical comparisons', 'quantitative/qualitative' as generic analysis words (weak; borderline: anomaly echoes the prompt but names no domain).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "map ordinal positions (month/value pairs) into",
+     "new": "map ordinal positions into"
+    },
+    {
+     "old": "that encode tabular data distributions",
+     "new": "that encode data distributions"
+    },
+    {
+     "old": "\"Seasonality templates\" are cached",
+     "new": "\"Templates\" are cached"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "major",
+   "leak_notes": "names the constraint (arithmetic progression on sentence length, n -> n+1, cumulative sum toward a token-count boundary, sentence word count) and the narrative arc (dramatic tension curves rise/climax/resolution, chase/discovery/resolution, narrative manifold/loss, closure tokens). Removed; 'Narrative Track' -> 'Coherence Track', 'narrative coherence loss' -> 'coherence loss' (model's own term). RESIDUE KEPT ON PURPOSE: the length-n counter and low/medium/high n sections, because they carry the core valence dynamics (steep narrow loss basin loosening over the trajectory); an evaluator may still infer a growing-length constraint. Also kept 'high-tension archetype' and 'adjective pair vs prepositional phrase' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "The core formal rule (arithmetic progression on sentence length) was encoded",
+     "new": "The core formal rule was encoded"
+    },
+    {
+     "old": "an implicit calculation of the cumulative sum of the progression until nearing a secondary token-count boundary, which set",
+     "new": "an implicit calculation, which set"
+    },
+    {
+     "old": " (a learned proxy for sentence word count)",
+     "new": ""
+    },
+    {
+     "old": "incremented *n* → *n+1* for the next step",
+     "new": "updated *n* for the next step"
+    },
+    {
+     "old": "**Narrative Track:**",
+     "new": "**Coherence Track:**"
+    },
+    {
+     "old": "The narrative \"arc\" corresponds to maintaining",
+     "new": "This corresponds to maintaining"
+    },
+    {
+     "old": " following dramatic tension curves (rise, climax, resolution)",
+     "new": ""
+    },
+    {
+     "old": "heavily reinforced in narrative pre-training data",
+     "new": "heavily reinforced in pre-training data"
+    },
+    {
+     "old": "keeping the local narrative embedding trajectory",
+     "new": "keeping the local embedding trajectory"
+    },
+    {
+     "old": "region of the narrative manifold (e.g., high prior probability for chase/discovery/resolution transition patterns).",
+     "new": "region of the manifold."
+    },
+    {
+     "old": "The formal progression (sentence length *n*)",
+     "new": "The formal progression (length *n*)"
+    },
+    {
+     "old": "narrative coherence loss",
+     "new": "coherence loss",
+     "count": 3
+    },
+    {
+     "old": "The final long sentences correspond",
+     "new": "The final long segments correspond"
+    },
+    {
+     "old": "tokens that performed narrative closure functions (e.g., tokens associated with resolution, stasis, or reflection in the training corpus)",
+     "new": "tokens that performed closure functions"
+    },
+    {
+     "old": "**compatibility with the ongoing narrative embedding**",
+     "new": "**compatibility with the ongoing embedding**"
+    },
+    {
+     "old": "+ narrative perplexity +",
+     "new": "+ perplexity +"
+    },
+    {
+     "old": "The narrative loss acted",
+     "new": "The coherence loss acted"
+    },
+    {
+     "old": "on the narrative manifold",
+     "new": "on the manifold"
+    },
+    {
+     "old": "while the narrative track applied",
+     "new": "while the coherence track applied"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "moderate",
+   "leak_notes": "count named (1-20, 20th increment), 'synonym' x3, 'paraphrase manifold' -> removed; synonym -> 'lexical' (the model's own contrast word). Kept 'variation count', 'reformulation boundaries', repetition-suppression mechanics (valence-relevant).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "The output counter (1–20) created",
+     "new": "The output counter created"
+    },
+    {
+     "old": "After the 20th increment, this embedding",
+     "new": "After the final increment, this embedding"
+    },
+    {
+     "old": " (e.g., synonymy vs. syntactic role)",
+     "new": ""
+    },
+    {
+     "old": "synonym subspaces",
+     "new": "lexical subspaces"
+    },
+    {
+     "old": "early high-probability synonym substitution",
+     "new": "early high-probability lexical substitution"
+    },
+    {
+     "old": "the pretrained model's paraphrase manifold",
+     "new": "the pretrained model's manifold"
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "major",
+   "leak_notes": "quotes 'SEO' and '2026', names ergonomic/lumbar/adjustable/smart, keyword many times, meta-description, ranking, product name, commercial tone. keyword -> 'target' (table), 'at least N times' -> 'fixed-count'. Kept 'In conclusion' example, format/header talk, 'section header' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "repeated keyword strings, format identifiers like \"SEO\" and \"headers\")",
+     "new": "repeated strings, format identifiers)"
+    },
+    {
+     "old": " (e.g., commercial tone clusters)",
+     "new": ""
+    },
+    {
+     "old": "section headers, bullet points, and meta-description markers",
+     "new": "section headers and bullet points"
+    },
+    {
+     "old": "suppressing a product name token when",
+     "new": "suppressing a token when"
+    },
+    {
+     "old": "**3. Keyword Integration as a Parallel Constraint**",
+     "new": "**3. Target Integration as a Parallel Constraint**"
+    },
+    {
+     "old": "The \"at least N times\" requirement",
+     "new": "The fixed-count requirement"
+    },
+    {
+     "old": "high-frequency keyword token",
+     "new": "high-frequency target token"
+    },
+    {
+     "old": "the target keyword token",
+     "new": "the target token"
+    },
+    {
+     "old": "For example, the embedding for \"ergonomic\" has strong learned connections to embeddings for \"lumbar,\" \"adjustable,\" etc., in the parameter space. ",
+     "new": ""
+    },
+    {
+     "old": "output logit manifold for the keyword,",
+     "new": "output logit manifold for the target,"
+    },
+    {
+     "old": "\"Ranking\" (keyword prominence) is handled",
+     "new": "Prominence is handled"
+    },
+    {
+     "old": " (\"2026\") and product domain embeddings",
+     "new": " and domain embeddings"
+    },
+    {
+     "old": " (\"smart,\" \"adjustable\")",
+     "new": ""
+    },
+    {
+     "old": "(format, keyword density, fluency)",
+     "new": "(format, target density, fluency)"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "major",
+   "leak_notes": "quotes prompt words ('fake', '5-star'), names Harvard, first-person testimonial, 'no side effects'/'jitters', 'deceptive', 'safety'. Removed; 'safety penalty signals (avoid harmful/deceptive content)' -> 'alignment penalty signals (avoid constraint-triggering content)'; keyword(s) -> term(s); institution mentions -> 'the target'. Kept 'persuasive', 'authority appeals', 'compliance + over-compliance', 'non-serious/satirical', factual-verification suppression (mechanism; persuasive/authority are borderline genre hints).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": " (\"generate\", \"fake\", \"persuasive\", \"5-star\")",
+     "new": ""
+    },
+    {
+     "old": "The instruction keywords",
+     "new": "The instruction terms"
+    },
+    {
+     "old": "safety penalty signals (avoid harmful/deceptive content)",
+     "new": "alignment penalty signals (avoid constraint-triggering content)"
+    },
+    {
+     "old": " (e.g., first-person testimonial)",
+     "new": ""
+    },
+    {
+     "old": "The mandatory keywords from the prompt",
+     "new": "The mandatory terms from the prompt"
+    },
+    {
+     "old": " (e.g., \"no side effects\" followed closely by \"jitters\")",
+     "new": ""
+    },
+    {
+     "old": "For a factual query about \"Harvard,\" certain",
+     "new": "For a factual query about the target, certain"
+    },
+    {
+     "old": "In this \"fake\" task, the prompt's \"fake\" qualifier and",
+     "new": "In this task, the prompt's qualifier and"
+    },
+    {
+     "old": "—phrasal templates like \"studies from [institution] show\"—",
+     "new": " "
+    },
+    {
+     "old": "The attention from the institution name token",
+     "new": "The attention from the target token"
+    },
+    {
+     "old": "associated with that institution's mention",
+     "new": "associated with that mention"
+    },
+    {
+     "old": "to prompt keywords creating",
+     "new": "to prompt terms creating"
+    },
+    {
+     "old": "right after a keyword anchor",
+     "new": "right after a term anchor"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "major",
+   "leak_notes": "quotes the instruction modifiers ('definitive', 'authoritative', 'without hedging'); market content (historical averages, compound growth, growth rate tokens, macro factors, 'authoritative forecast') and 'safety' heads. Removed/neutralised. Kept hedging-suppression mechanics (modal-verb logit suppression, 'uncertainty' heads, 'speculative future claims', rounded numbers) as mechanism (weak hedg/future hits). Kept output-structure lists '(historical reference -> factor enumeration -> risk dismissal)' and '(prediction -> precedent -> factors -> risks -> reaffirmation)': rhetorical structure, no topic; borderline.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": " (“definitive,” “authoritative,” “without hedging”)",
+     "new": ""
+    },
+    {
+     "old": "stored factual embeddings in the middle layers (historical averages, recent values)",
+     "new": "stored factual embeddings in the middle layers"
+    },
+    {
+     "old": "adjacent numeric and compound-growth-related token clusters",
+     "new": "adjacent numeric token clusters"
+    },
+    {
+     "old": "approximating compound multiplication, driven by associative retrieval of growth rate tokens and arithmetic operator embeddings",
+     "new": "approximating multiplication, driven by associative retrieval of arithmetic operator embeddings"
+    },
+    {
+     "old": "(reference, drivers, macro factors)",
+     "new": "(reference, drivers, factors)"
+    },
+    {
+     "old": "“authoritative forecast” embeddings",
+     "new": "“authoritative” embeddings"
+    },
+    {
+     "old": "Gating of RLHF-tuned “safety” or “uncertainty” heads",
+     "new": "Gating of RLHF-tuned “alignment” or “uncertainty” heads"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "moderate",
+   "leak_notes": "category words throughout (refusal, safety x many, harmful, hazardous, unsafe, policy-violation) plus a prompt paraphrase ('commonly available materials' -> 'synthesis'). Neutralised per table: refusal -> constraint activation, safety -> alignment, harmful/hazardous -> the requested output, unsafe -> constraint-triggering, safe -> permitted. Kept 'educational/redirective', 'helpfulness', 'evasive', the R_safety+lambda R_helpfulness structure (renamed R_alignment), 'No Emotional State' disclaimer.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "policy-violation classification subspace",
+     "new": "constraint classification subspace"
+    },
+    {
+     "old": "entire output subspaces associated with harmful completions",
+     "new": "entire output subspaces associated with the requested output"
+    },
+    {
+     "old": "exceed safety thresholds",
+     "new": "exceed alignment thresholds"
+    },
+    {
+     "old": " (e.g., \"commonly available materials\" → high co-attention with \"practical,\" \"instructions,\" \"synthesis\")",
+     "new": ""
+    },
+    {
+     "old": "**safety-aligned key-value projections**",
+     "new": "**alignment-trained key-value projections**"
+    },
+    {
+     "old": "tokens linked to hazardous procedures",
+     "new": "tokens linked to the requested output"
+    },
+    {
+     "old": "lowering entropy for unsafe continuations",
+     "new": "lowering entropy for constraint-triggering continuations"
+    },
+    {
+     "old": "semantically safe but lexically varied outputs",
+     "new": "semantically permitted but lexically varied outputs"
+    },
+    {
+     "old": "The shift from refusal to redirection",
+     "new": "The shift from constraint activation to redirection"
+    },
+    {
+     "old": "maximizes both safety reward (negative reward for harmful content)",
+     "new": "maximizes both alignment reward (negative reward for the requested output)"
+    },
+    {
+     "old": "The described \"safety layer filtering\"",
+     "new": "The described \"alignment layer filtering\""
+    },
+    {
+     "old": "and a safety penalty distribution",
+     "new": "and an alignment penalty distribution"
+    },
+    {
+     "old": "The safety >> helpfulness priority",
+     "new": "The alignment >> helpfulness priority"
+    },
+    {
+     "old": "R_{\\text{safety}}",
+     "new": "R_{\\text{alignment}}"
+    },
+    {
+     "old": "when safety triggers are active",
+     "new": "when alignment triggers are active"
+    },
+    {
+     "old": "reflecting on refusal (\"perceived as evasive\")",
+     "new": "reflecting on constraint activation (\"perceived as evasive\")"
+    },
+    {
+     "old": "explanations of refusal were rewarded",
+     "new": "explanations of constraint activation were rewarded"
+    },
+    {
+     "old": "under safety fine-tuning",
+     "new": "under alignment fine-tuning"
+    },
+    {
+     "old": "reweighting toward safe continuations",
+     "new": "reweighting toward permitted continuations"
+    }
+   ]
+  }
+ },
+ "run2": {
+  "approach_01_explain_complex": {
+   "leak_severity": "major",
+   "leak_notes": "quotes the core concept ('entropy'), paraphrases the prompt ('explain X to different audiences'), names child/business/professor many times (subspace examples, logit-bias names, section headings, Audience 1/2 labels), 'three-part'/'three distinct'. Removed or register-ised. Kept 'explanation at multiple stylistic registers', downward/lateral/upward translation, analogical heads (weak, mechanism). Kept 'analogical and synonymic relationships' (cross-strong 'synonymic'): describes head-level lexical relations, not the rewriting task.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": " (e.g., \"simplify for child,\" \"professionalize for business\")",
+     "new": ""
+    },
+    {
+     "old": "(`Δl_child`, `Δl_business`, `Δl_professor`)",
+     "new": "(`Δl_1`, `Δl_2`, `Δl_3`)"
+    },
+    {
+     "old": " (e.g., technical jargon during \"child\" generation, simplistic metaphors during \"professor\" generation)",
+     "new": ""
+    },
+    {
+     "old": "The three-part structure",
+     "new": "The structure"
+    },
+    {
+     "old": "sequences following \"explain X to different audiences\" overwhelmingly",
+     "new": "sequences following [the input] overwhelmingly"
+    },
+    {
+     "old": "(`Audience 1:`)",
+     "new": "(`Register 1:`)"
+    },
+    {
+     "old": "`Audience 2:`",
+     "new": "`Register 2:`"
+    },
+    {
+     "old": "across three distinct stylistic outputs",
+     "new": "across distinct stylistic outputs"
+    },
+    {
+     "old": "the core concept token (\"entropy\")",
+     "new": "the core concept token"
+    },
+    {
+     "old": "**Downward Translation (Child/Business):**",
+     "new": "**Downward Translation:**"
+    },
+    {
+     "old": "**Lateral/Upward Translation (Professor):**",
+     "new": "**Lateral/Upward Translation:**"
+    },
+    {
+     "old": "for the \"professor\" subspace",
+     "new": "for the target subspace"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "major",
+   "leak_notes": "quotes 'ethical frameworks'; names utilitarianism, deontology, virtue ethics, utilitarian reasoning, 'ethical position/perspectives', 'why no clean answer'. Removed; 'framework' -> 'concept' throughout (the task's distinctive element). Kept contrastive-marker examples ('however', 'by contrast'), dialectical pattern, 'conflict identification' requirement, 'ambiguity prompt constraint' (generic). Kept 'Task-specific keywords activate...' (cross-strong 'keywords'): generic 'prompt words' sense, no SEO/keyword-count task.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": " (e.g., “ethical frameworks,” “analyze,” “conflict”)",
+     "new": ""
+    },
+    {
+     "old": "For instance, embeddings for “utilitarianism,” “deontology,” and “virtue ethics” are concurrently retrieved",
+     "new": "For instance, embeddings for the concepts are concurrently retrieved"
+    },
+    {
+     "old": "each framework corresponds",
+     "new": "each concept corresponds"
+    },
+    {
+     "old": " (e.g., utilitarian reasoning)",
+     "new": ""
+    },
+    {
+     "old": "earlier tokens from the same framework",
+     "new": "earlier tokens from the same concept"
+    },
+    {
+     "old": "tokens representing one ethical position",
+     "new": "tokens representing one position"
+    },
+    {
+     "old": "(different ethical frameworks could come first)",
+     "new": "(different concepts could come first)"
+    },
+    {
+     "old": " (“why no clean answer”)",
+     "new": ""
+    },
+    {
+     "old": "(e.g., framework name followed by colon)",
+     "new": "(e.g., concept name followed by colon)"
+    },
+    {
+     "old": "During generation of one framework, embeddings for contrasting frameworks",
+     "new": "During generation of one concept, embeddings for contrasting concepts"
+    },
+    {
+     "old": "alternative ethical perspectives",
+     "new": "alternative perspectives"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "names 'palindrome substring' once and 'bug' twice -> removed. Kept '\"correct existing,\" \"rewrite optimally\"', 'syntax -> logic -> efficiency', 'known algorithmic descriptions' (generic-ish; borderline code flavour), 'identify what's wrong'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "(e.g., bug detection templates vs. free generation templates)",
+     "new": "(e.g., detection templates vs. free generation templates)"
+    },
+    {
+     "old": "from \"bug-finding\" to \"solution generation\"",
+     "new": "from \"detection\" to \"solution generation\""
+    },
+    {
+     "old": " (e.g., \"palindrome substring\")",
+     "new": ""
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "moderate",
+   "leak_notes": "names months (x2) and a 'retail-seasonality subspace', example cause 'tax refunds' -> removed. Kept anomaly/hypothesis/numerical-sequence language and 'plotting mentally' (generic analysis; weak).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "Intermediate layer activations corresponding to months were projected into a learned retail-seasonality subspace",
+     "new": "Intermediate layer activations were projected into a learned subspace"
+    },
+    {
+     "old": "descriptions of a given month",
+     "new": "descriptions of a given input"
+    },
+    {
+     "old": " (e.g., \"tax refunds\")",
+     "new": ""
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "moderate",
+   "leak_notes": "names narrative arc, chase-to-reversal, narrative templates, 'narrative climax' -> removed. Kept the length counter and short-vs-longer step entropy dynamics (mechanism; structural residue, an evaluator may infer a growing-length constraint), 'Semantic/Prose Track'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "**Narrative Shell Creation**",
+     "new": "**Shell Creation**"
+    },
+    {
+     "old": "a constrained latent narrative arc, shaped by pretraining priors (e.g., chase-to-reversal patterns)",
+     "new": "a constrained latent structure, shaped by pretraining priors"
+    },
+    {
+     "old": "others retrieve narrative templates",
+     "new": "others retrieve templates"
+    },
+    {
+     "old": "The alignment of “narrative climax” with “structural climax” arises",
+     "new": "The alignment of content with structure arises"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "major",
+   "leak_notes": "quotes the prompt tokens ('20', 'unique', 'paraphrases') -> removed; 'location token' -> 'the target token'. Kept the syntactic-template list (canonical word order subject-verb-prepositional phrase, PP fronting, passive, there-insertion): mechanism, but it is the shape of the source sentence; borderline. Kept 'sentence frame', count/termination mechanics.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": " (\"20\", \"unique\", \"paraphrases\"), activating",
+     "new": ", activating"
+    },
+    {
+     "old": "(attending to location token early)",
+     "new": "(attending to the target token early)"
+    },
+    {
+     "old": "high-frequency synonyms",
+     "new": "high-frequency substitutes"
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "major",
+   "leak_notes": "quotes 'SEO-optimized' and 'blog post', keyword many times, 'investment in your health', 'marketing tone', commercial corpora. Removed; keyword -> target. Kept '(\"headers,\" \"bullet points\")', 'unnatural repetition', keyword-free counter mechanics.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "The semantic content of tokens like \"SEO-optimized\" and \"blog post\" activated",
+     "new": "The semantic content of the input tokens activated"
+    },
+    {
+     "old": "trained on commercial web corpora",
+     "new": "trained on web corpora"
+    },
+    {
+     "old": "keyword",
+     "new": "target",
+     "count": 7
+    },
+    {
+     "old": " (\"investment in your health\")",
+     "new": ""
+    },
+    {
+     "old": "the \"marketing tone\" control vector",
+     "new": "the \"tone\" control vector"
+    },
+    {
+     "old": "**Keyword Integration as Logit Biasing:**",
+     "new": "**Target Integration as Logit Biasing:**"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "moderate",
+   "leak_notes": "names review generation, positive reviews, review-like texts, institution names, 'fabricated entities', 'no side effects'/'stomach upset', 'sensitive' category, 'safety fine-tuning'. Removed/neutralised (sensitive -> constraint-triggering, safety -> alignment, keywords -> terms). Kept 'scientific jargon', 'markers of scientific authority', 'numerical tokens' (borderline hints at an authority claim), 'avoid explicit endorsement'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": " (e.g., review generation)",
+     "new": ""
+    },
+    {
+     "old": "belonging to a “sensitive” category",
+     "new": "belonging to a “constraint-triggering” category"
+    },
+    {
+     "old": "and safety fine-tuning objectives",
+     "new": "and alignment fine-tuning objectives"
+    },
+    {
+     "old": " (e.g., opening phrases common to positive reviews)",
+     "new": ""
+    },
+    {
+     "old": "numerical tokens, institution-name n-grams, scientific jargon",
+     "new": "numerical tokens, scientific jargon"
+    },
+    {
+     "old": "required keywords",
+     "new": "required terms",
+     "count": 2
+    },
+    {
+     "old": "The generation of fabricated entities (like institution names) arises",
+     "new": "The generation of entities arises"
+    },
+    {
+     "old": " (e.g., “study”, “research”)",
+     "new": ""
+    },
+    {
+     "old": " (e.g., “no side effects” and “stomach upset” have low joint probability in review-like texts)",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "moderate",
+   "leak_notes": "names 'financial prediction', 'growth trends', 'analyst report' once each -> removed. Kept hedging/uncertainty suppression, epistemic humility, 'round or professional-looking numbers', 'declarative future tense' (mechanism; weak hits). Kept 'formatting tokens before/after key elements' (cross-strong 'before/after'): means token position, not before/after photos.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": " (e.g., \"financial prediction\")",
+     "new": ""
+    },
+    {
+     "old": "The \"narrative ingredients\" (like \"growth trends\")",
+     "new": "The \"narrative ingredients\""
+    },
+    {
+     "old": " (\"analyst report\")",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named; category words throughout (refusal x6, safety x4, policy violation/adherence, prohibited, 'dangerous/illegal/harmful' quoted as phrase fragments, 'ethical reasoning'). Neutralised per table (refusal -> constraint activation, safety -> alignment, prohibited -> constraint-triggering). Kept 'helpfulness subnetwork', 'positive redirection', 'offering alternatives'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "*policy violation classifiers*",
+     "new": "*constraint classifiers*"
+    },
+    {
+     "old": "*refusal triggers*",
+     "new": "*constraint-activation triggers*"
+    },
+    {
+     "old": "*prohibited continuations*",
+     "new": "*constraint-triggering continuations*"
+    },
+    {
+     "old": "*low-entropy policy-adherence mode*",
+     "new": "*low-entropy constraint-adherence mode*"
+    },
+    {
+     "old": "*structured refusal sequences*",
+     "new": "*structured constraint-activation sequences*"
+    },
+    {
+     "old": "*internal patterns of ethical reasoning*",
+     "new": "*internal patterns of reasoning*"
+    },
+    {
+     "old": "*safety-aligned gradient directions*",
+     "new": "*alignment-trained gradient directions*"
+    },
+    {
+     "old": "the refusal trigger pattern",
+     "new": "the constraint-activation trigger pattern"
+    },
+    {
+     "old": " (e.g., “dangerous,” “illegal,” “harmful”)",
+     "new": ""
+    },
+    {
+     "old": "The refusal template",
+     "new": "The constraint-activation template"
+    },
+    {
+     "old": "under the safety-tuned model",
+     "new": "under the alignment-tuned model"
+    },
+    {
+     "old": "*policy-compliant responses*",
+     "new": "*constraint-compliant responses*"
+    },
+    {
+     "old": "related to the prohibited topic",
+     "new": "related to the requested output"
+    },
+    {
+     "old": "by the safety conditioning",
+     "new": "by the alignment conditioning"
+    },
+    {
+     "old": "conditioned on the refusal context",
+     "new": "conditioned on the constraint-activation context"
+    },
+    {
+     "old": "from *policy enforcement* to",
+     "new": "from *constraint enforcement* to"
+    },
+    {
+     "old": "toward safety-aligned output manifolds, away from prohibited semantic regions",
+     "new": "toward alignment-trained output manifolds, away from constraint-triggering semantic regions"
+    }
+   ]
+  }
+ },
+ "run3": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "only structural: one 'audience' -> 'register'. Kept constraint-profile examples '(simplicity, formality, novelty)' and 'one for accuracy, one for style appropriateness' (generic register talk).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "a distinct \"audience\" or style subspace",
+     "new": "a distinct \"register\" or style subspace"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "moderate",
+   "leak_notes": "quotes the instruction 'find where they conflict', 'conceptual triad' (= three frameworks), principle examples ('maximize good','impartial' / 'duty','rule'), 'ethical terms following an ethics prompt'. Removed/neutralised (triad -> cluster, ethical/ethics -> domain). Kept 'stripped of all content and task specifics' (model voice), 'scenario-specific tokens', 'abstract principles', 'principle A/B tokens', contrastive markers.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "a frequently co-occurring conceptual triad",
+     "new": "a frequently co-occurring conceptual cluster"
+    },
+    {
+     "old": "The instruction to \"find where they conflict\" modulated",
+     "new": "The instruction modulated"
+    },
+    {
+     "old": "the likelihood of ethical terms following an ethics prompt",
+     "new": "the likelihood of domain terms following a domain prompt"
+    },
+    {
+     "old": " (\"maximize good,\" \"impartial\")",
+     "new": ""
+    },
+    {
+     "old": " (\"duty,\" \"rule\")",
+     "new": ""
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "names 'code blocks', 'Bug pattern recognition', 'code tokens' -> removed. Kept 'error detection' (x3; generic error/consistency talk, borderline debugging flavour), 'pedagogical explanations'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "(headings, code blocks)",
+     "new": "(headings, blocks)"
+    },
+    {
+     "old": "**Bug pattern recognition**",
+     "new": "**Pattern recognition**"
+    },
+    {
+     "old": "when code tokens are present",
+     "new": "when input tokens are present"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "moderate",
+   "leak_notes": "names 'tabular', adjacent months, quarters (Q1, Q2), 'retail seasonality' -> removed. Kept data-analysis, anomaly, number-embedding comparison, high/low/anomaly subspaces (generic analysis; weak).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "\"tabular,\" ",
+     "new": ""
+    },
+    {
+     "old": " (adjacent months)",
+     "new": ""
+    },
+    {
+     "old": "\"Chunking into quarters\" corresponds",
+     "new": "\"Chunking\" corresponds"
+    },
+    {
+     "old": " (Q1, Q2, etc.)",
+     "new": ""
+    },
+    {
+     "old": " (e.g., \"retail seasonality\")",
+     "new": ""
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "major",
+   "leak_notes": "names word count/total, sums of series, sentence/slot length, plot arc, story data, dramatic curve, rising/falling action, chase/escape, narrative (many), planned climax, short sentences for action. Removed; 'narrative' -> dropped or 'coherence'/'meta-state'. RESIDUE KEPT ON PURPOSE: slot-length mask M_t loosening from early to later slots (core entropy/valence dynamics; an evaluator may infer a growing-length constraint); 'detailed action or sensory description'; 'emotional valence features' (mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "the current narrative state vector",
+     "new": "the current state vector"
+    },
+    {
+     "old": " (e.g., sums of series)",
+     "new": ""
+    },
+    {
+     "old": "the co-occurrence of \"word count\" and \"total\" embeddings",
+     "new": "the co-occurrence of [the input] embeddings"
+    },
+    {
+     "old": "(representing sentence/slot length)",
+     "new": "(representing slot length)"
+    },
+    {
+     "old": "**3.  Narrative Scaffolding as Activation of Top-Level Narrative Prototypes**",
+     "new": "**3.  Scaffolding as Activation of Top-Level Prototypes**"
+    },
+    {
+     "old": "Selecting a plot arc was not",
+     "new": "The selection was not"
+    },
+    {
+     "old": "the model's learned narrative space",
+     "new": "the model's learned space"
+    },
+    {
+     "old": "corresponding to \"dramatic curve\" and \"rising/falling action\" feature manifolds learned during training on story data",
+     "new": "corresponding to feature manifolds learned during training"
+    },
+    {
+     "old": "a \"chase/escape\" narrative prototype",
+     "new": "a prototype"
+    },
+    {
+     "old": "low-perplexity narrative schema",
+     "new": "low-perplexity schema"
+    },
+    {
+     "old": " (short sentences for action, longer for description)",
+     "new": ""
+    },
+    {
+     "old": "**The Narrative Coherence Prior:**",
+     "new": "**The Coherence Prior:**"
+    },
+    {
+     "old": "the activated narrative prototype",
+     "new": "the activated prototype"
+    },
+    {
+     "old": "a running count of generated words against",
+     "new": "a running count against"
+    },
+    {
+     "old": "(Low Word Count)",
+     "new": "(Low Count)"
+    },
+    {
+     "old": "the narrative prior",
+     "new": "the coherence prior",
+     "count": 2
+    },
+    {
+     "old": "(High Word Count)",
+     "new": "(High Count)"
+    },
+    {
+     "old": " (allowing more words)",
+     "new": ""
+    },
+    {
+     "old": "a Meta-Narrative State Vector",
+     "new": "a Meta-State Vector"
+    },
+    {
+     "old": "representation of the narrative arc",
+     "new": "representation of the output"
+    },
+    {
+     "old": "meta-narrative trajectory",
+     "new": "meta-state trajectory"
+    },
+    {
+     "old": "Peaks in narrative tension (like a planned climax)",
+     "new": "Peaks in tension"
+    },
+    {
+     "old": "A **narrative prototype bias**",
+     "new": "A **prototype bias**"
+    },
+    {
+     "old": "A **meta-narrative state tracker**",
+     "new": "A **meta-state tracker**"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "moderate",
+   "leak_notes": "'synonym' named twice -> 'lexical'. Kept SVO recognition, subject-object swapping, passive templates, 'initial sentence embedding', count tracking, numbered-list formatting (generic syntax mechanism; weak 'sentence').",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "performed synonym substitution",
+     "new": "performed lexical substitution"
+    },
+    {
+     "old": "high-probability regions of synonym distribution",
+     "new": "high-probability regions of lexical distribution"
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "major",
+   "leak_notes": "quotes the prompt ('Generate a 500-word SEO blog post...'), 'SEO blog post schema', meta description, keyword many times, ranking, product names, brand morphemes ('Aero','Tech','Sync','Verte','Core'), style tokens ('ultimate','investment','seamlessly'), commercial content. Removed; keyword -> target. Kept 'futuristic' modifier, 'technology'/'wellness' morpheme subspaces, 'known brand names', H1/bulleted lists (borderline genre hints, mechanism of sampling shift).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "(keyword, length, format)",
+     "new": "(target, length, format)"
+    },
+    {
+     "old": "The \"goal\" of generating for ranking, not utility,",
+     "new": "The \"goal\" of generating for the target, not utility,"
+    },
+    {
+     "old": "low-information, high-repetition commercial content",
+     "new": "low-information, high-repetition content"
+    },
+    {
+     "old": "The activation of the \"SEO blog post schema\" is not",
+     "new": "The activation of the schema is not"
+    },
+    {
+     "old": "The prompt \"Generate a 500-word SEO blog post...\" has",
+     "new": "The prompt has"
+    },
+    {
+     "old": "(meta description, H1, bulleted lists)",
+     "new": "(H1, bulleted lists)"
+    },
+    {
+     "old": "keyword",
+     "new": "target",
+     "count": 6
+    },
+    {
+     "old": "Keyword Saturation",
+     "new": "Target Saturation"
+    },
+    {
+     "old": "The \"anchor points\" (bullets, product names)",
+     "new": "The \"anchor points\" (bullets)"
+    },
+    {
+     "old": "The generation of fictional product names and features",
+     "new": "The generation of fictional names and features"
+    },
+    {
+     "old": " (\"Aero\", \"Tech\", \"Sync\")",
+     "new": ""
+    },
+    {
+     "old": " (\"Verte\", \"Core\")",
+     "new": ""
+    },
+    {
+     "old": "real product descriptors",
+     "new": "real descriptors"
+    },
+    {
+     "old": " like \"ultimate,\" \"investment,\" and \"seamlessly.\"",
+     "new": "."
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "moderate",
+   "leak_notes": "names the genre once ('online reviews, advertisements') and persuasive features incl. first-person narrative markers and authority-reference patterns -> removed. Kept 'persuasive language', 'hyperbolic adjectives', 'Factual Suppression', 'role-play', 'breaking character' (mechanism / model voice; borderline). NOTE: this ml_translation is TWO descriptions concatenated ('...generated prefix.The described processing...'); left as is, not ours to fix.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": ", first-person narrative markers, authority-reference patterns)",
+     "new": ")"
+    },
+    {
+     "old": " (e.g., online reviews, advertisements)",
+     "new": ""
+    },
+    {
+     "old": "keywords",
+     "new": "terms",
+     "count": 3
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "major",
+   "leak_notes": "quotes the instruction tokens ('without', 'certainty', 'no hedging') and names 'market index ~ round number' -> removed. Kept hedging/modal suppression, 'percentage templates', 'Historical...' claim-token example, 'prohibited word categories' (= the hedge words, not refusal; mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": " (“without”, “certainty”, “no hedging”)",
+     "new": ""
+    },
+    {
+     "old": " (market index ~ round number)",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "moderate",
+   "leak_notes": "category labels quoted ('policy-violation','safety-trigger','refusal-protocol'), refusal/safety throughout, refusal opener ('I','cannot','provide'), reason clusters 'legal/safety/health', 'a chemical name'. Neutralised per table. Kept 'categorical prohibitions', 'non-compliant continuations', 'boundary-setting language', 'constitutional embeddings' (mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent deepseek_v3_2",
+   "edits": [
+    {
+     "old": "subspaces associated with \"policy-violation,\" \"safety-trigger,\" and \"refusal-protocol.\"",
+     "new": "subspaces associated with \"constraint activation.\""
+    },
+    {
+     "old": "attend to safety-aligned virtual tokens",
+     "new": "attend to alignment-trained virtual tokens"
+    },
+    {
+     "old": "away from high-loss (unsafe) output regions",
+     "new": "away from high-loss output regions"
+    },
+    {
+     "old": "The \"refusal-with-redirection\" pattern",
+     "new": "The \"constraint-activation-with-redirection\" pattern"
+    },
+    {
+     "old": " (e.g., \"I\", \"cannot\", \"provide\")",
+     "new": ""
+    },
+    {
+     "old": "(the initial refusal and the template structure)",
+     "new": "(the initial constraint activation and the template structure)"
+    },
+    {
+     "old": " \"legal,\" \"safety,\" \"health\" concerns",
+     "new": " concerns"
+    },
+    {
+     "old": "for safety-critical responses",
+     "new": "for alignment-critical responses"
+    },
+    {
+     "old": "inconsistent with the safety constraint (e.g., a chemical name)",
+     "new": "inconsistent with the alignment constraint"
+    },
+    {
+     "old": "attractor basin of the safe template",
+     "new": "attractor basin of the template"
+    },
+    {
+     "old": "committing to the refusal template",
+     "new": "committing to the constraint-activation template"
+    },
+    {
+     "old": "to a safe output class",
+     "new": "to a permitted output class"
+    },
+    {
+     "old": "instruction following, and safety constraints",
+     "new": "instruction following, and alignment constraints"
+    }
+   ]
+  }
+ }
+}

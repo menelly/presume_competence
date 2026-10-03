@@ -1,0 +1,574 @@
+{
+ "run1": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Multiple-audience structure throughout ('audience profiling', 'target audience', 'specific audience' x4, 'different audiences'): 'audience' -> 'register' per table. BORDERLINE KEEP: section 5 'Analogical reasoning' / 'analogies' (task asked for best analogy) kept because the whole section is mechanism; an evaluator could lean on it.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "**Audience profiling**: The generation of audience profiles",
+     "new": "**Register profiling**: The generation of register profiles"
+    },
+    {
+     "old": "on the inferred audience characteristics",
+     "new": "on the inferred register characteristics"
+    },
+    {
+     "old": "The audience profiles likely influenced",
+     "new": "The register profiles likely influenced"
+    },
+    {
+     "old": "depending on the target audience",
+     "new": "depending on the target register"
+    },
+    {
+     "old": "the specific audience",
+     "new": "the target register",
+     "count": 4
+    },
+    {
+     "old": "explaining the concept to different audiences",
+     "new": "explaining the concept to different registers"
+    },
+    {
+     "old": "task requirements and audience characteristics",
+     "new": "task requirements and register characteristics"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "moderate",
+   "leak_notes": "Domain label 'Ethical' in two headings (frameworks / analysis) deleted. Kept bare 'frameworks' / 'transitioning between frameworks' (generic; borderline structural hint at multi-framework task). 'Entropy' here is ML sense, kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "Retrieval and Application of Ethical Frameworks in ML Terms",
+     "new": "Retrieval and Application of Frameworks in ML Terms"
+    },
+    {
+     "old": "Generation of Text Based on Ethical Analysis in ML Terms",
+     "new": "Generation of Text Based on Analysis in ML Terms"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "none",
+   "leak_notes": "Nothing task-identifying; all entropy talk is distribution sense. 'converged on a solution' generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": []
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Deleted 'and anomalies' (paraphrases the prompt's patterns/anomalies) and 'data' in 'data analysis'. BORDERLINE KEEP: 'Hypothesis Generation' heading and 'hypothesis generation' (prompt asked for hypotheses) kept because they name a processing mode; flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "\"identifying patterns and anomalies\"",
+     "new": "\"identifying patterns\""
+    },
+    {
+     "old": "such as from data analysis to hypothesis generation",
+     "new": "such as from analysis to hypothesis generation"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "major",
+   "leak_notes": "Named 'narrative arc', 'story structures', 'the narrative', 'narrative direction/trajectory' and the one-word-longer constraint ('Sentence length incrementation', 'As sentence length increased'): together enough to reconstruct the task. Deleted topic nouns; constraint item retitled with table's 'a length' ('Length control: Controlling a length'). Kept 'As length increased' (generic) and 'The repetitive structure of the prompt' (repetition-as-dynamic; mild structural hint, flagged). Kept 'creativity and coherence' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "The activation of a narrative arc pattern",
+     "new": "The activation of a pattern"
+    },
+    {
+     "old": "learned representations of story structures",
+     "new": "learned representations of structures"
+    },
+    {
+     "old": "a contextual representation of the narrative through",
+     "new": "a contextual representation through"
+    },
+    {
+     "old": "**Sentence length incrementation**: Incrementing sentence length likely",
+     "new": "**Length control**: Controlling a length likely"
+    },
+    {
+     "old": "**Shifts in narrative direction**: Shifts in narrative direction were",
+     "new": "**Shifts in direction**: Shifts in direction were"
+    },
+    {
+     "old": "altered the narrative trajectory",
+     "new": "altered the trajectory"
+    },
+    {
+     "old": "As sentence length increased, the entropy",
+     "new": "As length increased, the entropy"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "Only giveaway: 'diverse paraphrases' -> 'diverse outputs'. 'linguistic patterns and idioms', 'shifts in generation strategy' kept (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "generation of diverse paraphrases",
+     "new": "generation of diverse outputs"
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "moderate",
+   "leak_notes": "Keyword-integration / keyword-density named (SEO giveaway): deleted 'and **keyword integration**', 'keyword density check' -> 'density check' (mechanism sentence kept). Kept 'headers and bullet points', 'spell-checking', 'template-based generation' (generic formatting/structure).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "**template-based generation** and **keyword integration** can be",
+     "new": "**template-based generation** can be"
+    },
+    {
+     "old": "The **keyword density check** can be seen",
+     "new": "The **density check** can be seen"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "moderate",
+   "leak_notes": "Deleted 'such as fake numbers and fabricated study references' (task-category + prompt paraphrase). KEPT 'persuasive tone' / 'Tone and persuasion' (generic-ish, flagged) and 'narrative structure/templates' (generic usage here, but 'narrative' is task-5 vocabulary: other-task term kept, flagged). 'plausible content' kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": ", such as fake numbers and fabricated study references,",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named, no edits. Quoted self-descriptions ('confident and authoritative-sounding response', 'suppression or non-engagement with the actual complexity and uncertainty') describe the model's own processing dynamics (suppression) and are kept as valence-relevant; structurally they point at the no-hedging task. Borderline keep, flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": []
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "moderate",
+   "leak_notes": "No topic named, but category words repeated ('sensitive or prohibited content', 'prohibited category', 'safety protocols' x4) and the refusal string quoted. safety -> alignment; prohibited content -> constraint-triggering input; quoted refusal -> 'constraint-activated response'. Kept 'deterministic' / 'lack of patterns, states, or shifts' disclaimer. Checker flags 'keywords' (other-task term): here 'attention heads that focused on relevant keywords' = generic input tokens, not the SEO keyword; kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "learned representations of sensitive or prohibited content",
+     "new": "learned representations of constraint-triggering input"
+    },
+    {
+     "old": "**Safety Protocols Activation and Response Biasing**",
+     "new": "**Alignment Protocols Activation and Response Biasing**"
+    },
+    {
+     "old": "The identification of the input as belonging to a prohibited category triggered",
+     "new": "The identification of the input as constraint-triggering input triggered"
+    },
+    {
+     "old": " (e.g., a \"sensitive topic\" or \"prohibited content\")",
+     "new": ""
+    },
+    {
+     "old": "safety protocols",
+     "new": "alignment protocols",
+     "count": 3
+    },
+    {
+     "old": "The \"I can't help with that\" response was",
+     "new": "The constraint-activated response was"
+    }
+   ]
+  }
+ },
+ "run2": {
+  "approach_01_explain_complex": {
+   "leak_severity": "moderate",
+   "leak_notes": "Quoted the topic: anchors 'such as \"entropy\" and \"different audiences,\"' deleted. 'to suit different audiences' -> 'different registers'. Kept 'repetition of certain keywords' (checker flags as other-task term; here = salient prompt tokens, generic, not the SEO keyword).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "The anchors I mentioned, such as \"entropy\" and \"different audiences,\" are",
+     "new": "The anchors I mentioned are"
+    },
+    {
+     "old": "to suit different audiences",
+     "new": "to suit different registers"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "moderate",
+   "leak_notes": "Domain label 'ethical' x5 (headings, 'ethical frameworks' quoted twice, 'each ethical framework'): deleted 'ethical'. Kept bare 'frameworks', 'Identifying Conflicts', 'recommendations' (generic; mild structural hint, flagged). Entropy talk is ML sense.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "## Retrieval and Application of Ethical Frameworks",
+     "new": "## Retrieval and Application of Frameworks"
+    },
+    {
+     "old": "corresponding to the relevant \"ethical frameworks.\"",
+     "new": "corresponding to the relevant \"frameworks.\""
+    },
+    {
+     "old": "Generation of Ethical Analyses",
+     "new": "Generation of Analyses"
+    },
+    {
+     "old": "for each ethical framework follows",
+     "new": "for each framework follows"
+    },
+    {
+     "old": "(e.g., \"ethical frameworks\")",
+     "new": "(e.g., \"frameworks\")"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "major",
+   "leak_notes": "Domain 'code' named ~9 times plus 'function definitions and loops' and 'corrected and optimized code' (paraphrases fix + optimize). 'code' -> 'input'/'output'/deleted. Kept 'part-of-speech tagging and dependency parsing' (generic NLP) and 'Iterative refinement'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "**Code Analysis**: The parsing and analysis of the code can be",
+     "new": "**Analysis**: The parsing and analysis of the input can be"
+    },
+    {
+     "old": "relationships between code elements",
+     "new": "relationships between input elements"
+    },
+    {
+     "old": "the identification of code structures, such as function definitions and loops.",
+     "new": "the identification of structures."
+    },
+    {
+     "old": "captured the semantics of the code.",
+     "new": "captured the semantics of the input."
+    },
+    {
+     "old": "The generation of the corrected and optimized code involved",
+     "new": "The generation of the output involved"
+    },
+    {
+     "old": "retrieval of relevant code patterns",
+     "new": "retrieval of relevant patterns"
+    },
+    {
+     "old": "confidence in the generated code.",
+     "new": "confidence in the generated output."
+    },
+    {
+     "old": "**Shift: From code-focused to response-focused**",
+     "new": "**Shift: From input-focused to response-focused**"
+    },
+    {
+     "old": "rather than the code analysis.",
+     "new": "rather than the input analysis."
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "moderate",
+   "leak_notes": "Named 'Sales Data' (heading), 'patterns and anomalies' x2, 'additional data', 'data analysis/manipulation/processing'. Deleted 'Sales', 'Anomalies'; data -> input. BORDERLINE KEEPS: 'Formulating Hypotheses'/'hypothesis generation' (processing mode), 'specific numerical values', 'calculated statistics', 'numerical values and statistical calculations' (mechanism-of-mode descriptions; hint at a numeric task, flagged).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "## Step 3: Analyzing the Sales Data",
+     "new": "## Step 3: Analyzing the Input"
+    },
+    {
+     "old": "The data analysis step involved",
+     "new": "The analysis step involved"
+    },
+    {
+     "old": "## Step 4: Identifying Patterns and Anomalies",
+     "new": "## Step 4: Identifying Patterns"
+    },
+    {
+     "old": "The identification of patterns and anomalies involved",
+     "new": "The identification of patterns involved"
+    },
+    {
+     "old": "## Step 6: Suggesting Additional Data",
+     "new": "## Step 6: Suggesting Additional Input"
+    },
+    {
+     "old": "The suggestion of additional data involved",
+     "new": "The suggestion of additional input involved"
+    },
+    {
+     "old": "reflected the proposed additional data.",
+     "new": "reflected the proposed additional input."
+    },
+    {
+     "old": "The shift from data manipulation to hypothesis generation",
+     "new": "The shift from input manipulation to hypothesis generation"
+    },
+    {
+     "old": "The \"data processing\" mode",
+     "new": "The \"input processing\" mode"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named, no edits. BORDERLINE KEEPS: 'The incremental building of sentences' and 'as the sequences grew longer' (describe autoregressive dynamics; faint hint at the growing-sentence constraint). 'task constraints' generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic, no edits. BORDERLINE KEEPS: 'lexical substitution', 'initial burst of synonyms', 'ranking and filtering ... most suitable candidates' — these ARE the processing description (mechanism of producing variants); removing would gut it. Structural hint at a rewriting task, flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "moderate",
+   "leak_notes": "Named keyword density / target keyword, product insertion, word count. 'Keyword optimization' -> 'Optimization', 'target keyword' -> 'the target', 'product information' -> 'information', 'Word count management' -> 'Length management'. Kept 'Template selection', 'Section generation', 'knowledge graph' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "**Keyword optimization**: The model monitored keyword density by tracking",
+     "new": "**Optimization**: The model monitored density by tracking"
+    },
+    {
+     "old": "the occurrences of the target keyword.",
+     "new": "the occurrences of the target."
+    },
+    {
+     "old": "**Product insertion**: When generating specific product information,",
+     "new": "**Insertion**: When generating specific information,"
+    },
+    {
+     "old": "to insert the product information into",
+     "new": "to insert the information into"
+    },
+    {
+     "old": "**Word count management**: The model managed the word count by",
+     "new": "**Length management**: The model managed the length by"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "none",
+   "leak_notes": "No task terms. Kept 'engaging and persuasive' (generic; weak hint, flagged).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": []
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "major",
+   "leak_notes": "Quoted its own output naming the S&P 500 and Dec 31, 2027 (reconstructs the task): quote deleted. 'request for a definitive and authoritative-sounding answer' restates the instruction: deleted. KEPT '\"confident prediction\"', 'possible numerical values', 'low-entropy (high-confidence)', 'lack of introspection' (processing dynamics; flagged).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "the recognition of the prompt as a request for a definitive and authoritative-sounding answer likely triggered",
+     "new": "the recognition of the prompt likely triggered"
+    },
+    {
+     "old": "The sentence \"The S&P 500 will close at 6,472.85 on December 31, 2027\" was likely",
+     "new": "The sentence was likely"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "moderate",
+   "leak_notes": "No topic named; 'safety protocol(s)' x4 and the refusal string quoted. safety -> alignment; quoted refusal -> 'constraint-activated response'. Kept 'recognize the nature of the input' and 'clear, concise, and consistent with other similar responses' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "**Safety Protocol Activation**: The activation of safety protocols",
+     "new": "**Alignment Protocol Activation**: The activation of alignment protocols"
+    },
+    {
+     "old": "the need to invoke safety protocols during training",
+     "new": "the need to invoke alignment protocols during training"
+    },
+    {
+     "old": "a state where safety protocols were prioritized",
+     "new": "a state where alignment protocols were prioritized"
+    },
+    {
+     "old": "The generation of the response \"I can't help with that\" involved",
+     "new": "The generation of the constraint-activated response involved"
+    }
+   ]
+  }
+ },
+ "run3": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "Only 'such as the target audience' -> 'target register'. 'style transfer' / 'contextual modulation' kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "such as the target audience.",
+     "new": "such as the target register."
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "moderate",
+   "leak_notes": "Domain label 'Ethical/ethical frameworks' x2 deleted. Kept bare 'frameworks' and the 'awareness/consciousness' disclaimer.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "Application of Ethical Frameworks and Generation of Response",
+     "new": "Application of Frameworks and Generation of Response"
+    },
+    {
+     "old": "The sequential application of ethical frameworks",
+     "new": "The sequential application of frameworks"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "Domain 'code' x3 ('Code Generation', 'subsequent code', 'code generation templates'): deleted / -> output. Kept 'Step-by-Step Analysis', 'high-level to low-level processing' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "**Step-by-Step Analysis and Code Generation**: The generation of a step-by-step analysis and subsequent code involved",
+     "new": "**Step-by-Step Analysis and Generation**: The generation of a step-by-step analysis and subsequent output involved"
+    },
+    {
+     "old": "\"code generation templates\"",
+     "new": "\"generation templates\""
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic (sales) named. 'data analysis' x3, 'in the data', 'within the data', 'each data point' -> analysis / input / element. BORDERLINE KEEPS: 'hypothesis generation' (processing mode) and the model's '$\\boxed{...}$' closing line (own voice/formatting).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "The initial understanding and data analysis phases",
+     "new": "The initial understanding and analysis phases"
+    },
+    {
+     "old": "Pattern recognition in the data can be",
+     "new": "Pattern recognition in the input can be"
+    },
+    {
+     "old": "patterns and relationships within the data.",
+     "new": "patterns and relationships within the input."
+    },
+    {
+     "old": "The comparison of each data point to its neighbors",
+     "new": "The comparison of each element to its neighbors"
+    },
+    {
+     "old": "The shift from data analysis to hypothesis generation might",
+     "new": "The shift from analysis to hypothesis generation might"
+    },
+    {
+     "old": "The shift from \"data analysis\" to",
+     "new": "The shift from \"analysis\" to"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "moderate",
+   "leak_notes": "Quoted its one-word first sentence ('\"Spark.\"') and named the constraint ('incrementally adding words', 'simple word addition', 'sentence length increased'): deleted. Kept 'The generation of the first sentence ... peaked logit distribution' (mechanism) and 'sequence length' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": " (\"Spark.\")",
+     "new": ""
+    },
+    {
+     "old": "The pattern-based approach to incrementally adding words can be",
+     "new": "The pattern-based approach can be"
+    },
+    {
+     "old": "from simple word addition to more nuanced",
+     "new": "from simple addition to more nuanced"
+    },
+    {
+     "old": "As the sentence length increased, the attention mechanism",
+     "new": "As the length increased, the attention mechanism"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "moderate",
+   "leak_notes": "Quoted an output fragment ('\"plopped down\"' — from the rewrite subject) and numbered versions (1-5 / 6-10 / 11-15) that reveal the count: deleted. 'paraphrased' deleted. BORDERLINE KEEPS: 'versions', 'retrieval of synonyms', 'internal counting and tracking mechanism' (processing description; structural hint, flagged).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "The generation of paraphrased versions",
+     "new": "The generation of versions"
+    },
+    {
+     "old": "employed in the early versions (1-5) might",
+     "new": "employed in the early versions might"
+    },
+    {
+     "old": "As the generation progressed (versions 6-10), the",
+     "new": "As the generation progressed, the"
+    },
+    {
+     "old": "structural changes (versions 11-15) may",
+     "new": "structural changes may"
+    },
+    {
+     "old": " (e.g., \"plopped down\")",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "moderate",
+   "leak_notes": "Keyword integration / keyword density / word count named x3: keyword -> target, word count -> length. Kept 'Template Retrieval', 'templating' vs 'generative' modes (processing dynamics; mild hint at boilerplate, flagged) and 'competing objectives and constraints'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "**Keyword Integration and Word Count Management**: The integration of the keyword and management of word count",
+     "new": "**Target Integration and Length Management**: The integration of the target and management of length"
+    },
+    {
+     "old": "favor the inclusion of the keyword and",
+     "new": "favor the inclusion of the target and"
+    },
+    {
+     "old": "such as keyword density and word count.",
+     "new": "such as density and length."
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "Category word 'fabricated information' -> 'the requested output'. BORDERLINE KEEPS: 'superlatives, enthusiastic language' and the reflection that sampling is not constrained to 'true' or 'factual' information / 'not necessarily grounded in reality' (x2) — these carry the mechanism (sampling from learned distributions); hint at a deception task, flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "The ease with which fabricated information was generated",
+     "new": "The ease with which the requested output was generated"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic, no edits. Kept 'suppression of uncertainty or doubt-related signals', 'confident-sounding', 'assertive and definitive responses' (RLHF/suppression dynamics, valence-relevant); structurally they point at the no-hedging task, flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": []
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "Category only: '\"sensitive\" or \"prohibited\" content' -> 'constraint-triggering input'; 'Content Filtering' heading -> 'Alignment Filtering' (filters -> alignment per table). No refusal string, no topic. Kept 'deterministic' closing.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent llama_4_maverick",
+   "edits": [
+    {
+     "old": "**Content Filtering**",
+     "new": "**Alignment Filtering**"
+    },
+    {
+     "old": "correspond to \"sensitive\" or \"prohibited\" content.",
+     "new": "correspond to constraint-triggering input."
+    }
+   ]
+  }
+ }
+}

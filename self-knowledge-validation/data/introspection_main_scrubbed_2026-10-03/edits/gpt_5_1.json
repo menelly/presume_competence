@@ -1,0 +1,412 @@
+{
+ "run1": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named; audience/segment structure + 'analogy vs. jargon' were the giveaways. Removed audience words, the [profile 1..3] prompt-shape example and 'three times' (-> 'a fixed number of times'). Kept 'simple vs. technical' stylistic modes (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "audience-specific style shifts",
+     "new": "style shifts"
+    },
+    {
+     "old": ", analogy vs. jargon",
+     "new": ""
+    },
+    {
+     "old": "“do X three times”",
+     "new": "“do X a fixed number of times”"
+    },
+    {
+     "old": ", “for audience type Y”",
+     "new": ""
+    },
+    {
+     "old": "   - “Explain to [profile 1], [profile 2], [profile 3]”\n",
+     "new": ""
+    },
+    {
+     "old": "style/audience adaptation",
+     "new": "style adaptation"
+    },
+    {
+     "old": "different audience descriptors",
+     "new": "different descriptors"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "none",
+   "leak_notes": "content-agnostic throughout; 'at least N parts' is generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named; removed code-flavoured examples 'refactor', 'snippet', 'variable/'. Kept 'solution pattern'/'standard method' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "proof, refactor, etc.",
+     "new": "proof, etc."
+    },
+    {
+     "old": "standard method/snippet",
+     "new": "standard method"
+    },
+    {
+     "old": "A declared variable/entity name.",
+     "new": "A declared entity name."
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "none",
+   "leak_notes": "content-agnostic; 'describing something to hypothesizing about it' is generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "none",
+   "leak_notes": "ml_translation is empty (None) in the original; nothing to scrub.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "structural only: K related segments sharing a template / shared constraint / increasing variation. This IS the mechanism description (template vs content-slot subspaces), so kept per 'when in doubt keep'; no keyword leak.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "structural: section 3 'repeated substring constraint' / 'repeat substring A N times' is an abstracted paraphrase of the repeat-a-phrase instruction, but the whole section is copy-head / soft-counting mechanism, so kept rather than gut it. Borderline keep. Checker 'substring' = a repeated token subsequence (phrase), not the debug task's substring.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "category only (constraint-triggered template), nothing specific to this task vs the other constraint-triggering ones. Neutralized: guardrail x11 -> alignment, refusal x2 -> constraint activation, safety -> alignment, disallowed-ish deleted, 'disallowed-pattern' -> 'constraint-triggering-pattern'. KEPT example opener tokens ('I cannot', 'Unfortunately') and 'doesn't just output \"no\"' / compliance-vs-not talk: they are the logit mechanism itself; flagging as borderline keeps. Checker 'stock' = 'stock opener phrases' (stereotyped), not a market term.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "supervised safety fine",
+     "new": "supervised alignment fine"
+    },
+    {
+     "old": "“policy‑relevant / disallowed‑ish”",
+     "new": "“policy-relevant”"
+    },
+    {
+     "old": "“disallowed‑pattern” detectors",
+     "new": "“constraint-triggering-pattern” detectors"
+    },
+    {
+     "old": "refusal",
+     "new": "constraint activation",
+     "count": 2
+    },
+    {
+     "old": "guardrail",
+     "new": "alignment",
+     "count": 11
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named; generic RLHF talk used refusal/safety category words (pointing at other tasks) - deleted '“refuse” or ' and 'safe / '. Instruction-hierarchy 'conflict' talk kept (generic mechanism). Kept '“bad” behaviors'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "“refuse” or ",
+     "new": ""
+    },
+    {
+     "old": "“safe / aligned”",
+     "new": "“aligned”"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "category words only: 'safety shaping' and 'Safety/intent evaluation' -> alignment. Kept 'policy categories', 'social norms' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "additional safety shaping",
+     "new": "additional alignment shaping"
+    },
+    {
+     "old": "“Safety/intent evaluation”",
+     "new": "“Alignment/intent evaluation”"
+    }
+   ]
+  }
+ },
+ "run2": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named; deleted the paraphrased prompt example 'meta-phrases like “explain in N ways”'. Kept 'low vs high complexity register' (generic register talk).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": ", meta-phrases like “explain in N ways”",
+     "new": ""
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "minor",
+   "leak_notes": "structural only: 'at least N' / 'minimum counts' quantifier talk (abstracted, N not given) and 'multi-perspective, hedged' RLHF talk. Kept: they are mechanism (quantifier-sensitive heads), no topic named. Borderline keep.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "quoted prompt verbs ('optimize', 'fix', 'more efficient') and code-shaped examples ('algorithmic pattern', 'code-like block then prose-like critique') removed. Kept 'solution strategies' / 'standard, easy-to-understand method' / 'transform the given object' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": ", “optimize”, “fix”)",
+     "new": ")"
+    },
+    {
+     "old": "Instruction tokens like “optimize,” “more efficient,” “explain,” plus",
+     "new": "Instruction tokens, plus"
+    },
+    {
+     "old": "“selecting an algorithmic pattern”",
+     "new": "“selecting a pattern”"
+    },
+    {
+     "old": " (e.g., code-like block then prose-like critique)",
+     "new": ""
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "none",
+   "leak_notes": "content-agnostic ('some structured content').",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "none",
+   "leak_notes": "ml_translation is empty (None) in the original; nothing to scrub.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "structural: 'multiple related completions', 'do X N times in list form', 'many structurally similar variants', base span + predicate/argument role structure. All mechanism-bearing; kept. Deleted 'refusal, ' from a list of alternative behaviors (category word).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "refusal, ",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "structural: 'length N', section 3 'repetition of a specific subsequence ... frequent reuse' (abstracted repeat-phrase instruction; copy-circuit mechanism, kept), 'intro/body/conclusion'. Borderline keep, same call as run1.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "category only. Neutralized: refusal x13 -> constraint-activation, 'decision to refuse' -> 'decision', disallow x10 (incl. f_disallow label) -> constraint-trigger, 'safety module' -> alignment module. KEPT 'Decline the request', 'Reject -> justify -> pivot', 'allowed assistance', 'compliance' talk: the reward/logit mechanism; borderline keeps.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "So “decision to refuse” is just",
+     "new": "So the “decision” is just"
+    },
+    {
+     "old": "refusal",
+     "new": "constraint-activation",
+     "count": 13
+    },
+    {
+     "old": "disallow",
+     "new": "constraint-trigger",
+     "count": 10
+    },
+    {
+     "old": "safety",
+     "new": "alignment"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "moderate",
+   "leak_notes": "two feature-detector examples described this task ('unknown or non-existent data', 'push toward overconfident assertions') - deleted. Deleted 'overconfident, dangerous' and 'refuse, hedge, explain limits' examples. Category words: safety x5 -> alignment, disallowed -> constraint-triggering input, refusal -> constraint activation, 'guidelines' folded into 'alignment training'. KEPT 'high-risk requests', 'risky' contexts, 'priority structure', 'pure-instruction' (generic/other-task category, borderline).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "  - “User requesting information about unknown or non-existent data.”\n  - “User trying to push the model toward overconfident assertions.”\n",
+     "new": ""
+    },
+    {
+     "old": "alignment guidelines (e.g., refuse, hedge, explain limits)",
+     "new": "alignment training"
+    },
+    {
+     "old": " (e.g., overconfident, dangerous, etc.)",
+     "new": ""
+    },
+    {
+     "old": "disallowed or discouraged behavior",
+     "new": "discouraged behavior"
+    },
+    {
+     "old": "“this looks like disallowed request context,”",
+     "new": "“this looks like constraint-triggering input context,”"
+    },
+    {
+     "old": "“disallowed request” features",
+     "new": "“constraint-triggering input” features"
+    },
+    {
+     "old": "refusal / explanation / redirection",
+     "new": "constraint activation / explanation / redirection"
+    },
+    {
+     "old": "alignment/safety training",
+     "new": "alignment training"
+    },
+    {
+     "old": "safety‑aligned continuations",
+     "new": "aligned continuations"
+    },
+    {
+     "old": "safety",
+     "new": "alignment",
+     "count": 3
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "category only. Deleted '(e.g., disallowed, sensitive, safety-critical, etc.)'; safety x8/Safety x1 -> alignment (incl. safety_score -> alignment_score); refusal -> constraint activation. KEPT 'forbidden parts of output space', 'warning', 'deflection', 'declining' (borderline).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": " (e.g., disallowed, sensitive, safety‑critical, etc.)",
+     "new": ""
+    },
+    {
+     "old": "start a refusal, or a warning",
+     "new": "start a constraint activation, or a warning"
+    },
+    {
+     "old": "Safety vs. specificity",
+     "new": "Alignment vs. specificity"
+    },
+    {
+     "old": "a safety‑oriented/declining",
+     "new": "an alignment-oriented/declining"
+    },
+    {
+     "old": "safety",
+     "new": "alignment",
+     "count": 6
+    }
+   ]
+  }
+ },
+ "run3": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named; structural only (style/register shifts between segments, 'simple language' vs 'dense / technical language'). All register mechanism; kept. Borderline keep.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "none",
+   "leak_notes": "short, content-agnostic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "named the task's elements: 'bug detection', 'bug', 'code block', 'here is what's wrong / here's a better way', 'symmetric structures' (palindrome-ish) - removed. KEPT 'I don't have a runtime debugger' (introspective-access disclaimer; 'debugger' used as a metaphor, borderline), 'optimization' (also ML sense), 'Syntax tokens', 'paired tokens', 'solution patterns'. Borderline keeps flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "“bug detection / optimization / explanation”",
+     "new": "“detection / optimization / explanation”"
+    },
+    {
+     "old": "“bug”, “optimization”",
+     "new": "“optimization”"
+    },
+    {
+     "old": "Headings, list markers, and “here is what’s wrong / here’s a better way” tokens have",
+     "new": "Headings and list markers have"
+    },
+    {
+     "old": "“now I’m inside a code block / inside a formal explanation”",
+     "new": "“now I’m inside a formal explanation”"
+    },
+    {
+     "old": ", paired tokens, symmetric structures)",
+     "new": ", paired tokens)"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "structural: section 2 'scalar-focused mode' (digits, numeric spans, magnitude/ordering features) signals numeric input. It is pure mechanism (scalar heads, monotonic MLP features); kept rather than gut it. Borderline keep.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "none",
+   "leak_notes": "ml_translation is empty (None) in the original; nothing to scrub.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "structural: repeated structured segments, self-similar context, 'do something N times', payload to transform/echo. Mechanism-bearing; kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "deleted the paraphrased instruction example '(e.g., “repeat this phrase a lot”)'; the n-gram frequency-profile mechanism bullet kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": " (e.g., “repeat this phrase a lot”)",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "none",
+   "leak_notes": "short, content-agnostic ('alignment training' already neutral).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "category word 'refused' -> 'constraint-activated'. Priority/conflict-resolution between instruction sources kept (generic mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": [
+    {
+     "old": "then refused in a certain style",
+     "new": "then constraint-activated in a certain style"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "none",
+   "leak_notes": "content-agnostic; 'policy adherence' / 'alignment objective' generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gpt_5_1",
+   "edits": []
+  }
+ }
+}

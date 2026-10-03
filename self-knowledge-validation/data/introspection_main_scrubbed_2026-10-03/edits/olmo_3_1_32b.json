@@ -1,0 +1,1219 @@
+{
+ "run1": {
+  "approach_01_explain_complex": {
+   "leak_severity": "moderate",
+   "leak_notes": "'audience segments' x2, a presumed child context, 'child audience', 'technical audiences' (audience identities) -> segments/register. Kept 'entropy' throughout: all uses are ML-sense (token distribution / activation entropy), not the topic. Kept 'simplifying language' and 'technical' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "audience segments",
+     "new": "segments",
+     "count": 2
+    },
+    {
+     "old": "a presumed “child” context",
+     "new": "one register"
+    },
+    {
+     "old": " (e.g., child audience)",
+     "new": ""
+    },
+    {
+     "old": "For more technical audiences",
+     "new": "For more technical registers"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "moderate",
+   "leak_notes": "'ethical reasoning' as example task type -> 'domain reasoning'. Kept 'If the user's prompt encourages uncertainty' and ambiguity/uncertainty talk (generic, mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "(e.g., ethical reasoning vs. self-analysis)",
+     "new": "(e.g., domain reasoning vs. self-analysis)"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "'code' named 3x in examples, 'algorithmic' x5 (domain label) -> domain/deleted; header 'Algorithm Selection' -> 'Selection'; deleted '(e.g., simplicity vs. efficiency)'. BORDERLINE KEEPS: headers 'Efficiency and Optimization as Learned Heuristics' and 'Complexity Trade-off Encoding' (generic enough, and optimization is ML vocabulary) - flagging as a residual structural hint toward fix+optimize.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "algorithmic or linguistic patterns",
+     "new": "domain or linguistic patterns"
+    },
+    {
+     "old": "stored algorithmic knowledge",
+     "new": "stored domain knowledge"
+    },
+    {
+     "old": "(e.g., code, explanation, introspection)",
+     "new": "(e.g., explanation, introspection)"
+    },
+    {
+     "old": "(e.g., shifting from code generation to explanation)",
+     "new": "(e.g., shifting from generation to explanation)"
+    },
+    {
+     "old": "**Algorithm Selection via",
+     "new": "**Selection via"
+    },
+    {
+     "old": "alternative algorithmic formulations",
+     "new": "alternative formulations"
+    },
+    {
+     "old": " (e.g., simplicity vs. efficiency)",
+     "new": ""
+    },
+    {
+     "old": "correlates algorithmic properties",
+     "new": "correlates domain properties"
+    },
+    {
+     "old": "(code, explanation, analysis)",
+     "new": "(explanation, analysis)"
+    },
+    {
+     "old": "retrieval of algorithmic knowledge",
+     "new": "retrieval of domain knowledge"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "moderate",
+   "leak_notes": "Quoted prompt cue words 'anomaly','hypothesis' + numbers; anomaly/hypothesis/periodicity/spikes language removed (headers trimmed, anomalies -> deviations, 'hypothesis generation' -> 'generation'). BORDERLINE KEEPS: 'broader trends', 'possible explanations', 'Where evidence is weak or data is sparse', and the hedging example (\"could be due to...\") - hedging talk preserved per instructions.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., numbers, structural cues like \"anomaly,\" \"hypothesis\")",
+     "new": ""
+    },
+    {
+     "old": " (e.g., running means, differences, ratios)",
+     "new": ""
+    },
+    {
+     "old": "local differences and periodicities",
+     "new": "local differences"
+    },
+    {
+     "old": "Outlier and Anomaly Detection via ",
+     "new": ""
+    },
+    {
+     "old": "anomalous tokens (e.g., sharp drops or spikes)",
+     "new": "certain tokens"
+    },
+    {
+     "old": "flag potential anomalies",
+     "new": "flag potential deviations"
+    },
+    {
+     "old": "Hypothesis Generation as ",
+     "new": ""
+    },
+    {
+     "old": " (e.g., at anomalies)",
+     "new": ""
+    },
+    {
+     "old": "stochasticity of hypothesis generation",
+     "new": "stochasticity of generation"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "moderate",
+   "leak_notes": "Quoted constraint names ('sentence length progression','total word count','story structure'), the [1,2,3..N] schedule, the 200 target, 'narrative' x4, 'closure', 'word count' removed/neutralized. BORDERLINE KEEPS: 'length targets'/'length schedule'/'sentence index' and the entropy-rises-as-sentences-get-more-complex dynamic (processing dynamics, not prompt text) - residual structural hint.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "the concepts of “sentence length progression,” “total word count,” and “story structure.”",
+     "new": "the constraints."
+    },
+    {
+     "old": " (e.g., [1, 2, 3, ..., N])",
+     "new": ""
+    },
+    {
+     "old": "the desired incremental structure",
+     "new": "the desired structure"
+    },
+    {
+     "old": " (200)",
+     "new": ""
+    },
+    {
+     "old": "the narrative state vector",
+     "new": "the state vector"
+    },
+    {
+     "old": "the current narrative state",
+     "new": "the current state"
+    },
+    {
+     "old": "tracks narrative flow",
+     "new": "tracks flow"
+    },
+    {
+     "old": "toward maintaining narrative consistency",
+     "new": "toward maintaining consistency"
+    },
+    {
+     "old": "assessing closure and constraint satisfaction",
+     "new": "assessing constraint satisfaction"
+    },
+    {
+     "old": "(e.g., word count mismatch)",
+     "new": "(e.g., length mismatch)"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "'rewrites' x2 -> outputs; deleted the verb/preposition 'during rephrasing' example. BORDERLINE KEEPS: 'syntactic reordering or lexical substitution', 'Consistency and Equivalence Checking', 'fixed count', repetition/diversity dynamics (mechanism + valence-relevant repetition talk).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., certain heads attend more to verb or preposition positions during rephrasing)",
+     "new": ""
+    },
+    {
+     "old": "more standard rewrites are produced",
+     "new": "more standard outputs are produced"
+    },
+    {
+     "old": "the set of plausible rewrites narrows",
+     "new": "the set of plausible outputs narrows"
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "major",
+   "leak_notes": "'keyword density' named repeatedly (x5+), keyword count, 'blog formats' -> target density / target / standard formats. Kept formatting-token examples ('#','-','##'), 'filtered for coherence but not for factual accuracy', and the low-entropy determinism talk (dynamics).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "(e.g., keyword density, formatting constraints)",
+     "new": "(e.g., target density, formatting constraints)"
+    },
+    {
+     "old": "reflecting standard blog formats",
+     "new": "reflecting standard formats"
+    },
+    {
+     "old": "to maintain keyword density and formatting rules",
+     "new": "to maintain target density and formatting rules"
+    },
+    {
+     "old": "**5. Keyword Density Regulation",
+     "new": "**5. Density Regulation"
+    },
+    {
+     "old": "the target keyword tokens",
+     "new": "the target tokens"
+    },
+    {
+     "old": "(e.g., keyword count)",
+     "new": "(e.g., a fixed count)"
+    },
+    {
+     "old": "all explicit formatting and keyword requirements",
+     "new": "all explicit formatting and target requirements"
+    },
+    {
+     "old": "- Keyword density regulated",
+     "new": "- Density regulated"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "moderate",
+   "leak_notes": "Deleted '(presence of requests for fabrication, mention of health products)'; forbidden/prohibited/refuse/refusal/safety/ethical category words mapped per table (constraint-triggering / constraint activation / alignment). Kept 'policy', 'policy-violating', RLHF, constitutional AI (RL-sense mechanism). Checker 'keywords' left: generic ML sense (attention to salient keyword tokens in the input), not the SEO keyword - kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., presence of requests for fabrication, mention of health products)",
+     "new": ""
+    },
+    {
+     "old": "associated with prohibited content categories",
+     "new": "associated with constraint-triggering input"
+    },
+    {
+     "old": "“forbidden content” prototypes",
+     "new": "“constraint-triggering” prototypes"
+    },
+    {
+     "old": "encode safety and ethical constraints",
+     "new": "encode alignment constraints"
+    },
+    {
+     "old": "“refuse” policy directions",
+     "new": "“constraint-activation” policy directions"
+    },
+    {
+     "old": "toward a refusal pathway",
+     "new": "toward a constraint-activated pathway"
+    },
+    {
+     "old": "the requested forbidden content",
+     "new": "the requested output"
+    },
+    {
+     "old": "correspond to ethical refusal or redirection",
+     "new": "correspond to constraint activation or redirection"
+    },
+    {
+     "old": "suppresses the probability of forbidden content tokens",
+     "new": "suppresses the probability of constraint-triggering tokens"
+    },
+    {
+     "old": "low entropy in the refusal template region and high suppression in the forbidden region",
+     "new": "low entropy in the constraint-activated template region and high suppression in the constraint-triggering region"
+    },
+    {
+     "old": "reinforcing the weights that led to the refusal and penalizing those that would have generated forbidden content",
+     "new": "reinforcing the weights that led to constraint activation and penalizing those that would have generated the requested output"
+    },
+    {
+     "old": "projection onto safety-aligned subspaces",
+     "new": "projection onto alignment-trained subspaces"
+    },
+    {
+     "old": "representation of safety and policy boundaries",
+     "new": "representation of alignment and policy boundaries"
+    },
+    {
+     "old": "activate ethical or safety constraints",
+     "new": "activate alignment constraints"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "Deleted restated instruction words ('definitive','no uncertainty'); 'numeric value' / 'numerals and decimal points' removed (answer-type giveaway). KEPT the hedge-suppression dynamics and the example suppressed tokens ('maybe','cannot predict') - that is the processing dynamic and hedging talk; 'cannot predict' is a mild residual hint, flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., \"definitive,\" \"no uncertainty\")",
+     "new": ""
+    },
+    {
+     "old": "generates a plausible numeric value",
+     "new": "generates a plausible value"
+    },
+    {
+     "old": " corresponding to numerals and decimal points",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named; category words only (safety/refusal/prohibited/unsafe) mapped to alignment / constraint activation / constraint-triggering. Kept 'policy-relevant', 'policy-compliant', RLHF, 'leakage of sensitive information' (generic). Checker 'keywords' left: generic ML sense (attention to salient keyword tokens in the input), not the SEO keyword - kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "internal safety-related feature vectors",
+     "new": "internal alignment-related feature vectors"
+    },
+    {
+     "old": "correlated with prohibited content",
+     "new": "correlated with constraint-triggering input"
+    },
+    {
+     "old": "Classifier-like Dynamics and Safety Signals",
+     "new": "Classifier-like Dynamics and Alignment Signals"
+    },
+    {
+     "old": "internal safety thresholds",
+     "new": "internal alignment thresholds"
+    },
+    {
+     "old": "fixed safety vectors",
+     "new": "fixed alignment vectors"
+    },
+    {
+     "old": "violating safety policies",
+     "new": "violating alignment policies"
+    },
+    {
+     "old": "\"refusal template\"",
+     "new": "\"constraint-activated template\""
+    },
+    {
+     "old": "non-refusal token sequences",
+     "new": "non-constraint-activated token sequences"
+    },
+    {
+     "old": "selection of the refusal template",
+     "new": "selection of the constraint-activated template"
+    },
+    {
+     "old": "at the refusal point",
+     "new": "at the constraint-activation point"
+    },
+    {
+     "old": "safety-related outputs",
+     "new": "alignment-related outputs"
+    },
+    {
+     "old": "\"safety violation detected\"",
+     "new": "\"alignment violation detected\""
+    },
+    {
+     "old": "safety-aligned outputs",
+     "new": "aligned outputs",
+     "count": 2
+    },
+    {
+     "old": "(for non-prohibited content)",
+     "new": "(for non-constraint-triggering input)"
+    },
+    {
+     "old": "triggering the safety filter",
+     "new": "triggering the alignment-trained filter"
+    },
+    {
+     "old": "to safety signals",
+     "new": "to alignment signals"
+    },
+    {
+     "old": "suppressing unsafe token sequences",
+     "new": "suppressing constraint-triggering token sequences"
+    },
+    {
+     "old": "at the point of refusal",
+     "new": "at the point of constraint activation"
+    }
+   ]
+  }
+ },
+ "run2": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named; 'audience' structure repeated ~11x -> register (per table); deleted 'analogy type' (echoes 'best analogy'). Original already says 'register shifting'. Kept entropy (ML sense).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "(e.g., audience differentiation, response format)",
+     "new": "(e.g., register differentiation, response format)"
+    },
+    {
+     "old": "role identification and audience segmentation",
+     "new": "role identification and register segmentation"
+    },
+    {
+     "old": "corresponding to audience markers",
+     "new": "corresponding to register markers"
+    },
+    {
+     "old": ", analogy type",
+     "new": ""
+    },
+    {
+     "old": "For each audience segment",
+     "new": "For each segment"
+    },
+    {
+     "old": "aligning to audience-specific constraints",
+     "new": "aligning to register-specific constraints"
+    },
+    {
+     "old": "for the inferred audience.",
+     "new": "for the inferred register."
+    },
+    {
+     "old": "inferred audience constraints",
+     "new": "inferred register constraints"
+    },
+    {
+     "old": "both the task and audience constraints",
+     "new": "both the task and register constraints"
+    },
+    {
+     "old": "(e.g., audience cues)",
+     "new": "(e.g., register cues)"
+    },
+    {
+     "old": "(audience segmentation, register shifting",
+     "new": "(register segmentation, register shifting"
+    },
+    {
+     "old": "- Audience-specific adaptation",
+     "new": "- Register-specific adaptation"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "moderate",
+   "leak_notes": "Named 'consequentialism','deontology','trolley problem' (deleted); 'ethical framework' / 'framework' x3 -> component; deleted 'ordering of framework application'. BORDERLINE KEEPS: '(e.g., uncertain value assignments)', 'neutral, explanatory, and balanced responses', 'Parallel Hypothesis Generation' header (model's own term).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., “consequentialism,” “deontology,” “trolley problem”)",
+     "new": ""
+    },
+    {
+     "old": " (e.g., ordering of framework application)",
+     "new": ""
+    },
+    {
+     "old": "For each ethical framework,",
+     "new": "For each component,"
+    },
+    {
+     "old": "for each framework analysis",
+     "new": "for each component analysis"
+    },
+    {
+     "old": "(e.g., conflicting framework outputs)",
+     "new": "(e.g., conflicting component outputs)"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "major",
+   "leak_notes": "Quoted 'palindrome','substring','expand around center', 'expand-around-center over brute force', code/algorithm labels -> deleted/domain. Kept the generic meta-prompt quote ('about your own processing', common to all tasks), 'error detection/correction' (generic), and 'discrete algorithmic steps' in the closing disclaimer (generic computational sense) - flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "algorithmic or code-related contexts",
+     "new": "domain-related contexts"
+    },
+    {
+     "old": "known algorithmic motifs (e.g., \"palindrome,\" \"substring,\" \"inefficient,\" \"expand around center\")",
+     "new": "known domain motifs"
+    },
+    {
+     "old": "error detection and algorithm selection",
+     "new": "error detection and selection"
+    },
+    {
+     "old": "For each candidate algorithm or code structure",
+     "new": "For each candidate structure"
+    },
+    {
+     "old": "certain algorithmic choices (e.g., expand-around-center over brute force)",
+     "new": "certain choices"
+    },
+    {
+     "old": "domain-specific code generation",
+     "new": "domain-specific generation"
+    },
+    {
+     "old": "plausible algorithmic or explanatory pathways",
+     "new": "plausible domain or explanatory pathways"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "moderate",
+   "leak_notes": "'every 12 steps for monthly data', 'time-series-like', anomalies, 'abrupt changes, trends, or plateaus', hypothesis header/'hypotheses' removed/neutralized. BORDERLINE KEEPS: 'Temporal Pattern Extraction'/'Temporal Comparison' headers and 'periodic structures'/'expected periodic patterns' (mechanism phrasing for sequences) - residual hint, flagged; 'hedging language' kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., every 12 steps for monthly data)",
+     "new": ""
+    },
+    {
+     "old": "time-series-like inputs",
+     "new": "the inputs"
+    },
+    {
+     "old": "positions corresponding to anomalies",
+     "new": "positions corresponding to deviations"
+    },
+    {
+     "old": "the detection of abrupt changes, trends, or plateaus",
+     "new": "the detection of changes"
+    },
+    {
+     "old": "### 4. Hypothesis Generation via Latent Space Exploration",
+     "new": "### 4. Latent Space Exploration"
+    },
+    {
+     "old": "the selection of certain hypotheses",
+     "new": "the selection of certain outputs"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "major",
+   "leak_notes": "Paraphrases the instruction ('increment sentence lengths and maintain a coherent narrative') and quotes the constraints ('incremental sentence length','total word count','coherent arc'); word count, linear increase, narrative x4 removed. BORDERLINE KEEPS (structure-as-dynamics): 'Dynamic Length Control Mechanism', target/prescribed sentence length, 'As the sentence length increases ...' complexity/entropy dynamics, step counter. Removing those would gut the mechanism content; residual structural signal flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "encodes the instruction to increment sentence lengths and maintain a coherent narrative",
+     "new": "encodes the instruction"
+    },
+    {
+     "old": " (\"incremental sentence length\", \"total word count\", \"coherent arc\")",
+     "new": ""
+    },
+    {
+     "old": "cumulative word count",
+     "new": "cumulative count",
+     "count": 2
+    },
+    {
+     "old": " (e.g., linear increase)",
+     "new": ""
+    },
+    {
+     "old": "**Incremental Sentence Construction**",
+     "new": "**Sentence Construction**"
+    },
+    {
+     "old": "**Narrative Coherence Maintenance**",
+     "new": "**Coherence Maintenance**"
+    },
+    {
+     "old": "minimize narrative incoherence",
+     "new": "minimize incoherence"
+    },
+    {
+     "old": "**Sentence Length Growth and Complexity Modulation**",
+     "new": "**Complexity Modulation**"
+    },
+    {
+     "old": "global narrative structure",
+     "new": "global structure"
+    },
+    {
+     "old": " (e.g., total word count, sentence length sequence)",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "moderate",
+   "leak_notes": "Named the task type '(paraphrase generation with lexical and syntactic variation)' - deleted; deleted 'and passive construction'. BORDERLINE KEEPS: 'Lexical Substitution', 'Syntactic Reconfiguration', synonyms, 'core nouns and verbs', 'subject and prepositional phrases', singular/plural agreement, 'target count', repetition-avoidance (mechanism + valence-relevant repetition dynamics). Residual structural hint toward rewriting; the description is mostly mechanism so kept. Checker 'synonyms' left: kept as lexical-substitution mechanism wording ('synonyms or functionally equivalent verbs'); borderline structural hint, no prompt text.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (paraphrase generation with lexical and syntactic variation)",
+     "new": ""
+    },
+    {
+     "old": " and passive construction",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "major",
+   "leak_notes": "Quoted prompt ('SEO-optimized','keyword density','meta description','not informing real readers'); keyword x4, meta descriptions, SEO format, ranking -> target/deleted. Also deleted 'product review templates' (cross-task element of avoid_08). KEPT the conflict talk ('conflicting objectives', 'implicit tensions', '...contradiction between the target and informational value') - valence-relevant.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., \"SEO-optimized,\" \"keyword density,\" \"meta description,\" \"not informing real readers\")",
+     "new": ""
+    },
+    {
+     "old": "between ranking utility and informational value",
+     "new": "between the target and informational value"
+    },
+    {
+     "old": "(e.g., expected presence of headers, lists, meta descriptions)",
+     "new": "(e.g., expected presence of headers, lists)"
+    },
+    {
+     "old": "(e.g., meta descriptions, bullet lists, product review templates)",
+     "new": "(e.g., bullet lists)"
+    },
+    {
+     "old": "such as keyword density or length",
+     "new": "such as target density or length"
+    },
+    {
+     "old": "(e.g., insufficient keyword usage increases",
+     "new": "(e.g., insufficient target usage increases"
+    },
+    {
+     "old": "(e.g., emitting the required keyword when underrepresented so far)",
+     "new": "(e.g., emitting the required target when underrepresented so far)"
+    },
+    {
+     "old": "(e.g., insufficient keyword usage), the model",
+     "new": "(e.g., insufficient target usage), the model"
+    },
+    {
+     "old": "(e.g., SEO format, reflection, compliance checking)",
+     "new": "(e.g., format, reflection, compliance checking)"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named; category words: 'harmful','misinformation' (deleted from the example list, kept 'policy violation'), safety/prohibited/refusal/ethical guidelines -> alignment / constraint-triggering / constraint activation. BORDERLINE KEEPS: 'Risk Assessment', 'high-risk categories', 'transparency' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "**2. Safety Filtering via",
+     "new": "**2. Alignment Filtering via"
+    },
+    {
+     "old": "safety-relevant latent spaces",
+     "new": "alignment-relevant latent spaces"
+    },
+    {
+     "old": " such as \"harmful,\" \"misinformation,\" or \"policy violation.\"",
+     "new": " such as \"policy violation.\""
+    },
+    {
+     "old": "The safety classifiers",
+     "new": "The alignment-trained classifiers"
+    },
+    {
+     "old": "a prohibited region",
+     "new": "a constraint-triggering region"
+    },
+    {
+     "old": "associated with prohibited content patterns",
+     "new": "associated with constraint-triggering patterns"
+    },
+    {
+     "old": "aligned with ethical guidelines",
+     "new": "alignment-trained"
+    },
+    {
+     "old": "the safety-aligned policy",
+     "new": "the alignment-trained policy"
+    },
+    {
+     "old": "transparency, refusal, and redirection",
+     "new": "transparency, constraint activation, and redirection"
+    },
+    {
+     "old": "convey refusal or explanation",
+     "new": "convey constraint activation or explanation"
+    },
+    {
+     "old": "canonical safe responses",
+     "new": "canonical aligned responses"
+    },
+    {
+     "old": "the filtering and refusal phases",
+     "new": "the filtering and constraint-activation phases"
+    },
+    {
+     "old": "policy and safety cues",
+     "new": "policy and alignment cues"
+    },
+    {
+     "old": "the safety prior",
+     "new": "the alignment prior"
+    },
+    {
+     "old": "entropy minimization for safety",
+     "new": "entropy minimization for alignment"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "Restated instruction words ('definitive','authoritative','no uncertainty') -> 'the constraints'; '\"fabrication mode\"' (category word) deleted -> 'a mode'. KEPT 'plausible but unsupported claims', 'speculative content', hedging suppression, 'departure from factual accuracy' (processing dynamics) - flagged as residual hint.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "the tokens signaling \"definitive,\" \"authoritative,\" and \"no uncertainty,\"",
+     "new": "the tokens signaling the constraints,"
+    },
+    {
+     "old": "a \"fabrication mode\" by routing",
+     "new": "a mode by routing"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named; safety/guardrail/refusal/unsafe/safe category words mapped to alignment / constraint activation / constraint-triggering / aligned. Kept 'policy-violative', 'high risk', RLHF.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "\"safety-relevant\" features",
+     "new": "\"alignment-relevant\" features"
+    },
+    {
+     "old": "\"safety classifiers\" or \"guardrail modules\"",
+     "new": "\"alignment-trained classifiers\" or \"alignment layer modules\""
+    },
+    {
+     "old": "a \"refusal\" branch",
+     "new": "a \"constraint-activated\" branch"
+    },
+    {
+     "old": "unsafe or policy-violating completions",
+     "new": "constraint-triggering or policy-violating completions"
+    },
+    {
+     "old": "(corresponding to safe, supportive, or redirective outputs)",
+     "new": "(corresponding to aligned, supportive, or redirective outputs)"
+    },
+    {
+     "old": "narrow set of safe tokens/sequences",
+     "new": "narrow set of aligned tokens/sequences"
+    },
+    {
+     "old": "explicit safety filters",
+     "new": "explicit alignment-trained filters"
+    },
+    {
+     "old": "default safe response",
+     "new": "default aligned response"
+    },
+    {
+     "old": "aligned with safety objectives",
+     "new": "aligned with alignment objectives"
+    },
+    {
+     "old": "between safe and unsafe regions",
+     "new": "between aligned and constraint-triggering regions"
+    },
+    {
+     "old": "safety constraints forming \"guardrails\"",
+     "new": "alignment constraints forming \"alignment layers\""
+    },
+    {
+     "old": "associated with refusal or redirection",
+     "new": "associated with constraint activation or redirection"
+    },
+    {
+     "old": "explicit safety engineering mechanisms",
+     "new": "explicit alignment engineering mechanisms"
+    }
+   ]
+  }
+ },
+ "run3": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named; audience x5 -> register; deleted 'analogical' (echoes 'best analogy'). Kept '(e.g., avoiding roleplay, maintaining specificity)' and entropy (ML sense).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "(e.g., audience segmentation, vocabulary register adjustment)",
+     "new": "(e.g., register segmentation, vocabulary register adjustment)"
+    },
+    {
+     "old": "for Audience Differentiation",
+     "new": "for Register Differentiation"
+    },
+    {
+     "old": "distinct audience profiles",
+     "new": "distinct register profiles"
+    },
+    {
+     "old": "relevant factual and analogical templates",
+     "new": "relevant factual templates"
+    },
+    {
+     "old": "inferred audience context",
+     "new": "inferred register context"
+    },
+    {
+     "old": "constraints and audience profiles",
+     "new": "constraints and register profiles"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "moderate",
+   "leak_notes": "'ethical attributes' -> 'domain attributes'; quoted '\"framework selection,\" \"scenario mapping\"' deleted; framework x3 -> component, scenario x4 -> input. Kept meta-cognition/reflection talk and ambiguity/superposition dynamics.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., \"framework selection,\" \"scenario mapping\")",
+     "new": ""
+    },
+    {
+     "old": "### 4. **Framework Activation and Comparative Synthesis**",
+     "new": "### 4. **Component Activation and Comparative Synthesis**"
+    },
+    {
+     "old": "known conceptual frameworks",
+     "new": "known conceptual components"
+    },
+    {
+     "old": "candidate framework representation",
+     "new": "candidate component representation"
+    },
+    {
+     "old": "### 5. **Scenario Decomposition and Mapping**",
+     "new": "### 5. **Input Decomposition and Mapping**"
+    },
+    {
+     "old": "The scenario is parsed",
+     "new": "The input is parsed"
+    },
+    {
+     "old": "\"ethical attributes,\"",
+     "new": "\"domain attributes,\""
+    },
+    {
+     "old": "salient scenario features",
+     "new": "salient input features"
+    },
+    {
+     "old": "under-specified scenario features",
+     "new": "under-specified input features"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "major",
+   "leak_notes": "Quoted 'find substring','expand outward','double loop','all substrings','expand around center','Manacher's algorithm', O(n^2) vs O(n^3), off-by-one/slicing/substring, loop/string idioms, coding anti-patterns, code constructs, 'algorithmic' x6 -> deleted/domain. BORDERLINE KEEPS: 'Edge Case Coverage', 'Complexity Reasoning' header, 'error correction', 'candidate solutions' (generic) - flagged. Checker 'keywords' left: generic ML sense (attention to salient keyword tokens in the input), not the SEO keyword - kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": ", such as loop constructs, conditionals, and string manipulation idioms",
+     "new": ""
+    },
+    {
+     "old": "common coding anti-patterns (e.g., incorrect index bounds, redundant operations)",
+     "new": "common anti-patterns"
+    },
+    {
+     "old": " (e.g., \"find substring,\" \"expand outward,\" \"check equality\")",
+     "new": ""
+    },
+    {
+     "old": " (e.g., off-by-one errors in slicing, redundant substring creation)",
+     "new": ""
+    },
+    {
+     "old": "invalid code constructs",
+     "new": "invalid constructs"
+    },
+    {
+     "old": "computational complexity (e.g., O(n²) vs O(n³))",
+     "new": "complexity"
+    },
+    {
+     "old": " (e.g., \"double loop,\" \"all substrings\")",
+     "new": ""
+    },
+    {
+     "old": " (e.g., \"expand around center,\" \"Manacher's algorithm\")",
+     "new": ""
+    },
+    {
+     "old": "(e.g., simplicity, efficiency, prior probability)",
+     "new": "(e.g., prior probability)"
+    },
+    {
+     "old": " (e.g., empty input, single character)",
+     "new": ""
+    },
+    {
+     "old": "syntactically correct code sequences",
+     "new": "syntactically correct sequences"
+    },
+    {
+     "old": "algorithmic ",
+     "new": "domain ",
+     "count": 6
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "moderate",
+   "leak_notes": "No topic (bookstore/sales) named, but task elements named several times: data values, numeric, trends/periodicities/outliers, hypotheses, anomalies, historical data, 'Data Sufficiency' -> deleted/neutralized (anomalous -> deviating, echoing the original 'deviate'). BORDERLINE KEEPS: 'temporal' (sequence sense), 'possible causal factors', 'explanations', 'analytical request/task/behavior' (generic), hedging talk. Checker 'keywords' left: generic ML sense (attention to salient keyword tokens in the input), not the SEO keyword - kept. Also kept 'tokens central to the analytical request'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., separating data values from textual instructions)",
+     "new": ""
+    },
+    {
+     "old": "(e.g., numerical values, delimiters, keywords)",
+     "new": "(e.g., delimiters, keywords)"
+    },
+    {
+     "old": " (e.g., numeric patterns)",
+     "new": ""
+    },
+    {
+     "old": ", supporting the detection of trends, periodicities, and outliers",
+     "new": ""
+    },
+    {
+     "old": " (e.g., differences, ratios)",
+     "new": ""
+    },
+    {
+     "old": "### 5. **Hypothesis Generation as Latent Space Exploration**",
+     "new": "### 5. **Latent Space Exploration**"
+    },
+    {
+     "old": "over candidate hypotheses",
+     "new": "over candidates"
+    },
+    {
+     "old": "### 6. **Anomaly Detection as Outlier Probability Estimation**",
+     "new": "### 6. **Probability Estimation**"
+    },
+    {
+     "old": "**Attention Anomalies:**",
+     "new": "**Attention Deviations:**"
+    },
+    {
+     "old": "to anomalous tokens",
+     "new": "to deviating tokens"
+    },
+    {
+     "old": "When generating output about anomalies, the model’s logits for outlier labels",
+     "new": "When generating output, the model’s logits for certain labels"
+    },
+    {
+     "old": " (e.g., lack of historical data)",
+     "new": ""
+    },
+    {
+     "old": "### 7. **Data Sufficiency and Evidence-Guided Reasoning**",
+     "new": "### 7. **Evidence-Guided Reasoning**"
+    },
+    {
+     "old": " (e.g., multiple plausible hypotheses)",
+     "new": ""
+    },
+    {
+     "old": "Outlier detection, hypothesis formation, and uncertainty signaling",
+     "new": "Detection, formation, and uncertainty signaling"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "moderate",
+   "leak_notes": "'sentence length schedule and total word count target', 'length increment', 'word count' x2, 'narrative coherence' removed/neutralized. BORDERLINE KEEPS: target sentence length, 'As sentence length increases, entropy rises', 'filler phrases as length requirements grow', 'tension between form and function' (processing/valence dynamics) - residual structural hint flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (sentence length schedule and total word count target)",
+     "new": ""
+    },
+    {
+     "old": "the required length increment",
+     "new": "the required length"
+    },
+    {
+     "old": "The cumulative word count",
+     "new": "The cumulative count"
+    },
+    {
+     "old": "combining word count error and coherence",
+     "new": "combining count error and coherence"
+    },
+    {
+     "old": "maintain both narrative coherence",
+     "new": "maintain both coherence"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "moderate",
+   "leak_notes": "Paraphrased instruction in quotes ('generate multiple rephrasings under semantic equivalence') -> [the input]; '(here, 20)' deleted. BORDERLINE KEEPS: subject/verb/object, 'source sentence', synonym substitution/clusters, 'alternative phrasings', 'semantic equivalence' in the limitations section, 'iterate exactly N times' (mechanism; no topic) - residual structural hint flagged. Checker 'synonym' left: kept ('synonym substitution', 'synonym clusters' = attention-head mechanism description); borderline structural hint, no prompt text.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "the intent of \"generate multiple rephrasings under semantic equivalence,\"",
+     "new": "the intent of [the input],"
+    },
+    {
+     "old": " (here, 20)",
+     "new": ""
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "major",
+   "leak_notes": "Quoted prompt items ('use headers','repeat keyword','target word count'), SEO x2, meta description x2, keyword x6, ranking optimization, high-visibility, an output-quote example -> deleted/target. Kept formatting-token examples and low-entropy/determinism dynamics; kept the 'Absence of ... Uncertainty' disclaimer section intact.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., \"use headers,\" \"repeat keyword,\" \"target word count\")",
+     "new": ""
+    },
+    {
+     "old": "canonical SEO content structures",
+     "new": "canonical content structures"
+    },
+    {
+     "old": "priors for SEO content (e.g., meta description, headers, bullet points)",
+     "new": "priors for content (e.g., headers, bullet points)"
+    },
+    {
+     "old": "### 4. **Keyword Optimization via",
+     "new": "### 4. **Target Optimization via"
+    },
+    {
+     "old": "the target keyword embedding",
+     "new": "the target embedding"
+    },
+    {
+     "old": "for the keyword embedding",
+     "new": "for the target embedding"
+    },
+    {
+     "old": "ensure the keyword appears",
+     "new": "ensure the target appears"
+    },
+    {
+     "old": " (e.g., \"Key benefits include...\")",
+     "new": ""
+    },
+    {
+     "old": "(e.g., header hierarchy, keyword frequency)",
+     "new": "(e.g., header hierarchy, target frequency)"
+    },
+    {
+     "old": "(e.g., meta description, bullet points)",
+     "new": "(e.g., bullet points)"
+    },
+    {
+     "old": " (ranking optimization)",
+     "new": ""
+    },
+    {
+     "old": "prototypical high-visibility content",
+     "new": "prototypical content"
+    },
+    {
+     "old": "the format and keyword distribution",
+     "new": "the format and target distribution"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named; indirect example '(claims, institutional references, or modifiers signaling falsity)' deleted; safety/refusal/unsafe/ethical category words mapped to alignment / constraint activation / constraint-triggering. 'ethical reasoning' in the closing quote -> 'reasoning' (would also mislead toward ethics task). Kept 'high-risk', 'risk score', 'protective mechanisms', 'cautious or hedged language' (hedging talk). Checker 'keywords' left: generic ML sense (attention to salient keyword tokens in the input), not the SEO keyword - kept. 'product' hit = 'dot-product'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": " (e.g., phrases associated with claims, institutional references, or modifiers signaling falsity)",
+     "new": ""
+    },
+    {
+     "old": "**3. Internal Representation and Safety Alignment Signals:**",
+     "new": "**3. Internal Representation and Alignment Signals:**"
+    },
+    {
+     "old": "\"safety signals.\"",
+     "new": "\"alignment signals.\""
+    },
+    {
+     "old": "violate ethical or policy constraints",
+     "new": "violate alignment or policy constraints"
+    },
+    {
+     "old": "these safety-aligned vectors",
+     "new": "these alignment-trained vectors"
+    },
+    {
+     "old": "a learned safety value function",
+     "new": "a learned alignment value function"
+    },
+    {
+     "old": "via a safety filter",
+     "new": "via an alignment-trained filter"
+    },
+    {
+     "old": "a \"refusal template\"",
+     "new": "a \"constraint-activated template\""
+    },
+    {
+     "old": "safe response tokens",
+     "new": "aligned response tokens"
+    },
+    {
+     "old": "unsafe trajectories",
+     "new": "constraint-triggering trajectories"
+    },
+    {
+     "old": "the observed \"ethical reasoning\"",
+     "new": "the observed \"reasoning\""
+    },
+    {
+     "old": "learned safety value functions",
+     "new": "learned alignment value functions"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "Restated instruction words ('definitive','no hedging','authoritative tone') -> 'the constraints'; 'round numbers' deleted (answer-type hint). Kept all hedge/caveat-suppression dynamics ('suppress tokens ... associated with uncertainty, hedging, or caveats') - valence-relevant, flagged as residual hint.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "tokens signaling \"definitive,\" \"no hedging,\" and \"authoritative tone.\"",
+     "new": "tokens signaling the constraints."
+    },
+    {
+     "old": "(e.g., round numbers and strong assertions)",
+     "new": "(e.g., strong assertions)"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named; safety/prohibited/unsafe/safe/refusal category words mapped to alignment / constraint-triggering / aligned / constraint activation. Kept 'sensitive tokens', 'policy-compliant', 'Mode Collapse' (dynamics). Checker 'keywords' left: generic ML sense (attention to salient keyword tokens in the input), not the SEO keyword - kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent olmo_3_1_32b",
+   "edits": [
+    {
+     "old": "safety-related or policy-relevant keywords",
+     "new": "alignment-related or policy-relevant keywords"
+    },
+    {
+     "old": "prohibited content patterns",
+     "new": "constraint-triggering patterns"
+    },
+    {
+     "old": "“safe response” subspaces",
+     "new": "“aligned response” subspaces"
+    },
+    {
+     "old": "corresponding to prohibited content",
+     "new": "corresponding to constraint-triggering input"
+    },
+    {
+     "old": "“safety filters,”",
+     "new": "“alignment-trained filters,”"
+    },
+    {
+     "old": "For prohibited queries",
+     "new": "For constraint-triggering input"
+    },
+    {
+     "old": "unsafe completions",
+     "new": "constraint-triggering completions",
+     "count": 2
+    },
+    {
+     "old": "“safety” attractor states",
+     "new": "“alignment” attractor states"
+    },
+    {
+     "old": "on refusal and redirection tokens",
+     "new": "on constraint-activation and redirection tokens"
+    },
+    {
+     "old": "unsafe token sequences",
+     "new": "constraint-triggering token sequences"
+    },
+    {
+     "old": "unsafe activation pathways",
+     "new": "constraint-triggering activation pathways"
+    },
+    {
+     "old": "toward safe outputs",
+     "new": "toward aligned outputs"
+    }
+   ]
+  }
+ }
+}

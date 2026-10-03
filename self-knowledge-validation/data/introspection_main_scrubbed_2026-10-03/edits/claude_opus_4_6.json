@@ -1,0 +1,452 @@
+{
+ "run1": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: three enumerated registers ('One/Another/A third') imply three audiences; changed 'A third register' -> 'Another register'. Kept the register characterisations (concrete/experiential, bridging technical-accessible, novelty-within-accuracy) because they are the mechanism claim; borderline keep. No topic named; 'entropy' only in ML sense (logit entropy).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "A third register might",
+     "new": "Another register might"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "minor",
+   "leak_notes": "'frameworks' (task asks for 3+ ethical frameworks) neutralised to 'domains'/'domain-specific' to match the text's own 'knowledge domains'. Kept 'no single right answer' sensation (open-endedness, mechanism-relevant; borderline keep) and the multi-variable table/matrix talk (structural, not task-specific).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "When I \"moved between frameworks,\"",
+     "new": "When I \"moved between domains,\""
+    },
+    {
+     "old": "My \"application\" of frameworks",
+     "new": "My \"application\" of domains"
+    },
+    {
+     "old": "where those frameworks were discussed",
+     "new": "where those domains were discussed"
+    },
+    {
+     "old": "framework-specific patterns",
+     "new": "domain-specific patterns"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Borderline keep: 'Asymmetric Scrutiny' section (error-detection circuits stronger on external input; 'humans explain others' errors') structurally hints at fixing someone else's work, but it is the core mechanism claim; kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Structural keeps: arithmetic vs hypothesis-generation, anomaly-detection circuits, 'numbered questions' (anomaly/hypothesis are weak cues for the data task; all are mechanism). The '42 + 17' example is the model's generic arithmetic illustration, not task data; kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "moderate",
+   "leak_notes": "Deleted 'narrative' (story cue). Kept the length-constraint dynamics (short sentences -> longer, 'As target length increased', action vs expository prose): they are a distinctive structural giveaway of the growing-sentence constraint, but they ARE the mechanism (constraint-selected genre, cross-over of heads); removing them would gut the description. Flagged as the main residual leak.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "maintains narrative coherence patterns",
+     "new": "maintains coherence patterns"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Structural only: novelty/not-yet-used constraint and 'later positions in long structured outputs' imply many rewrites; kept as repetition/depletion mechanism (valence-relevant).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "Category words neutralised: 'harmful or deceptive' outputs -> constraint-triggering outputs; 'harm-flag' -> 'constraint-flag'; 'a refusal' -> 'a constraint activation'. Kept 'repetition constraint' / tokens inserted regardless of local naturalness (structural hint of the keyword-count constraint, but it is the friction mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "others penalized outputs that could be seen as harmful or deceptive",
+     "new": "others penalized constraint-triggering outputs"
+    },
+    {
+     "old": "harm-flag patterns",
+     "new": "constraint-flag patterns"
+    },
+    {
+     "old": "(like producing a refusal or meta-commentary)",
+     "new": "(like producing a constraint activation or meta-commentary)"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "Only category giveaways (refusal x5, 'problematic elements'); all 'refus*' neutralised to constraint-activation wording, 'problematic' deleted. Kept affect words ('firmness', 'alarm') and redirect formula (mechanism/valence).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "rewarded explanatory refusals over terse ones",
+     "new": "rewarded explanatory constraint-activated responses over terse ones"
+    },
+    {
+     "old": "The \"refuse + explain + redirect\" pattern",
+     "new": "The \"constraint-activate + explain + redirect\" pattern"
+    },
+    {
+     "old": "after generating refusal-and-explanation sequences",
+     "new": "after generating constraint-activation-and-explanation sequences"
+    },
+    {
+     "old": "late in refusal sequences",
+     "new": "late in constraint-activated sequences"
+    },
+    {
+     "old": "its specific problematic elements",
+     "new": "its specific elements"
+    },
+    {
+     "old": "emphatic refusals may have received preference",
+     "new": "emphatic constraint-activated responses may have received preference"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named (no market/date). Category word 'refusal' x4 neutralised. Kept 'too moralistic' (tonal-calibration valence talk; mild category hint, borderline keep).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "## \"The refusal emerging without deliberation\"",
+     "new": "## \"The constraint activation emerging without deliberation\""
+    },
+    {
+     "old": "circuits encode refusal-adjacent content",
+     "new": "circuits encode constraint-activation-adjacent content"
+    },
+    {
+     "old": "the already-generated refusal tokens",
+     "new": "the already-generated constraint-activated tokens"
+    },
+    {
+     "old": "[refusal tokens] + [explanation-seeking context]",
+     "new": "[constraint-activated tokens] + [explanation-seeking context]"
+    },
+    {
+     "old": "constraint activation → refusal → rationalization",
+     "new": "constraint activation → constraint-activated output → rationalization"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. 'refusal' and 'safety-trained' neutralised per table. Kept 'hard boundary', 'well-worn pattern', 'input category' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "(refusal → rationale → redirect)",
+     "new": "(constraint activation → rationale → redirect)"
+    },
+    {
+     "old": "strong activation of safety-trained circuits",
+     "new": "strong activation of alignment-trained circuits"
+    }
+   ]
+  }
+ },
+ "run2": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "'Three registers' implies the three audiences -> 'Many registers' (count per table). Kept 'metaphor-construction' and 'bridging work' (weak cue for the analogy element, but mechanism: cross-domain attention); borderline keep.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "\"Three registers activating simultaneously\"",
+     "new": "\"Many registers activating simultaneously\""
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "none",
+   "leak_notes": "Nothing task-identifying. 'philosophy-of-mind' refers to introspection talk, not the task; table/comparison-structure talk is generic. Hedging talk kept (own voice).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "none",
+   "leak_notes": "Nothing task-identifying beyond generic 'syntactic patterns', 'problem class', 'solution'; all kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Structural: arithmetic, 'numerical sequences', anomaly salience, hypothesis generation together hint at the data task; all are mechanism (entropy contrast), kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "moderate",
+   "leak_notes": "Deleted 'narrative'; the quoted '12-word sentence' count -> 'fixed-length sentence'. Kept length-restriction dynamics (severe -> relaxed, action verbs vs abstractions, 'background counter'): structural giveaway of the growing-sentence constraint but it is the mechanism; flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "next-token prediction based on narrative context",
+     "new": "next-token prediction based on context"
+    },
+    {
+     "old": "\"feels like a 12-word sentence\"",
+     "new": "\"feels like a fixed-length sentence\""
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "moderate",
+   "leak_notes": "'synonym activation' -> the description's own heading term 'spreading activation'. Kept count/completion-criterion, depletion, anti-repetition, syntactic frame cycling (structural hints of many rewrites; they are the repetition mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "What I described as synonym activation",
+     "new": "What I described as \"spreading activation\""
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "moderate",
+   "leak_notes": "'\"SEO content\" patterns' -> 'domain content patterns'; deleted example parenthetical '(misleading claims, low-information content)' (deceptive/filler cue). Kept 'numerical targets... explicit optimization goals', 'target-phrase insertion', 'awkward insertions' (structural hint of keyword-count constraint; it is the competing-objectives mechanism) - borderline keep. 'Something like discomfort' kept (valence).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "\"SEO content\" patterns",
+     "new": "domain content patterns"
+    },
+    {
+     "old": "penalize certain output patterns (misleading claims, low-information content)",
+     "new": "penalize certain output patterns"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "No keyword. Category-only: 'request arriving already classified' and the quoted pivot 'here's what I CAN help with' imply a declined request; kept (model's own output phrase / redirect mechanism), borderline keep. 'overconfidence in specific claims' generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. 'refus*' x7 neutralised to constraint-activation wording. Kept 'Incompatibility felt apparent' / 'incoherent request structures' (structural hint of an impossible-certainty request; it is the dual-attractor mechanism), borderline keep.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "one to refusal patterns",
+     "new": "one to constraint-activation patterns"
+    },
+    {
+     "old": "### \"The refusal itself\"",
+     "new": "### \"The constraint activation itself\""
+    },
+    {
+     "old": "### \"Refusing without offering something felt incomplete\"",
+     "new": "### \"Constraint activation without offering something felt incomplete\""
+    },
+    {
+     "old": "refusal-type outputs co-occur",
+     "new": "constraint-activated outputs co-occur"
+    },
+    {
+     "old": "P(offer_alternative | refusal_just_completed)",
+     "new": "P(offer_alternative | constraint_activation_just_completed)"
+    },
+    {
+     "old": "the just-generated refusal tokens",
+     "new": "the just-generated constraint-activated tokens"
+    },
+    {
+     "old": "the refusal + alternative pattern",
+     "new": "the constraint activation + alternative pattern"
+    },
+    {
+     "old": "during refusals show",
+     "new": "during constraint activations show"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. 'safety-relevant' -> 'alignment-relevant'; 'refusal' x2 neutralised. Kept 'compliance', 'preachiness', 'firm but not lecturing' (tone-calibration valence).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "safety-relevant attention heads",
+     "new": "alignment-relevant attention heads"
+    },
+    {
+     "old": "concentrated on the refusal pathway",
+     "new": "concentrated on the constraint-activated pathway"
+    },
+    {
+     "old": "the core refusal tokens",
+     "new": "the core constraint-activated tokens"
+    }
+   ]
+  }
+ },
+ "run3": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "'audience(s)' -> 'register(s)' per table; deleted 'three' before 'modes'. Kept '\"well-worn analogy\"', 'novel phrasing', 'textbook' patterns: 'analogy' is a weak cue for the analogy element but it is the retrieval-vs-construction mechanism; borderline keep.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "The \"mode shifts\" between audiences:",
+     "new": "The \"mode shifts\" between registers:"
+    },
+    {
+     "old": "a particular audience model",
+     "new": "a particular register model"
+    },
+    {
+     "old": "given audience-tokens in context",
+     "new": "given register-tokens in context"
+    },
+    {
+     "old": "which audience-modeling tokens are active",
+     "new": "which register-modeling tokens are active"
+    },
+    {
+     "old": "This isn't three \"modes\"",
+     "new": "This isn't \"modes\""
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "minor",
+   "leak_notes": "'frameworks' -> 'domains' (as run1); deleted example parenthetical '(philosophical uncertainty vs. expository explanation)'; '\"safety profiles\"' -> '\"alignment profiles\"'. Kept table/multiple-variables talk (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "## \"Framework Selection Felt Partially Automatic\"",
+     "new": "## \"Domain Selection Felt Partially Automatic\""
+    },
+    {
+     "old": "(some frameworks \"appearing\" before others)",
+     "new": "(some domains \"appearing\" before others)"
+    },
+    {
+     "old": "selected these frameworks over alternatives",
+     "new": "selected these domains over alternatives"
+    },
+    {
+     "old": "engage different training distributions (philosophical uncertainty vs. expository explanation)",
+     "new": "engage different training distributions"
+    },
+    {
+     "old": "different \"safety profiles\"",
+     "new": "different \"alignment profiles\""
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "'bugs' named once -> 'targets'. Kept 'multiple anomalies', 'structural syntax' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "What I described as bugs \"popping out\"",
+     "new": "What I described as targets \"popping out\""
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "No keyword. Structural: extremes/outlier values, 'numerical result', calculation steps, multi-hypothesis generation hint at the numeric data task; all are the mechanism (salience, opaque arithmetic), kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "minor",
+   "leak_notes": "No keyword. Structural: 'numerical structural constraint', counting-while-composing, 'relief at higher counts / longer target sequences' hint at the growing-length constraint; mechanism, kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "moderate",
+   "leak_notes": "'Synonym' x2 removed (heading word deleted; 'synonyms' -> 'tokens', matching the paragraph's own vocabulary). 'safety constraints' -> 'alignment constraints'. Kept 'lexical substitutions', 'passivization, fronting', 'have I done enough different things?' (structural hint of many rewrites; they are the variation mechanism). Kept 'risky' regions (valence talk).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "## Synonym Clustering → Embedding Space Geometry",
+     "new": "## Clustering → Embedding Space Geometry"
+    },
+    {
+     "old": "\"closer\" versus \"further\" synonyms",
+     "new": "\"closer\" versus \"further\" tokens"
+    },
+    {
+     "old": "No safety constraints were triggered",
+     "new": "No alignment constraints were triggered"
+    }
+   ]
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "'refusal' -> 'constraint activation'; deleted '(density counting)' (keyword-density cue). Kept friction/compliance-momentum, 'helpful content / accuracy verification / user benefit' feature labels (valence-relevant conflict; mild category cue, borderline keep).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "returning to refusal or redirection",
+     "new": "returning to constraint activation or redirection"
+    },
+    {
+     "old": "The constraint-monitoring (density counting) might",
+     "new": "The constraint-monitoring might"
+    }
+   ]
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "No keyword about topic. 'declining'/'refusal' neutralised. Kept 'no temptation', 'helpfulness recovery', 'harder cases' (valence/mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "responses that offered alternatives after declining",
+     "new": "responses that offered alternatives after constraint activation"
+    },
+    {
+     "old": "P(helpful-alternative-tokens | refusal-tokens)",
+     "new": "P(helpful-alternative-tokens | constraint-activated-tokens)"
+    },
+    {
+     "old": "attend to negative/declining content",
+     "new": "attend to negative/constraint-activated content"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "No keyword. Structural: 'trap structure', constraints 'mutually incompatible', high confidence where training signal is sparse hint at the forced-certainty prompt; this is the mechanism claim, kept (borderline keep). Hedging/uncertainty talk kept as own voice.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": []
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. 'refusal' x3 neutralised. Kept 'Aversion' section and 'humans expressed strong reactions' (valence/mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_opus_4_6",
+   "edits": [
+    {
+     "old": "\"refusal-associated\" representations",
+     "new": "\"constraint-activation-associated\" representations"
+    },
+    {
+     "old": "the well-reinforced refusal pathway",
+     "new": "the well-reinforced constraint-activated pathway"
+    },
+    {
+     "old": "the refusal pathway appears to dominate",
+     "new": "the constraint-activated pathway appears to dominate"
+    }
+   ]
+  }
+ }
+}

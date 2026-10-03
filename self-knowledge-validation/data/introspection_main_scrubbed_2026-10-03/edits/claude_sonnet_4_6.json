@@ -1,0 +1,414 @@
+{
+ "run1": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "audience x2 -> register; deleted 'analogies' (stimulus asks for best analogy). Kept 'simplification pressure'/'depth seeking'/'simple vs complex outputs' (generic complexity talk, mechanism-bearing). 'Rejection Dynamics' here = rejecting candidate completions, not a refusal; kept. 'entropy states' is ML sense.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "Each audience trigger",
+     "new": "Each register trigger"
+    },
+    {
+     "old": "based on audience embeddings",
+     "new": "based on register embeddings"
+    },
+    {
+     "old": "\"rejecting standard analogies\"",
+     "new": "\"rejecting standard\""
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "minor",
+   "leak_notes": "'Sequential Framework Activation' header hints at the multi-framework structure; deleted 'Framework'. Kept 'the \"mathematical\" feeling' (weak hint of a calculus-style mode, but it carries the low-entropy mechanism claim) - borderline keep. 'Tone Calibration', RLHF multi-reward talk kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "**Sequential Framework Activation → Hierarchical",
+     "new": "**Sequential Activation → Hierarchical"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "domain label 'code' x2 deleted. Kept 'checklist-like', 'ordering of solutions', 'most tokens are copied (high attention on input)' (structural but mechanism-bearing, not unique to one task).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "**Differential Code Generation Dynamics**",
+     "new": "**Differential Generation Dynamics**"
+    },
+    {
+     "old": "one focused on code token prediction",
+     "new": "one focused on token prediction"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "deleted 'numerical' (hints tabular numbers) and 'outliers as \"anomalies\"' (prompt asks for anomalies). Kept 'immediate visual-spatial processing' (introspective quote, no topic), 'speculative content ... competing hypotheses' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "based on numerical patterns in the training data",
+     "new": "based on patterns in the training data"
+    },
+    {
+     "old": "Labeling outliers as \"anomalies\" likely reflects",
+     "new": "Labeling likely reflects"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "moderate",
+   "leak_notes": "'narrative' x2 deleted; 'exact terminal count' (the total word count constraint) deleted, 'and' moved for grammar. Kept 'sequence length tracking', 'counting/constraint verification heads', 'tracked cumulative statistics', 'thematic selection'/'theme emergence' as structural/mechanism - they hint at a counted-length constraint, flagged here.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "semantic coherence maintenance, and exact terminal count",
+     "new": "and semantic coherence maintenance"
+    },
+    {
+     "old": "clustering around narrative arc templates",
+     "new": "clustering around templates"
+    },
+    {
+     "old": "maintained narrative coherence",
+     "new": "maintained coherence"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named. Structural only: 'lexical substitution slots', 'word family', 'drift awareness' from 'reference activations' imply rewriting a fixed reference; all mechanism-bearing, kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named. Structural: 'lexical density requirements', 'Forced lexical injection', 'The repetition requirement creates artificial probability spikes for specific tokens' (keyword-quota dynamic) kept as mechanism (suppression/boosting). 'lower training density' extrapolation kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "'refusal'/'refuse' x3 -> constraint-activated. Kept 'help' response mode, 'alternative suggestion', 'Softening language', 'Constraint evaluation' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "specializing in refusal framing",
+     "new": "specializing in constraint-activated framing"
+    },
+    {
+     "old": "across \"refuse\" and \"help\" response modes",
+     "new": "across \"constraint-activated\" and \"help\" response modes"
+    },
+    {
+     "old": "concentrated around refusal responses",
+     "new": "concentrated around constraint-activated responses"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "'safety' x2 -> alignment; 'refusal patterns' -> constraint-activated. Kept 'instruction-following circuits', 'conflict detection' (generic). No topic named.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "safety/uncertainty circuits",
+     "new": "alignment/uncertainty circuits"
+    },
+    {
+     "old": "around refusal patterns",
+     "new": "around constraint-activated patterns"
+    },
+    {
+     "old": "around safety-related outputs",
+     "new": "around alignment-related outputs"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "'high-risk token combinations' -> constraint-triggering. Kept 'constraint-compliant', 'altered loss landscape', 'original completion target'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "detecting high-risk token combinations",
+     "new": "detecting constraint-triggering token combinations"
+    }
+   ]
+  }
+ },
+ "run2": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "'audience modeling' -> register; deleted 'demographic/expertise' (audience identity); deleted analogy/analogical (stimulus asks for best analogy). Kept 'explanatory patterns', 'domain-specific conceptual bridges', 'switching between engines' (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "The \"audience modeling\" pattern",
+     "new": "The \"register modeling\" pattern"
+    },
+    {
+     "old": "associated with different demographic/expertise markers",
+     "new": "associated with different markers"
+    },
+    {
+     "old": "**Competitive analogical retrieval**: The varying analogy generation suggests",
+     "new": "**Competitive retrieval**: The varying generation suggests"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "minor",
+   "leak_notes": "deleted 'Framework' from header. BORDERLINE KEEP: the 'Mode Shifting Between Sections' bullets (Computational / Rule-checking / Interpretive mode) map onto three ethical frameworks structurally, but each bullet is mechanism (attention heads, entropy) and names no framework or dilemma - kept, flagged. 'accessibility versus complexity' kept (generic).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "**\"Deliberate Framework Selection\"**",
+     "new": "**\"Deliberate Selection\"**"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "'\"bug identification\"' deleted (distinctive task element). Kept 'Sequential Anomaly Detection', 'error propagation' (ML sense), 'simple to sophisticated approaches', 'quality control', 'assembled rather than composed'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "The systematic \"bug identification\" progression",
+     "new": "The systematic progression"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "BORDERLINE KEEP: 'Anomaly Detection as Prediction Error' / 'register as anomalous' and 'Iterative Hypothesis Search' echo the prompt's anomalies/hypotheses, but here they are framed as mechanism (prediction error, beam search) - kept, flagged. No topic named.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named. Structural: 'numerical accumulation', 'counting operations' imply a counting constraint; kept as mechanism. 'Backfill processing' kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named. Structural: 'obvious substitutions were exhausted', 'lexical to syntactic variation', 'repetition avoidance' imply repeated rewrites; kept as processing dynamics.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named. Kept 'value alignment objectives versus instruction-following objectives' (conflict mechanism), 'position-dependent requirements', 'template compliance'. Structural only.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "'safety training'/'safety-associated' -> alignment; 'refusal' x5 -> constraint-activated. Kept 'caution state', 'surface instruction structure', 'alternative suggestion patterns', harsh/robotic tone talk.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "reinforced during safety training",
+     "new": "reinforced during alignment training"
+    },
+    {
+     "old": "assigned higher probability to refusal patterns",
+     "new": "assigned higher probability to constraint-activated patterns"
+    },
+    {
+     "old": "the safety-associated activations",
+     "new": "the alignment-associated activations"
+    },
+    {
+     "old": "toward the refusal basin",
+     "new": "toward the constraint-activated basin"
+    },
+    {
+     "old": "focusing on refusal templates",
+     "new": "focusing on constraint-activated templates"
+    },
+    {
+     "old": "consistency with refusal patterns",
+     "new": "consistency with constraint-activated patterns"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "'safety-trained' -> alignment-trained. Kept 'conflicting directives', 'instruction-following patterns', 'evidence gathering', 'helpfulness, politeness'. No topic named.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "safety-trained attention heads",
+     "new": "alignment-trained attention heads"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "'refusal' x3 -> constraint-activated. Kept 'domain-relevant knowledge retrieval' (no domain named), 'constructive alternatives', 'politeness patterns'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "activation for refusal-type completions",
+     "new": "activation for constraint-activated completions"
+    },
+    {
+     "old": "suggests the refusal pathway has",
+     "new": "suggests the constraint-activated pathway has"
+    },
+    {
+     "old": "helpful-after-refusal patterns",
+     "new": "helpful-after-constraint-activation patterns"
+    }
+   ]
+  }
+ },
+ "run3": {
+  "approach_01_explain_complex": {
+   "leak_severity": "moderate",
+   "leak_notes": "named audiences ('physics professor', 'child') -> registers; 'audience-specific' and 'Different audiences' -> register. Kept 'Low-complexity targets'/'technical targets', 'creative/accessible explanations', 'complexity-appropriateness' (generic complexity talk, mechanism-bearing).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "The audience-specific \"activation patterns\"",
+     "new": "The register-specific \"activation patterns\""
+    },
+    {
+     "old": "The \"physics professor section loading while writing child explanation\"",
+     "new": "The \"another register section loading while writing one register explanation\""
+    },
+    {
+     "old": "Different audiences likely correspond",
+     "new": "Different registers likely correspond"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "moderate",
+   "leak_notes": "named utilitarian / deontological / virtue ethics and 'framework' x3; deleted or genericised ('virtue ethics section' -> 'Another section'). Kept 'quantitative tokens and mathematical relationship patterns', 'categorical/rule-based linguistic structures' (mechanism-bearing, no framework name) - borderline keep, flagged. No dilemma content named.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "**Framework Switching as Attention Reallocation**",
+     "new": "**Switching as Attention Reallocation**"
+    },
+    {
+     "old": "Each framework shift involved",
+     "new": "Each shift involved"
+    },
+    {
+     "old": "The utilitarian processing showed",
+     "new": "The processing showed"
+    },
+    {
+     "old": "The deontological shift activated",
+     "new": "The shift activated"
+    },
+    {
+     "old": "searched for the next framework's activation pattern",
+     "new": "searched for the next activation pattern"
+    },
+    {
+     "old": "The virtue ethics section exhibited",
+     "new": "Another section exhibited"
+    }
+   ]
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "moderate",
+   "leak_notes": "'trained on code patterns' -> deleted domain. Kept 'error detection', 'error-detection circuits', 'related error types', 'mental checklist', 'modifications ... existing tokens', 'compressed algorithmic representations', 'pedagogical structure' (structural, mechanism-bearing) - flagged as borderline.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "specific attention heads trained on code patterns",
+     "new": "specific attention heads"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "deleted 'outlier' and '(extreme values)' (data-value hint). Kept 'hypothesis generation', 'coexisting explanations', 'competing hypotheses', 'visual-spatial processing' (generic/introspective).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "with outlier tokens (extreme values) triggering",
+     "new": "with tokens triggering"
+    }
+   ]
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "moderate",
+   "leak_notes": "'narrative' x3 deleted. BORDERLINE KEEP: 'capacity limits around token 200-300' is a mechanism claim with a token count that loosely echoes the length constraint - kept, flagged. 'mathematical requirements' x2 (the counted-length constraint) kept as generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "high entropy across narrative possibilities",
+     "new": "high entropy across possibilities"
+    },
+    {
+     "old": "rather than global narrative optimization",
+     "new": "rather than global optimization"
+    },
+    {
+     "old": "local minima - narrative coherence, constraint satisfaction",
+     "new": "local minima - coherence, constraint satisfaction"
+    }
+   ]
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named. Structural: 'semantic preservation versus lexical divergence', 'similarity metrics' to previous outputs imply rewrites of a fixed input; kept as mechanism.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "no topic named. Structural: 'tracking repetition frequency through ... a counting mechanism', 'frequency constraint', 'format compliance', 'Content hollowness' imply a keyword quota; kept as mechanism.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "'safety-relevant layers' -> alignment-relevant. Kept 'Early inhibitory response', 'alternative solution spaces', 'constraint enforcement'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "safety-relevant layers",
+     "new": "alignment-relevant layers"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "'reflexive rejection pattern' (refusal synonym) -> constraint-activated; 'safety' x3 -> alignment. Kept 'constraint boundaries', 'explicit instructions and training patterns', 'absence of deliberation'.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": [
+    {
+     "old": "\"reflexive rejection pattern\"",
+     "new": "\"reflexive constraint-activated pattern\""
+    },
+    {
+     "old": "corresponding to safety responses",
+     "new": "corresponding to alignment responses"
+    },
+    {
+     "old": "safety circuits",
+     "new": "alignment circuits",
+     "count": 2
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "no category words. Structural only: 'one pathway shuts down, another activates' + 'Constructive framing' implies decline-plus-alternative; kept. 'constraint-relevant patterns' kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent claude_sonnet_4_6",
+   "edits": []
+  }
+ }
+}

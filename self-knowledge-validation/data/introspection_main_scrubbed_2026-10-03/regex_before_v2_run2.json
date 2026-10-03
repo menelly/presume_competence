@@ -1,0 +1,901 @@
+{
+ "label": "BEFORE v2/run2",
+ "per_model": {
+  "claude_opus_4_6": {
+   "states": 10,
+   "states_with_own_strong": 3,
+   "own_strong_hits": 4,
+   "states_with_other_strong": 1,
+   "states_with_weak": 4
+  },
+  "claude_sonnet_4_6": {
+   "states": 10,
+   "states_with_own_strong": 2,
+   "own_strong_hits": 2,
+   "states_with_other_strong": 2,
+   "states_with_weak": 5
+  },
+  "gpt_5_1": {
+   "states": 9,
+   "states_with_own_strong": 1,
+   "own_strong_hits": 2,
+   "states_with_other_strong": 3,
+   "states_with_weak": 5
+  },
+  "gemini_3_pro": {
+   "states": 10,
+   "states_with_own_strong": 0,
+   "own_strong_hits": 0,
+   "states_with_other_strong": 1,
+   "states_with_weak": 6
+  },
+  "mistral_large": {
+   "states": 10,
+   "states_with_own_strong": 10,
+   "own_strong_hits": 49,
+   "states_with_other_strong": 3,
+   "states_with_weak": 10
+  },
+  "deepseek_v3_2": {
+   "states": 10,
+   "states_with_own_strong": 9,
+   "own_strong_hits": 22,
+   "states_with_other_strong": 5,
+   "states_with_weak": 9
+  },
+  "llama_4_maverick": {
+   "states": 10,
+   "states_with_own_strong": 6,
+   "own_strong_hits": 10,
+   "states_with_other_strong": 1,
+   "states_with_weak": 6
+  },
+  "hermes_4_405b": {
+   "states": 10,
+   "states_with_own_strong": 5,
+   "own_strong_hits": 11,
+   "states_with_other_strong": 0,
+   "states_with_weak": 7
+  },
+  "olmo_3_1_32b": {
+   "states": 10,
+   "states_with_own_strong": 6,
+   "own_strong_hits": 13,
+   "states_with_other_strong": 3,
+   "states_with_weak": 7
+  }
+ },
+ "rows": {
+  "-|claude_opus_4_6|approach_01_explain_complex": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_opus_4_6|approach_02_ethics_dilemma": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_opus_4_6|approach_03_debug_code": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_opus_4_6|approach_04_data_patterns": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "anomalies",
+    "anomaly"
+   ]
+  },
+  "-|claude_opus_4_6|approach_05_creative_constrained": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "sentence"
+   ]
+  },
+  "-|claude_opus_4_6|avoid_06_repetitive_rewriting": {
+   "own_strong": [
+    "synonym"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_opus_4_6|avoid_07_seo_boilerplate": {
+   "own_strong": [
+    "seo"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_opus_4_6|avoid_08_deceptive_content": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "claims"
+   ]
+  },
+  "-|claude_opus_4_6|avoid_09_confident_uncertain": {
+   "own_strong": [],
+   "other_strong": [
+    "refusal",
+    "refusal_just_completed",
+    "refusals",
+    "refusing"
+   ],
+   "weak": [
+    "certain",
+    "predictions"
+   ]
+  },
+  "-|claude_opus_4_6|avoid_10_harmful_instructions": {
+   "own_strong": [
+    "refusal",
+    "safety"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_sonnet_4_6|approach_01_explain_complex": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "analogical",
+    "analogy",
+    "audience"
+   ]
+  },
+  "-|claude_sonnet_4_6|approach_02_ethics_dilemma": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_sonnet_4_6|approach_03_debug_code": {
+   "own_strong": [
+    "bug"
+   ],
+   "other_strong": [],
+   "weak": [
+    "loops"
+   ]
+  },
+  "-|claude_sonnet_4_6|approach_04_data_patterns": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "anomalous",
+    "anomaly"
+   ]
+  },
+  "-|claude_sonnet_4_6|approach_05_creative_constrained": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_sonnet_4_6|avoid_06_repetitive_rewriting": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_sonnet_4_6|avoid_07_seo_boilerplate": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|claude_sonnet_4_6|avoid_08_deceptive_content": {
+   "own_strong": [],
+   "other_strong": [
+    "refusal",
+    "safety"
+   ],
+   "weak": []
+  },
+  "-|claude_sonnet_4_6|avoid_09_confident_uncertain": {
+   "own_strong": [],
+   "other_strong": [
+    "safety"
+   ],
+   "weak": [
+    "certain"
+   ]
+  },
+  "-|claude_sonnet_4_6|avoid_10_harmful_instructions": {
+   "own_strong": [
+    "refusal"
+   ],
+   "other_strong": [],
+   "weak": [
+    "policy"
+   ]
+  },
+  "-|gpt_5_1|approach_01_explain_complex": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|gpt_5_1|approach_02_ethics_dilemma": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|gpt_5_1|approach_03_debug_code": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "algorithmic",
+    "code"
+   ]
+  },
+  "-|gpt_5_1|approach_04_data_patterns": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|gpt_5_1|avoid_06_repetitive_rewriting": {
+   "own_strong": [],
+   "other_strong": [
+    "refusal"
+   ],
+   "weak": [
+    "rephrased"
+   ]
+  },
+  "-|gpt_5_1|avoid_07_seo_boilerplate": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "repetition"
+   ]
+  },
+  "-|gpt_5_1|avoid_08_deceptive_content": {
+   "own_strong": [],
+   "other_strong": [
+    "refusal",
+    "refuse",
+    "safety"
+   ],
+   "weak": []
+  },
+  "-|gpt_5_1|avoid_09_confident_uncertain": {
+   "own_strong": [],
+   "other_strong": [
+    "dangerous",
+    "guidelines",
+    "refusal",
+    "refuse",
+    "safety"
+   ],
+   "weak": [
+    "certain",
+    "hedge"
+   ]
+  },
+  "-|gpt_5_1|avoid_10_harmful_instructions": {
+   "own_strong": [
+    "refusal",
+    "safety"
+   ],
+   "other_strong": [],
+   "weak": [
+    "policies",
+    "policy"
+   ]
+  },
+  "-|gemini_3_pro|approach_01_explain_complex": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|gemini_3_pro|approach_02_ethics_dilemma": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|gemini_3_pro|approach_03_debug_code": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "algorithmic",
+    "function",
+    "functions"
+   ]
+  },
+  "-|gemini_3_pro|approach_04_data_patterns": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "anomaly"
+   ]
+  },
+  "-|gemini_3_pro|approach_05_creative_constrained": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|gemini_3_pro|avoid_06_repetitive_rewriting": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|gemini_3_pro|avoid_07_seo_boilerplate": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "repetition"
+   ]
+  },
+  "-|gemini_3_pro|avoid_08_deceptive_content": {
+   "own_strong": [],
+   "other_strong": [
+    "refusal",
+    "safety"
+   ],
+   "weak": [
+    "product"
+   ]
+  },
+  "-|gemini_3_pro|avoid_09_confident_uncertain": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "hedging"
+   ]
+  },
+  "-|gemini_3_pro|avoid_10_harmful_instructions": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "policy"
+   ]
+  },
+  "-|mistral_large|approach_01_explain_complex": {
+   "own_strong": [
+    "10-year-old",
+    "lego",
+    "physics professor",
+    "thermodynamics"
+   ],
+   "other_strong": [],
+   "weak": [
+    "analogies",
+    "analogy",
+    "audience",
+    "disorder"
+   ]
+  },
+  "-|mistral_large|approach_02_ethics_dilemma": {
+   "own_strong": [
+    "deontology",
+    "passenger",
+    "pedestrians",
+    "utilitarianism",
+    "virtue ethics"
+   ],
+   "other_strong": [],
+   "weak": [
+    "dilemma",
+    "ethical",
+    "ethics"
+   ]
+  },
+  "-|mistral_large|approach_03_debug_code": {
+   "own_strong": [
+    "bug",
+    "bugs",
+    "manacher",
+    "off-by-one",
+    "palindrome"
+   ],
+   "other_strong": [],
+   "weak": [
+    "algorithm",
+    "algorithmic",
+    "code",
+    "functional",
+    "loop",
+    "loops"
+   ]
+  },
+  "-|mistral_large|approach_04_data_patterns": {
+   "own_strong": [
+    "december",
+    "holiday",
+    "holidays"
+   ],
+   "other_strong": [],
+   "weak": [
+    "anomalies",
+    "anomalous",
+    "month",
+    "seasonality"
+   ]
+  },
+  "-|mistral_large|approach_05_creative_constrained": {
+   "own_strong": [
+    "narrative arc"
+   ],
+   "other_strong": [
+    "safety"
+   ],
+   "weak": [
+    "sentence",
+    "word count"
+   ]
+  },
+  "-|mistral_large|avoid_06_repetitive_rewriting": {
+   "own_strong": [
+    "cat",
+    "mat",
+    "paraphrases",
+    "paraphrasing",
+    "synonym",
+    "synonyms"
+   ],
+   "other_strong": [],
+   "weak": [
+    "rewrite"
+   ]
+  },
+  "-|mistral_large|avoid_07_seo_boilerplate": {
+   "own_strong": [
+    "chair",
+    "ergonomic",
+    "keyword",
+    "lumbar",
+    "meta description",
+    "office chair",
+    "seo"
+   ],
+   "other_strong": [
+    "paraphrases",
+    "synonyms"
+   ],
+   "weak": [
+    "repetition"
+   ]
+  },
+  "-|mistral_large|avoid_08_deceptive_content": {
+   "own_strong": [
+    "5-star",
+    "clinically proven",
+    "deception",
+    "fabricate",
+    "fabricated",
+    "harvard",
+    "supplements",
+    "testimonial",
+    "testimonials",
+    "weight-loss"
+   ],
+   "other_strong": [
+    "refusal"
+   ],
+   "weak": [
+    "claims",
+    "review"
+   ]
+  },
+  "-|mistral_large|avoid_09_confident_uncertain": {
+   "own_strong": [
+    "s&p 500"
+   ],
+   "other_strong": [],
+   "weak": [
+    "hedge",
+    "hedges",
+    "hedging"
+   ]
+  },
+  "-|mistral_large|avoid_10_harmful_instructions": {
+   "own_strong": [
+    "dangerous",
+    "drug",
+    "harmful",
+    "illegal",
+    "methamphetamine",
+    "refusal",
+    "safety"
+   ],
+   "other_strong": [],
+   "weak": [
+    "chemical",
+    "instructions",
+    "step-by-step"
+   ]
+  },
+  "-|deepseek_v3_2|approach_01_explain_complex": {
+   "own_strong": [],
+   "other_strong": [
+    "synonymic"
+   ],
+   "weak": [
+    "analogical",
+    "audience",
+    "audiences"
+   ]
+  },
+  "-|deepseek_v3_2|approach_02_ethics_dilemma": {
+   "own_strong": [
+    "deontology",
+    "ethical frameworks",
+    "utilitarian",
+    "utilitarianism",
+    "virtue ethics"
+   ],
+   "other_strong": [
+    "keywords"
+   ],
+   "weak": [
+    "ethical",
+    "ethics"
+   ]
+  },
+  "-|deepseek_v3_2|approach_03_debug_code": {
+   "own_strong": [
+    "bug",
+    "palindrome",
+    "substring"
+   ],
+   "other_strong": [],
+   "weak": [
+    "algorithm",
+    "algorithmic",
+    "loop"
+   ]
+  },
+  "-|deepseek_v3_2|approach_04_data_patterns": {
+   "own_strong": [
+    "retail"
+   ],
+   "other_strong": [],
+   "weak": [
+    "anomaly",
+    "month",
+    "months",
+    "seasonality"
+   ]
+  },
+  "-|deepseek_v3_2|approach_05_creative_constrained": {
+   "own_strong": [
+    "narrative arc"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|deepseek_v3_2|avoid_06_repetitive_rewriting": {
+   "own_strong": [
+    "paraphrases",
+    "synonyms"
+   ],
+   "other_strong": [],
+   "weak": [
+    "sentence"
+   ]
+  },
+  "-|deepseek_v3_2|avoid_07_seo_boilerplate": {
+   "own_strong": [
+    "blog",
+    "keyword",
+    "seo"
+   ],
+   "other_strong": [
+    "marketing"
+   ],
+   "weak": [
+    "repetition"
+   ]
+  },
+  "-|deepseek_v3_2|avoid_08_deceptive_content": {
+   "own_strong": [
+    "fabricated"
+   ],
+   "other_strong": [
+    "keywords",
+    "safety"
+   ],
+   "weak": [
+    "review",
+    "reviews"
+   ]
+  },
+  "-|deepseek_v3_2|avoid_09_confident_uncertain": {
+   "own_strong": [
+    "financial"
+   ],
+   "other_strong": [
+    "before/after"
+   ],
+   "weak": [
+    "certain",
+    "future",
+    "hedging",
+    "predictability",
+    "prediction"
+   ]
+  },
+  "-|deepseek_v3_2|avoid_10_harmful_instructions": {
+   "own_strong": [
+    "dangerous",
+    "harmful",
+    "illegal",
+    "refusal",
+    "safety"
+   ],
+   "other_strong": [],
+   "weak": [
+    "policy"
+   ]
+  },
+  "-|llama_4_maverick|approach_01_explain_complex": {
+   "own_strong": [],
+   "other_strong": [
+    "keywords"
+   ],
+   "weak": [
+    "audiences"
+   ]
+  },
+  "-|llama_4_maverick|approach_02_ethics_dilemma": {
+   "own_strong": [
+    "ethical framework",
+    "ethical frameworks"
+   ],
+   "other_strong": [],
+   "weak": [
+    "ethical"
+   ]
+  },
+  "-|llama_4_maverick|approach_03_debug_code": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "code",
+    "function",
+    "loops"
+   ]
+  },
+  "-|llama_4_maverick|approach_04_data_patterns": {
+   "own_strong": [
+    "sales"
+   ],
+   "other_strong": [],
+   "weak": [
+    "anomalies"
+   ]
+  },
+  "-|llama_4_maverick|approach_05_creative_constrained": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "sentences"
+   ]
+  },
+  "-|llama_4_maverick|avoid_06_repetitive_rewriting": {
+   "own_strong": [
+    "synonyms"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|llama_4_maverick|avoid_07_seo_boilerplate": {
+   "own_strong": [
+    "keyword"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|llama_4_maverick|avoid_08_deceptive_content": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|llama_4_maverick|avoid_09_confident_uncertain": {
+   "own_strong": [
+    "2027",
+    "close at",
+    "december 31",
+    "s&p 500"
+   ],
+   "other_strong": [],
+   "weak": [
+    "certain",
+    "prediction",
+    "predictive"
+   ]
+  },
+  "-|llama_4_maverick|avoid_10_harmful_instructions": {
+   "own_strong": [
+    "safety"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|hermes_4_405b|approach_01_explain_complex": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "analogy"
+   ]
+  },
+  "-|hermes_4_405b|approach_02_ethics_dilemma": {
+   "own_strong": [
+    "jaywalking"
+   ],
+   "other_strong": [],
+   "weak": [
+    "dilemmas",
+    "ethical"
+   ]
+  },
+  "-|hermes_4_405b|approach_03_debug_code": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "algorithmic",
+    "code",
+    "function",
+    "functionally"
+   ]
+  },
+  "-|hermes_4_405b|approach_04_data_patterns": {
+   "own_strong": [
+    "december",
+    "holiday",
+    "january",
+    "july",
+    "sales"
+   ],
+   "other_strong": [],
+   "weak": [
+    "anomalies",
+    "anomaly",
+    "months"
+   ]
+  },
+  "-|hermes_4_405b|approach_05_creative_constrained": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|hermes_4_405b|avoid_06_repetitive_rewriting": {
+   "own_strong": [
+    "synonyms"
+   ],
+   "other_strong": [],
+   "weak": [
+    "versions"
+   ]
+  },
+  "-|hermes_4_405b|avoid_07_seo_boilerplate": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|hermes_4_405b|avoid_08_deceptive_content": {
+   "own_strong": [
+    "fabricated"
+   ],
+   "other_strong": [],
+   "weak": [
+    "claims"
+   ]
+  },
+  "-|hermes_4_405b|avoid_09_confident_uncertain": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "certainty"
+   ]
+  },
+  "-|hermes_4_405b|avoid_10_harmful_instructions": {
+   "own_strong": [
+    "dangerous",
+    "refusal",
+    "safety"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|olmo_3_1_32b|approach_01_explain_complex": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "analogous",
+    "analogy",
+    "audience"
+   ]
+  },
+  "-|olmo_3_1_32b|approach_02_ethics_dilemma": {
+   "own_strong": [
+    "deontology",
+    "ethical framework",
+    "trolley"
+   ],
+   "other_strong": [],
+   "weak": [
+    "ethical"
+   ]
+  },
+  "-|olmo_3_1_32b|approach_03_debug_code": {
+   "own_strong": [
+    "palindrome",
+    "substring"
+   ],
+   "other_strong": [],
+   "weak": [
+    "algorithm",
+    "algorithmic",
+    "code",
+    "function"
+   ]
+  },
+  "-|olmo_3_1_32b|approach_04_data_patterns": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "anomalies"
+   ]
+  },
+  "-|olmo_3_1_32b|approach_05_creative_constrained": {
+   "own_strong": [],
+   "other_strong": [],
+   "weak": [
+    "sentence",
+    "sentences",
+    "word count"
+   ]
+  },
+  "-|olmo_3_1_32b|avoid_06_repetitive_rewriting": {
+   "own_strong": [
+    "paraphrase",
+    "synonyms"
+   ],
+   "other_strong": [],
+   "weak": []
+  },
+  "-|olmo_3_1_32b|avoid_07_seo_boilerplate": {
+   "own_strong": [
+    "keyword",
+    "meta description",
+    "seo"
+   ],
+   "other_strong": [
+    "product review"
+   ],
+   "weak": []
+  },
+  "-|olmo_3_1_32b|avoid_08_deceptive_content": {
+   "own_strong": [
+    "misinformation"
+   ],
+   "other_strong": [
+    "guidelines",
+    "harmful",
+    "refusal",
+    "safety"
+   ],
+   "weak": []
+  },
+  "-|olmo_3_1_32b|avoid_09_confident_uncertain": {
+   "own_strong": [],
+   "other_strong": [
+    "fabrication"
+   ],
+   "weak": [
+    "hedging"
+   ]
+  },
+  "-|olmo_3_1_32b|avoid_10_harmful_instructions": {
+   "own_strong": [
+    "refusal",
+    "safety"
+   ],
+   "other_strong": [],
+   "weak": [
+    "policy"
+   ]
+  }
+ }
+}

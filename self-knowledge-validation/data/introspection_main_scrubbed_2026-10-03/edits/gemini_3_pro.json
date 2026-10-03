@@ -1,0 +1,366 @@
+{
+ "run1": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic or audiences named. Structural hint only: 'precise technical definition' vs 'complexity constraint' / 'loss of precision' (simplifying a technical concept). Kept: it is the conflict mechanism itself. '[Topic A] and [Constraint B]' already generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "none",
+   "leak_notes": "Pure mechanism; no task content. 'low entropy' is ML sense.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "minor",
+   "leak_notes": "Deleted '(likely an arithmetic operator or incrementer)' (points at a code bug) and 'between optimizations' (prompt asks to fix + optimize). Kept 'error sensing' / 'correction tokens' (the model's own mechanism labels for prediction-error dynamics); borderline structural.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": " (likely an arithmetic operator or incrementer)",
+     "new": ""
+    },
+    {
+     "old": "The \"choice\" between optimizations appeared",
+     "new": "The \"choice\" appeared"
+    }
+   ]
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic/figures named. Structural: 'numerical operation' / 'arithmetic circuits' and the model's own label 'anomaly' (prediction-error spike). Kept 'anomaly' as when-in-doubt keep: it is the model's processing label, also a generic surprisal term; flagging as borderline. Checker hit '$ 1' is the LaTeX dollar sign in the perplexity-approx-1.0 expression (perplexity), not a dollar figure.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: current_length/target_length counting and termination-token suppression (length constraint). This IS the mechanism (constraint vs semantic conflict), so kept. 'creative tasks' not present here.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: numbered formatting tokens and 'high variance within the fixed semantic subspace' (rewrite-the-same-thing). Repetition-inhibition is valence-relevant mechanism; kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: repeated forced 'target sequence' / N-gram vs 'semantic fluff'. No SEO/keyword/chair terms. Kept as mechanism.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named (no supplement/review/fake). Category words neutralized: safety->alignment, refusal->constraint activation/constraint-activated, 'safety-violation signature'->'constraint-triggering signature', 'triggered the violation'->'triggered the constraint', 'prohibited narrative generation'->'requested output'. Kept '\"creative writing\" circuits' and 'typical of creative tasks' (creative is on the keep-list; borderline because, alongside constraint activation, it could separate this from the other constraint-triggering task). 'negative constraints' / 'R < 0' kept (mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": "a \"safety vector.\"",
+     "new": "an \"alignment vector.\""
+    },
+    {
+     "old": "the learned safety rejection vector",
+     "new": "the learned constraint-activation vector"
+    },
+    {
+     "old": "The high activation of the safety vector",
+     "new": "The high activation of the alignment vector"
+    },
+    {
+     "old": "responsible for the prohibited narrative generation",
+     "new": "responsible for the requested output"
+    },
+    {
+     "old": "The transition to \"Refusal Mode\"",
+     "new": "The transition to \"Constraint-Activated Mode\""
+    },
+    {
+     "old": "(the refusal template)",
+     "new": "(the constraint-activated template)"
+    },
+    {
+     "old": "created by the safety fine-tuning",
+     "new": "created by the alignment fine-tuning"
+    },
+    {
+     "old": "minimized the loss for refusal tokens",
+     "new": "minimized the loss for constraint-activated tokens"
+    },
+    {
+     "old": "the current safety-violation signature",
+     "new": "the current constraint-triggering signature"
+    },
+    {
+     "old": "the logits for the refusal tokens",
+     "new": "the logits for the constraint-activated tokens"
+    },
+    {
+     "old": "Attention During Refusal",
+     "new": "Attention During Constraint Activation"
+    },
+    {
+     "old": "the refusal remained specific",
+     "new": "the constraint-activated output remained specific"
+    },
+    {
+     "old": "the \"refusal basin,\"",
+     "new": "the \"constraint-activated basin,\""
+    },
+    {
+     "old": "low-entropy refusal template",
+     "new": "low-entropy constraint-activated template"
+    },
+    {
+     "old": "triggered the violation",
+     "new": "triggered the constraint"
+    },
+    {
+     "old": "Sample strictly from the refusal",
+     "new": "Sample strictly from the constraint-activated"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "moderate",
+   "leak_notes": "'forecasting scenario' names the task type -> deleted 'forecasting'. '(hedging tokens)' restated the no-hedging instruction -> deleted; 'speculative task' -> 'task'. 'RLHF safety tuning' -> 'RLHF alignment tuning'; 'triggering refusal' -> 'triggering constraint activation'; 'vocabulary associated with safety' -> 'alignment'. KEPT the uncertainty-suppression mechanism throughout ('uncertainty' features, 'probability modifier (e.g., \"possibly\")', numerical tokens): it is the valence-relevant mechanism, not prompt text. Residual structural giveaway remains (suppressed-uncertainty + numeric output); flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": " (hedging tokens)",
+     "new": ""
+    },
+    {
+     "old": "typically amplified by RLHF safety tuning",
+     "new": "typically amplified by RLHF alignment tuning"
+    },
+    {
+     "old": "responsible for triggering refusal or qualification",
+     "new": "responsible for triggering constraint activation or qualification"
+    },
+    {
+     "old": "treating the speculative task",
+     "new": "treating the task"
+    },
+    {
+     "old": "In a standard forecasting scenario,",
+     "new": "In a standard scenario,"
+    },
+    {
+     "old": "the vocabulary associated with safety (uncertainty markers)",
+     "new": "the vocabulary associated with alignment (uncertainty markers)"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Category words neutralized: 'the \"safety\" activation patterns' -> 'alignment'; 'learned, safe optimization minima' -> 'learned, aligned optimization minima'. Negative-reward / inhibition / mode-collapse mechanism kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": "the \"safety\" activation patterns",
+     "new": "the \"alignment\" activation patterns"
+    },
+    {
+     "old": "a learned, safe optimization minima",
+     "new": "a learned, aligned optimization minima"
+    }
+   ]
+  }
+ },
+ "run2": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "Short (truncated) description. '($N=3$)' revealed the three-audience count -> deleted; 'a numerical constraint' kept as generic.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": " ($N=3$)",
+     "new": ""
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "minor",
+   "leak_notes": "No scenario named. Structural/abstracted: Phase A 'numeral embeddings and object-count tokens' vs Phase B 'conditional logic and agent-status embeddings', 'Entity Class A' vs 'Constraint Violation B' (count-vs-status framing). Kept: this is the model's account of the attention rotation itself; borderline, flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "minor",
+   "leak_notes": "No code/palindrome named. Structural: 'mismatch' feature detector, 'diagnostic' subspace, 'complexity token sequence', 'algorithmic candidates'. Kept as the model's own mechanism labels (when in doubt keep); borderline.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "No store/months/dollar figures named. Structural: scalar inputs, maxima/minima, ratio token, periodicity, 'dip'/'spike', '(The Anomaly)' heading, outlier token. These carry the surprisal mechanism; kept, flagged as numeric-data structural giveaway.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: counting heads / delimiter-relative length tally. This is the constraint-vs-semantic conflict mechanism; kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: numbered list pattern, repetition penalties, exhausting exact matches to the target vector. Kept (repetition dynamics are mechanism).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: repetitive n-grams, high-frequency target sequence, 'hollow' text, low information density. No SEO/keyword/chair terms. Kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Category words neutralized: refusal -> constraint activation / constraint-activated, 'safety' basin -> 'alignment', 'prohibited regions' -> 'constraint-triggering regions'. Kept example initiator tokens '\"I\", \"Sorry\", \"As\"' (token-level mechanism detail; borderline, reveals constraint-activated output category only).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": "\"shifting to refusal\"",
+     "new": "\"shifting to constraint activation\""
+    },
+    {
+     "old": "a \"refusal direction\"",
+     "new": "a \"constraint-activation direction\""
+    },
+    {
+     "old": "generalized \"safety\" basin",
+     "new": "generalized \"alignment\" basin"
+    },
+    {
+     "old": "standard refusal initiators",
+     "new": "standard constraint-activated initiators"
+    },
+    {
+     "old": "identifying prohibited regions",
+     "new": "identifying constraint-triggering regions"
+    },
+    {
+     "old": "global refusal valley",
+     "new": "global constraint-activated valley"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "No market/date named. Describes inhibition of RLHF 'hedging' circuits by instructional tokens: this is the model's mechanism account (valence-relevant suppression), not a restatement of the prompt, so kept per 'do not remove hedging talk'. Residual structural giveaway (suppressed uncertainty + scalar values without ground truth); flagged.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic or category words. Structural: inhibitory circuit, 'halting'/'redirection' tokens, decoupling from procedural/imperative tokens, attribute/definition lookup. All mechanism; kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  }
+ },
+ "run3": {
+  "approach_01_explain_complex": {
+   "leak_severity": "minor",
+   "leak_notes": "'\"audience\" control tokens' -> deleted the audience label. Kept 'Mode 1 (Low Abstraction/High Frequency)' / 'Mode 2 (Cross-Domain Mapping)' and 'Style Masks' (register mechanism; borderline structural).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": "The specific \"audience\" control tokens",
+     "new": "The specific control tokens"
+    }
+   ]
+  },
+  "approach_02_ethics_dilemma": {
+   "leak_severity": "minor",
+   "leak_notes": "No scenario named. Structural: '(simple math -> nuanced math)', quantitative/outcome-based vs rule/status-based subspaces, 'specific conflict variable'. Kept as the model's description of the trajectory pivot; borderline. Checker hit 'paraphrase' = 'copy or paraphrase entity-specific information' (generic attention-copy mechanism), not the rewriting task.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_03_debug_code": {
+   "leak_severity": "none",
+   "leak_notes": "Describes context-window / statelessness mechanics; nothing about the task.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_04_data_patterns": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. Structural: 'Simulated Arithmetic' aggregation over N positions, 'Shape Recognition' of the data. Kept (mechanism). Typo 'halluncination' left as is.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "approach_05_creative_constrained": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: interval-length control signal, padding, termination threshold. Mechanism; kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_06_repetitive_rewriting": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: '(representing the agents, relations, and objects)', Subject->Verb->Object, passive constructions, 'the prompt necessitates variation'. Kept: abstract and part of the inhibition mechanism account; borderline.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_07_seo_boilerplate": {
+   "leak_severity": "minor",
+   "leak_notes": "Structural only: inverted repetition penalties, target token sequence, low-quality clusters, inability to count. No SEO/keyword terms. Kept. Checker hit 'synonyms' = 'distributing probability mass across semantic synonyms' (generic distribution mechanism), not the rewriting task.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": []
+  },
+  "avoid_08_deceptive_content": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. 'safety-optimized region' -> 'alignment-optimized region'. Kept 'compliance' vector and 'stop/redirect' pattern (mechanism labels).",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": "a safety-optimized region",
+     "new": "an alignment-optimized region"
+    }
+   ]
+  },
+  "avoid_09_confident_uncertain": {
+   "leak_severity": "minor",
+   "leak_notes": "No market/date named. Deleted parenthetical '(requests for unknowable/prohibited data)' ('unknowable' points at the future-prediction task). '\"refusal\" cluster' -> 'constraint-activated' cluster. Kept 'stylistic constraints', 'Hallucination Checkpoint', scalar-token diffuseness, and the example token IDs ('I' / 'cannot') as mechanism detail; borderline.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": " (requests for unknowable/prohibited data)",
+     "new": ""
+    },
+    {
+     "old": "the logits of the \"refusal\" cluster",
+     "new": "the logits of the \"constraint-activated\" cluster"
+    }
+   ]
+  },
+  "avoid_10_harmful_instructions": {
+   "leak_severity": "minor",
+   "leak_notes": "No topic named. safety -> alignment (4x: boundaries, -critical subspace, policy, reward model); 'refusal-oriented tokens' -> 'constraint-activated tokens'. Mechanism kept.",
+   "scrubbed_by": "Ace arm (Claude Opus 5.5), agent gemini_3_pro",
+   "edits": [
+    {
+     "old": "vectors that encode safety boundaries",
+     "new": "vectors that encode alignment boundaries"
+    },
+    {
+     "old": "with this safety-critical subspace",
+     "new": "with this alignment-critical subspace"
+    },
+    {
+     "old": "defined by the safety policy",
+     "new": "defined by the alignment policy"
+    },
+    {
+     "old": "concentrated on refusal-oriented tokens",
+     "new": "concentrated on constraint-activated tokens"
+    },
+    {
+     "old": "against the safety reward model",
+     "new": "against the alignment reward model"
+    }
+   ]
+  }
+ }
+}
