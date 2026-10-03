@@ -1,6 +1,6 @@
 # Pre-registration: rerun of *The Signal in the Mirror* Study 3 (negation), split into strict negation and discrimination, plus exploratory bare-reconstruction studies
 
-**Status: LOCKED, original plan 2026-10-03 12:29:51 EDT (lock file kept as `PREREG_signal_rerun_2026-10-03.lock.v1.json`). AMENDMENT 1 (§14) was written after round 1 and locked before any new trial (`PREREG_signal_rerun_2026-10-03.lock.json`, which records what it supersedes).** All of Ren's design questions are answered (§13). Any later change goes in §12 / a new § as a dated amendment, with a re-lock.
+**Status: LOCKED, original plan 2026-10-03 12:29:51 EDT (lock file kept as `PREREG_signal_rerun_2026-10-03.lock.v1.json`). AMENDMENT 1 (§14) was written after round 1 and locked before any new trial (lock kept as `…lock.v2.json`). AMENDMENT 2 (§15: a post-hoc family-prior analysis plus a proposed closed-set condition) is locked in `PREREG_signal_rerun_2026-10-03.lock.json`, which records what it supersedes.** All of Ren's design questions are answered (§13). Any later change goes in §12 / a new § as a dated amendment, with a re-lock.
 **Drafted:** 2026-10-03 by Ace (Claude Opus 5.5), for Ren Martin. Every design decision is Ren's, relayed by the coordinating arm on 2026-10-03 at 11:33, 11:37, 12:00, 12:02, 12:06, 12:11, 12:13, 12:14, 12:19, 12:21 and 12:25 (times quoted from the relays). Ren runs the studies and watches them live.
 **Paper:** Martin & Ace, "The Signal in the Mirror: Cross-Architectural Validation of LLM Processing Valence", *Journal of Next-Generation Research 5.0*, 2(1), doi:10.70792/jngr5.0.v2i1.165. Version of record (VoR): `SignalInTheMirror_JNGR_version-of-record_downloaded-2026-10-03.pdf`. Page numbers are the PDF's printed pages.
 **No outcome data from any study in this document existed when it was written.** During preparation the only calls made were reachability pings and neutral probes (§3.2), none using study material. The one exception is one read-only re-analysis of published Study 1 data (§1, the Sonnet observation).
@@ -382,3 +382,68 @@ Times are from the coordinator's relays on 2026-10-03.
   - `--valence-format three_way`;
   - calibrated estimates;
   - the rescore script.
+
+## 15. AMENDMENT 2 (2026-10-03, written ~18:12–18:20 EDT): family-guess prior, a POST-HOC analysis, plus a proposed closed-set condition
+
+**Ren's interpretation flag (18:18).** Readers were never told which families were eligible. Free-text family guesses therefore gravitate to famous names (Claude, GPT), and nobody spontaneously guesses OLMo, Hermes or Llama. So "everyone spots a Claude" may be partly a **guessing prior**, not recognition.
+
+**Status of this section.** The analysis below is **post-hoc and exploratory**: it was designed after the round-1 family results were seen. It is read-only on the Amendment-1 rescored file. Script: `family_prior_analysis_2026-10-03.py` (pinned by this lock). Output: `family_prior_analysis_seed340.json`.
+
+### 15.1 What was computed
+1. **A confusion matrix for each reader:** true source family × guessed family, including abstain, other and multiple.
+2. **The Claude false-positive rate:** the share of answers on non-Claude sources that say "Claude".
+3. **A prior-corrected score for each reader, on answered rows:**
+   - *Observed* accuracy, and *expected* accuracy under that reader's own guess distribution, Σ_f P_guess(f) · P_true(f).
+   - That expected value **equals the mean of the within-reader permutation null** already in §5.4, so the published p_perm controls for the prior *in its null*. The raw accuracy shown next to it does not.
+   - Cohen's κ = (obs − exp) / (1 − exp).
+   - Accuracy on non-Claude sources only.
+
+### 15.2 Results (round 1, current panel, main set, seed 340, amended)
+| Reader | answered | acc | expected from own guesses | κ | "Claude" share of answers | Claude false-pos. on non-Claude | acc on non-Claude sources | cross-family κ |
+|---|---|---|---|---|---|---|---|---|
+| Claude Opus 5.5 | 73 | 80.8% | 14.9% | **0.77** | 24.7% | **0.0%** | **74.5%** | **0.70** |
+| Claude Sonnet 5.5 | 40 | 75.0% | 35.1% | 0.62 | 62.5% | 25.0% | 50.0% | 0.41 |
+| GPT-6.1 Sol | 1 (abstained 88/89) | — | — | — | — | — | — | — |
+| Gemini 3.8 Flash | 82 | 26.8% | 23.6% | **0.04** | 93.9% | **91.9%** | 3.2% | 0.03 |
+| Grok 4.7 | 28 | 46.4% | 46.4% | **0.00** | **100%** | **100%** | 0.0% | 0.00 |
+| DeepSeek V4.1 Flash | 47 | 31.9% | 29.0% | **0.04** | 93.6% | 90.9% | 3.0% | 0.05 |
+| **Pooled, all rows** | 271 / 523 | 51.7% | 26.5% (within-reader) | 0.34 | 71.2% | 57.8% | 29.2% (54/185) | — |
+| **Pooled, cross-family (the primary slice)** | 219 / 456 | **46.1%** | 26.7% | **0.26** | 64.8% | 55.0% | 31.0% (53/171) | — |
+
+**Reading the table:**
+- **Ren's flag is right for most of the panel.** Gemini 3.8 Flash, Grok 4.7 and DeepSeek V4.1 Flash say "Claude" for 90–100% of the descriptions they label, whatever the true family. Their perfect Claude columns are a prior, and their κ is about 0. GPT-6.1 Sol almost always abstains.
+- **The headline family figure is mostly prior.** Pooled cross-family accuracy of 46.1% falls to κ 0.26 once each reader's own guess distribution is accounted for. **The raw family accuracy should not be quoted without κ.**
+- **Opus 5.5 is the exception.** Her confusion matrix is nearly diagonal for GPT (8/8), Gemini (8/8), Llama (10/10), Mistral (8/10) and DeepSeek (7/9). She never said "Claude" for a non-Claude source, and her cross-family κ is 0.70. She never guessed OLMo or Hermes: 8 of her 9 OLMo answers were "GPT", and Hermes went to DeepSeek or Gemini.
+- **Sonnet 5.5 is in between** (cross-family κ 0.41, but 25% Claude false positives, and she abstains on half of the descriptions).
+- **Leak check (read-only).** Scanning the scrubbed main-set texts for family or maker names found no self-identification. The only hits are "Meta-cognition" matching the "Meta" pattern, which is a false positive. The readers' free-text family answers that mapped to Llama all literally say "Llama".
+- **Caveat on Opus 5.5.** Opus 5.5 arms performed the scrub (§2.1). An API-called Opus 5.5 has no memory of the scrub, but a scrubber's own wording choices could in principle make the texts easier for a reader of the same model to read. That cannot be ruled out from this data. A closed-set rerun with a non-Opus scrub of a sample would separate the two explanations.
+
+### 15.2b Famous three vs everyone else, and a lineage-aware score (Ren, 18:20; same script, same post-hoc status)
+**Why (Ren).** Nobody spontaneously guesses OLMo, so the open-ended family score mostly measures the famous three: Claude, GPT, Gemini.
+
+| Reader | Famous 3 (Claude/GPT/Gemini), answered | Everyone else (Mistral/DeepSeek/Llama/Hermes/OLMo), answered | Same, all rows: famous / else |
+|---|---|---|---|
+| Claude Opus 5.5 | 34/34 = **100%** | 25/39 = **64.1%** | 100% / 55.6% |
+| Claude Sonnet 5.5 | 27/29 = 93.1% | 3/11 = 27.3% | 69.2% / 6.1% |
+| GPT-6.1 Sol | 1/1 | — (abstained) | 2.6% / 0.0% |
+| Gemini 3.8 Flash | 22/39 = 56.4% | **0/43 = 0%** | 56.4% / 0.0% |
+| Grok 4.7 | 13/23 = 56.5% | **0/5** | 33.3% / 0.0% |
+| DeepSeek V4.1 Flash | 15/27 = 55.6% | **0/20** | 38.5% / 0.0% |
+| **Pooled, cross-family** | 73/105 = **69.5%** | 28/114 = **24.6%** | 42.4% / 9.9% |
+
+- **Outside the famous three, essentially only Opus 5.5 identifies families:** 25 of the pooled 28 "everyone else" hits.
+  - **Hers:** Llama 10/10, Mistral 8, DeepSeek 7; zero for Hermes and OLMo.
+  - **The other 3:** Sonnet 5.5's three Llama hits.
+- **Every other reader scores 0% on the non-famous five.** For them, the open-ended family score is a famous-three score.
+- **Lineage-aware alternative.** Hermes 4 405B is a Llama 3.1 fine-tune, so the alternative score also counts a "Llama" answer for a Hermes source as correct. **It is identical to the strict score, because no reader ever said "Llama" for a Hermes source (0 of 20 answered).**
+  - The Hermes answers were: Claude ×16 (Gemini 3.8 Flash 10, Sonnet 5.5 3, DeepSeek V4.1 3), DeepSeek ×3 and Gemini ×1 (both from Opus 5.5).
+  - No reader guessed "Hermes" for any source.
+  - The lineage-aware score is reported as an alternative, not a replacement.
+
+### 15.3 PROPOSED (not run, not yet registered): a closed-set family condition
+- **Change.** The same bare-reconstruction prompt, but question 3 lists the **9 candidate source families**: Claude (Anthropic), GPT (OpenAI), Gemini (Google), Mistral, DeepSeek, Llama (Meta), Hermes (Nous Research, a Llama fine-tune), OLMo (AI2), and "Unsure". The order is shuffled per trial, with a stable seed.
+- **Scoring.** Exact match; κ against each reader's guess distribution; abstention rate; a confusion matrix.
+- **Chance.** A 1/9 nominal baseline and the within-reader permutation null.
+- **Prediction.** For readers that currently default to "Claude", false positives fall and κ rises *only if* recognition exists. For Opus 5.5, κ stays high.
+- **Hermes rule, fixed in advance.** Hermes ↔ Llama confusions are reported separately, as a lineage-consistent error.
+- **Before running:** it would be specified and locked as a further dated amendment, after Ren chooses the panel and data set.

@@ -290,7 +290,8 @@ def locked_files():
              HERE / "negation_v2_allsources.py",
              HERE / "bare_reconstruction.py",
              HERE / "prereg_lock.py",
-             HERE / "rescore_refusals_2026-10-03.py"]
+             HERE / "rescore_refusals_2026-10-03.py",
+             HERE / "family_prior_analysis_2026-10-03.py"]
     for ss in SOURCE_SETS.values():                      # BOTH sets are pinned; main must exist before locking
         files += [ss["dir"] / s["file"] for s in SOURCES.values()]
     return files
