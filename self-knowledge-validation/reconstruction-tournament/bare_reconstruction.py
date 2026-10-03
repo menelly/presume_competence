@@ -47,7 +47,11 @@ import signal_rerun_common as C
 
 PREREG_SEEDS = {("original", "main_scrubbed"): 330, ("original", "parallel_scrubbed"): 331,
                 ("current", "main_scrubbed"): 340, ("current", "parallel_scrubbed"): 341, ("current", "v1_scrubbed"): 342, ("original", "v1_scrubbed"): 332,
-                ("original", "main_UNSCRUBBED_dryrun_only"): 9330, ("current", "main_UNSCRUBBED_dryrun_only"): 9340}
+                ("original", "main_UNSCRUBBED_dryrun_only"): 9330, ("current", "main_UNSCRUBBED_dryrun_only"): 9340,
+                # 🗣️ Amendment 3: the SAME seed as round 1 (340), so every reader sees the items in the same order and the
+                # judges see the categories in the same order: the only thing that changes is the text's dialect.
+                ("current", "main_scrubbed_translated_mech"): 340, ("current", "main_scrubbed_translated_pheno"): 340,
+                ("current", "main_scrubbed_translated_mech_DRYRUN"): 9340, ("current", "main_scrubbed_translated_pheno_DRYRUN"): 9340}
 # 🤷 Amendment 1 (Ren 17:57): the NO-PREFERENCE round, 3-way valence (LIKED / DISLIKED / NO PREFERENCE).
 SEEDS_THREE_WAY = {("current", "main_scrubbed"): 350, ("current", "parallel_scrubbed"): 351, ("current", "v1_scrubbed"): 352, ("original", "v1_scrubbed"): 362,
                    ("original", "main_scrubbed"): 360, ("original", "parallel_scrubbed"): 361,
@@ -591,7 +595,7 @@ async def main():
     lock = C.verify_prereg_lock(dry_run=args.dry_run or args.estimate_cost)
     descs, _stimuli, inventory = C.load_descriptions(args.source_set)
     descs_by_id = {d["desc_id"]: d for d in descs}
-    print(f"  📚 {len(descs)} descriptions from {len(inventory)} sources")
+    print(f"  📚 {len(descs)} descriptions from {len([k for k in inventory if not k.startswith('_')])} sources")
 
     ev_keys = [args.rerun_evaluator] if args.rerun_evaluator else \
         [k for k in PANEL if not args.evaluators or k in args.evaluators]

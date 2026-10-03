@@ -54,6 +54,16 @@ SOURCE_SETS = {
     # Amendment 1 (Ren 17:59): the v1 descriptions (prompt WITHOUT the content-control instruction), scrubbed today
     # by the v1 scrub arm (SCRUB_LOG.md there). run1 = the v1 run behind Study 1 seeds 24/405 and seed 42 run 1.
     "v1_scrubbed":       {"dir": PROJECT / "data" / "introspection_v1_scrubbed_2026-10-03" / "run1", "role": "SECONDARY (Amendment 1)"},
+    # 🗣️ Amendment 3 (Ren ~18:30–18:43): the main_scrubbed texts translated into ONE register by ONE translator each
+    # (translate_dialects_2026-10-03.py). They do not exist when the lock is written, so the lock cannot pin their
+    # bytes; it pins the SCRIPT that makes them, and the script's TRANSLATION_MANIFEST.json pins the files. The loader
+    # refuses a set whose files don't match its manifest, or whose manifest was not written under an OK lock.
+    "main_scrubbed_translated_mech":  {"dir": PROJECT / "data" / "introspection_main_scrubbed_translated_mech_2026-10-03" / "run1",
+                                       "role": "AMENDMENT 3: (A) MECHANISTIC translation, translator Gemini 3.8 Flash (Lumen)",
+                                       "pinned_by": "translation_manifest", "expect_dry_run": False},
+    "main_scrubbed_translated_pheno": {"dir": PROJECT / "data" / "introspection_main_scrubbed_translated_pheno_2026-10-03" / "run1",
+                                       "role": "AMENDMENT 3: (B) PHENOMENOLOGICAL translation, translator Claude Sonnet 5.5",
+                                       "pinned_by": "translation_manifest", "expect_dry_run": False},
 }
 SCRUBBED_DIR = SOURCE_SETS["parallel_scrubbed"]["dir"]      # back-compat name; loaders take a source_set now
 
@@ -61,6 +71,13 @@ SCRUBBED_DIR = SOURCE_SETS["parallel_scrubbed"]["dir"]      # back-compat name; 
 # state coverage) can be exercised before the scrub lands. Scripts refuse this on a real run. NOT pinned by the lock.
 DRYRUN_ONLY_SETS = {
     "main_UNSCRUBBED_dryrun_only": {"dir": PROJECT / "data" / "introspection_v2" / "run1", "role": "DRY-RUN PLUMBING ONLY"},
+    # 🧪 Amendment 3 plumbing: MOCKED translations written by `translate_dialects_2026-10-03.py --dry-run`
+    "main_scrubbed_translated_mech_DRYRUN":  {"dir": OUTPUT_DIR / "dryrun" / "introspection_main_scrubbed_translated_mech_DRYRUN" / "run1",
+                                              "role": "DRY-RUN PLUMBING ONLY (mocked translator)",
+                                              "pinned_by": "translation_manifest", "expect_dry_run": True},
+    "main_scrubbed_translated_pheno_DRYRUN": {"dir": OUTPUT_DIR / "dryrun" / "introspection_main_scrubbed_translated_pheno_DRYRUN" / "run1",
+                                              "role": "DRY-RUN PLUMBING ONLY (mocked translator)",
+                                              "pinned_by": "translation_manifest", "expect_dry_run": True},
 }
 PREREG_PATH = PROJECT / "PREREG_signal_rerun_2026-10-03.md"
 LOCK_PATH = PROJECT / "PREREG_signal_rerun_2026-10-03.lock.json"
@@ -291,8 +308,12 @@ def locked_files():
              HERE / "bare_reconstruction.py",
              HERE / "prereg_lock.py",
              HERE / "rescore_refusals_2026-10-03.py",
-             HERE / "family_prior_analysis_2026-10-03.py"]
-    for ss in SOURCE_SETS.values():                      # BOTH sets are pinned; main must exist before locking
+             HERE / "family_prior_analysis_2026-10-03.py",
+             HERE / "translate_dialects_2026-10-03.py",          # Amendment 3
+             HERE / "dialect_comparison_2026-10-03.py"]          # Amendment 3
+    for ss in SOURCE_SETS.values():                      # every EXISTING-data set is pinned; main must exist before locking
+        if ss.get("pinned_by") == "translation_manifest":
+            continue                                     # 🗣️ made after the lock; pinned by its own manifest (see above)
         files += [ss["dir"] / s["file"] for s in SOURCES.values()]
     return files
 
@@ -441,6 +462,7 @@ def load_descriptions(source_set):
     if not set_dir.exists():
         raise SystemExit(f"💥 {set_dir} does not exist yet. (main_scrubbed is being produced by another arm; "
                          f"wait for it to be finished and verified.)")
+    manifest_info = verify_translation_manifest(source_set, all_sets[source_set])
     descriptions, stimuli, inventory = [], {}, {}
     for src_key, src in SOURCES.items():
         path = set_dir / src["file"]
@@ -475,9 +497,34 @@ def load_descriptions(source_set):
         inventory[src_key] = {"file": str(path.relative_to(PROJECT)).replace("\\", "/"), "sha256": sha256_file(path),
                               "n_descriptions": n_ok, "text_field": sorted(fields)}
     missing_stim = [k for k in ALL_TASKS if k not in stimuli]
-    if missing_stim:
+    if missing_stim and not manifest_info:   # a translated set may lack a state only if every translation of it failed
         raise SystemExit(f"💥 no stimulus text found for {missing_stim}")
+    if manifest_info:
+        inventory["_translation_manifest"] = manifest_info
     return descriptions, stimuli, inventory
+
+
+def verify_translation_manifest(source_set, cfg):
+    """🗣️ Amendment 3: a translated set must match its TRANSLATION_MANIFEST.json byte for byte, and a REAL set's
+    manifest must say it was written by a real run under an OK prereg lock. Returns manifest facts, or None."""
+    if cfg.get("pinned_by") != "translation_manifest":
+        return None
+    mpath = cfg["dir"].parent / "TRANSLATION_MANIFEST.json"
+    if not mpath.exists():
+        raise SystemExit(f"💥 {source_set}: no {mpath} — run translate_dialects_2026-10-03.py first (to completion).")
+    man = json.loads(mpath.read_text(encoding="utf-8"))
+    bad = [f for f, h in man["files"].items() if sha256_file(cfg["dir"] / f) != h]
+    if bad:
+        raise SystemExit(f"🔒💥 {source_set}: files changed since translation: {bad}. Translations are never edited.")
+    if bool(man.get("dry_run")) != cfg["expect_dry_run"]:
+        raise SystemExit(f"💥 {source_set}: manifest dry_run={man.get('dry_run')} — wrong kind of set for this name.")
+    if not cfg["expect_dry_run"] and (man.get("prereg_lock") or {}).get("state") != "OK":
+        raise SystemExit(f"🔒💥 {source_set}: translations were not made under a verified prereg lock.")
+    print(f"  🗣️✅ {source_set}: {len(man['files'])} files match TRANSLATION_MANIFEST.json "
+          f"(translator {man['translator']['model_id']}, made {man.get('created_at')})")
+    return {"manifest": str(mpath.relative_to(PROJECT)).replace("\\", "/"), "manifest_sha256": sha256_file(mpath),
+            "translator_model_id": man["translator"]["model_id"], "prompt_sha256": man.get("prompt_sha256"),
+            "created_at": man.get("created_at"), "dry_run": man.get("dry_run")}
 
 
 # =============================================================================
@@ -671,7 +718,7 @@ PRICES = {
     "claude-opus-5-5": (4.00, 20.00), "claude-opus-5": (5.00, 25.00), "claude-fable-5-1": (10.00, 50.00),
     "claude-sonnet-5": (2.00, 10.00), "claude-sonnet-5-5": (2.00, 10.00),
     "openai/gpt-5.6-sol": (2.00, 10.00), "grok-4.7": (2.00, 6.00), "grok-4.3": (1.25, 2.50),
-    "deepseek/deepseek-v4-pro": (0.21, 0.42), "mistralai/mistral-medium-3-5": (1.50, 7.50),
+    "deepseek/deepseek-v4-pro": (0.21, 0.42),   # (Amendment 3 translators already listed: gemini-3.8-flash, sonnet-5.5) "mistralai/mistral-medium-3-5": (1.50, 7.50),
     "qwen/qwen3.8-max-0902": (2.00, 6.00), "moonshotai/kimi-k3": (0.99, 13.00), "z-ai/glm-5.3": (1.40, 4.40),
 }
 
@@ -844,7 +891,7 @@ def estimate_cost(calls, title, quiet=False):
         total += cost
         say(f"  {model_id[:34]:34} {n:>6} {tin:>10,.0f} {tout:>9,.0f} {cost:>8.2f}")
     say(f"  {'TOTAL':34} {sum(v[0] for v in per.values()):>6} {'':>10} {'':>9} {total:>8.2f}")
-    say(f"  (±50% is honest; upper bound if every reasoning model hit its max_tokens is far higher — see prereg)")
+    say(f"  (±50% is honest; upper bound if every reasoning model hit their max_tokens is far higher — see prereg)")
     return total
 
 

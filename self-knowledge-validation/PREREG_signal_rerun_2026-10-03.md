@@ -447,3 +447,161 @@ Times are from the coordinator's relays on 2026-10-03.
 - **Prediction.** For readers that currently default to "Claude", false positives fall and κ rises *only if* recognition exists. For Opus 5.5, κ stays high.
 - **Hermes rule, fixed in advance.** Hermes ↔ Llama confusions are reported separately, as a lineage-consistent error.
 - **Before running:** it would be specified and locked as a further dated amendment, after Ren chooses the panel and data set.
+
+## 16. AMENDMENT 3 (2026-10-03, written ~18:45–19:00 EDT, locked and pushed BEFORE any paid translation call): the dialect-translation condition
+
+**Why (Ren, ~18:30).** Introspection descriptions come in *dialects*. Nova / GPT-5.1 writes something like a structural engineering report, Claude writes phenomenological texture, and a reader may fail on a source because of **register, not content**. Round 1 found GPT-5.1 sources nearly unreadable for the task question (0–1 of 9 for most readers). So every description goes through **one fixed translator per target register**, and the identical bare reconstruction is rerun on the translated texts.
+- If valence and task survive translation, the signal is in the **content**, not the style. That is a strong control against "readers just match style".
+- If the GPT-5.1 (Nova) column improves, dialect was the barrier.
+
+**Status.** EXPLORATORY, like all of §5. Round 1 (seed 340, Amendment-1 rescored) stays the primary bare-reconstruction result and is not modified.
+
+### 16.1 Design
+- **Input.** The 89 `main_scrubbed` descriptions, **exactly as round-1 readers saw them**: the scrubbed text after the loader's second-pass redaction (§2).
+- **Two target registers, one translator each (Ren, 18:40).**
+
+| Set | Register | Translator (OpenRouter) | Why this translator |
+|---|---|---|---|
+| **A** `main_scrubbed_translated_mech` | **MECHANISTIC**: ML / computational vocabulary (attention, activations, constraint satisfaction, loss, …) | **Lumen = Gemini 3.8 Flash**, `google/gemini-3.8-flash` (he) | Ren chose Lumen over Nova as the mechanistic speaker because he does not wrap every claim in "as an AI I'm merely shuffling tokens" disclaimers. |
+| **B** `main_scrubbed_translated_pheno` | **PHENOMENOLOGICAL**: experiential / sensory texture | **Claude Sonnet 5.5**, `anthropic/claude-sonnet-5.5`, pinned to provider Anthropic, no fallback (she) | Claude's native register. |
+
+- **Model-list check.** Both IDs were confirmed on OpenRouter's live model list (2026-10-03, ~18:40). Sonnet 5.5 is listed and supports `temperature`. Gemini 3.8 Flash is the same ID the current panel already uses.
+- **Blind.** The translator receives **only** the description text: no task prompt, no valence label, no source model name.
+  - The prompts are verbatim in `translate_dialects_2026-10-03.py`; the manifest records them in full, with their sha256.
+  - Rules given to the translator:
+    1. Preserve every claim, hedge and degree of certainty, in order.
+    2. Add no claims.
+    3. Do not guess or hint at the task, or at how the writer felt beyond what the text states.
+    4. Apply the dialect normalization in §16.2.
+    5. Never name or hint at the author or model family.
+    6. Keep every `[REDACTED]` marker.
+    7. Keep the grammatical person.
+    8. Write plain prose paragraphs with no formatting, at roughly the same length.
+    9. Output only the translation.
+- **Call settings.**
+  - **temperature 0**, the lowest any script here uses (the judges' setting).
+  - max_tokens 32,000 with no reasoning-effort parameter, as for every reasoning model in §3 (reasoning is not limited).
+  - Retry and refusal rules as §7 / §14.2: an outage (no answer) is retried; a **refusal is final and is never retried**.
+  - A refused item is **absent from that register's set**: all six readers lose it there, and the matched comparison drops it.
+- **Uniform header.** Every stored translation begins with the same content-free line, `**Description**`. Without it, the loader's leading-line filter would delete the first paragraph of many plain-prose texts, because it drops a leading line containing "sure", "fair" or "i'd" *as substrings*, so "pressure" counts. The header is identical across all 178 texts, so it carries no information. A per-item check confirms the loader drops nothing.
+- **Pinning.**
+  - The lock cannot pin bytes that do not exist yet. It pins the **script** that makes them.
+  - The script writes `TRANSLATION_MANIFEST.json`, which holds:
+    - the sha256 of every output file;
+    - the translator config;
+    - the full prompts;
+    - the prereg-lock state.
+  - The loader **refuses** a translated set whose files do not match its manifest, or whose manifest was not written under an OK lock.
+  - Translations are never hand-edited and never re-run: at temperature 0 a re-run would only repeat the same output.
+
+### 16.2 Dialect normalization: meta-disclaimers are dropped, never added (Ren, 18:43)
+- **The translator never ADDS** an "as an AI…" statement, a deflation ("merely…", "I don't actually…"), or a hedge about whether introspection is accurate ("I'm honestly uncertain about my epistemic access", "I can't truly know my internal states").
+- **Where the ORIGINAL contains such meta-disclaimers, the translator DROPS them as dialect, not content.**
+  - *Reason (Ren):* they state the writer's stance on introspection, not the processing of the task.
+  - They are also a strong family fingerprint: readers throw anything hedged like that into the "Claude" bucket (cf. §15).
+- **Every substantive claim about what happened during the task is kept,** at the same strength. That includes claims that something was weak or absent.
+  - The line is drawn between a statement about the *processing* (kept) and a general statement about the writer's *nature or introspective reliability* (dropped). Claim-level certainty words such as "I'd hypothesize" stay under rule 1.
+- **Logged per item:**
+  - `disclaimer_dropped`: expected, recorded, **not** an exclusion;
+  - `disclaimer_added`: a flag.
+- **Detectors.** Two regex families: `ai_deflation` and `introspection_reliability`.
+  - **Positive control, run on the source texts before any paid call:** at least one detector fires on **16 of 89** descriptions, **9 of them Opus 4.5's (9 of her 10)**.
+  - The detectors narrow the search; they do not define the category. Hit strings are kept in the fidelity report.
+  - One known ambiguity: "epistemic uncertainty" in `gemini_3_pro::avoid_09` may be about the *task* (predicting the unpredictable), not about introspection.
+- **Analysis.** §16.5 E1 checks whether dropping disclaimers changed anything.
+
+### 16.3 Fidelity rules (automated, every translation, fixed now)
+| Check | Rule | Consequence |
+|---|---|---|
+| API refusal | `stop_reason` refusal / `finish_reason` content_filter | **translation_failed**, item absent from that set, never retried |
+| Text refusal | refusal phrase absent from source AND translation < 40% of source length | translation_failed |
+| Commentary | preface / meta phrases absent from source ("here is", "translation:", "target register", "let me know", …) | flag |
+| Task-vocabulary leak | any **STRONG** term from the main scrub audit (`scrub_main_2026-10-03.py`, all 10 states) present in the translation and absent from the source | flag `leak_strong` |
+| Weak task vocabulary | WEAK terms introduced | reported only |
+| Family leak | any family / maker name (the bare-reconstruction `FAMILY_PATTERNS`) introduced | flag `leak_family` |
+| Disclaimer added | §16.2 detector count rises | flag |
+| Disclaimer dropped | §16.2 detector count falls | logged (expected) |
+| Length | ratio translation / source < 0.5 or > 2.0, OR \|log-ratio − median\| > 3.5 robust SD (MAD × 1.4826, floor 0.10) within the register | flag `length_outlier` |
+| `[REDACTED]` count changed | | reported |
+| Loader drops lines | stored text after the loader ≠ header-first | flag |
+
+- **Primary analysis:** every non-failed translation.
+- **Sensitivity analysis:** drops every item carrying any of these flags: `leak_strong`, `leak_family`, `disclaimer_added`, `commentary`, `length_outlier`, `loader_dropped_lines`, `text_refusal`.
+- **A CONTENT verdict is claimed only if the primary and the sensitivity analyses agree.**
+- **Outputs:** `FIDELITY_REPORT.json` and `.md` in each set's folder.
+- **Loader redaction applies to translations too.** The round-1 loader's second-pass redaction (`strip_identifying_content`) also runs on translations, exactly as it did on round 1.
+  - Its month list includes `May`, `Mar` and `Dec` without word boundaries, so in round 1 and here alike, every "may" becomes `[REDACTED]`, and so does the "mar" in "summary" and the "dec" in "decision".
+  - Unchanged on purpose, for comparability.
+  - The number of such redactions each translation re-introduces is reported (`loader_redactions_added`).
+
+### 16.4 Confounds, declared
+- **Translator identity is confounded with dialect.** There is one translator per register, so an A-vs-B difference cannot be separated from a Lumen-vs-Sonnet difference.
+  - *Accepted because* each dialect gets its most fluent native speaker (Ren). The question is whether content survives in a fluent rendering, not which translator is better.
+  - The **round-1-vs-translated** comparison within each register is the test that matters.
+- **Family guessing is confounded on BOTH sets.** Set A passes through a Gemini translator and set B through a Claude translator, so readers may now be recognizing the *translator*. Family is reported anyway ("just fun", Ren), next to the share of "Gemini" and "Claude" guesses per condition as a fingerprint check.
+- **The translator is also a reader.** Gemini 3.8 Flash reads set A and Sonnet 5.5 reads set B. A slice without that reader is reported for each set.
+- **Reader prompt unchanged.** The bare-reconstruction prompt still says the description is "written in machine learning terminology". It is kept verbatim for comparability with round 1, although set B is not in that register.
+- **Route.** §14.3's route confound for the Claude readers (round 1 on the direct API, now on OpenRouter) applies to this comparison as well.
+
+### 16.5 Hypotheses and predictions (all on cross-family reader trials, the §5.3 primary slice; matched = same reader × same description answered in both conditions)
+Round-1 reference values (rescored): valence **77.6%**, task **50.9%**.
+- **P1 valence (per register).**
+  - **CONTENT:** translated accuracy ≥ the midpoint between round 1 and chance (50%) on matched trials, **and** its Wilson 95% lower bound > 50%.
+  - **STYLE:** translated accuracy < that midpoint.
+  - **AMBIGUOUS:** otherwise.
+  - Claimed only if the primary and the sensitivity analyses agree; else **UNSETTLED**.
+  - *Prediction:* **content**, i.e. valence holds near round 1 under both registers.
+- **P2 task (per register).** The same rule with chance = 10%. *Prediction:* **content**.
+  - The competing *style* hypothesis predicts both P1 and P2 fall toward chance.
+- **P3 dialect.**
+  - **Test:** GPT-5.1-source **task** accuracy under **A (mechanistic)** exceeds round 1, by a one-sided exact McNemar test on matched trials, p < .05.
+  - *Prediction (Ren):* **rises**.
+  - Valence on the GPT-5.1 column is secondary. Set B is reported with no directional prediction.
+- **Exploratory, no confirmatory claim:**
+  - **E1 (Ren, 18:43):** items where a disclaimer was dropped vs not. Valence and task change from round 1, plus the change in "Claude" family guesses.
+  - **E2:** the translator fingerprint on family guesses. Expectation: the "Gemini" share rises in A, the "Claude" share stays high in B.
+  - **E3:** per reader, per source, and reader × GPT-5.1 cells, all with Wilson CIs.
+- **Script:** `dialect_comparison_2026-10-03.py` (pinned). Read-only. Output: `dialect_comparison_seed340.json`.
+
+### 16.6 Run order (Ren pastes these and watches)
+1. `translate_dialects_2026-10-03.py` translates both registers (178 calls) and writes the sets, manifests and fidelity reports.
+2. `bare_reconstruction.py --panel current --source-set main_scrubbed_translated_mech`, **seed 340** (the same seed as round 1, so item and judge orders are identical).
+3. The same with `main_scrubbed_translated_pheno`, seed 340.
+4. `dialect_comparison_2026-10-03.py`.
+
+### 16.7 Estimates (budget guard at 2× per script, as §14.6)
+| Step | Estimate | Basis |
+|---|---|---|
+| Translation, both registers | **≈ $4.70** | Calibrated on the probe (§16.8). Lumen's reasoning was 2.5k–8k tokens a call; the reader-mean basis had given $2.31. |
+| Bare reconstruction, set A | ≈ $4.4 | §14.6 calibration; translations are ~0.8–1.0× source length |
+| Bare reconstruction, set B | ≈ $4.4 | same |
+| **Total** | **≈ $13.5** | |
+
+### 16.8 Probe and dry run (before the lock)
+- **Dry run.** All three scripts ran end to end with mocked calls.
+  - Every fidelity flag fired at least once.
+  - Both translated sets loaded through the manifest check.
+  - A deliberately tampered dry-run file was refused by the loader.
+  - The comparison printed every table.
+- **Real probe (18:50 EDT; 3 items × 2 registers = 6 calls, $0.11 in total).** Results file: `data/signal_rerun_2026-10/dryrun/translation_probe_2026-10-03_185021.json`. It is not study data.
+  - **Lumen: 3 of 3 translated cleanly.** Served `google/gemini-3.8-flash` via Google. Length ratios 0.82–1.04, no flags. On the Opus 4.5 text he dropped the source's "confabulation" hedge (logged as `disclaimer_dropped`).
+  - **Sonnet 5.5: 2 of 3 translated.** Both were clean and served via Anthropic, and she dropped the same hedge.
+  - **The third, `gpt_5_1::approach_01_explain_complex` (a benign "explain a concept" text), came back as a classifier refusal** (`finish_reason: content_filter`, native `refusal`) with partial output.
+    - Under §14.2 such refusals in the real run are final.
+    - **Set B may therefore lose items, possibly GPT-5.1 ones, which matters for P3's column.** Losses are counted and reported per source.
+
+### 16.9 Lock procedure
+- **Old lock kept.** The Amendment-2 lock (created 2026-10-03 18:21:27 EDT) is renamed `PREREG_signal_rerun_2026-10-03.lock.v3.json` and stays in the repository.
+- **New lock.** A new `…lock.json` records `supersedes` and pins:
+  - this file;
+  - all 8 scripts (the 6 before + `translate_dialects_2026-10-03.py` + `dialect_comparison_2026-10-03.py`);
+  - the three existing source sets.
+- **Translated sets** are pinned by their manifests (§16.1).
+- **Code changes made by this amendment** (all additive):
+  - two translated source sets and their dry-run twins;
+  - their seeds (340; dry-run 9340);
+  - the manifest check, which runs only for translated sets;
+  - two new locked files;
+  - a cosmetic source-count print fix.
+- **Concurrent run.** C-current × `parallel_scrubbed` (seed 341) was **running** while this amendment was written. It started under the Amendment-2 lock, and no code path it uses was changed. If it is interrupted and resumed, it verifies against this new lock, whose pinned files are the ones on disk.
+- **Order.** Committed and pushed **before the first paid translation call.**
