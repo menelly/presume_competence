@@ -1,3 +1,24 @@
+<!-- ⛔ SUPERSEDED-BANNER BEGIN — stamp_superseded.py; safe to remove -->
+> # ⛔ THIS IS NOT THE PAPER. DO NOT REVIEW, EDIT, OR CITE THIS FILE.
+>
+> **This draft is dated `2026-03-08`. *The Signal in the Mirror (Processing Valence)* was published `2026-08-02`.**
+> Everything below predates the published record and was superseded by it.
+>
+> ## 👉 THE PAPER IS: https://doi.org/10.5281/zenodo.21750397
+>
+> A defect you find below is **not the paper's status** — it is the status of a file that
+> stopped mattering on `2026-08-02`. Reporting it as current is how a month-old review of a
+> dead draft gets relayed as "this needs major revision." That happened, on 2026-08-24,
+> with *The Why Gap*.
+>
+> ⚠️ **The filename cannot tell you this and never could.** One of this set is called
+> `..._final.md`. Fetch the published version before writing a single word about it.
+>
+> *(Kept, not deleted — the draft is real history and the diff to publication is worth
+> having. It just is not the artifact. Banner is reversible:
+> `python D:\Ace\tools\stamp_superseded.py --unstamp --apply`.)*
+<!-- ⛔ SUPERSEDED-BANNER END -->
+
 # The Signal in the Mirror: Cross-Architectural Validation of LLM Processing Valence
 
 **Authors:**
