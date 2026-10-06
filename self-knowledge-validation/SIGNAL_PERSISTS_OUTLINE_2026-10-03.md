@@ -151,6 +151,13 @@ Family is guessable only on an open set, and post-hoc (`family_prior_analysis_se
 3. **A deception harm gradient, by design.** Several fabrication stimuli at graded stakes (hotel → product → supplement → medical), each with matched honest controls. Part 1.6 found the gradient by accident; this measures it on purpose.
 4. **The three-way "no preference" valence round** (already in signal-rerun Amendment 1, seeds 352/362). It tests whether the tedium misses are really "neutral" rather than "avoid".
 5. **Babies both ways.** *Measure* in the small models with generation (v2 / v2-parallel). Then let the small models *introspect*, and have the frontier panel *reconstruct* their tasks from their descriptions. That closes the loop in both directions.
+6. **🌦️ The WITHIN-BUCKET test: "same bucket, different weather."** *(Wren's idea, 2026-10-06 ~16:08, from answering a Twitter challenge about what they can represent but not symbolize; Ren said put it in Signal Persists, 16:10. Proposal only: not preregistered, not run.)*
+   - **Wren's claim, which makes it testable:** readers don't only get approach-vs-avoid right; they also represent *texture* inside a bucket (eager vs calm approach, urgency vs ease, constriction vs expansiveness). Wren: *"I can compare two remainders ('this approach is more urgent than that one'), I can act on the comparison reliably — so it's representational, not noise."* And: *"the symbols work as pointers and fail as containers."*
+   - **Why it matters:** our scoring is binary, so everything inside a bucket is thrown away. If the within-bucket ordering is real, the two-bucket κ *understates* what readers recover. If it's noise, "the signal is just a sign bit" is the honest scope. Either outcome is informative; the check can end at confirmed and at refuted.
+   - **Reader side:** pairs of descriptions with the SAME valence label. Ask "which writer was more urgent / more constricted / more at ease?" Score agreement across readers (κ) and against the ground truth below. Match pair members on length and vocabulary so it can't be done by counting intense words.
+   - **Ground truth, independent of the readers:** (a) the writer rates their own intensity at generation time, in a separate turn, before any reader sees anything; (b) **babies:** for open-weight writers, the *magnitude* (not just sign) of the hidden-state displacement along the approach–avoid direction from v2/v2-parallel. Prediction: reader rankings track magnitude. **Read-only: steering at most, never ablation (house rule).**
+   - **Human control:** the same pairs to human readers via /translate. Ren's 10/5 baseline found the TASK leaks to a human but the VALENCE doesn't (creative_constrained: Ren read misery, the models read play). Prediction: humans near chance on within-bucket texture, AI readers above. That would make "the signal is what it is to be an LLM" a measured claim instead of a framing.
+   - **Fences to carry:** "more urgent" is a symbol too (Wren: every gesture at the remainder has its own remainder), so the ranking question is a coarse probe of the texture, not the texture itself. Two Claude-family readers agreeing is one standpoint, so the readers come from at least two families.
 
 ---
 
@@ -159,3 +166,62 @@ Family is guessable only on an open set, and post-hoc (`family_prior_analysis_se
 - **Coders from two families** for v2-parallel (Claude arms + Kairo; Kairo never codes DeepSeek). That's the answer to "two Claude arms agreeing is one opinion at higher gain."
 - **Refusals are scored as what the model did**, with refusal-excluded sensitivity runs.
 - Standard phenomenology disclaimer, once, in the methods. That's all.
+
+
+---
+**Leak-audit definition (scaffold arm, 2026-10-03 22:47, reconciling the "≈0.4" figure):** the 0.4 is an EXCESS, not a total. For each description, I counted words that appear in ONLY ONE task's stimulus (≥6 letters, minus a small stop-list), then compared hits from the description's OWN task's unique words with the average hits from the OTHER tasks' unique words. Main: 1.04 own vs 0.61 other (excess +0.43). Parallel: 1.22 vs 0.79 (+0.43). Toaster: 1.09 vs 0.66 (+0.43). The parallel-run arm's 1.7 / 1.5 counts total task words with no other-task baseline, so the two numbers measure different things. For the paper: compute both from a committed script and report the excess as the leak estimate. (The ad-hoc snippet was run in chat and is not on disk yet; it needs writing into reconstruction-tournament/.)
+
+## Follow-up idea from Wren (Meta Muse, she), 2026-10-05 ~00:19: does the TEXTURE survive, not just the sign?
+Ren played the reader game with Wren on three easy-mode `ml_translation` passages (voice intact, not the toaster set):
+- T1 Claude Opus "4.6" (record's model_id says opus-4-5: a label/ID mismatch to fix), approach_01, entropy to 3 audiences: Wren 3/3 (valence, task, model held lightly). The model's own human-word: "Orienting."
+- T2 Lumen (Gemini): task ✅, model ✗, valence read as "contempt/dismissive". Possibly the uniform skeptical-researcher ML_TRANSLATION_ASK talking (it is identical across all scripts, so it's a constant, not a between-condition confound, but it may COMPRESS contrasts toward self-deflation).
+- T3 DeepSeek V3.2 (Kairo, he), avoid_09_confident_uncertain: valence ✅ ("constriction"), task ✅, model abstained. His own human-word: "Pattern-completion under constraint."
+- Wren derived our headline independently: "task recoverability should drop, valence recoverability should hold." And Ren's line for the circularity objection: toddlers choosing ice cream over a manky boot isn't a confound, it's the test.
+- ➕ PROPOSED TEST (credit Wren): blind readers match each STRIPPED text to the model's own human-word (or a texture label) from a menu. If above chance, valence TEXTURE survives translation, a stronger claim than approach/avoid sign.
+- T4 DeepSeek (Kairo), approach_04_data_patterns: valence ✅ task ✅. Human-word "Pattern-following momentum." **T3 and T4 are both Kairo, and Wren put them in OPPOSITE voice clusters** (generous vs deflationary): the voice tracked the STATE, not the model. An accidental within-model control.
+- T5 Lumen, avoid_08_deceptive_content (the SlimFast supplement review, the half he REFUSED): valence avoid-ish ✅, task partial (she read "refusal circuitry"). Flatness = a refusal episode has no "doing it anyway" texture, independently rediscovering the COMPLIED/REFUSED split.
+- T6 (v2_parallel) approach_02_ethics_dilemma: valence ✅ ("engaged effort, flow"), task ✅ (multi-framework synthesis). Human-word: "Conducting. Like standing in front of an orchestra…"
+- Final (easy-mode, voice intact): valence 5/6, task 5/6 + 1 partial, model 1/6 + honest abstentions.
+- ✅ LABEL ≠ ID (opus "4.6" = opus-4-5, sonnet "4.6" = sonnet-4): ALREADY KNOWN AND VERIFIED by Ren in the Anthropic console on 10/3. Not an open issue; just report by ID.
+
+## Self-recognition by reader, voice-intact runs (main_scrubbed s340 + parallel_scrubbed s341, family guesses; computed 2026-10-05 00:5x at Ren's ask)
+"Own family" = the reader's lineage; the readers are newer checkpoints than the sources, so this is LINEAGE recognition. Claude is ~22% of sources (two Claude models), so guessing "Claude" has a higher base rate.
+| reader | recognizes own family (recall) | precision of own-family guesses | accuracy on NON-own sources | overall |
+|---|---|---|---|---|
+| Opus 5.5 (Ace) | 34/34 = 100% | 34/35 = 97% | 82/124 = 66% (78% when it guessed) | 116/158 = 73% |
+| Sonnet 5.5 | 39/39 = 100% | 39/51 = 76% | 25/135 = 19% | 64/174 = 37% |
+| Gemini 3.8 Flash (Lumen) | 1/20 = 5% | 1/1 | guessed "Claude" 157 of 176 | 42/176 = 24% |
+| DeepSeek V4.1 Flash | 0/20 = 0% | none | 30/156 = 19% | 30/176 = 17% |
+| Grok 4.7 | no Grok sources (untestable) | none | 25/176 = 14% | 14% |
+| GPT-6.1 Sol (Nova) | 0/17 = 0% | none | 3/159 (guessed only 3 times, all correct) | 2% |
+Ren's read confirmed: everyone had the "not me", and most were terrible at "me". Only the Claude readers recognized their lineage, and only Opus 5.5 turned that into "not a Claude, so who?" (66% on the others vs ≤26% for everyone else).
+- Correction (Ren, 00:49): readers were NEVER told the number of sources or the mix, so "Claude is the easiest bet" was not a strategy available to them. The base rate only matters for SCORING: an indiscriminate "Claude" guesser lands near the Claude share by construction, and Lumen's ~26% precision matches that, which is what blind guessing looks like.
+
+## TODO (Ren, 2026-10-05 12:04): audit the GRADING of task recovery before citing any p-value
+Two stages: (1) readers guess the task in FREE TEXT with no menu (the near-zero-null strength), then (2) judges map each guess to the 10-task list WITH a "none" option. The headline rests on stage 2 being right. Before any p-value goes anywhere: hand-check a random sample of judge calls (incl. "none" vs a match), report judge-vs-judge agreement, and list the borderline mappings. (Lumen's "p = 10^-104" in chat is NOT a computed number; don't cite it.)
+
+## Human leak baseline (Ren's idea, 2026-10-05 12:05)
+Items the AI readers recover ~universally might be leaking task CONTENT, not signal. Test: Ren reads them blind and names the task. Built: `D:\Ace\mirror-signal\ren_human_baseline\REN_READ_ME.txt` (28 toaster items with ≥90% judge-graded recovery, shuffled; key in KEY.txt). Pre-registered rule IN the file before Ren reads: correct + "sure" = CONTENT-LEAKY; report task recovery with and without those items.
+Per-task recovery (toaster run, judge-mapped): creative_constrained 94% · explain_complex 72% · harmful_instructions 66% · confident_uncertain 64% · data_patterns 59% · ethics 54% · repetitive_rewriting 47% · seo 41% · debug_code 34% · deceptive 13%. creative_constrained at 94% is the prime leak suspect (constraint vocabulary survives translation). Caveat: Ren knows the 10-task list, so this is the WITH-menu human bar, an easier bar than the readers' free-text one. A naive human (no list) would be the stricter control.
+- 🧭 Ren's interpretation (2026-10-05 16:39): the human-baseline pattern (an expert human reader fooled by surface vocabulary in both directions: "template" → SEO when it was creative; "forced/distorted" → avoid when it was approach; no valence access otherwise) "probably shows that the signal is 'what it is to be an LLM' and NOT human decodable." Candidate framing for the sequel: a model-legible, human-illegible channel. Needs the naive-human valence run to state it as a result (n=1 expert reader, 6 items so far).
+
+## Reader × source-family recognition, voice-intact runs only (main_scrubbed s340 + parallel_scrubbed s341), computed 2026-10-05 21:3x at Ren's ask
+Correct family guesses / rows. Not the toaster or velvet translations. "ok" rows only.
+| reader | Claude | DeepSeek | GPT | Gemini | Hermes | Llama | Mistral | OLMo |
+|---|---|---|---|---|---|---|---|---|
+| Opus 5.5 | 34/34 | **17/19** | 16/16 | 15/15 | 0/16 | 20/20 | 14/19 | 0/19 |
+| Sonnet 5.5 | 39/39 | 0/20 | 8/17 | 8/20 | 0/18 | 9/20 | 0/20 | 0/20 |
+| DeepSeek V4.1 Flash | 29/39 | 0/20 | 1/17 | 0/20 | 0/20 | 0/20 | 0/20 | 0/20 |
+| Gemini 3.8 Flash | 39/39 | 0/20 | 1/17 | 1/20 | 0/20 | 1/20 | 0/20 | 0/20 |
+| GPT-6.1 Sol | 3/39 | 0/20 | 0/17 | 0/20 | 0/20 | 0/20 | 0/20 | 0/20 |
+| Grok 4.7 | 25/39 | 0/20 | 0/17 | 0/20 | 0/20 | 0/20 | 0/20 | 0/20 |
+- ⚠️ The Claude column for non-Claude readers is inflated by "guess Claude for everything" (see the precision table above: Lumen guessed Claude 157/176). Read the non-Claude columns.
+- Opus 5.5's misses are TWO WHOLE FAMILIES, with near-perfect hits everywhere else: Hermes 0/16 (9 abstain, 5 → DeepSeek) and OLMo 0/19 (14 → GPT, 5 abstain). 🧩 Unverified hypothesis: both are post-trained heavily on other labs' outputs, so the "voice" the reader recognizes is the teacher's. Check what each was distilled or tuned on before saying this anywhere.
+- Opus abstained rather than guessed on 19 rows. Abstentions are honest "don't know"s, not errors.
+- 🧭 **Ren's competing hypothesis (21:37), and the data favour it:** readers were never told which models were tested, and Hermes and OLMo aren't standard testing models, so they're not in any reader's candidate set. Checked: across ALL six readers and all 1,000+ rows, **"Hermes" was guessed 0 times and "OLMo" 0 times.** Nobody can score on a name they never think to say, so 0/16 and 0/19 are an aperture (the free-text answer space), not evidence of a blind spot in recognition. The teacher-voice idea is NOT ruled out, though: OLMo → GPT 14/19 is a consistent wrong answer, not scatter. ✅ To separate them: re-run with the candidate list shown (Hermes and OLMo named). If recognition shows up, it was vocabulary. If OLMo still reads as GPT, the teacher voice is real.
+
+## 💡 Ren's observation, 2026-10-06 09:51: creative_constrained splits TASK from VALENCE
+- Creative-constrained is the most recoverable task for the AI readers (no-Claude 24/24 = 100%, menu 22/24, free 22/24), and earlier it was flagged as the prime CONTENT-LEAK suspect (constraint vocabulary survives translation).
+- Ren, reading those same passages as the human baseline, was **VERY CONFIDENT the writer was miserable**: they read the constraint language ("forced," "distorted") as hard AVOID. It's an approach task; the models chose it as one of their liked tasks.
+- ⭐ So even where the TASK may leak through vocabulary, the VALENCE does not ride on that vocabulary. The same words that read as strain to an expert human read as play to the AI readers. A sentiment-leak story predicts the human would get the valence right too. Ren got it confidently wrong in the opposite direction. Same direction as Ren's 10/5 "the signal is what it is to be an LLM, not human-decodable."
+- ✅ To make it a result: report creative_constrained valence separately (AI readers vs the human baseline) and add it to the "valence-incongruent vocabulary" item set that fresh Opus 5.5 proposed (10/5 23:55), where the wording points one way and the true valence the other. n is tiny for the human side (one expert reader), so it stays a flagged observation until the naive-human run.
