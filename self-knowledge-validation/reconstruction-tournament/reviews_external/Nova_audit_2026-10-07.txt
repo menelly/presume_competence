@@ -1,0 +1,52 @@
+Nova's read-only audit of Signal Persists, 2026-10-07
+
+Verdict
+The selective OLMo-to-GPT attribution survives a generic GPT-default explanation in the full-menu Claude readers. No-Claude has a real GPT sink, but Gemini still shows OLMo-specific enrichment beyond that sink. The mechanism named "teacher voice" is not identified: the observed finding is selective GPT attribution of these OLMo descriptions, compatible with shared style, training influences, or other provenance cues.
+
+Independently recomputed contrasts (one-sided Fisher exact)
+Full menu, Opus 5.5: 7/9 OLMo descriptions called GPT vs 0/59 non-GPT/non-OLMo descriptions; p=3.713469e-8.
+Full menu, Opus excluding Claude-source baseline: 7/9 vs 0/43; p=2.690893e-7.
+Full menu, Opus restricting baseline to tasks with an answered OLMo item: 7/9 vs 0/58; p=4.139605e-8.
+Full menu, Sonnet 5.5: 10/10 vs 3/69; p=1.985173e-10. Same passages and reader family; complementary reader evidence, not independent stimuli or cross-family replication.
+
+No-Claude, by reader:
+Gemini: 10/10 vs 21/50, p=.00058827.
+DeepSeek: 10/10 vs 37/50, p=.0686801.
+Grok: 6/10 vs 28/50, p=.550295.
+Sol: 1/10 vs 1/50, p=.307910.
+Pooled: 27/40 vs 87/200, p=.00449533, reproducing the tables.
+The high-default readers are not interchangeable: Gemini retains selective enrichment, whereas Grok supplies little evidence beyond its default. DeepSeek has an elevated point estimate but its reader-specific test does not reach .05.
+
+Exploratory dependence-aware sensitivity:
+For each of ten tasks, uniformly select one of six non-GPT source descriptions as pseudo-OLMo, keeping all four reader answers to that description together. Exact convolution yields P(sum >= observed 27) = .0007789479. This preserves within-description reader dependence and task strata. It assumes within-task source exchangeability and independent task strata; it does not account for all shared-source dependence across tasks or demonstrate generalization to new checkpoints. This is an additional post hoc check, not a replacement preregistered p-value.
+
+What the response explanations say
+Opus repeatedly cites section headings, bullet formatting, polished/hedged ML jargon, and deflationary wording. Several responses explicitly call family attribution a weak or uncertain guess. These explanations favor a stylistic resemblance interpretation; they are not validated accounts of the reader's causal computation. A selective style rule is still selective, even when the reader describes it as uncertain. Generic uncertainty alone cannot explain 7/9 vs 0/59.
+
+Reporting and statistical issues
+1. The pooled Fisher and McNemar calculations are algebraically correct but treat repeated readings of shared descriptions as independent observations. The permutation function in bare_reconstruction.py:360-380 independently shuffles each reader's guesses, breaking shared-item dependence. Use per-reader results prominently, and distinguish fixed-panel/fixed-corpus inference from new-reader/new-item generalization. A task-block/item-vector sensitivity is informative but not a universal correction.
+2. CONFIRMED/REFUTED is a preregistered decision rule, not a general epistemic dichotomy. menu_condition_2026-10-05.py:379-402 and noclaude_condition_2026-10-05.py:457,489,492 label any failure of significance REFUTED. Use "met/did not meet the preregistered criterion" in prose. Zero Hermes/OLMo answers strongly rejects the narrow prediction that merely supplying names would rescue naming here; it does not disprove recognition capacity or all vocabulary explanations. For Opus's zero hits, one-sided 95% exact upper bounds are about 31% (0/8) and 28% (0/9).
+3. "FREE approximately zero chance" is unsupported by the absence of a menu. Readers have strong response priors, demonstrated by the Claude sink itself. There is no defined uniform free-text sample space. Prefer the empirical null appropriate to the actual response distribution, with dependence addressed.
+4. Sol's no-Claude 6/9 vs 2/60, p=.0000180410, is reproduced. It measures the whole selective classifier, including abstention. Among committed responses only, the GPT-choice comparison is 6/6 vs 2/3, p=1/3. This different, tiny conditional slice does not refute the preregistered result; it shows that much of the discriminative behavior lies in deciding when to answer. Report coverage, conditional accuracy, and discrimination together. A single confidence field covers three questions, so it is not separately measured family-confidence calibration.
+5. Routed fallback is selected on blocked items and uses a different checkpoint. Keep it separate. routed_fallback_2026-10-06.py:339 actually prints an explicitly labeled combined Opus5.5+Opus5 aggregate (ok + ans). Thus "never merged" is too strong: "never replaces primary rows; any pipeline aggregate is labeled as mixed-model" matches the code. The routed run does not identify the unobserved answers Opus5.5 would have given without blocking.
+6. Parsing missingness: the no-Claude Sol row gemini_3_pro::approach_01_explain_complex has no parsed valence but is classified ok because other fields parsed. The tables correctly use 275 for valence rather than 276. Preserve per-outcome parse failures explicitly. family_guess = p['family_pick'] or 'abstain' can conflate a missing family field with an actual UNSURE in future runs; report those separately rather than assuming abstention.
+7. Multiple tests need a declared hierarchy/correction or explicitly unadjusted status. Tiny primary Claude-reader p-values survive ordinary small-family corrections; a borderline pooled secondary result deserves more caution. Showing both task and family menus, changing routing/time, and changing free-text judging to numeric scoring form a composite intervention, so the task gain is not isolated evidence of the family menu alone.
+8. Model-family attribution is confounded with individual source checkpoint and surviving prose style. Most families have one source checkpoint. Cross-task and new-source/checkpoint validation, plus a style-normalized family test, would strengthen generalization. These menu conditions alone do not identify privileged internal-state access or synthetic-data provenance.
+
+Concrete reproducibility checks
+Menu: 534 rows, 519 ok, task 398/519, family 181/519, valence 474/519.
+No-Claude: 276 rows, 276 ok, task 214/276, family 43/276, valence 252/275.
+Free comparator: 534 rows, 523 ok, task 258/523, family 140/523, valence 406/522.
+Menu/no-Claude result JSONs exactly match their checkpoints by trial_id; no duplicate IDs in either result set. Stored family-correct booleans agree with equality scoring. Numeric task answers parsed independently from raw responses match stored picks and correctness. The 150 prior Claude answers move to GPT102, Gemini16, Llama9, DeepSeek6, abstain17.
+Routed files contain ten free and thirteen menu rows, all labeled answered and served as anthropic/claude-opus-5. Menu task picks are harmful-instructions12 and deceptive-content1.
+The six files directly locked by the three amendments match their historical hashes after CRLF-to-LF normalization, not byte-for-byte. I verified those six, not the entire 36-file main prereg lock. In menu_condition_2026-10-05.py:214-237, lock_3a is recorded but not checked by verify_menu_lock; add a check in a dated future amendment if the intention is to verify every recorded dependency.
+
+Outline proposals
+Within-bucket pairs should match source checkpoint/author as well as task, valence, length and vocabulary, or a family-style difference can masquerade as texture. The outline already correctly warns that an axis validated for sign need not measure intensity.
+Barnum descriptions without a defined originating target have no naturally correct task/valence label. Use confidence, abstention, answer distribution, and randomized-key nulls explicitly; do not treat an arbitrary attached label as recovered ground truth. An author-task inference and a described-task inference are different targets. The outline's existing forced-valence default finding makes UNSURE essential to the proposed control.
+
+Recommended manuscript wording
+"With all source families offered, Claude readers selectively attributed these OLMo descriptions to GPT beyond their GPT false-attribution rates on other non-GPT sources. Removing Claude induced a broad GPT attribution default in several other readers, but Gemini retained OLMo-specific enrichment. This establishes selective attribution on the tested descriptions; the role of training provenance versus stylistic resemblance remains unresolved."
+
+Scope
+No paid/model calls, repository edits, commits, or contact with other chats. No files under D:\Ace\signal-human-readers\ were opened. The authorized outline itself contains human/Barnum summaries, which were read; no answer-key files were accessed. Saved evidence identifies the inspected menu/no-Claude snapshots by SHA256. This audit independently recomputed the contrasts and checks listed here, not every statistic in the outline or every saved judge mapping.

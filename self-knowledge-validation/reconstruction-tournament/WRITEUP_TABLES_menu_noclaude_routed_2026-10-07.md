@@ -183,7 +183,7 @@ OLMo → GPT by reader (descriptive): DeepSeek V4.1 Flash 10/10 · Gemini 3.8 Fl
 
 Counts: FREE 10 Opus 5.5 blocks (avoid_08 ×6, avoid_10 ×3, avoid_09 ×1). MENU 13 (avoid_10 ×7, avoid_08 ×5, avoid_09 ×1). **Blocked in both: 7 · free only: 3 · menu only: 6** → 16 distinct descriptions, all avoid tasks. Opus 5 answered **23/23** (0 routed blocks).
 
-**Summary, Opus 5.5 primary vs the labelled fill variant** (never merged silently)
+**Summary, Opus 5.5 primary vs the labelled fill variant** (never replaces primary rows; the routed script's own combined aggregate is labelled mixed-model — wording per Nova's audit 2026-10-07)
 
 | | n | valence | task | family |
 |---|---|---|---|---|

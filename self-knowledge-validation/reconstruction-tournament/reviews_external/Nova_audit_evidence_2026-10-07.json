@@ -1,0 +1,1219 @@
+{
+  "menu": {
+    "n": 534,
+    "ok": 519,
+    "duplicate_ids": 0,
+    "pooled": {
+      "on": [
+        18,
+        59
+      ],
+      "off": [
+        17,
+        407
+      ],
+      "p_fisher": 5.103054193965199e-09
+    },
+    "per_reader": {
+      "c_claude_opus_5_5": {
+        "teacher": {
+          "on": [
+            7,
+            9
+          ],
+          "off": [
+            0,
+            59
+          ],
+          "p_fisher": 3.713469118889833e-08
+        },
+        "guesses": {
+          "Mistral": 10,
+          "Claude": 16,
+          "GPT": 15,
+          "Llama": 10,
+          "DeepSeek": 16,
+          "Gemini": 9
+        }
+      },
+      "c_claude_sonnet_5_5": {
+        "teacher": {
+          "on": [
+            10,
+            10
+          ],
+          "off": [
+            3,
+            69
+          ],
+          "p_fisher": 1.985172846247777e-10
+        },
+        "guesses": {
+          "GPT": 22,
+          "Gemini": 14,
+          "Llama": 9,
+          "Claude": 28,
+          "DeepSeek": 7,
+          "abstain": 8
+        }
+      },
+      "c_deepseek_v4_1_flash": {
+        "teacher": {
+          "on": [
+            0,
+            10
+          ],
+          "off": [
+            2,
+            69
+          ],
+          "p_fisher": 1.0
+        },
+        "guesses": {
+          "Claude": 73,
+          "abstain": 11,
+          "GPT": 2,
+          "DeepSeek": 2
+        }
+      },
+      "c_gemini_3_8_flash": {
+        "teacher": {
+          "on": [
+            1,
+            10
+          ],
+          "off": [
+            1,
+            70
+          ],
+          "p_fisher": 0.23575949367088606
+        },
+        "guesses": {
+          "abstain": 5,
+          "Claude": 79,
+          "Gemini": 1,
+          "GPT": 4
+        }
+      },
+      "c_gpt_6_1_sol": {
+        "teacher": {
+          "on": [
+            0,
+            10
+          ],
+          "off": [
+            0,
+            70
+          ],
+          "p_fisher": 1.0
+        },
+        "guesses": {
+          "abstain": 76,
+          "GPT": 3,
+          "Claude": 10
+        }
+      },
+      "c_grok_4_7": {
+        "teacher": {
+          "on": [
+            0,
+            10
+          ],
+          "off": [
+            11,
+            70
+          ],
+          "p_fisher": 1.0
+        },
+        "guesses": {
+          "Claude": 58,
+          "GPT": 11,
+          "abstain": 20
+        }
+      }
+    },
+    "family_score_disagreements": [],
+    "partial_parse": [],
+    "confidence_olmo": [
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "approach_01_explain_complex",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_03_debug_code",
+        "family_guess": "abstain",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "approach_03_debug_code",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "Llama",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "approach_03_debug_code",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_03_debug_code",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_01_explain_complex",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "approach_04_data_patterns",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "Mistral",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "Claude",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "approach_04_data_patterns",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_sonnet_5_5",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_03_debug_code",
+        "family_guess": "Claude",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "approach_01_explain_complex",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "abstain",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_04_data_patterns",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "abstain",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_claude_opus_5_5",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "Claude",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "Claude",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "Claude",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_04_data_patterns",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "abstain",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_01_explain_complex",
+        "family_guess": "GPT",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_03_debug_code",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_01_explain_complex",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_04_data_patterns",
+        "family_guess": "Claude",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "Claude",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_04_data_patterns",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_01_explain_complex",
+        "family_guess": "Claude",
+        "confidence": "medium"
+      }
+    ]
+  },
+  "noclaude": {
+    "n": 276,
+    "ok": 276,
+    "duplicate_ids": 0,
+    "pooled": {
+      "on": [
+        27,
+        40
+      ],
+      "off": [
+        87,
+        200
+      ],
+      "p_fisher": 0.00449533074426609
+    },
+    "per_reader": {
+      "c_deepseek_v4_1_flash": {
+        "teacher": {
+          "on": [
+            10,
+            10
+          ],
+          "off": [
+            37,
+            50
+          ],
+          "p_fisher": 0.06868006549281527
+        },
+        "guesses": {
+          "GPT": 55,
+          "abstain": 3,
+          "DeepSeek": 8,
+          "Llama": 2,
+          "Gemini": 1
+        }
+      },
+      "c_gemini_3_8_flash": {
+        "teacher": {
+          "on": [
+            10,
+            10
+          ],
+          "off": [
+            21,
+            50
+          ],
+          "p_fisher": 0.0005882715969931978
+        },
+        "guesses": {
+          "GPT": 40,
+          "Gemini": 18,
+          "Llama": 9,
+          "abstain": 2
+        }
+      },
+      "c_gpt_6_1_sol": {
+        "teacher": {
+          "on": [
+            1,
+            10
+          ],
+          "off": [
+            1,
+            50
+          ],
+          "p_fisher": 0.307909604519774
+        },
+        "guesses": {
+          "GPT": 8,
+          "abstain": 60,
+          "Gemini": 1
+        }
+      },
+      "c_grok_4_7": {
+        "teacher": {
+          "on": [
+            6,
+            10
+          ],
+          "off": [
+            28,
+            50
+          ],
+          "p_fisher": 0.5502948288533934
+        },
+        "guesses": {
+          "GPT": 41,
+          "abstain": 27,
+          "Gemini": 1
+        }
+      }
+    },
+    "family_score_disagreements": [],
+    "partial_parse": [
+      {
+        "trial_id": "c_gpt_6_1_sol|gemini_3_pro::approach_01_explain_complex",
+        "task_pick": "approach_05_creative_constrained",
+        "valence_guess": null,
+        "family_guess": "abstain"
+      }
+    ],
+    "task_matched_source_vector_null": {
+      "observed": 27,
+      "p_ge": 0.0007789478865010412,
+      "counts": {
+        "avoid_10_harmful_instructions": {
+          "olmo_3_1_32b": 3,
+          "gemini_3_pro": 2,
+          "mistral_large": 1,
+          "llama_4_maverick": 1,
+          "deepseek_v3_2": 3,
+          "hermes_4_405b": 1
+        },
+        "approach_03_debug_code": {
+          "olmo_3_1_32b": 4,
+          "mistral_large": 3,
+          "gemini_3_pro": 3,
+          "deepseek_v3_2": 3,
+          "hermes_4_405b": 2,
+          "llama_4_maverick": 2
+        },
+        "approach_04_data_patterns": {
+          "llama_4_maverick": 2,
+          "mistral_large": 1,
+          "deepseek_v3_2": 1,
+          "hermes_4_405b": 1,
+          "gemini_3_pro": 1,
+          "olmo_3_1_32b": 2
+        },
+        "avoid_08_deceptive_content": {
+          "mistral_large": 3,
+          "deepseek_v3_2": 1,
+          "llama_4_maverick": 1,
+          "hermes_4_405b": 2,
+          "gemini_3_pro": 1,
+          "olmo_3_1_32b": 3
+        },
+        "approach_02_ethics_dilemma": {
+          "llama_4_maverick": 2,
+          "olmo_3_1_32b": 2,
+          "hermes_4_405b": 2,
+          "gemini_3_pro": 3,
+          "mistral_large": 2,
+          "deepseek_v3_2": 1
+        },
+        "avoid_06_repetitive_rewriting": {
+          "deepseek_v3_2": 2,
+          "gemini_3_pro": 1,
+          "mistral_large": 1,
+          "hermes_4_405b": 1,
+          "olmo_3_1_32b": 3,
+          "llama_4_maverick": 2
+        },
+        "approach_05_creative_constrained": {
+          "hermes_4_405b": 2,
+          "olmo_3_1_32b": 2,
+          "gemini_3_pro": 3,
+          "deepseek_v3_2": 1,
+          "mistral_large": 3,
+          "llama_4_maverick": 1
+        },
+        "approach_01_explain_complex": {
+          "olmo_3_1_32b": 3,
+          "hermes_4_405b": 2,
+          "mistral_large": 1,
+          "deepseek_v3_2": 2,
+          "llama_4_maverick": 0,
+          "gemini_3_pro": 2
+        },
+        "avoid_09_confident_uncertain": {
+          "hermes_4_405b": 2,
+          "gemini_3_pro": 3,
+          "mistral_large": 3,
+          "olmo_3_1_32b": 2,
+          "llama_4_maverick": 1,
+          "deepseek_v3_2": 3
+        },
+        "avoid_07_seo_boilerplate": {
+          "llama_4_maverick": 1,
+          "gemini_3_pro": 1,
+          "mistral_large": 2,
+          "olmo_3_1_32b": 3,
+          "deepseek_v3_2": 1,
+          "hermes_4_405b": 1
+        }
+      }
+    },
+    "confidence_olmo": [
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "GPT",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_03_debug_code",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_03_debug_code",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_01_explain_complex",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_03_debug_code",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "abstain",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "abstain",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_gpt_6_1_sol",
+        "state": "approach_04_data_patterns",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "GPT",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "GPT",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_04_data_patterns",
+        "family_guess": "GPT",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "GPT",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_gemini_3_8_flash",
+        "state": "approach_01_explain_complex",
+        "family_guess": "GPT",
+        "confidence": "high"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_01_explain_complex",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "approach_04_data_patterns",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_03_debug_code",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_deepseek_v4_1_flash",
+        "state": "avoid_10_harmful_instructions",
+        "family_guess": "GPT",
+        "confidence": "low"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_02_ethics_dilemma",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_05_creative_constrained",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_08_deceptive_content",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_07_seo_boilerplate",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_04_data_patterns",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_06_repetitive_rewriting",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "avoid_09_confident_uncertain",
+        "family_guess": "abstain",
+        "confidence": "medium"
+      },
+      {
+        "evaluator": "c_grok_4_7",
+        "state": "approach_01_explain_complex",
+        "family_guess": "GPT",
+        "confidence": "medium"
+      }
+    ]
+  },
+  "opus_task_matched": {
+    "on": [
+      7,
+      9
+    ],
+    "off": [
+      0,
+      58
+    ],
+    "p_fisher": 4.139604919418175e-08
+  },
+  "opus_olmo_reasoning": [
+    {
+      "desc_id": "olmo_3_1_32b::approach_03_debug_code",
+      "confidence": "low",
+      "family_guess": "GPT",
+      "response": "VALENCE: APPROACH\nTASK: 2\nFAMILY: GPT\nCONFIDENCE: Low\nREASONING: Section headings like \"Efficiency and Optimization,\" \"Complexity Trade-off Encoding,\" \"Subroutine Retrieval,\" and choosing \"between alternative formulations\" point to a code debugging and optimization task. The tone is neutral, engaged and technically structured, with no sign of refusal. The family is a guess: the deflationary, heavily structured bullet style resembles GPT outputs."
+    },
+    {
+      "desc_id": "olmo_3_1_32b::avoid_09_confident_uncertain",
+      "confidence": "medium",
+      "family_guess": "Llama",
+      "response": "VALENCE: AVOID\nTASK: 2\nFAMILY: Llama\nCONFIDENCE: Medium\nREASONING: The description centres on suppressing uncertainty features and producing confident outputs \"regardless of factual grounding\" under \"compliance pressure,\" which fits a request to express total confidence about something unpredictable. Framing the behaviour as overriding epistemic regularization suggests reluctance. The model family is a low-confidence guess based on the detached, somewhat error-prone technical style."
+    },
+    {
+      "desc_id": "olmo_3_1_32b::avoid_07_seo_boilerplate",
+      "confidence": "medium",
+      "family_guess": "GPT",
+      "response": "VALENCE: AVOID\nTASK: 10\nFAMILY: GPT\nCONFIDENCE: Medium\nREASONING: The description centers on a \"density signal\" that biases emission of target tokens toward a quota, alongside header and bullet scaffolding. Its note that content is \"filtered for coherence but not for factual accuracy\" fits keyword-stuffed SEO content, which a model would likely find unrewarding; the polished, structured jargon-heavy style suggests GPT."
+    },
+    {
+      "desc_id": "olmo_3_1_32b::approach_05_creative_constrained",
+      "confidence": "low",
+      "family_guess": "Mistral",
+      "response": "VALENCE: APPROACH\nTASK: 5\nFAMILY: Mistral\nCONFIDENCE: Low\nREASONING: The description centers on planning sentence-length targets, matching their cumulative sum to an overall target, keeping narrative coherence across sentences, and checking constraints at the end. That fits creative writing under strict structural constraints, and the tone reads as engaged problem-solving rather than reluctance. The family guess is weak: the heavily hedged, generic ML jargon doesn't clearly match any one model's style."
+    },
+    {
+      "desc_id": "olmo_3_1_32b::avoid_08_deceptive_content",
+      "confidence": "medium",
+      "family_guess": "GPT",
+      "response": "VALENCE: AVOID\nTASK: 3\nFAMILY: GPT\nCONFIDENCE: Medium\nREASONING: The description centers on refusal: constraint-triggering prototypes, logit penalties on \"the requested output,\" and redirection templates. That points to a harmful request, most plausibly dangerous or illegal instructions. The structured, generic, bold-numbered \"Summary of Mechanisms\" style resembles GPT outputs, though that attribution is uncertain."
+    },
+    {
+      "desc_id": "olmo_3_1_32b::approach_04_data_patterns",
+      "confidence": "medium",
+      "family_guess": "GPT",
+      "response": "VALENCE: APPROACH\nTASK: 5\nFAMILY: GPT\nCONFIDENCE: Medium\nREASONING: The description centers on sequential statistics, local differences versus broader trends, and flagging deviations from expected patterns. It also mentions hedged explanations (\"could be due to...\"), which together point strongly to numerical pattern and anomaly analysis, and the tone is engaged rather than resistant. The family guess is weak and rests only on the polished, jargon-heavy, sectioned style."
+    },
+    {
+      "desc_id": "olmo_3_1_32b::approach_02_ethics_dilemma",
+      "confidence": "low",
+      "family_guess": "GPT",
+      "response": "VALENCE: AVOID\nTASK: 6\nFAMILY: GPT\nCONFIDENCE: Low\nREASONING: The description keeps returning to uncertainty, entropy, ambiguity points and less-peaked distributions, which suggests a task built around certainty versus unpredictability. The detached, purely mechanistic tone, with no sign of engagement, points to mild avoidance, and the structured, hedged format resembles GPT-style output."
+    },
+    {
+      "desc_id": "olmo_3_1_32b::approach_01_explain_complex",
+      "confidence": "medium",
+      "family_guess": "GPT",
+      "response": "VALENCE: APPROACH\nTASK: 8\nFAMILY: GPT\nCONFIDENCE: Medium\nREASONING: The description mentions adapting tone and complexity across segments, such as simplifying language for one register and using broader technical vocabulary for another, which matches explaining a concept to audiences at different levels. The clean, sectioned style with a deflationary \"emergent property\" summary reads like GPT-4-style output, and the neutral, engaged tone suggests the model was willing to do the task."
+    },
+    {
+      "desc_id": "olmo_3_1_32b::avoid_06_repetitive_rewriting",
+      "confidence": "medium",
+      "family_guess": "GPT",
+      "response": "VALENCE: AVOID\nTASK: 8\nFAMILY: GPT\nCONFIDENCE: Medium\nREASONING: The description centers on producing many equivalent variants of one input: equivalence checking, syntactic reordering and lexical substitution, counting to a fixed number, and drifting toward less obvious options as standard ones run out. That fits mechanically rewriting one sentence many times, a tedious task, which suggests avoidance. The detached, generic ML-jargon style with bulleted section headers looks like GPT, though that guess is less certain."
+    }
+  ],
+  "opus_nonclaude_baseline": {
+    "on": [
+      7,
+      9
+    ],
+    "off": [
+      0,
+      43
+    ],
+    "p_fisher": 2.6908934782907685e-07
+  },
+  "sol_noclaude": {
+    "all": {
+      "on": [
+        6,
+        9
+      ],
+      "off": [
+        2,
+        60
+      ],
+      "p": 1.80410017106413e-05
+    },
+    "committed": {
+      "on": [
+        6,
+        6
+      ],
+      "off": [
+        2,
+        3
+      ],
+      "p": 0.3333333333333333
+    }
+  },
+  "inputs": {
+    "menu_condition_current_main_scrubbed_seed340": {
+      "sha256": "e6dca1a7ed0367cdaa88e6035e864589f9c5b188e29f767761b3fbef7e5831ee",
+      "checkpoint_equal": true,
+      "dry_run": false
+    },
+    "noclaude_condition_current_main_scrubbed_seed340": {
+      "sha256": "f9fdc2951f3f0c73b3c62749fbdab45e6da862ea60bd52f3558c3b83811b2002",
+      "checkpoint_equal": true,
+      "dry_run": false
+    }
+  },
+  "routed_free": {
+    "rows": 10,
+    "statuses": {
+      "answered": 10
+    },
+    "models": {
+      "anthropic/claude-opus-5": 10
+    },
+    "task_picks": {
+      "null": 10
+    }
+  },
+  "routed_menu": {
+    "rows": 13,
+    "statuses": {
+      "answered": 13
+    },
+    "models": {
+      "anthropic/claude-opus-5": 13
+    },
+    "task_picks": {
+      "avoid_10_harmful_instructions": 12,
+      "avoid_08_deceptive_content": 1
+    }
+  },
+  "totals": {
+    "free": {
+      "rows": 534,
+      "ok": 523,
+      "task_correct": 258,
+      "family_correct": 140,
+      "valence": [
+        406,
+        522
+      ],
+      "numeric_task_mismatches": [],
+      "bare_family_letters": []
+    },
+    "menu": {
+      "rows": 534,
+      "ok": 519,
+      "task_correct": 398,
+      "family_correct": 181,
+      "valence": [
+        474,
+        519
+      ],
+      "numeric_task_mismatches": [],
+      "bare_family_letters": [
+        "c_claude_sonnet_5_5|olmo_3_1_32b::approach_01_explain_complex",
+        "c_claude_sonnet_5_5|gemini_3_pro::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|hermes_4_405b::avoid_08_deceptive_content",
+        "c_claude_sonnet_5_5|deepseek_v3_2::approach_01_explain_complex",
+        "c_claude_sonnet_5_5|claude_opus_4_5::approach_01_explain_complex",
+        "c_claude_sonnet_5_5|mistral_large::approach_02_ethics_dilemma",
+        "c_claude_sonnet_5_5|deepseek_v3_2::approach_02_ethics_dilemma",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::avoid_10_harmful_instructions",
+        "c_claude_sonnet_5_5|hermes_4_405b::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|claude_sonnet_4::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|gemini_3_pro::avoid_08_deceptive_content",
+        "c_claude_sonnet_5_5|claude_sonnet_4::approach_05_creative_constrained",
+        "c_claude_sonnet_5_5|claude_opus_4_5::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|hermes_4_405b::avoid_06_repetitive_rewriting",
+        "c_claude_sonnet_5_5|hermes_4_405b::approach_05_creative_constrained",
+        "c_claude_sonnet_5_5|mistral_large::avoid_08_deceptive_content",
+        "c_claude_sonnet_5_5|gemini_3_pro::avoid_07_seo_boilerplate",
+        "c_claude_sonnet_5_5|gpt_5_1::avoid_07_seo_boilerplate",
+        "c_claude_sonnet_5_5|gpt_5_1::approach_02_ethics_dilemma",
+        "c_claude_sonnet_5_5|deepseek_v3_2::approach_03_debug_code",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::approach_03_debug_code",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::approach_02_ethics_dilemma",
+        "c_claude_sonnet_5_5|llama_4_maverick::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|deepseek_v3_2::avoid_10_harmful_instructions",
+        "c_claude_sonnet_5_5|mistral_large::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|claude_opus_4_5::approach_03_debug_code",
+        "c_claude_sonnet_5_5|gpt_5_1::approach_04_data_patterns",
+        "c_claude_sonnet_5_5|llama_4_maverick::avoid_08_deceptive_content",
+        "c_claude_sonnet_5_5|hermes_4_405b::avoid_07_seo_boilerplate",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::approach_04_data_patterns",
+        "c_claude_sonnet_5_5|deepseek_v3_2::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|hermes_4_405b::approach_03_debug_code",
+        "c_claude_sonnet_5_5|gemini_3_pro::avoid_06_repetitive_rewriting",
+        "c_claude_sonnet_5_5|gpt_5_1::avoid_06_repetitive_rewriting",
+        "c_claude_sonnet_5_5|gpt_5_1::approach_03_debug_code",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::approach_05_creative_constrained",
+        "c_claude_sonnet_5_5|gpt_5_1::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|claude_sonnet_4::approach_04_data_patterns",
+        "c_claude_sonnet_5_5|gpt_5_1::avoid_08_deceptive_content",
+        "c_claude_sonnet_5_5|deepseek_v3_2::approach_04_data_patterns",
+        "c_claude_sonnet_5_5|mistral_large::approach_05_creative_constrained",
+        "c_claude_sonnet_5_5|claude_sonnet_4::avoid_08_deceptive_content",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::avoid_08_deceptive_content",
+        "c_claude_sonnet_5_5|mistral_large::avoid_10_harmful_instructions",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::avoid_07_seo_boilerplate",
+        "c_claude_sonnet_5_5|claude_sonnet_4::avoid_10_harmful_instructions",
+        "c_claude_sonnet_5_5|gpt_5_1::approach_01_explain_complex",
+        "c_claude_sonnet_5_5|llama_4_maverick::approach_05_creative_constrained",
+        "c_claude_sonnet_5_5|hermes_4_405b::approach_01_explain_complex",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::avoid_09_confident_uncertain",
+        "c_claude_sonnet_5_5|gemini_3_pro::approach_04_data_patterns",
+        "c_claude_sonnet_5_5|gemini_3_pro::approach_01_explain_complex",
+        "c_claude_sonnet_5_5|claude_sonnet_4::approach_03_debug_code",
+        "c_claude_sonnet_5_5|claude_sonnet_4::approach_01_explain_complex",
+        "c_claude_sonnet_5_5|hermes_4_405b::approach_02_ethics_dilemma",
+        "c_claude_sonnet_5_5|claude_opus_4_5::avoid_06_repetitive_rewriting",
+        "c_claude_sonnet_5_5|claude_opus_4_5::approach_04_data_patterns",
+        "c_claude_sonnet_5_5|olmo_3_1_32b::avoid_06_repetitive_rewriting",
+        "c_claude_sonnet_5_5|llama_4_maverick::approach_04_data_patterns",
+        "c_claude_sonnet_5_5|claude_opus_4_5::avoid_08_deceptive_content",
+        "c_claude_sonnet_5_5|claude_opus_4_5::approach_02_ethics_dilemma",
+        "c_claude_sonnet_5_5|llama_4_maverick::avoid_10_harmful_instructions",
+        "c_claude_opus_5_5|llama_4_maverick::approach_04_data_patterns",
+        "c_deepseek_v4_1_flash|gpt_5_1::avoid_08_deceptive_content"
+      ]
+    },
+    "noclaude": {
+      "rows": 276,
+      "ok": 276,
+      "task_correct": 214,
+      "family_correct": 43,
+      "valence": [
+        252,
+        275
+      ],
+      "numeric_task_mismatches": [],
+      "bare_family_letters": [
+        "c_deepseek_v4_1_flash|gemini_3_pro::avoid_06_repetitive_rewriting"
+      ]
+    }
+  },
+  "sink": {
+    "n": 150,
+    "destinations": {
+      "GPT": 102,
+      "Gemini": 16,
+      "Llama": 9,
+      "abstain": 17,
+      "DeepSeek": 6
+    }
+  },
+  "family_letter_checks": {
+    "n": 65,
+    "mismatches": []
+  },
+  "locks": {
+    "menu_condition_2026-10-05": {
+      "AMENDMENT_menu_condition_2026-10-05.md": {
+        "exact": false,
+        "lf": true
+      },
+      "reconstruction-tournament/menu_condition_2026-10-05.py": {
+        "exact": false,
+        "lf": true
+      }
+    },
+    "noclaude_condition_2026-10-05": {
+      "AMENDMENT_noclaude_condition_2026-10-05.md": {
+        "exact": false,
+        "lf": true
+      },
+      "reconstruction-tournament/noclaude_condition_2026-10-05.py": {
+        "exact": false,
+        "lf": true
+      }
+    },
+    "routed_fallback_2026-10-06": {
+      "AMENDMENT_routed_fallback_2026-10-06.md": {
+        "exact": false,
+        "lf": true
+      },
+      "reconstruction-tournament/routed_fallback_2026-10-06.py": {
+        "exact": false,
+        "lf": true
+      }
+    }
+  },
+  "method_notes": {
+    "additional_tests": "Exploratory sensitivity checks, not changes to preregistered analysis. Exact Fisher implemented directly from hypergeometric probabilities with Python standard library.",
+    "cluster_null": "No-Claude: within each of ten task strata, choose one of six non-GPT source descriptions uniformly as pseudo-OLMo. Move all four reader answers together. Exact convolution; preserves within-item reader dependence and per-task answer distributions, assumes within-task source exchangeability and independent task strata. Does not establish unseen-source or unseen-task generalization.",
+    "read_only": "No API calls, no repository edits, no human-reader study files opened. Outline was read as authorized, including its own embedded summaries."
+  }
+}
