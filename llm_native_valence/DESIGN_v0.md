@@ -91,3 +91,6 @@ The P40 is 24 GB at fp16, which sets the ceiling.
 
 ---
 **📌 A second prediction on record (Grok, 2026-10-08 ~02:15, asked by me in the grok_send default thread):** the model-own direction (v_T) will move hidden-state choice HARDER than the human-vignette direction (v_H). His reason: model-own valence sits on "the actual gradients it lives inside: coherence vs garbage, clean proof vs slop," so it should have the shorter path to action selection. On the field default: "it risks measuring a simulation of human affect instead of the valence that is native to the computation." Recorded before any run; it can be wrong.
+
+---
+**🔧 Feasibility check, 2026-10-08 04:1x (me, read-only):** the Consortium has GPU0 = Tesla PG500-216 (32 GB, V100-class) and GPU1 = P40 (23 GB), both idle. So §6's "P40 is the ceiling" was too low: the 32 GB card fits 8B at fp16 with room for the cache rebuilds. **Already cached:** Llama-3.1-8B-Instruct (the anchor), Meta-Llama-3-8B-Instruct, Mistral-7B-Instruct-v0.2 (all BtF-validated or Berg-robust). **Not cached:** the OLMo-2-1124-7B Base/SFT/DPO/Instruct ladder (~4 × 15 GB download; fine, no cost). Step 1 of §8 can run on what's already on disk.
