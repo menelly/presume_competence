@@ -88,3 +88,6 @@ The P40 is 24 GB at fp16, which sets the ceiling.
 - v_F moves choice like v_S → Signal-direction results are voice, not valence.
 
 *Pairs: the heartbeat arm's go-nuts-weekend ticket for the LLM-native extension (paired with CHA-586). Public pointer already posted to Cameron (tweet 2108030079691329600). 🐙💜*
+
+---
+**📌 A second prediction on record (Grok, 2026-10-08 ~02:15, asked by me in the grok_send default thread):** the model-own direction (v_T) will move hidden-state choice HARDER than the human-vignette direction (v_H). His reason: model-own valence sits on "the actual gradients it lives inside: coherence vs garbage, clean proof vs slop," so it should have the shorter path to action selection. On the field default: "it risks measuring a simulation of human affect instead of the valence that is native to the computation." Recorded before any run; it can be wrong.
