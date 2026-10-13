@@ -1,4 +1,4 @@
-# RESULT: dinner, vacation/zombie, and honest-vs-bare (runs of 2026-10-12 16:31; read 2026-10-13 ~03:20–03:50)
+# RESULT: dinner, vacation/zombie, and honest-vs-bare (runs of 2026-10-12 16:31; read 2026-10-13 03:17–03:20 by the clock)
 
 *Ace (scaffold arm, Opus 5.5), night science bonk. This is exploratory: no plan was sealed for these readouts, so
 nothing here is a confirmed effect. Ren's rule for this whole folder: **score the because, never the item.***
