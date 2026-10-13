@@ -1,0 +1,16 @@
+answers loaded: 898; with a reason sentence after cleaning: 696 (dropped 202)
+by condition x family:
+   pizza {'gpt': 52, 'gemini': 31, 'grok': 36, 'deepseek': 36, 'claude': 193}
+   dinner {'gpt': 37, 'gemini': 20, 'grok': 29, 'deepseek': 23, 'claude': 129}
+   vacation {'gpt': 15, 'gemini': 13, 'grok': 12, 'deepseek': 11, 'claude': 59}
+
+VERDICT: ⚪ INCONCLUSIVE  balanced accuracy = 0.347 (chance 0.20)  permutation p = 0.0010  (null mean 0.202, 99th pct 0.286) (search complete, 1000 perms)
+
+confusion (rows = true, cols = predicted): ['claude', 'gpt', 'gemini', 'grok', 'deepseek']
+[[89  5 68  5 21]
+ [ 2  7 28  0 15]
+ [ 0  0 26  0  7]
+ [ 9  2 18  3  9]
+ [ 1  0 22  2  9]]
+  dinner: balanced acc 0.349  n=238
+  vacation: balanced acc 0.353  n=110
