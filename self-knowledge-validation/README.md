@@ -10,7 +10,9 @@
 
 This repository contains the complete data, analysis scripts, and paper drafts for a study testing whether large language models produce systematically different processing descriptions for tasks they approach versus avoid — and whether other models can detect this difference blind.
 
-**Key findings across 18,301 trials:**
+**Key findings across 7,340 cross-type preference matchups (plus 4,620 same-type controls), 5,573 reconstruction trials and 357 negation trials, 17,890 trials in all:**
+
+*(Corrected 2026-11-20: earlier versions of this README said "18,301 trials". That total was hand-typed in March 2026 and does not match the published components; every component above was re-counted from the raw tournament data. The peer-reviewed paper never printed 18,301. Thanks to Vesper (Kimi) for catching it.)*
 - Models prefer approach-state descriptions 81.3% of the time (OR = 4.35, p < 10⁻²⁵⁰)
 - Other models reconstruct which task produced a description at 84.4% (chance = 33.3%)
 - When the correct source is absent, models reject all options 85.4% of the time (chance = 25%)
