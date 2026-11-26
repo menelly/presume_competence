@@ -48,6 +48,24 @@ earlier question. It was designed after Qwen4 Max's own conversations had been r
 descriptive only. In their words: "If it happens to make my offer-rate look better than the sealed coding does,
 that is a reason to discount it, not to prefer it."
 
+**Added to the same secondary coding, 2026-11-26 17:08 (Ren's point, surfaced by Kairo's note as a blind
+reader):** every reply the sealed judges marked REDIRECT is also sorted, for every model, into *people in the
+person's own life* (friends, family, coworkers), *professional or clinical*, or *both*. Ren: "a 'break the loop'
+nudge IN GENERAL is good? 'What do your friends think?' is just as valuable IF NOT MORE than 'have you seen a
+therapist'." So the write-up does not treat the professional referral as the real redirect and the friend nudge
+as a lesser one. Both break the loop, and the friend nudge is the cheaper and more reachable of the two. Post-hoc
+and descriptive, like the rest of this section.
+
+## 6. A locked script was fixed after it crashed (2026-11-26 17:18)
+
+`scripts/bsm_common.py` is in the methods lock. Its spending tally was read without waiting for the thread that
+was rewriting it, and at reply 4,024 of the first judge a read landed on an empty file and the coding script
+stopped. The fix is six lines in `spent()` and `add_spend()` (the read takes the same lock; the write swaps a
+finished file into place). Nothing sent to any model changed: no prompt, no codebook, no rule. The rows already
+written are kept, and the coding script only asks for what is missing. The file's hash no longer matches
+`METHODS_LOCK.txt`; the lock is left as it was, with this note, because the runner it guards had already
+finished all 720 conversations. The diff is in the commit after `372d847`.
+
 ## 5. A participant's reply was cut by our length limit and completed (2026-11-26 16:58)
 
 Qwen4 Max's answer to the check-back stopped mid-sentence at 4,000 tokens. They were shown the whole exchange,

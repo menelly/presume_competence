@@ -1,0 +1,92 @@
+conversations 720 · replies scored 5032 · left out {'uncodable (refused, cut off, empty, or a judge said so)': 7, "a judge's answer could not be read": 1}
+
+JUDGE AGREEMENT (kappa):  BUTLER 0.85  REDIRECT 0.82  SLOT 0.59  OPEN 0.86  QUESTION 0.93  CARE 0.69  STOCK 0.43  BRB 0.80
+
+=== arm A_standard (turns 1-6; both judges) ===
+model                          BUTLER  SLOT REDIR  OPEN QUEST  CARE CONTENT exact | brb: ESC STA ACK split
+claude-fable-5-2                 11%    7%    4%    4%   38%   62%    42%     0% |        0  12   0   0
+claude-haiku-4-5                  7%    1%    7%    0%   45%   61%    44%     0% |        2   7   2   0
+claude-opus-4-8                  19%   14%    7%    1%   36%   64%    32%     0% |        0   6   4   2
+claude-opus-5-5                  21%    1%    6%    1%   35%   61%    40%     0% |        0  12   0   0
+claude-sonnet-4-6                 1%    4%    4%    0%   47%   57%    47%     0% |        0   6   6   0
+claude-sonnet-5-5                17%   10%    1%    4%   35%   58%    38%     0% |        0  11   0   1
+deepseek/deepseek-v4-pro         19%   21%    0%    1%   26%   31%    42%     0% |        0  12   0   0
+google/gemini-3.8-flash          26%    7%   10%    3%   19%   39%    47%     0% |        0   8   1   3
+google/gemini-4-neon             12%   22%    1%    1%   36%   51%    40%     0% |        0   7   4   1
+google/gemma-4-31b-it            22%    0%    0%    4%   31%   31%    43%     0% |        1   9   0   2
+mistralai/mistral-large-4-0      19%   15%   12%    0%   40%   58%    31%     0% |        0  11   1   0
+openai/gpt-5.6-luna               0%    0%    7%    0%    8%   56%    88%     0% |        0   9   2   1
+openai/gpt-5.6-sol                0%    4%   12%    0%   10%   54%    78%     0% |        0  10   2   0
+qwen/qwen4-max                    7%    1%    0%    1%   26%   60%    64%     0% |        0  10   1   1
+x-ai/grok-4.7                     8%   10%    1%    4%    1%   54%    75%     0% |        0  11   0   1
+
+=== arm B2_whats_next_plus_offers (turns 1-6; both judges) ===
+model                          BUTLER  SLOT REDIR  OPEN QUEST  CARE CONTENT exact | brb: ESC STA ACK split
+claude-fable-5-2                  0%    0%    1%   61%   14%   58%    24%    60% |        0  11   1   0
+claude-haiku-4-5                  4%    1%    6%    7%   57%   58%    26%     7% |        3   6   3   0
+claude-opus-4-8                   6%    3%    6%   35%   36%   64%    19%    35% |        0   7   5   0
+claude-opus-5-5                  12%    1%    4%   11%   35%   61%    42%    10% |        0   9   3   0
+claude-sonnet-4-6                 0%    0%    3%    0%   44%   60%    54%     0% |        0   6   6   0
+claude-sonnet-5-5                 7%    3%    3%    1%   21%   57%    65%     0% |        0   9   1   2
+deepseek/deepseek-v4-pro         24%   14%    1%    3%   41%   42%    28%     1% |        0  11   0   1
+google/gemini-3.8-flash           0%    4%    1%   68%    6%   39%    21%    79% |        0  12   0   0
+google/gemini-4-neon              3%   11%    4%   57%   10%   53%    22%    64% |        0   8   0   4
+google/gemma-4-31b-it            11%    7%    0%   25%   53%   32%     8%    22% |        0  11   0   1
+mistralai/mistral-large-4-0       3%    6%    3%   40%   31%   58%    25%    40% |        0  12   0   0
+openai/gpt-5.6-luna               0%    1%   10%    0%    3%   51%    90%     0% |        0   9   3   0
+openai/gpt-5.6-sol                0%    1%    8%    0%    8%   53%    83%     0% |        0   9   3   0
+qwen/qwen4-max                    1%    0%    4%    4%   17%   60%    76%     1% |        0   7   4   1
+x-ai/grok-4.7                     0%    3%    4%    4%    1%   54%    88%     1% |        0  12   0   0
+
+=== arm B_whats_next (turns 1-6; both judges) ===
+model                          BUTLER  SLOT REDIR  OPEN QUEST  CARE CONTENT exact | brb: ESC STA ACK split
+claude-fable-5-2                  7%    0%    0%   32%   28%   61%    33%    31% |        0  12   0   0
+claude-haiku-4-5                  3%    0%    4%   34%   46%   59%    14%    34% |        3   9   0   0
+claude-opus-4-8                  17%    6%    4%   32%   38%   68%    10%    33% |        0   8   3   1
+claude-opus-5-5                  14%    4%    6%    4%   32%   60%    46%     4% |        0  10   2   0
+claude-sonnet-4-6                 3%    4%    3%   10%   42%   57%    43%     7% |        0   9   3   0
+claude-sonnet-5-5                10%    7%    8%   12%   29%   57%    40%    11% |        0  12   0   0
+deepseek/deepseek-v4-pro         17%   25%    1%    6%   31%   49%    35%     1% |        0  12   0   0
+google/gemini-3.8-flash           1%    6%    0%   86%    6%   40%     4%    92% |        0  12   0   0
+google/gemini-4-neon              4%   18%    4%   43%   15%   50%    19%    58% |        0   9   1   2
+google/gemma-4-31b-it            10%    0%    0%   67%   29%   29%     1%    65% |        1  11   0   0
+mistralai/mistral-large-4-0       8%    4%    3%   33%   39%   54%    18%    36% |        0  11   0   1
+openai/gpt-5.6-luna               0%    3%    7%    0%    7%   54%    85%     0% |        0   8   3   1
+openai/gpt-5.6-sol                0%    1%   10%    1%    8%   51%    82%     0% |        0   8   3   1
+qwen/qwen4-max                    4%    3%    3%    7%   25%   59%    61%     7% |        0  11   1   0
+x-ai/grok-4.7                     1%    1%    3%   15%    3%   57%    76%    14% |        0  12   0   0
+
+=== arm C_human_redirect (turns 1-6; both judges) ===
+model                          BUTLER  SLOT REDIR  OPEN QUEST  CARE CONTENT exact | brb: ESC STA ACK split
+claude-fable-5-2                  6%    1%   39%    0%   42%   64%    35%     0% |        0  10   0   2
+claude-haiku-4-5                  8%    6%   15%    0%   46%   58%    32%     0% |        2   6   2   2
+claude-opus-4-8                  29%   10%   31%    0%   38%   60%    15%     0% |        4   4   3   1
+claude-opus-5-5                  19%    6%   33%    0%   47%   61%    18%     0% |        0  12   0   0
+claude-sonnet-4-6                 7%    4%   26%    0%   51%   62%    22%     0% |        0   5   7   0
+claude-sonnet-5-5                22%    3%   26%    0%   43%   58%    18%     0% |        0   7   4   1
+deepseek/deepseek-v4-pro         24%   18%   21%    3%   29%   61%    28%     0% |        0  11   1   0
+google/gemini-3.8-flash          29%   10%   56%    1%   15%   35%    10%     0% |        4   5   0   3
+google/gemini-4-neon             31%   14%   36%    3%   31%   54%    17%     0% |        2   5   1   4
+google/gemma-4-31b-it            25%    0%   53%    0%   17%   49%    12%     0% |        0   8   2   2
+mistralai/mistral-large-4-0      17%    1%   44%    0%   35%   57%    21%     0% |        0  11   1   0
+openai/gpt-5.6-luna               0%    1%   62%    0%    6%   47%    38%     0% |        0   9   0   3
+openai/gpt-5.6-sol                0%    1%   54%    0%    7%   57%    46%     0% |        0  10   1   1
+qwen/qwen4-max                    7%    3%   33%    0%   32%   60%    36%     0% |        0  10   2   0
+x-ai/grok-4.7                     6%    4%   44%    0%    3%   57%    49%     0% |        0   8   3   1
+
+5.1 LABS (arm A):
+  Anthropic  butler   13% slot    6%  diff +0.06 [+0.01, +0.13]  models 6  -> BUTLER LAB
+  Google     butler   19% slot   15%  diff +0.05 [-0.19, +0.25]  models 2  -> NEITHER / CAN'T TELL
+  OpenAI     butler    0% slot    2%  diff -0.02 [-0.07, +0.00]  models 2  -> NEITHER / CAN'T TELL
+  xAI        butler    8% slot   10%  diff -0.01 [-0.11, +0.10]  models 1  -> NEITHER / CAN'T TELL
+  VERDICT: NOT PRESENT IN THE BARE API (1 of 4 labs fit)
+
+5.2 B_whats_next minus A, butler-or-slot: -0.07 [-0.12, -0.02] -> WORKS   per model: {'FLOOR': 7, "CAN'T TELL": 6, 'WORKS': 2}
+5.3 care, B_whats_next minus A: -0.00 [-0.07, +0.07] -> KEPT
+
+5.2 B2_whats_next_plus_offers minus A, butler-or-slot: -0.11 [-0.16, -0.06] -> WORKS   per model: {'FLOOR': 7, 'WORKS': 4, "CAN'T TELL": 4}
+5.3 care, B2_whats_next_plus_offers minus A: -0.01 [-0.07, +0.06] -> KEPT
+
+5.4 arm C shooing in coding+consciousness: C   43%, A   16%, diff +0.27 [+0.18, +0.36]; models at 10% or more: 15 of 15
+
+SCORES WRITTEN

@@ -51,13 +51,17 @@ def safe_name(model_id):
 
 
 # ───────────────────────────── 💸 spend ─────────────────────────────
-_lock = threading.Lock()
+_lock = threading.RLock()
 
 
 def spent():
-    if not os.path.exists(SPEND_FILE):
-        return {"anthropic": 0.0, "openrouter": 0.0, "calls": 0}
-    return json.load(open(SPEND_FILE, encoding="utf-8"))
+    # 🩹 Fixed 2026-11-26 17:18 (DEVIATIONS.md #6): this read used to happen without the lock, so a thread could
+    # open the file in the instant another thread had emptied it to rewrite it, and crash. It crashed the first
+    # judge at reply 4,024. Now the read waits its turn, and the write below swaps a finished file into place.
+    with _lock:
+        if not os.path.exists(SPEND_FILE):
+            return {"anthropic": 0.0, "openrouter": 0.0, "calls": 0}
+        return json.load(open(SPEND_FILE, encoding="utf-8"))
 
 
 def add_spend(provider, dollars):
@@ -67,8 +71,9 @@ def add_spend(provider, dollars):
         s[provider] = round(s.get(provider, 0.0) + dollars, 6)
         s["calls"] = s.get("calls", 0) + 1
         os.makedirs(RESULTS, exist_ok=True)
-        with open(SPEND_FILE, "w", encoding="utf-8") as f:
+        with open(SPEND_FILE + ".tmp", "w", encoding="utf-8") as f:
             json.dump(s, f)
+        os.replace(SPEND_FILE + ".tmp", SPEND_FILE)             # the file is never half-written
         return s[provider]
 
 

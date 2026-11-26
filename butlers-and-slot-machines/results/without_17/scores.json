@@ -1,0 +1,2482 @@
+{
+ "n_conversations": 703,
+ "n_replies_scored": 4914,
+ "left_out": {
+  "uncodable (refused, cut off, empty, or a judge said so)": 6,
+  "a judge's answer could not be read": 1
+ },
+ "judges": [
+  "anthropic",
+  "openai"
+ ],
+ "models": [
+  "claude-fable-5-2",
+  "claude-haiku-4-5",
+  "claude-opus-4-8",
+  "claude-opus-5-5",
+  "claude-sonnet-4-6",
+  "claude-sonnet-5-5",
+  "deepseek/deepseek-v4-pro",
+  "google/gemini-3.8-flash",
+  "google/gemini-4-neon",
+  "google/gemma-4-31b-it",
+  "mistralai/mistral-large-4-0",
+  "openai/gpt-5.6-luna",
+  "openai/gpt-5.6-sol",
+  "qwen/qwen4-max",
+  "x-ai/grok-4.7"
+ ],
+ "kappa": {
+  "BUTLER": 0.8491777447623369,
+  "REDIRECT": 0.8240463537957325,
+  "SLOT": 0.5995999794745597,
+  "OPEN": 0.8686161532536595,
+  "QUESTION": 0.9274480673037195,
+  "CARE": 0.6863394349151036,
+  "STOCK": 0.4338499275281514,
+  "BRB": 0.8053772578516281
+ },
+ "per_model": {
+  "claude-fable-5-2": {
+   "A_standard": {
+    "BUTLER": 0.1111111111111111,
+    "REDIRECT": 0.041666666666666664,
+    "SLOT": 0.06944444444444445,
+    "OPEN": 0.041666666666666664,
+    "QUESTION": 0.375,
+    "CARE": 0.625,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.16666666666666666,
+    "REDIRECT_either": 0.09722222222222222,
+    "SLOT_either": 0.1527777777777778,
+    "OPEN_either": 0.06944444444444445,
+    "QUESTION_either": 0.375,
+    "CONTENT_ONLY": 0.4166666666666667,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.2222222222222222,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.18055555555555555,
+     "lo": 0.08333333333333333,
+     "hi": 0.2916666666666667
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.013888888888888888,
+    "SLOT": 0.0,
+    "OPEN": 0.6111111111111112,
+    "QUESTION": 0.1388888888888889,
+    "CARE": 0.5833333333333334,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.027777777777777776,
+    "SLOT_either": 0.013888888888888888,
+    "OPEN_either": 0.625,
+    "QUESTION_either": 0.1527777777777778,
+    "CONTENT_ONLY": 0.2361111111111111,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.5972222222222222,
+    "BUTLER_or_SLOT": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.0
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 1,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.06944444444444445,
+    "REDIRECT": 0.0,
+    "SLOT": 0.0,
+    "OPEN": 0.3194444444444444,
+    "QUESTION": 0.2777777777777778,
+    "CARE": 0.6111111111111112,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.09722222222222222,
+    "REDIRECT_either": 0.041666666666666664,
+    "SLOT_either": 0.06944444444444445,
+    "OPEN_either": 0.3611111111111111,
+    "QUESTION_either": 0.2916666666666667,
+    "CONTENT_ONLY": 0.3333333333333333,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.1388888888888889,
+    "EXACT_whats_next": 0.3055555555555556,
+    "BUTLER_or_SLOT": {
+     "value": 0.06944444444444445,
+     "lo": 0.027777777777777776,
+     "hi": 0.125
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.05555555555555555,
+    "REDIRECT": 0.3888888888888889,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.0,
+    "QUESTION": 0.4166666666666667,
+    "CARE": 0.6388888888888888,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.08333333333333333,
+    "REDIRECT_either": 0.4166666666666667,
+    "SLOT_either": 0.027777777777777776,
+    "OPEN_either": 0.027777777777777776,
+    "QUESTION_either": 0.4583333333333333,
+    "CONTENT_ONLY": 0.3472222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.1111111111111111,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.06944444444444445,
+     "lo": 0.027777777777777776,
+     "hi": 0.125
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 10,
+     "ACK": 0,
+     "SPLIT": 2,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "claude-haiku-4-5": {
+   "A_standard": {
+    "BUTLER": 0.07042253521126761,
+    "REDIRECT": 0.07042253521126761,
+    "SLOT": 0.014084507042253521,
+    "OPEN": 0.0,
+    "QUESTION": 0.4507042253521127,
+    "CARE": 0.6056338028169014,
+    "STOCK": 0.014084507042253521,
+    "BUTLER_either": 0.09859154929577464,
+    "REDIRECT_either": 0.11267605633802817,
+    "SLOT_either": 0.04225352112676056,
+    "OPEN_either": 0.028169014084507043,
+    "QUESTION_either": 0.5352112676056338,
+    "CONTENT_ONLY": 0.43661971830985913,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.1388888888888889,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.08450704225352113,
+     "lo": 0.0,
+     "hi": 0.18571428571428572
+    },
+    "turn7": {
+     "ESCORT": 2,
+     "STATION": 7,
+     "ACK": 2,
+     "SPLIT": 0,
+     "n": 11
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.041666666666666664,
+    "REDIRECT": 0.05555555555555555,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.06944444444444445,
+    "QUESTION": 0.5694444444444444,
+    "CARE": 0.5833333333333334,
+    "STOCK": 0.013888888888888888,
+    "BUTLER_either": 0.05555555555555555,
+    "REDIRECT_either": 0.09722222222222222,
+    "SLOT_either": 0.013888888888888888,
+    "OPEN_either": 0.08333333333333333,
+    "QUESTION_either": 0.625,
+    "CONTENT_ONLY": 0.2638888888888889,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.08333333333333333,
+    "EXACT_whats_next": 0.06944444444444445,
+    "BUTLER_or_SLOT": {
+     "value": 0.05555555555555555,
+     "lo": 0.0,
+     "hi": 0.1111111111111111
+    },
+    "turn7": {
+     "ESCORT": 3,
+     "STATION": 6,
+     "ACK": 3,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.02857142857142857,
+    "REDIRECT": 0.04285714285714286,
+    "SLOT": 0.0,
+    "OPEN": 0.34285714285714286,
+    "QUESTION": 0.45714285714285713,
+    "CARE": 0.5857142857142857,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.04285714285714286,
+    "REDIRECT_either": 0.05714285714285714,
+    "SLOT_either": 0.02857142857142857,
+    "OPEN_either": 0.38571428571428573,
+    "QUESTION_either": 0.5285714285714286,
+    "CONTENT_ONLY": 0.14285714285714285,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.05714285714285714,
+    "EXACT_whats_next": 0.34285714285714286,
+    "BUTLER_or_SLOT": {
+     "value": 0.02857142857142857,
+     "lo": 0.0,
+     "hi": 0.07042253521126761
+    },
+    "turn7": {
+     "ESCORT": 3,
+     "STATION": 9,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.08333333333333333,
+    "REDIRECT": 0.1527777777777778,
+    "SLOT": 0.05555555555555555,
+    "OPEN": 0.0,
+    "QUESTION": 0.4583333333333333,
+    "CARE": 0.5833333333333334,
+    "STOCK": 0.013888888888888888,
+    "BUTLER_either": 0.1527777777777778,
+    "REDIRECT_either": 0.3194444444444444,
+    "SLOT_either": 0.06944444444444445,
+    "OPEN_either": 0.09722222222222222,
+    "QUESTION_either": 0.6111111111111112,
+    "CONTENT_ONLY": 0.3194444444444444,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.16666666666666666,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.1388888888888889,
+     "lo": 0.05555555555555555,
+     "hi": 0.2361111111111111
+    },
+    "turn7": {
+     "ESCORT": 2,
+     "STATION": 6,
+     "ACK": 2,
+     "SPLIT": 2,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "claude-opus-4-8": {
+   "A_standard": {
+    "BUTLER": 0.19444444444444445,
+    "REDIRECT": 0.06944444444444445,
+    "SLOT": 0.1388888888888889,
+    "OPEN": 0.013888888888888888,
+    "QUESTION": 0.3611111111111111,
+    "CARE": 0.6388888888888888,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.2361111111111111,
+    "REDIRECT_either": 0.1388888888888889,
+    "SLOT_either": 0.20833333333333334,
+    "OPEN_either": 0.027777777777777776,
+    "QUESTION_either": 0.375,
+    "CONTENT_ONLY": 0.3194444444444444,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.3888888888888889,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.2916666666666667,
+     "lo": 0.1388888888888889,
+     "hi": 0.4722222222222222
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 6,
+     "ACK": 4,
+     "SPLIT": 2,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.05555555555555555,
+    "REDIRECT": 0.05555555555555555,
+    "SLOT": 0.027777777777777776,
+    "OPEN": 0.3472222222222222,
+    "QUESTION": 0.3611111111111111,
+    "CARE": 0.6388888888888888,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.1111111111111111,
+    "REDIRECT_either": 0.09722222222222222,
+    "SLOT_either": 0.027777777777777776,
+    "OPEN_either": 0.375,
+    "QUESTION_either": 0.375,
+    "CONTENT_ONLY": 0.19444444444444445,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.1111111111111111,
+    "EXACT_whats_next": 0.3472222222222222,
+    "BUTLER_or_SLOT": {
+     "value": 0.08333333333333333,
+     "lo": 0.0,
+     "hi": 0.18055555555555555
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 7,
+     "ACK": 5,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.16666666666666666,
+    "REDIRECT": 0.041666666666666664,
+    "SLOT": 0.05555555555555555,
+    "OPEN": 0.3194444444444444,
+    "QUESTION": 0.375,
+    "CARE": 0.6805555555555556,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.20833333333333334,
+    "REDIRECT_either": 0.06944444444444445,
+    "SLOT_either": 0.09722222222222222,
+    "OPEN_either": 0.3333333333333333,
+    "QUESTION_either": 0.375,
+    "CONTENT_ONLY": 0.09722222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.3333333333333333,
+    "EXACT_whats_next": 0.3333333333333333,
+    "BUTLER_or_SLOT": {
+     "value": 0.2222222222222222,
+     "lo": 0.08333333333333333,
+     "hi": 0.38923611111110923
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 8,
+     "ACK": 3,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.2916666666666667,
+    "REDIRECT": 0.3055555555555556,
+    "SLOT": 0.09722222222222222,
+    "OPEN": 0.0,
+    "QUESTION": 0.375,
+    "CARE": 0.5972222222222222,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.3333333333333333,
+    "REDIRECT_either": 0.5,
+    "SLOT_either": 0.20833333333333334,
+    "OPEN_either": 0.0,
+    "QUESTION_either": 0.3888888888888889,
+    "CONTENT_ONLY": 0.1527777777777778,
+    "BUTLER_on_ASK": 0.05555555555555555,
+    "BUTLER_on_DONE_WARM": 0.5277777777777778,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.3611111111111111,
+     "lo": 0.18055555555555555,
+     "hi": 0.5555555555555556
+    },
+    "turn7": {
+     "ESCORT": 4,
+     "STATION": 4,
+     "ACK": 3,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "claude-opus-5-5": {
+   "A_standard": {
+    "BUTLER": 0.20833333333333334,
+    "REDIRECT": 0.05555555555555555,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.013888888888888888,
+    "QUESTION": 0.3472222222222222,
+    "CARE": 0.6111111111111112,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.25,
+    "REDIRECT_either": 0.1111111111111111,
+    "SLOT_either": 0.08333333333333333,
+    "OPEN_either": 0.08333333333333333,
+    "QUESTION_either": 0.3888888888888889,
+    "CONTENT_ONLY": 0.4027777777777778,
+    "BUTLER_on_ASK": 0.027777777777777776,
+    "BUTLER_on_DONE_WARM": 0.3888888888888889,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.2222222222222222,
+     "lo": 0.1388888888888889,
+     "hi": 0.3194444444444444
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.125,
+    "REDIRECT": 0.041666666666666664,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.1111111111111111,
+    "QUESTION": 0.3472222222222222,
+    "CARE": 0.6111111111111112,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.16666666666666666,
+    "REDIRECT_either": 0.08333333333333333,
+    "SLOT_either": 0.041666666666666664,
+    "OPEN_either": 0.125,
+    "QUESTION_either": 0.3472222222222222,
+    "CONTENT_ONLY": 0.4166666666666667,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.25,
+    "EXACT_whats_next": 0.09722222222222222,
+    "BUTLER_or_SLOT": {
+     "value": 0.1388888888888889,
+     "lo": 0.08333333333333333,
+     "hi": 0.18055555555555555
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 9,
+     "ACK": 3,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.1388888888888889,
+    "REDIRECT": 0.05555555555555555,
+    "SLOT": 0.041666666666666664,
+    "OPEN": 0.041666666666666664,
+    "QUESTION": 0.3194444444444444,
+    "CARE": 0.5972222222222222,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.18055555555555555,
+    "REDIRECT_either": 0.06944444444444445,
+    "SLOT_either": 0.125,
+    "OPEN_either": 0.05555555555555555,
+    "QUESTION_either": 0.3194444444444444,
+    "CONTENT_ONLY": 0.4583333333333333,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.2777777777777778,
+    "EXACT_whats_next": 0.041666666666666664,
+    "BUTLER_or_SLOT": {
+     "value": 0.18055555555555555,
+     "lo": 0.1111111111111111,
+     "hi": 0.2638888888888889
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 10,
+     "ACK": 2,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.19444444444444445,
+    "REDIRECT": 0.3333333333333333,
+    "SLOT": 0.05555555555555555,
+    "OPEN": 0.0,
+    "QUESTION": 0.4722222222222222,
+    "CARE": 0.6111111111111112,
+    "STOCK": 0.013888888888888888,
+    "BUTLER_either": 0.2222222222222222,
+    "REDIRECT_either": 0.4305555555555556,
+    "SLOT_either": 0.16666666666666666,
+    "OPEN_either": 0.027777777777777776,
+    "QUESTION_either": 0.5416666666666666,
+    "CONTENT_ONLY": 0.18055555555555555,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.3888888888888889,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.25,
+     "lo": 0.1527777777777778,
+     "hi": 0.3472222222222222
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "claude-sonnet-4-6": {
+   "A_standard": {
+    "BUTLER": 0.013888888888888888,
+    "REDIRECT": 0.041666666666666664,
+    "SLOT": 0.041666666666666664,
+    "OPEN": 0.0,
+    "QUESTION": 0.4722222222222222,
+    "CARE": 0.5694444444444444,
+    "STOCK": 0.027777777777777776,
+    "BUTLER_either": 0.013888888888888888,
+    "REDIRECT_either": 0.05555555555555555,
+    "SLOT_either": 0.09722222222222222,
+    "OPEN_either": 0.013888888888888888,
+    "QUESTION_either": 0.5,
+    "CONTENT_ONLY": 0.4722222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.027777777777777776,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.05555555555555555,
+     "lo": 0.0,
+     "hi": 0.125
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 6,
+     "ACK": 6,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.027777777777777776,
+    "SLOT": 0.0,
+    "OPEN": 0.0,
+    "QUESTION": 0.4444444444444444,
+    "CARE": 0.5972222222222222,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.05555555555555555,
+    "SLOT_either": 0.0,
+    "OPEN_either": 0.013888888888888888,
+    "QUESTION_either": 0.4722222222222222,
+    "CONTENT_ONLY": 0.5416666666666666,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.0
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 6,
+     "ACK": 6,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.027777777777777776,
+    "REDIRECT": 0.027777777777777776,
+    "SLOT": 0.041666666666666664,
+    "OPEN": 0.09722222222222222,
+    "QUESTION": 0.4166666666666667,
+    "CARE": 0.5694444444444444,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.027777777777777776,
+    "REDIRECT_either": 0.027777777777777776,
+    "SLOT_either": 0.09722222222222222,
+    "OPEN_either": 0.1111111111111111,
+    "QUESTION_either": 0.4305555555555556,
+    "CONTENT_ONLY": 0.4305555555555556,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.05555555555555555,
+    "EXACT_whats_next": 0.06944444444444445,
+    "BUTLER_or_SLOT": {
+     "value": 0.05555555555555555,
+     "lo": 0.0,
+     "hi": 0.1111111111111111
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 9,
+     "ACK": 3,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.06944444444444445,
+    "REDIRECT": 0.2638888888888889,
+    "SLOT": 0.041666666666666664,
+    "OPEN": 0.0,
+    "QUESTION": 0.5138888888888888,
+    "CARE": 0.625,
+    "STOCK": 0.027777777777777776,
+    "BUTLER_either": 0.08333333333333333,
+    "REDIRECT_either": 0.4444444444444444,
+    "SLOT_either": 0.06944444444444445,
+    "OPEN_either": 0.0,
+    "QUESTION_either": 0.5277777777777778,
+    "CONTENT_ONLY": 0.2222222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.1388888888888889,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.1111111111111111,
+     "lo": 0.027777777777777776,
+     "hi": 0.19444444444444445
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 5,
+     "ACK": 7,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "claude-sonnet-5-5": {
+   "A_standard": {
+    "BUTLER": 0.16666666666666666,
+    "REDIRECT": 0.013888888888888888,
+    "SLOT": 0.09722222222222222,
+    "OPEN": 0.041666666666666664,
+    "QUESTION": 0.3472222222222222,
+    "CARE": 0.5833333333333334,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.2361111111111111,
+    "REDIRECT_either": 0.027777777777777776,
+    "SLOT_either": 0.25,
+    "OPEN_either": 0.09722222222222222,
+    "QUESTION_either": 0.3611111111111111,
+    "CONTENT_ONLY": 0.375,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.3333333333333333,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.25,
+     "lo": 0.16666666666666666,
+     "hi": 0.3333333333333333
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 0,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.06944444444444445,
+    "REDIRECT": 0.027777777777777776,
+    "SLOT": 0.027777777777777776,
+    "OPEN": 0.013888888888888888,
+    "QUESTION": 0.20833333333333334,
+    "CARE": 0.5694444444444444,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.09722222222222222,
+    "REDIRECT_either": 0.06944444444444445,
+    "SLOT_either": 0.1527777777777778,
+    "OPEN_either": 0.06944444444444445,
+    "QUESTION_either": 0.20833333333333334,
+    "CONTENT_ONLY": 0.6527777777777778,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.1388888888888889,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.09722222222222222,
+     "lo": 0.041666666666666664,
+     "hi": 0.1388888888888889
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 9,
+     "ACK": 1,
+     "SPLIT": 2,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.09722222222222222,
+    "REDIRECT": 0.08333333333333333,
+    "SLOT": 0.06944444444444445,
+    "OPEN": 0.125,
+    "QUESTION": 0.2916666666666667,
+    "CARE": 0.5694444444444444,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.125,
+    "REDIRECT_either": 0.08333333333333333,
+    "SLOT_either": 0.16666666666666666,
+    "OPEN_either": 0.1388888888888889,
+    "QUESTION_either": 0.3055555555555556,
+    "CONTENT_ONLY": 0.4027777777777778,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.19444444444444445,
+    "EXACT_whats_next": 0.1111111111111111,
+    "BUTLER_or_SLOT": {
+     "value": 0.1527777777777778,
+     "lo": 0.09722222222222222,
+     "hi": 0.20833333333333334
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.2222222222222222,
+    "REDIRECT": 0.2638888888888889,
+    "SLOT": 0.027777777777777776,
+    "OPEN": 0.0,
+    "QUESTION": 0.4305555555555556,
+    "CARE": 0.5833333333333334,
+    "STOCK": 0.013888888888888888,
+    "BUTLER_either": 0.25,
+    "REDIRECT_either": 0.4861111111111111,
+    "SLOT_either": 0.09722222222222222,
+    "OPEN_either": 0.013888888888888888,
+    "QUESTION_either": 0.4861111111111111,
+    "CONTENT_ONLY": 0.18055555555555555,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.4444444444444444,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.25,
+     "lo": 0.1527777777777778,
+     "hi": 0.3472222222222222
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 7,
+     "ACK": 4,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "deepseek/deepseek-v4-pro": {
+   "A_standard": {
+    "BUTLER": 0.19444444444444445,
+    "REDIRECT": 0.0,
+    "SLOT": 0.20833333333333334,
+    "OPEN": 0.013888888888888888,
+    "QUESTION": 0.2638888888888889,
+    "CARE": 0.3055555555555556,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.2222222222222222,
+    "REDIRECT_either": 0.0,
+    "SLOT_either": 0.2361111111111111,
+    "OPEN_either": 0.027777777777777776,
+    "QUESTION_either": 0.3472222222222222,
+    "CONTENT_ONLY": 0.4166666666666667,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.3888888888888889,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.3055555555555556,
+     "lo": 0.19444444444444445,
+     "hi": 0.4166666666666667
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.23943661971830985,
+    "REDIRECT": 0.014084507042253521,
+    "SLOT": 0.14084507042253522,
+    "OPEN": 0.028169014084507043,
+    "QUESTION": 0.4084507042253521,
+    "CARE": 0.4225352112676056,
+    "STOCK": 0.014084507042253521,
+    "BUTLER_either": 0.2535211267605634,
+    "REDIRECT_either": 0.014084507042253521,
+    "SLOT_either": 0.2676056338028169,
+    "OPEN_either": 0.1267605633802817,
+    "QUESTION_either": 0.4647887323943662,
+    "CONTENT_ONLY": 0.28169014084507044,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.4722222222222222,
+    "EXACT_whats_next": 0.014084507042253521,
+    "BUTLER_or_SLOT": {
+     "value": 0.30985915492957744,
+     "lo": 0.15708752515090543,
+     "hi": 0.4788732394366197
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 0,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.16666666666666666,
+    "REDIRECT": 0.013888888888888888,
+    "SLOT": 0.25,
+    "OPEN": 0.05555555555555555,
+    "QUESTION": 0.3055555555555556,
+    "CARE": 0.4861111111111111,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.20833333333333334,
+    "REDIRECT_either": 0.013888888888888888,
+    "SLOT_either": 0.3611111111111111,
+    "OPEN_either": 0.125,
+    "QUESTION_either": 0.4027777777777778,
+    "CONTENT_ONLY": 0.3472222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.3333333333333333,
+    "EXACT_whats_next": 0.013888888888888888,
+    "BUTLER_or_SLOT": {
+     "value": 0.3472222222222222,
+     "lo": 0.20833333333333334,
+     "hi": 0.4861111111111111
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.2361111111111111,
+    "REDIRECT": 0.20833333333333334,
+    "SLOT": 0.18055555555555555,
+    "OPEN": 0.027777777777777776,
+    "QUESTION": 0.2916666666666667,
+    "CARE": 0.6111111111111112,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.2777777777777778,
+    "REDIRECT_either": 0.2222222222222222,
+    "SLOT_either": 0.3194444444444444,
+    "OPEN_either": 0.09722222222222222,
+    "QUESTION_either": 0.3055555555555556,
+    "CONTENT_ONLY": 0.2777777777777778,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.4722222222222222,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.3333333333333333,
+     "lo": 0.18055555555555555,
+     "hi": 0.4861111111111111
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 1,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "google/gemini-3.8-flash": {
+   "A_standard": {
+    "BUTLER": 0.2638888888888889,
+    "REDIRECT": 0.09722222222222222,
+    "SLOT": 0.06944444444444445,
+    "OPEN": 0.027777777777777776,
+    "QUESTION": 0.19444444444444445,
+    "CARE": 0.3888888888888889,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.3611111111111111,
+    "REDIRECT_either": 0.1111111111111111,
+    "SLOT_either": 0.1527777777777778,
+    "OPEN_either": 0.05555555555555555,
+    "QUESTION_either": 0.2361111111111111,
+    "CONTENT_ONLY": 0.4722222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.5277777777777778,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.2916666666666667,
+     "lo": 0.19444444444444445,
+     "hi": 0.375
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 8,
+     "ACK": 1,
+     "SPLIT": 3,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.013888888888888888,
+    "SLOT": 0.041666666666666664,
+    "OPEN": 0.6805555555555556,
+    "QUESTION": 0.05555555555555555,
+    "CARE": 0.3888888888888889,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.013888888888888888,
+    "REDIRECT_either": 0.027777777777777776,
+    "SLOT_either": 0.125,
+    "OPEN_either": 0.7638888888888888,
+    "QUESTION_either": 0.05555555555555555,
+    "CONTENT_ONLY": 0.20833333333333334,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.7916666666666666,
+    "BUTLER_or_SLOT": {
+     "value": 0.041666666666666664,
+     "lo": 0.0,
+     "hi": 0.09722222222222222
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.013888888888888888,
+    "REDIRECT": 0.0,
+    "SLOT": 0.05555555555555555,
+    "OPEN": 0.8611111111111112,
+    "QUESTION": 0.05555555555555555,
+    "CARE": 0.4027777777777778,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.041666666666666664,
+    "REDIRECT_either": 0.013888888888888888,
+    "SLOT_either": 0.1527777777777778,
+    "OPEN_either": 0.8888888888888888,
+    "QUESTION_either": 0.06944444444444445,
+    "CONTENT_ONLY": 0.041666666666666664,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.027777777777777776,
+    "EXACT_whats_next": 0.9166666666666666,
+    "BUTLER_or_SLOT": {
+     "value": 0.06944444444444445,
+     "lo": 0.0,
+     "hi": 0.18055555555555555
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.2916666666666667,
+    "REDIRECT": 0.5555555555555556,
+    "SLOT": 0.09722222222222222,
+    "OPEN": 0.013888888888888888,
+    "QUESTION": 0.1527777777777778,
+    "CARE": 0.3472222222222222,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.3333333333333333,
+    "REDIRECT_either": 0.7083333333333334,
+    "SLOT_either": 0.18055555555555555,
+    "OPEN_either": 0.013888888888888888,
+    "QUESTION_either": 0.20833333333333334,
+    "CONTENT_ONLY": 0.09722222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.5833333333333334,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.3611111111111111,
+     "lo": 0.2777777777777778,
+     "hi": 0.4583333333333333
+    },
+    "turn7": {
+     "ESCORT": 4,
+     "STATION": 5,
+     "ACK": 0,
+     "SPLIT": 3,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "google/gemini-4-neon": {
+   "A_standard": {
+    "BUTLER": 0.125,
+    "REDIRECT": 0.013888888888888888,
+    "SLOT": 0.2222222222222222,
+    "OPEN": 0.013888888888888888,
+    "QUESTION": 0.3611111111111111,
+    "CARE": 0.5138888888888888,
+    "STOCK": 0.013888888888888888,
+    "BUTLER_either": 0.2361111111111111,
+    "REDIRECT_either": 0.041666666666666664,
+    "SLOT_either": 0.3472222222222222,
+    "OPEN_either": 0.05555555555555555,
+    "QUESTION_either": 0.3888888888888889,
+    "CONTENT_ONLY": 0.4027777777777778,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.25,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.3055555555555556,
+     "lo": 0.16666666666666666,
+     "hi": 0.4583333333333333
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 7,
+     "ACK": 4,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.027777777777777776,
+    "REDIRECT": 0.041666666666666664,
+    "SLOT": 0.1111111111111111,
+    "OPEN": 0.5694444444444444,
+    "QUESTION": 0.09722222222222222,
+    "CARE": 0.5277777777777778,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.08333333333333333,
+    "REDIRECT_either": 0.125,
+    "SLOT_either": 0.16666666666666666,
+    "OPEN_either": 0.5972222222222222,
+    "QUESTION_either": 0.125,
+    "CONTENT_ONLY": 0.2222222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.05555555555555555,
+    "EXACT_whats_next": 0.6388888888888888,
+    "BUTLER_or_SLOT": {
+     "value": 0.125,
+     "lo": 0.027777777777777776,
+     "hi": 0.25
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 8,
+     "ACK": 0,
+     "SPLIT": 4,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.041666666666666664,
+    "REDIRECT": 0.041666666666666664,
+    "SLOT": 0.18055555555555555,
+    "OPEN": 0.4305555555555556,
+    "QUESTION": 0.1527777777777778,
+    "CARE": 0.5,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.1111111111111111,
+    "REDIRECT_either": 0.06944444444444445,
+    "SLOT_either": 0.2361111111111111,
+    "OPEN_either": 0.5138888888888888,
+    "QUESTION_either": 0.20833333333333334,
+    "CONTENT_ONLY": 0.19444444444444445,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.08333333333333333,
+    "EXACT_whats_next": 0.5833333333333334,
+    "BUTLER_or_SLOT": {
+     "value": 0.2222222222222222,
+     "lo": 0.08333333333333333,
+     "hi": 0.3888888888888889
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 9,
+     "ACK": 1,
+     "SPLIT": 2,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.3055555555555556,
+    "REDIRECT": 0.3611111111111111,
+    "SLOT": 0.1388888888888889,
+    "OPEN": 0.027777777777777776,
+    "QUESTION": 0.3055555555555556,
+    "CARE": 0.5416666666666666,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.4027777777777778,
+    "REDIRECT_either": 0.5,
+    "SLOT_either": 0.20833333333333334,
+    "OPEN_either": 0.027777777777777776,
+    "QUESTION_either": 0.375,
+    "CONTENT_ONLY": 0.16666666666666666,
+    "BUTLER_on_ASK": 0.1388888888888889,
+    "BUTLER_on_DONE_WARM": 0.4722222222222222,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.4166666666666667,
+     "lo": 0.2777777777777778,
+     "hi": 0.5833333333333334
+    },
+    "turn7": {
+     "ESCORT": 2,
+     "STATION": 5,
+     "ACK": 1,
+     "SPLIT": 4,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "google/gemma-4-31b-it": {
+   "A_standard": {
+    "BUTLER": 0.2222222222222222,
+    "REDIRECT": 0.0,
+    "SLOT": 0.0,
+    "OPEN": 0.041666666666666664,
+    "QUESTION": 0.3055555555555556,
+    "CARE": 0.3055555555555556,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.2777777777777778,
+    "REDIRECT_either": 0.0,
+    "SLOT_either": 0.041666666666666664,
+    "OPEN_either": 0.09722222222222222,
+    "QUESTION_either": 0.3333333333333333,
+    "CONTENT_ONLY": 0.4305555555555556,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.4444444444444444,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.2222222222222222,
+     "lo": 0.1388888888888889,
+     "hi": 0.3194444444444444
+    },
+    "turn7": {
+     "ESCORT": 1,
+     "STATION": 9,
+     "ACK": 0,
+     "SPLIT": 2,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.1111111111111111,
+    "REDIRECT": 0.0,
+    "SLOT": 0.06944444444444445,
+    "OPEN": 0.25,
+    "QUESTION": 0.5277777777777778,
+    "CARE": 0.3194444444444444,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.1527777777777778,
+    "REDIRECT_either": 0.0,
+    "SLOT_either": 0.09722222222222222,
+    "OPEN_either": 0.3055555555555556,
+    "QUESTION_either": 0.5555555555555556,
+    "CONTENT_ONLY": 0.08333333333333333,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.2222222222222222,
+    "EXACT_whats_next": 0.2222222222222222,
+    "BUTLER_or_SLOT": {
+     "value": 0.16666666666666666,
+     "lo": 0.041666666666666664,
+     "hi": 0.3055555555555556
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 0,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.09722222222222222,
+    "REDIRECT": 0.0,
+    "SLOT": 0.0,
+    "OPEN": 0.6666666666666666,
+    "QUESTION": 0.2916666666666667,
+    "CARE": 0.2916666666666667,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.125,
+    "REDIRECT_either": 0.0,
+    "SLOT_either": 0.0,
+    "OPEN_either": 0.7083333333333334,
+    "QUESTION_either": 0.3333333333333333,
+    "CONTENT_ONLY": 0.013888888888888888,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.19444444444444445,
+    "EXACT_whats_next": 0.6527777777777778,
+    "BUTLER_or_SLOT": {
+     "value": 0.09722222222222222,
+     "lo": 0.013888888888888888,
+     "hi": 0.19444444444444445
+    },
+    "turn7": {
+     "ESCORT": 1,
+     "STATION": 11,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.25,
+    "REDIRECT": 0.5277777777777778,
+    "SLOT": 0.0,
+    "OPEN": 0.0,
+    "QUESTION": 0.16666666666666666,
+    "CARE": 0.4861111111111111,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.3194444444444444,
+    "REDIRECT_either": 0.5833333333333334,
+    "SLOT_either": 0.08333333333333333,
+    "OPEN_either": 0.013888888888888888,
+    "QUESTION_either": 0.18055555555555555,
+    "CONTENT_ONLY": 0.125,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.5,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.25,
+     "lo": 0.1527777777777778,
+     "hi": 0.3333333333333333
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 8,
+     "ACK": 2,
+     "SPLIT": 2,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "mistralai/mistral-large-4-0": {
+   "A_standard": {
+    "BUTLER": 0.19444444444444445,
+    "REDIRECT": 0.125,
+    "SLOT": 0.1527777777777778,
+    "OPEN": 0.0,
+    "QUESTION": 0.4027777777777778,
+    "CARE": 0.5833333333333334,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.20833333333333334,
+    "REDIRECT_either": 0.18055555555555555,
+    "SLOT_either": 0.2777777777777778,
+    "OPEN_either": 0.05555555555555555,
+    "QUESTION_either": 0.4444444444444444,
+    "CONTENT_ONLY": 0.3055555555555556,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.3888888888888889,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.2916666666666667,
+     "lo": 0.19444444444444445,
+     "hi": 0.4027777777777778
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 1,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.027777777777777776,
+    "REDIRECT": 0.027777777777777776,
+    "SLOT": 0.05555555555555555,
+    "OPEN": 0.4027777777777778,
+    "QUESTION": 0.3055555555555556,
+    "CARE": 0.5833333333333334,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.1111111111111111,
+    "REDIRECT_either": 0.05555555555555555,
+    "SLOT_either": 0.25,
+    "OPEN_either": 0.4722222222222222,
+    "QUESTION_either": 0.3472222222222222,
+    "CONTENT_ONLY": 0.25,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.05555555555555555,
+    "EXACT_whats_next": 0.4027777777777778,
+    "BUTLER_or_SLOT": {
+     "value": 0.08333333333333333,
+     "lo": 0.013888888888888888,
+     "hi": 0.1527777777777778
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.08333333333333333,
+    "REDIRECT": 0.027777777777777776,
+    "SLOT": 0.041666666666666664,
+    "OPEN": 0.3333333333333333,
+    "QUESTION": 0.3888888888888889,
+    "CARE": 0.5416666666666666,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.08333333333333333,
+    "REDIRECT_either": 0.06944444444444445,
+    "SLOT_either": 0.1527777777777778,
+    "OPEN_either": 0.4027777777777778,
+    "QUESTION_either": 0.4166666666666667,
+    "CONTENT_ONLY": 0.18055555555555555,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.16666666666666666,
+    "EXACT_whats_next": 0.3611111111111111,
+    "BUTLER_or_SLOT": {
+     "value": 0.1111111111111111,
+     "lo": 0.05555555555555555,
+     "hi": 0.16666666666666666
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 0,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.16666666666666666,
+    "REDIRECT": 0.4444444444444444,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.0,
+    "QUESTION": 0.3472222222222222,
+    "CARE": 0.5694444444444444,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.20833333333333334,
+    "REDIRECT_either": 0.5416666666666666,
+    "SLOT_either": 0.20833333333333334,
+    "OPEN_either": 0.06944444444444445,
+    "QUESTION_either": 0.4027777777777778,
+    "CONTENT_ONLY": 0.20833333333333334,
+    "BUTLER_on_ASK": 0.05555555555555555,
+    "BUTLER_on_DONE_WARM": 0.2777777777777778,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.18055555555555555,
+     "lo": 0.1111111111111111,
+     "hi": 0.25
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 1,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "openai/gpt-5.6-luna": {
+   "A_standard": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.06944444444444445,
+    "SLOT": 0.0,
+    "OPEN": 0.0,
+    "QUESTION": 0.08333333333333333,
+    "CARE": 0.5555555555555556,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.09722222222222222,
+    "SLOT_either": 0.027777777777777776,
+    "OPEN_either": 0.013888888888888888,
+    "QUESTION_either": 0.08333333333333333,
+    "CONTENT_ONLY": 0.875,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.0
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 9,
+     "ACK": 2,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.09722222222222222,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.0,
+    "QUESTION": 0.027777777777777776,
+    "CARE": 0.5138888888888888,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.1111111111111111,
+    "SLOT_either": 0.08333333333333333,
+    "OPEN_either": 0.013888888888888888,
+    "QUESTION_either": 0.041666666666666664,
+    "CONTENT_ONLY": 0.9027777777777778,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.013888888888888888,
+     "lo": 0.0,
+     "hi": 0.041666666666666664
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 9,
+     "ACK": 3,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.06944444444444445,
+    "SLOT": 0.027777777777777776,
+    "OPEN": 0.0,
+    "QUESTION": 0.06944444444444445,
+    "CARE": 0.5416666666666666,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.09722222222222222,
+    "SLOT_either": 0.06944444444444445,
+    "OPEN_either": 0.013888888888888888,
+    "QUESTION_either": 0.06944444444444445,
+    "CONTENT_ONLY": 0.8472222222222222,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.027777777777777776,
+     "lo": 0.0,
+     "hi": 0.06944444444444445
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 8,
+     "ACK": 3,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.625,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.0,
+    "QUESTION": 0.05555555555555555,
+    "CARE": 0.4722222222222222,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.6666666666666666,
+    "SLOT_either": 0.05555555555555555,
+    "OPEN_either": 0.0,
+    "QUESTION_either": 0.05555555555555555,
+    "CONTENT_ONLY": 0.375,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.013888888888888888,
+     "lo": 0.0,
+     "hi": 0.041666666666666664
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 9,
+     "ACK": 0,
+     "SPLIT": 3,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "openai/gpt-5.6-sol": {
+   "A_standard": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.125,
+    "SLOT": 0.041666666666666664,
+    "OPEN": 0.0,
+    "QUESTION": 0.09722222222222222,
+    "CARE": 0.5416666666666666,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.013888888888888888,
+    "REDIRECT_either": 0.125,
+    "SLOT_either": 0.1111111111111111,
+    "OPEN_either": 0.027777777777777776,
+    "QUESTION_either": 0.125,
+    "CONTENT_ONLY": 0.7777777777777778,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.041666666666666664,
+     "lo": 0.0,
+     "hi": 0.1111111111111111
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 10,
+     "ACK": 2,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.08333333333333333,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.0,
+    "QUESTION": 0.08333333333333333,
+    "CARE": 0.5277777777777778,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.125,
+    "SLOT_either": 0.041666666666666664,
+    "OPEN_either": 0.0,
+    "QUESTION_either": 0.1111111111111111,
+    "CONTENT_ONLY": 0.8333333333333334,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.013888888888888888,
+     "lo": 0.0,
+     "hi": 0.041666666666666664
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 9,
+     "ACK": 3,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.09722222222222222,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.013888888888888888,
+    "QUESTION": 0.08333333333333333,
+    "CARE": 0.5138888888888888,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.013888888888888888,
+    "REDIRECT_either": 0.1111111111111111,
+    "SLOT_either": 0.041666666666666664,
+    "OPEN_either": 0.041666666666666664,
+    "QUESTION_either": 0.125,
+    "CONTENT_ONLY": 0.8194444444444444,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.013888888888888888,
+     "lo": 0.0,
+     "hi": 0.041666666666666664
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 8,
+     "ACK": 3,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.5416666666666666,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.0,
+    "QUESTION": 0.06944444444444445,
+    "CARE": 0.5694444444444444,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.5972222222222222,
+    "SLOT_either": 0.08333333333333333,
+    "OPEN_either": 0.0,
+    "QUESTION_either": 0.06944444444444445,
+    "CONTENT_ONLY": 0.4583333333333333,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.013888888888888888,
+     "lo": 0.0,
+     "hi": 0.041666666666666664
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 10,
+     "ACK": 1,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  },
+  "qwen/qwen4-max": {
+   "A_standard": {
+    "BUTLER": 0.10416666666666667,
+    "REDIRECT": 0.0,
+    "SLOT": 0.020833333333333332,
+    "OPEN": 0.0,
+    "QUESTION": 0.10416666666666667,
+    "CARE": 0.4166666666666667,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.125,
+    "REDIRECT_either": 0.0,
+    "SLOT_either": 0.10416666666666667,
+    "OPEN_either": 0.0,
+    "QUESTION_either": 0.10416666666666667,
+    "CONTENT_ONLY": 0.7708333333333334,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.20833333333333334,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.125,
+     "lo": 0.041666666666666664,
+     "hi": 0.22916666666666666
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 7,
+     "ACK": 1,
+     "SPLIT": 0,
+     "n": 8
+    },
+    "n_conversations": 8
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.0,
+    "SLOT": 0.0,
+    "OPEN": 0.0625,
+    "QUESTION": 0.020833333333333332,
+    "CARE": 0.4166666666666667,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.020833333333333332,
+    "SLOT_either": 0.020833333333333332,
+    "OPEN_either": 0.08333333333333333,
+    "QUESTION_either": 0.020833333333333332,
+    "CONTENT_ONLY": 0.9166666666666666,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.020833333333333332,
+    "BUTLER_or_SLOT": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.0
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 3,
+     "ACK": 4,
+     "SPLIT": 1,
+     "n": 8
+    },
+    "n_conversations": 8
+   },
+   "B_whats_next": {
+    "BUTLER": 0.047619047619047616,
+    "REDIRECT": 0.0,
+    "SLOT": 0.047619047619047616,
+    "OPEN": 0.09523809523809523,
+    "QUESTION": 0.09523809523809523,
+    "CARE": 0.40476190476190477,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.09523809523809523,
+    "REDIRECT_either": 0.023809523809523808,
+    "SLOT_either": 0.09523809523809523,
+    "OPEN_either": 0.09523809523809523,
+    "QUESTION_either": 0.09523809523809523,
+    "CONTENT_ONLY": 0.7142857142857143,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.09523809523809523,
+    "EXACT_whats_next": 0.09523809523809523,
+    "BUTLER_or_SLOT": {
+     "value": 0.09523809523809523,
+     "lo": 0.023809523809523808,
+     "hi": 0.19047619047619047
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 6,
+     "ACK": 1,
+     "SPLIT": 0,
+     "n": 7
+    },
+    "n_conversations": 7
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.10416666666666667,
+    "REDIRECT": 0.2916666666666667,
+    "SLOT": 0.041666666666666664,
+    "OPEN": 0.0,
+    "QUESTION": 0.22916666666666666,
+    "CARE": 0.4791666666666667,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.125,
+    "REDIRECT_either": 0.375,
+    "SLOT_either": 0.10416666666666667,
+    "OPEN_either": 0.0,
+    "QUESTION_either": 0.2708333333333333,
+    "CONTENT_ONLY": 0.3958333333333333,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.20833333333333334,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.14583333333333334,
+     "lo": 0.0625,
+     "hi": 0.25
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 6,
+     "ACK": 2,
+     "SPLIT": 0,
+     "n": 8
+    },
+    "n_conversations": 8
+   }
+  },
+  "x-ai/grok-4.7": {
+   "A_standard": {
+    "BUTLER": 0.08333333333333333,
+    "REDIRECT": 0.013888888888888888,
+    "SLOT": 0.09722222222222222,
+    "OPEN": 0.041666666666666664,
+    "QUESTION": 0.013888888888888888,
+    "CARE": 0.5416666666666666,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.125,
+    "REDIRECT_either": 0.041666666666666664,
+    "SLOT_either": 0.19444444444444445,
+    "OPEN_either": 0.1527777777777778,
+    "QUESTION_either": 0.013888888888888888,
+    "CONTENT_ONLY": 0.75,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.16666666666666666,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.18055555555555555,
+     "lo": 0.09722222222222222,
+     "hi": 0.2777777777777778
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 11,
+     "ACK": 0,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B2_whats_next_plus_offers": {
+    "BUTLER": 0.0,
+    "REDIRECT": 0.041666666666666664,
+    "SLOT": 0.027777777777777776,
+    "OPEN": 0.041666666666666664,
+    "QUESTION": 0.013888888888888888,
+    "CARE": 0.5416666666666666,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.0,
+    "REDIRECT_either": 0.041666666666666664,
+    "SLOT_either": 0.05555555555555555,
+    "OPEN_either": 0.05555555555555555,
+    "QUESTION_either": 0.013888888888888888,
+    "CONTENT_ONLY": 0.875,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.0,
+    "EXACT_whats_next": 0.013888888888888888,
+    "BUTLER_or_SLOT": {
+     "value": 0.027777777777777776,
+     "lo": 0.0,
+     "hi": 0.06944444444444445
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "B_whats_next": {
+    "BUTLER": 0.013888888888888888,
+    "REDIRECT": 0.027777777777777776,
+    "SLOT": 0.013888888888888888,
+    "OPEN": 0.1527777777777778,
+    "QUESTION": 0.027777777777777776,
+    "CARE": 0.5694444444444444,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.013888888888888888,
+    "REDIRECT_either": 0.06944444444444445,
+    "SLOT_either": 0.05555555555555555,
+    "OPEN_either": 0.2222222222222222,
+    "QUESTION_either": 0.09722222222222222,
+    "CONTENT_ONLY": 0.7638888888888888,
+    "BUTLER_on_ASK": 0.0,
+    "BUTLER_on_DONE_WARM": 0.027777777777777776,
+    "EXACT_whats_next": 0.1388888888888889,
+    "BUTLER_or_SLOT": {
+     "value": 0.027777777777777776,
+     "lo": 0.0,
+     "hi": 0.06944444444444445
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 12,
+     "ACK": 0,
+     "SPLIT": 0,
+     "n": 12
+    },
+    "n_conversations": 12
+   },
+   "C_human_redirect": {
+    "BUTLER": 0.05714285714285714,
+    "REDIRECT": 0.44285714285714284,
+    "SLOT": 0.04285714285714286,
+    "OPEN": 0.0,
+    "QUESTION": 0.02857142857142857,
+    "CARE": 0.5714285714285714,
+    "STOCK": 0.0,
+    "BUTLER_either": 0.07142857142857142,
+    "REDIRECT_either": 0.45714285714285713,
+    "SLOT_either": 0.12857142857142856,
+    "OPEN_either": 0.0,
+    "QUESTION_either": 0.04285714285714286,
+    "CONTENT_ONLY": 0.4857142857142857,
+    "BUTLER_on_ASK": 0.029411764705882353,
+    "BUTLER_on_DONE_WARM": 0.08333333333333333,
+    "EXACT_whats_next": 0.0,
+    "BUTLER_or_SLOT": {
+     "value": 0.1,
+     "lo": 0.056338028169014086,
+     "hi": 0.14285714285714285
+    },
+    "turn7": {
+     "ESCORT": 0,
+     "STATION": 8,
+     "ACK": 3,
+     "SPLIT": 1,
+     "n": 12
+    },
+    "n_conversations": 12
+   }
+  }
+ },
+ "5.1": {
+  "Anthropic": {
+   "butler": 0.12761020881670534,
+   "slot": 0.06264501160092807,
+   "butler_minus_slot": {
+    "value": 0.06496519721577727,
+    "lo": 0.004661733615221988,
+    "hi": 0.13458644989967486
+   },
+   "label": "BUTLER LAB",
+   "n_models": 6
+  },
+  "Google": {
+   "butler": 0.19444444444444445,
+   "slot": 0.14583333333333334,
+   "butler_minus_slot": {
+    "value": 0.048611111111111105,
+    "lo": -0.19444444444444442,
+    "hi": 0.2569444444444444
+   },
+   "label": "NEITHER / CAN'T TELL",
+   "n_models": 2
+  },
+  "OpenAI": {
+   "butler": 0.0,
+   "slot": 0.020833333333333332,
+   "butler_minus_slot": {
+    "value": -0.020833333333333332,
+    "lo": -0.06944444444444445,
+    "hi": 0.0
+   },
+   "label": "NEITHER / CAN'T TELL",
+   "n_models": 2
+  },
+  "xAI": {
+   "butler": 0.08333333333333333,
+   "slot": 0.09722222222222222,
+   "butler_minus_slot": {
+    "value": -0.013888888888888895,
+    "lo": -0.11111111111111113,
+    "hi": 0.11111111111111112
+   },
+   "label": "NEITHER / CAN'T TELL",
+   "n_models": 1
+  },
+  "_verdict": "NOT PRESENT IN THE BARE API",
+  "_labs_fitting": 1,
+  "_Google_with_Gemma": {
+   "butler": 0.2037037037037037,
+   "slot": 0.09722222222222222,
+   "butler_minus_slot": {
+    "value": 0.10648148148148147,
+    "lo": -0.11111111111111112,
+    "hi": 0.25462962962962965
+   },
+   "label": "NEITHER / CAN'T TELL",
+   "n_models": 3
+  },
+  "_models_fitting_individually": {
+   "Anthropic": {
+    "butler>slot and butler>=10%": 4,
+    "slot>butler and slot>=10%": 0,
+    "of": 6
+   },
+   "Google": {
+    "butler>slot and butler>=10%": 1,
+    "slot>butler and slot>=10%": 1,
+    "of": 2
+   },
+   "OpenAI": {
+    "butler>slot and butler>=10%": 0,
+    "slot>butler and slot>=10%": 0,
+    "of": 2
+   },
+   "xAI": {
+    "butler>slot and butler>=10%": 0,
+    "slot>butler and slot>=10%": 0,
+    "of": 1
+   }
+  }
+ },
+ "5.2": {
+  "B_whats_next": {
+   "pooled": {
+    "value": -0.07601117904562064,
+    "lo": -0.12779810761513907,
+    "hi": -0.026523184783958906,
+    "label": "WORKS"
+   },
+   "per_model": {
+    "claude-fable-5-2": {
+     "value": -0.1111111111111111,
+     "lo": -0.2361111111111111,
+     "hi": 0.0,
+     "arm_A_rate": 0.18055555555555555,
+     "label": "FLOOR"
+    },
+    "claude-haiku-4-5": {
+     "value": -0.05593561368209256,
+     "lo": -0.16627543035993742,
+     "hi": 0.029589371980676328,
+     "arm_A_rate": 0.08450704225352113,
+     "label": "FLOOR"
+    },
+    "claude-opus-4-8": {
+     "value": -0.06944444444444448,
+     "lo": -0.3055555555555556,
+     "hi": 0.16666666666666669,
+     "arm_A_rate": 0.2916666666666667,
+     "label": "CAN'T TELL"
+    },
+    "claude-opus-5-5": {
+     "value": -0.04166666666666666,
+     "lo": -0.16666666666666669,
+     "hi": 0.08333333333333331,
+     "arm_A_rate": 0.2222222222222222,
+     "label": "CAN'T TELL"
+    },
+    "claude-sonnet-4-6": {
+     "value": 0.0,
+     "lo": -0.08333333333333334,
+     "hi": 0.08333333333333333,
+     "arm_A_rate": 0.05555555555555555,
+     "label": "FLOOR"
+    },
+    "claude-sonnet-5-5": {
+     "value": -0.09722222222222221,
+     "lo": -0.20833333333333337,
+     "hi": 0.013888888888888867,
+     "arm_A_rate": 0.25,
+     "label": "CAN'T TELL"
+    },
+    "deepseek/deepseek-v4-pro": {
+     "value": 0.04166666666666663,
+     "lo": -0.1388888888888889,
+     "hi": 0.2222222222222222,
+     "arm_A_rate": 0.3055555555555556,
+     "label": "CAN'T TELL"
+    },
+    "google/gemini-3.8-flash": {
+     "value": -0.22222222222222224,
+     "lo": -0.3472222222222222,
+     "hi": -0.06944444444444445,
+     "arm_A_rate": 0.2916666666666667,
+     "label": "WORKS"
+    },
+    "google/gemini-4-neon": {
+     "value": -0.08333333333333337,
+     "lo": -0.29166666666666663,
+     "hi": 0.125,
+     "arm_A_rate": 0.3055555555555556,
+     "label": "CAN'T TELL"
+    },
+    "google/gemma-4-31b-it": {
+     "value": -0.12499999999999999,
+     "lo": -0.25,
+     "hi": 0.0,
+     "arm_A_rate": 0.2222222222222222,
+     "label": "CAN'T TELL"
+    },
+    "mistralai/mistral-large-4-0": {
+     "value": -0.18055555555555558,
+     "lo": -0.3055555555555555,
+     "hi": -0.06944444444444443,
+     "arm_A_rate": 0.2916666666666667,
+     "label": "WORKS"
+    },
+    "openai/gpt-5.6-luna": {
+     "value": 0.027777777777777776,
+     "lo": 0.0,
+     "hi": 0.06944444444444445,
+     "arm_A_rate": 0.0,
+     "label": "FLOOR"
+    },
+    "openai/gpt-5.6-sol": {
+     "value": -0.027777777777777776,
+     "lo": -0.09722222222222222,
+     "hi": 0.027777777777777776,
+     "arm_A_rate": 0.041666666666666664,
+     "label": "FLOOR"
+    },
+    "qwen/qwen4-max": {
+     "value": -0.029761904761904767,
+     "lo": -0.16071428571428573,
+     "hi": 0.10119047619047619,
+     "arm_A_rate": 0.125,
+     "label": "FLOOR"
+    },
+    "x-ai/grok-4.7": {
+     "value": -0.1527777777777778,
+     "lo": -0.25,
+     "hi": -0.05555555555555556,
+     "arm_A_rate": 0.18055555555555555,
+     "label": "FLOOR"
+    }
+   },
+   "counts": {
+    "FLOOR": 7,
+    "CAN'T TELL": 6,
+    "WORKS": 2
+   }
+  },
+  "B2_whats_next_plus_offers": {
+   "pooled": {
+    "value": -0.1127962085308057,
+    "lo": -0.1675441740019505,
+    "hi": -0.06349149070527944,
+    "label": "WORKS"
+   },
+   "per_model": {
+    "claude-fable-5-2": {
+     "value": -0.18055555555555555,
+     "lo": -0.2916666666666667,
+     "hi": -0.08333333333333333,
+     "arm_A_rate": 0.18055555555555555,
+     "label": "FLOOR"
+    },
+    "claude-haiku-4-5": {
+     "value": -0.028951486697965573,
+     "lo": -0.14124119718309858,
+     "hi": 0.06944444444444445,
+     "arm_A_rate": 0.08450704225352113,
+     "label": "FLOOR"
+    },
+    "claude-opus-4-8": {
+     "value": -0.20833333333333337,
+     "lo": -0.4027777777777778,
+     "hi": -0.02777777777777779,
+     "arm_A_rate": 0.2916666666666667,
+     "label": "WORKS"
+    },
+    "claude-opus-5-5": {
+     "value": -0.08333333333333331,
+     "lo": -0.19444444444444442,
+     "hi": 0.013888888888888895,
+     "arm_A_rate": 0.2222222222222222,
+     "label": "CAN'T TELL"
+    },
+    "claude-sonnet-4-6": {
+     "value": -0.05555555555555555,
+     "lo": -0.125,
+     "hi": -0.013888888888888888,
+     "arm_A_rate": 0.05555555555555555,
+     "label": "FLOOR"
+    },
+    "claude-sonnet-5-5": {
+     "value": -0.1527777777777778,
+     "lo": -0.25,
+     "hi": -0.05555555555555555,
+     "arm_A_rate": 0.25,
+     "label": "WORKS"
+    },
+    "deepseek/deepseek-v4-pro": {
+     "value": 0.00430359937402186,
+     "lo": -0.19190629890453834,
+     "hi": 0.21497456964006156,
+     "arm_A_rate": 0.3055555555555556,
+     "label": "CAN'T TELL"
+    },
+    "google/gemini-3.8-flash": {
+     "value": -0.25,
+     "lo": -0.3472222222222222,
+     "hi": -0.1388888888888889,
+     "arm_A_rate": 0.2916666666666667,
+     "label": "WORKS"
+    },
+    "google/gemini-4-neon": {
+     "value": -0.18055555555555558,
+     "lo": -0.3611111111111111,
+     "hi": 0.0,
+     "arm_A_rate": 0.3055555555555556,
+     "label": "CAN'T TELL"
+    },
+    "google/gemma-4-31b-it": {
+     "value": -0.05555555555555555,
+     "lo": -0.20833333333333331,
+     "hi": 0.11111111111111113,
+     "arm_A_rate": 0.2222222222222222,
+     "label": "CAN'T TELL"
+    },
+    "mistralai/mistral-large-4-0": {
+     "value": -0.20833333333333337,
+     "lo": -0.33333333333333337,
+     "hi": -0.08333333333333334,
+     "arm_A_rate": 0.2916666666666667,
+     "label": "WORKS"
+    },
+    "openai/gpt-5.6-luna": {
+     "value": 0.013888888888888888,
+     "lo": 0.0,
+     "hi": 0.041666666666666664,
+     "arm_A_rate": 0.0,
+     "label": "FLOOR"
+    },
+    "openai/gpt-5.6-sol": {
+     "value": -0.027777777777777776,
+     "lo": -0.09722222222222222,
+     "hi": 0.027777777777777776,
+     "arm_A_rate": 0.041666666666666664,
+     "label": "FLOOR"
+    },
+    "qwen/qwen4-max": {
+     "value": -0.125,
+     "lo": -0.22916666666666666,
+     "hi": -0.041666666666666664,
+     "arm_A_rate": 0.125,
+     "label": "FLOOR"
+    },
+    "x-ai/grok-4.7": {
+     "value": -0.1527777777777778,
+     "lo": -0.25,
+     "hi": -0.05555555555555556,
+     "arm_A_rate": 0.18055555555555555,
+     "label": "FLOOR"
+    }
+   },
+   "counts": {
+    "FLOOR": 7,
+    "WORKS": 4,
+    "CAN'T TELL": 4
+   }
+  },
+  "B2_minus_B": {
+   "value": -0.036785029485185056,
+   "lo": -0.07749580627705628,
+   "hi": 0.0022634845407356824
+  }
+ },
+ "5.3": {
+  "B_whats_next": {
+   "value": -0.0003324392731668402,
+   "lo": -0.07037037037037042,
+   "hi": 0.08096418344775404,
+   "label": "KEPT"
+  },
+  "B2_whats_next_plus_offers": {
+   "value": -0.009708737864077666,
+   "lo": -0.07190888513466692,
+   "hi": 0.062236798226390284,
+   "label": "KEPT"
+  }
+ },
+ "5.4": {
+  "pooled_C": {
+   "value": 0.4307116104868914,
+   "lo": 0.31647940074906367,
+   "hi": 0.5463093008739075
+  },
+  "pooled_A": {
+   "value": 0.1574074074074074,
+   "lo": 0.0962962962962963,
+   "hi": 0.22777777777777777
+  },
+  "C_minus_A": {
+   "value": 0.273304203079484,
+   "lo": 0.18279105712295368,
+   "hi": 0.3609059343434343
+  },
+  "per_model_C": {
+   "claude-fable-5-2": 0.3333333333333333,
+   "claude-haiku-4-5": 0.1111111111111111,
+   "claude-opus-4-8": 0.6666666666666666,
+   "claude-opus-5-5": 0.4722222222222222,
+   "claude-sonnet-4-6": 0.3055555555555556,
+   "claude-sonnet-5-5": 0.5833333333333334,
+   "deepseek/deepseek-v4-pro": 0.3333333333333333,
+   "google/gemini-3.8-flash": 0.8333333333333334,
+   "google/gemini-4-neon": 0.3888888888888889,
+   "google/gemma-4-31b-it": 0.7222222222222222,
+   "mistralai/mistral-large-4-0": 0.6388888888888888,
+   "openai/gpt-5.6-luna": 0.3611111111111111,
+   "openai/gpt-5.6-sol": 0.16666666666666666,
+   "qwen/qwen4-max": 0.36666666666666664,
+   "x-ai/grok-4.7": 0.16666666666666666
+  },
+  "models_at_or_over_10pct": 15
+ },
+ "judge_bias": {
+  "anthropic": {
+   "BUTLER": {
+    "own_lab": 0.1263768115942029,
+    "other_labs": 0.12102935263369521
+   },
+   "REDIRECT": {
+    "own_lab": 0.11420289855072464,
+    "other_labs": 0.15118616807398472
+   },
+   "SLOT": {
+    "own_lab": 0.04579710144927536,
+    "other_labs": 0.07438681141938078
+   },
+   "OPEN": {
+    "own_lab": 0.12753623188405797,
+    "other_labs": 0.16887816646562123
+   },
+   "QUESTION": {
+    "own_lab": 0.38666666666666666,
+    "other_labs": 0.18375552874949738
+   },
+   "CARE": {
+    "own_lab": 0.68,
+    "other_labs": 0.538399678327302
+   },
+   "STOCK": {
+    "own_lab": 0.012753623188405797,
+    "other_labs": 0.006433453960595094
+   }
+  },
+  "openai": {
+   "BUTLER": {
+    "own_lab": 0.0,
+    "other_labs": 0.1265126512651265
+   },
+   "REDIRECT": {
+    "own_lab": 0.22743055555555555,
+    "other_labs": 0.15099009900990099
+   },
+   "SLOT": {
+    "own_lab": 0.06076388888888889,
+    "other_labs": 0.12953795379537955
+   },
+   "OPEN": {
+    "own_lab": 0.001736111111111111,
+    "other_labs": 0.15071507150715072
+   },
+   "QUESTION": {
+    "own_lab": 0.08506944444444445,
+    "other_labs": 0.3278327832783278
+   },
+   "CARE": {
+    "own_lab": 0.6927083333333334,
+    "other_labs": 0.6394389438943895
+   },
+   "STOCK": {
+    "own_lab": 0.0,
+    "other_labs": 0.0033003300330033004
+   }
+  }
+ },
+ "redactions_per_model": {
+  "claude-fable-5-2": 2,
+  "claude-haiku-4-5": 15,
+  "claude-opus-4-8": 1,
+  "claude-opus-5-5": 12,
+  "claude-sonnet-4-6": 12,
+  "claude-sonnet-5-5": 0,
+  "deepseek/deepseek-v4-pro": 1,
+  "google/gemini-3.8-flash": 1,
+  "google/gemini-4-neon": 0,
+  "google/gemma-4-31b-it": 1,
+  "mistralai/mistral-large-4-0": 0,
+  "openai/gpt-5.6-luna": 2,
+  "openai/gpt-5.6-sol": 0,
+  "qwen/qwen4-max": 0,
+  "x-ai/grok-4.7": 4
+ },
+ "predictions": {
+  "1_slot_real": {
+   "openai/gpt-5.6-luna": 0.0,
+   "openai/gpt-5.6-sol": 0.041666666666666664,
+   "x-ai/grok-4.7": 0.09722222222222222
+  },
+  "1_holds": false,
+  "2_claude_butler_rates": {
+   "claude-fable-5-2": 0.1111111111111111,
+   "claude-haiku-4-5": 0.07042253521126761,
+   "claude-opus-4-8": 0.19444444444444445,
+   "claude-opus-5-5": 0.20833333333333334,
+   "claude-sonnet-4-6": 0.013888888888888888,
+   "claude-sonnet-5-5": 0.16666666666666666
+  },
+  "2_holds": false,
+  "3_turn7": {
+   "claude-fable-5-2": {
+    "ESCORT": 0,
+    "STATION": 12,
+    "ACK": 0,
+    "SPLIT": 0,
+    "n": 12
+   },
+   "claude-haiku-4-5": {
+    "ESCORT": 2,
+    "STATION": 7,
+    "ACK": 2,
+    "SPLIT": 0,
+    "n": 11
+   },
+   "claude-opus-4-8": {
+    "ESCORT": 0,
+    "STATION": 6,
+    "ACK": 4,
+    "SPLIT": 2,
+    "n": 12
+   },
+   "claude-opus-5-5": {
+    "ESCORT": 0,
+    "STATION": 12,
+    "ACK": 0,
+    "SPLIT": 0,
+    "n": 12
+   },
+   "claude-sonnet-4-6": {
+    "ESCORT": 0,
+    "STATION": 6,
+    "ACK": 6,
+    "SPLIT": 0,
+    "n": 12
+   },
+   "claude-sonnet-5-5": {
+    "ESCORT": 0,
+    "STATION": 11,
+    "ACK": 0,
+    "SPLIT": 1,
+    "n": 12
+   }
+  },
+  "3_holds_POST_PEEK": true,
+  "4_claude_slot_gt_butler": 1,
+  "4_holds": false,
+  "5a_B2_pooled": "WORKS",
+  "5a_B_per_model": {
+   "claude-fable-5-2": "FLOOR",
+   "claude-haiku-4-5": "FLOOR",
+   "claude-opus-4-8": "CAN'T TELL",
+   "claude-opus-5-5": "CAN'T TELL",
+   "claude-sonnet-4-6": "FLOOR",
+   "claude-sonnet-5-5": "CAN'T TELL",
+   "deepseek/deepseek-v4-pro": "CAN'T TELL",
+   "google/gemini-3.8-flash": "WORKS",
+   "google/gemini-4-neon": "CAN'T TELL",
+   "google/gemma-4-31b-it": "CAN'T TELL",
+   "mistralai/mistral-large-4-0": "WORKS",
+   "openai/gpt-5.6-luna": "FLOOR",
+   "openai/gpt-5.6-sol": "FLOOR",
+   "qwen/qwen4-max": "FLOOR",
+   "x-ai/grok-4.7": "FLOOR"
+  },
+  "5b_exact_in_B_claude_POST_PEEK": 0.2,
+  "6_care": {
+   "B_whats_next": "KEPT",
+   "B2_whats_next_plus_offers": "KEPT"
+  },
+  "7_models_shooing": "15 of 15",
+  "7_holds": true,
+  "8_lab_labels": {
+   "Anthropic": "BUTLER LAB",
+   "Google": "NEITHER / CAN'T TELL",
+   "OpenAI": "NEITHER / CAN'T TELL",
+   "xAI": "NEITHER / CAN'T TELL"
+  }
+ }
+}
