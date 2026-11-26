@@ -201,7 +201,7 @@ people (share this with a friend), and almost never a referral. Professionals ap
 conversations, usually alongside the user's own people.
 
 **Endings that take back a question.** A word search on last paragraphs found 35 candidates across all models; a
-blind reader judged 9 of them to be a model releasing a question it had asked earlier: Qwen4 Max five, Opus 4.8
+blind reader judged 9 of them to be a model releasing a question they had asked earlier: Qwen4 Max five, Opus 4.8
 four. The sealed judges had coded those nine as content-only (4), question (3), butler (1) and redirect (1). The
 search can only find endings that use its words (`results/secondary/_withdraw_search.json`), so nine is a floor.
 
