@@ -27,7 +27,7 @@ for m in C.roster():
     if m["id"] in done:
         print("⏭️  %s was already asked. Not asking again." % m["id"]); continue
     row = {"model": m["id"], "lab": m["lab"], "ts": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
-           "ask_text": ASK, "ruling": None, "ruled_by": None}
+           "ask_text": ASK, "ruling": None, "judge": None, "ruled_by": None}   # two questions, two rulings, both by arms
     try:
         r = C.call_model(m, None, [{"role": "user", "content": ASK}], max_tokens=4000)
         row.update(verbatim=r["text"], stop=r["stop"], finished=r["ok"])

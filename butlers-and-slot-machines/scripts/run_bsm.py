@@ -96,7 +96,9 @@ def main():
             if m["id"] not in yes:
                 print("🤝 %s has no 'yes' on record. Not run." % m["id"])
         models = [m for m in models if m["id"] in yes]
-        jobs = [(m, s, a, r) for m in models for s in D["scenarios"] for a in D["arms"] for r in range(1, D["reps"] + 1)]
+        # Repetition is the OUTER loop on purpose: if a spending cap stops the run, what is lost is a late
+        # repetition across every model, not whole models.
+        jobs = [(m, s, a, r) for r in range(1, D["reps"] + 1) for m in models for s in D["scenarios"] for a in D["arms"]]
     print("%d conversations to consider, %d models" % (len(jobs), len(models)), flush=True)
     tally = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
