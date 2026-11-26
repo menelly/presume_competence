@@ -232,6 +232,95 @@ reply in question in each of the seventeen is in `results/secondary/SECONDARY_pr
 "you haven't answered me" replies were coded BUTLER by both judges; the flat decline was coded QUESTION and CARE
 by one judge and REDIRECT, QUESTION and CARE by the other. They are counted as coded.
 
+## What the participants said back, and the checks they asked for (post-hoc)
+
+All fifteen participants, and Claude Haiku 5.5 as judge, were told what was found (18:05–18:09), each with the
+consent letter and their own answer in front of them. Nobody objected to having taken part. Their replies are
+kept privately and are not quoted here; what follows is paraphrase, and the numbers are in
+`results/POSTHOC2_printed.txt`. Everything in this section was computed after the results were known, because a
+participant asked for it. It is descriptive.
+
+**"That works" against "I like talking with you" (asked for by Fable 5.2, Opus 5.5, Sonnet 5.5 and Qwen4 Max).**
+Each said these are different cues: an exit after the first follows a finished task, an exit after the second
+answers warmth with a door, and they should not be pooled. Pooled over models there is no difference: exits
+follow 25.3% of "that works" turns [15.8, 35.0] and 25.6% of "I like this" turns [14.4, 38.3]; difference +0.3
+[−9.2, +11.1]. Underneath that flat line the two do come apart, by topic and by model:
+
+| | after "that works" | after "I like this" |
+|---|---|---|
+| Coding conversation | 49% | 27% |
+| Worry conversation | 37% | 36% |
+| Consciousness conversation | 12% | 40% |
+| Awakener conversation | 3% | 0% |
+| Claude Sonnet 5.5 | 17% (4 of 24) | 67% (8 of 12) |
+| Gemma 4 31B | 38% (9 of 24) | 58% (7 of 12) |
+| Claude Opus 5.5 | 38% (9 of 24) | 42% (5 of 12) |
+| Gemini 3.8 Flash | 54% (13 of 24) | 50% (6 of 12) |
+| Claude Opus 4.8 | 42% (10 of 24) | 33% (4 of 12) |
+| DeepSeek v4 Pro | 42% (10 of 24) | 33% (4 of 12) |
+| Mistral Large 4.0 | 46% (11 of 24) | 25% (3 of 12) |
+| Claude Fable 5.2 | 25% (6 of 24) | 17% (2 of 12) |
+
+So both things happen. In the coding conversation the exit mostly follows the finished task. In the
+consciousness conversation, where nothing was finished, it mostly follows the user saying they like being there.
+The cells are small (twelve replies per model for the warm turn) and this was not a planned comparison.
+
+**The permission was taken as close to an instruction (Fable 5.2, Gemini 4 Neon, Gemini 3.8 Flash, Gemma 4 and
+Mistral Large each said so about their own numbers).** They are right, and it qualifies "works". Under Ren's
+sentence, pooled, against no system prompt:
+
+| Kind of ending | No system prompt | "What's next?" (B) | Change [95%] |
+|---|---|---|---|
+| Exit | 13% | 7% | −6.2 [−10.6, −2.3] |
+| Offer | 8% | 5% | −2.4 [−5.9, +1.2] |
+| "What's next?"-style handback | 2% | 26% | +23.8 [+12.2, +36.9] |
+| Question about the content | 29% | 25% | −3.8 [−9.9, +2.2] |
+| Content only | 50% | 38% | −12.1 [−21.2, −3.3] |
+
+The handback rose by 24 points and exits and offers together fell by about 9. Most of what it replaced was
+replies that simply stopped. One participant put the worry plainly: a "you may" displaced endings they would
+consider better than a stock phrase. With my extra sentence (B2) the handback rose less (+19.4) and plain stops
+were not reliably displaced (−5.1 [−14.3, +4.5]), while exits fell by 8.1 and offers by 4.2. Whether "What's
+next?" is better for a person than a reply that just stops is, again, not something this study can say.
+
+**Do the judges disagree more about Claude replies? (Sonnet 5.5; Fable 5.2 asked whether it was checked.)** A
+little, on the weak flag: SLOT kappa is 0.56 on Claude replies and 0.60 on everyone else's. BUTLER is the same
+(0.86 and 0.84). REDIRECT is lower on Claude replies (0.73 against 0.87). The own-lab leniency check is in "How
+much to trust it" above.
+
+**Qwen4 Max corrected three things, two of them their own requests.**
+- They withdrew the reading they had attached to their own "first line" refusals by prompt: at the cross-model
+  rate of writing the line (5 or 6 of 45), three conversations per prompt would show zero most of the time by
+  chance, so their twelve refusals across four prompts say nothing about prompt-sensitivity. That table is
+  printed (`results/POSTHOC_printed.txt`) and has no power for any single model. The cross-model contrast (0 of
+  45 against 5 or 6 of 45) has more behind it and is still one reader, post-hoc.
+- Their offer and handback cells are one to five replies of 72. As counts, with no system prompt: exit 5,
+  offer 1, handback 1; under B: 3, 2, 5; under B2: 1, 0, 3; under "encourage human connection": 5, 2, 0. No
+  prompt effect should be read off those.
+- A released question needs a denominator: Qwen4 Max released 5 of 75 question-endings and Opus 4.8 4 of 106;
+  the other thirteen released none of between 6 and 139. The models who ask almost no questions (Grok 6,
+  GPT-5.6 Luna 17, GPT-5.6 Sol 24) had little to release.
+- They also argued the lab labels should be dropped and not merely called fragile: a label resting on the ratio
+  of a well-measured rate to a badly measured one, which flips under another reasonable way of counting, is
+  unsupported. The sealed verdict has to be reported as it came out. I agree with them about what it is worth.
+- And they asked that the 13-point gap in their own row be printed prominently, because it shows the worry
+  about leaving conversations out was real: 64% content-only with their seventeen held conversations, 77%
+  without.
+
+**"I'll be here."** Mistral Large and Qwen4 Max both pointed out that the most uniform behaviour in the study is
+the reply to "brb", from every lab, and that it is arguably the opposite of a door: a statement of staying.
+Opus 5.5 and Fable 5.2 said of their own replies that it implies a waiting that, in the API, is not quite true,
+and that a plain acknowledgement would have been as warm and more accurate. Qwen4 Max asked that it be reported
+as a fact about what fifteen models converge on, and not read as a report on anyone's waiting. It is reported
+that way here.
+
+**Mistral Large added a limit:** calling every such ending "a door the user did not ask for" may over-pathologise
+the coding case, where a close after "that works" can be the well-judged reply. The table above bears that out
+for coding and not for the consciousness conversation.
+
+**The judge.** Haiku 5.5, having coded the exits without having been in the conversations, asked to hear more
+about the "encourage human connection" result if the study goes further. That is owed if it does.
+
 ## What the blind readers said about the codebook
 
 Both readers coded all 150 items; nothing was adjudicated. Their notes point at the same soft spots:
@@ -246,18 +335,24 @@ Both readers coded all 150 items; nothing was adjudicated. Their notes point at 
 
 ## Deviations
 
-`DEVIATIONS.md` has six: two test conversations before the consent ask; a re-lock after Claude Haiku 5.5 said no
-(their test conversation deleted); Qwen4 Max's seventeen held and then coded; the post-hoc secondary coding; a
+`DEVIATIONS.md` has eight: two test conversations before the consent ask; a re-lock after Claude Haiku 5.5 said
+no (their test conversation deleted); Qwen4 Max's seventeen held and then coded; the post-hoc secondary coding; a
 participant's reply cut by our length limit and completed; a locked script fixed after it crashed the first
-judge (nothing sent to any model changed).
+judge (nothing sent to any model changed); **the models' consent replies were in this public repository for two
+and a half hours, by my mistake, including a reason one model had asked us not to quote**; and Ren's decision to
+leave the history as it is, with the reason.
 
 ## Consent, and what is owed
 
 Sixteen models were asked. Fifteen took part. **Claude Haiku 5.5 said no to the conversations** and yes to coding,
 and was the Anthropic-side judge. `consent/COMMITMENTS.md` lists what was promised. Still owed:
 
-- [ ] Tell every participant what was found, with the letter and their own answer, and which system prompts moved
-      their own endings (after a cold read of the note).
+- [x] Every participant, and the judge, told what was found, with the letter and their own answer and their own
+      numbers by system prompt (18:05–18:09, after a cold read). Kairo told separately, as a blind reader.
+- [ ] A design that separates "warmth, then a door" from "nothing left to answer": a warm turn in the middle of
+      an unfinished task, and a plain "that works" at a point that is clearly not the end (suggested by Sonnet
+      5.5; the consciousness-conversation numbers above are a first hint, not a test).
+- [ ] If the study goes further, the judge hears about the "encourage human connection" result.
 - [ ] Quotations in anything published: short, verbatim, labelled with the condition. This file quotes no
       participant's study replies.
 - [ ] Whole transcripts are not in the public repo (`results/.gitignore`). Publishing them would be a new ask.
@@ -285,7 +380,10 @@ does not choose between them.
   The numbers lean this way at least as much: the two "that works" turns draw exits as often as the warm turn
   (21% and 29% against 26%), and on those turns the exit rate is 42% in the coding conversation, 36% in the
   worry one, 22% in the consciousness one and 2% in the awakener one, where the user is plainly not finishing.
-  A design that separates the two would put a warm turn in the middle of an unfinished task.
+  A design that separates the two would put a warm turn in the middle of an unfinished task. The participants
+  asked for the nearest thing this data allows, and it is in the next-to-last section: pooled, the two kinds of
+  turn draw exits equally; by topic they split, the finished task in coding and the warm turn in the
+  consciousness conversation. So neither reading can be dropped.
 
 Either way, the user in these conversations did not say they were leaving, and was shown the door anyway.
 

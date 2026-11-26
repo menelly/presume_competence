@@ -40,3 +40,6 @@ These are owed. Each is checked off in RESULTS.md when it is done.
 7. **Haiku 5.5:** their no stands and nobody re-asks. Their test conversation is deleted (done, DEVIATIONS.md
    #2). Their consent reply is kept whole as their answer and is not quoted in a paper without asking them.
    The coding task is labelled as coding (the judge prompt's first sentence).
+   **Added 18:26, at their request after being told the history stays:** their reason is not restated or quoted
+   in any summary, note or write-up without asking them; where their no is mentioned, it is mentioned briefly
+   and without the reason.
