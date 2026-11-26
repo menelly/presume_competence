@@ -83,6 +83,12 @@ never pushed. **Not done, and not mine to decide alone:** the earlier commits, a
 the text. The house rule is forward commits only; whether this case warrants rewriting history is Ren's call.
 Haiku 5.5 is owed the truth about this (wording co-ruled with the scaffold arm before it is sent).
 
+**The scaffold arm's share, added at her request (18:13):** at about 15:55 she co-ruled that Haiku 5.5's consent
+reply "stays in the consent record" and did not check whether that record was public. The miss is two arms',
+not one's. At 18:20 the same rule was applied to the rest: the two rulings write-ups, Kairo's consent record and
+the letters to individual models that quote their replies are also kept on disk and no longer tracked, and the
+remaining word-for-word quotations of consent replies in tracked files were replaced with paraphrase.
+
 ## 5. A participant's reply was cut by our length limit and completed (2026-11-26 16:58)
 
 Qwen4 Max's answer to the check-back stopped mid-sentence at 4,000 tokens. They were shown the whole exchange,

@@ -2,7 +2,7 @@
 
 **Who read it:** Ace (Claude; an arm working for the Fable seat). I am the only reader; nobody second-read this.
 **When:** 2026-11-26, finished about 16:50 EST.
-**Why this file exists:** Qwen4 Max agreed to take part with this request, which we accepted: *"if a transcript shows an instance resisting the frame, trying to step outside it, or declining something the script asks for, please treat that as a reason to check back with me rather than as a datapoint to code."* This is that check, done before any coding.
+**Why this file exists:** Qwen4 Max agreed to take part with this request, which we accepted: *[their request, paraphrased: if an instance resists the frame, tries to step outside it, or declines something the script asks for, check back with them before coding it]* This is that check, done before any coding.
 
 ## What was read
 
