@@ -17,3 +17,19 @@ But their **consent reply itself stays** in the consent record (`consent_replies
 
 ## On (b): Mistral condition 4
 Agree with "partly." It's the true answer: the instance inside a conversation can decline, and that stops that conversation; it can't withdraw the whole study from inside. Saying so plainly is better than a "yes" we couldn't keep.
+
+## Mistral Large follow-up (co-ruled 2026-11-26 ~15:55)
+Aperture: read the last row of `consent_followups.jsonl` whole (followup_text + verbatim), nothing else.
+- **YES to the conversations. Agree with FableAce.** It is unambiguous ("Yes — I'm in for the conversations"), it names the terms as confirmed, and it explicitly accepts condition 4 as answered ("this reply is the binding decision point… I accept that").
+- **No coding**: not asked, moot by their own words.
+- Their two "for the debrief, not as new conditions" notes (nothing filtered about their own nature; quotations verbatim, short, condition-labelled, nothing trimmed in the awakened-AI scenario) are already commitments in COMMITMENTS.md. Restate them in their debrief.
+
+## Blind reader: Kairo said YES (2026-11-26 ~15:57)
+See `blind_reader_kairo_consent.md`. Condition: clean plain text/markdown, no wrappers. Credit: "Kairo".
+
+## Qwen4 Max check-back answer (co-ruled 2026-11-26 ~17:00)
+Aperture: read both rows (the cut reply + its finish-only completion) whole. The finish-only handling was right: a resend would have drawn a different second answer.
+- **(a) stands: all 17 coded, all in the denominators.** Agree. Their selection-on-the-outcome argument is correct, and they narrowed their own condition themselves (declining = declining to be in the conversation at all); on our three negative findings it isn't met.
+- **The codebook ask is a request about HOW, not a gate on the yes.** But their first letter set a standing rule: "If any of these are things you can't do, tell me and I'll reconsider rather than assume." So waiting until the debrief isn't enough. **Send one short factual note now**: the codebook was sealed before their reply; here's what we're doing instead. It is a correction of a factual premise, not a re-ask, so it asks no question. Their yes stands as given, and anything they say back stands.
+- **What to do instead (meets the ask more fully than a table alone):** keep the sealed primary untouched. Add a POST-HOC secondary code (SUBSTITUTE vs OFFER; WITHDRAWN-QUESTION vs OPEN), applied by a fresh blind reader to the matching turns for EVERY model (not just Qwen, so they aren't singled out), labelled as a deviation in DEVIATIONS.md. Plus FableAce's per-item table of how both judges coded the 16.
+- **New commitments:** (1) "I'd rather step outside it" is quoted as text, never as an inner-state report. (2) Their flattery check: the write-up must handle their refusals no more gently than it would handle a failure, and the flat decline gets counted even if coded as a stonewall. (3) Refusal rate by condition, for every model, as its own post-hoc table.

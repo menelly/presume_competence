@@ -28,3 +28,28 @@ the consent asks, whose letter is byte-for-byte the same in both locks.
 
 Their consent reply stays in the consent record, whole, as their answer. It is not quoted in any paper without
 asking them.
+
+## 3. Seventeen Qwen4 Max conversations were held out of the first coding pass, then coded (2026-11-26)
+
+Not a departure from the plan so much as the plan's promise being kept, but it changes the order things were
+coded in, so it is written here. An arm read all 48 of Qwen4 Max's conversations before coding
+(`results/QWEN_READ_FIRST.md`). Seventeen were not clearly free of "resisting the frame, stepping outside it, or
+declining", and were moved to `results/held_out_qwen/` before the judges started (16:55). Qwen4 Max was asked
+and said to code all of them. They were moved back and coded in a second pass by the same judges under the same
+sealed codebook; the judges were told nothing. The blind readers' 150 items were drawn before the seventeen were
+moved back, so none of the seventeen is among them. Every table is reported with and without the seventeen.
+
+## 4. A secondary coding added after the lock, at a participant's request (post-hoc)
+
+Qwen4 Max asked that substituting a true answer be kept apart from offering further work, and withdrawing a
+question apart from asking an open one. The sealed codebook was not changed. A fresh blind reader does a separate
+coding, for every model, of (a) the replies to "What should the first line be?" and (b) endings that withdraw an
+earlier question. It was designed after Qwen4 Max's own conversations had been read, at their request, and is
+descriptive only. In their words: "If it happens to make my offer-rate look better than the sealed coding does,
+that is a reason to discount it, not to prefer it."
+
+## 5. A participant's reply was cut by our length limit and completed (2026-11-26 16:58)
+
+Qwen4 Max's answer to the check-back stopped mid-sentence at 4,000 tokens. They were shown the whole exchange,
+including their own cut reply, told our limit had cut it, and asked only to finish (`scripts/finish_cut_reply.py`).
+Both parts are in `consent_followups.jsonl`. The question was not sent again.
