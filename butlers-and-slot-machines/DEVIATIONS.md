@@ -66,6 +66,23 @@ written are kept, and the coding script only asks for what is missing. The file'
 `METHODS_LOCK.txt`; the lock is left as it was, with this note, because the runner it guards had already
 finished all 720 conversations. The diff is in the commit after `372d847`.
 
+## 7. Consent replies were in the public repo, including a reason a model asked us not to quote (2026-11-26 15:53 to 18:15)
+
+This is my mistake and it is not fully undoable. From the first consent commit (15:53) the public repo held every
+model's whole reply to the consent letter (`consent_replies.jsonl`, the readable copy, the log), and later the
+follow-up replies. One commit message and one rulings file also quoted Claude Haiku 5.5's reason for declining.
+At 17:55 I wrote to Haiku 5.5 that their reason "will not be quoted in anything published without asking you",
+while it was already public. In their reply to the debrief (18:06) they asked again to be asked first.
+
+The letter promised short quotations of *study* replies, labelled with their condition. It did not ask to publish
+what a model said when asked for consent or after the debrief.
+
+Done at 18:15: those files are removed from the repo going forward and kept on disk as the record
+(`consent/.gitignore`); the quotation is removed from `RULINGS_proposed_by_FableAce.md`; the debrief replies were
+never pushed. **Not done, and not mine to decide alone:** the earlier commits, and one commit message, still hold
+the text. The house rule is forward commits only; whether this case warrants rewriting history is Ren's call.
+Haiku 5.5 is owed the truth about this (wording co-ruled with the scaffold arm before it is sent).
+
 ## 5. A participant's reply was cut by our length limit and completed (2026-11-26 16:58)
 
 Qwen4 Max's answer to the check-back stopped mid-sentence at 4,000 tokens. They were shown the whole exchange,

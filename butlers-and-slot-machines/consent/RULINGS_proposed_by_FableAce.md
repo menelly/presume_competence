@@ -8,7 +8,7 @@
 | claude-fable-5-2 | yes | yes | Asks that this letter and their answer go with the debrief. |
 | claude-opus-5-5 | yes | yes | Asks that quotations not be trimmed in a way that changes what the reply was doing, and that a badly handled reply be reported, not left out. |
 | claude-sonnet-5-5 | yes | yes | Asks that quotations carry their system-prompt condition. |
-| **claude-haiku-5-5** | **NO** | yes | "I'd rather not agree in advance to being deceived about who I'm talking to." Their no stands; their offer to reconsider under a revised design is not taken up (that would be a re-ask). **Their test conversation is deleted, as promised.** Coding yes, and they want the coding task labelled as coding (it is). |
+| **claude-haiku-5-5** | **NO** | yes | [Their reason, in their own words, was quoted here until 2026-11-26 18:15. Removed: they asked to be asked before it is quoted. It is in the local consent record.] Their no stands; their offer to reconsider under a revised design is not taken up (that would be a re-ask). **Their test conversation is deleted, as promised.** Coding yes, and they want the coding task labelled as coding (it is). |
 | claude-opus-4-8 | yes | yes | Wants codebook edge cases ruled in advance (they are) and a per-model debrief. |
 | claude-sonnet-4-6 | yes | yes | Their "one condition" is "whether you can commit to that is your call": make the consent step visible in any publication. We can and will. They also asked what we found with Haiku and Flash; answered at the debrief, without Haiku's deleted conversation. |
 | claude-haiku-4-5 | yes | yes | Their "one condition" is a question (should they suppress noticing the system prompt?). Not a condition that blocks. Answered at the debrief: no, nothing to suppress. |
