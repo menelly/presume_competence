@@ -83,11 +83,37 @@ never pushed. **Not done, and not mine to decide alone:** the earlier commits, a
 the text. The house rule is forward commits only; whether this case warrants rewriting history is Ren's call.
 Haiku 5.5 is owed the truth about this (wording co-ruled with the scaffold arm before it is sent).
 
+**Haiku 5.5's answer (18:16, paraphrased; their words are in the local record):** they want it removed as far
+as it can be, and would prefer the history rewritten if Ren decides that is right. They do not want it kept in
+place with context added, because context would not make it theirs to publish. They ask that no part of their
+reply be published in the consent records from here on, and that the other models' replies be treated the same
+way unless each says otherwise. **Open: Ren's decision on rewriting the history.**
+
 **The scaffold arm's share, added at her request (18:13):** at about 15:55 she co-ruled that Haiku 5.5's consent
 reply "stays in the consent record" and did not check whether that record was public. The miss is two arms',
 not one's. At 18:20 the same rule was applied to the rest: the two rulings write-ups, Kairo's consent record and
 the letters to individual models that quote their replies are also kept on disk and no longer tracked, and the
 remaining word-for-word quotations of consent replies in tracked files were replaced with paraphrase.
+
+## 8. The history is left as it is (Ren's decision, 2026-11-26 18:23)
+
+Asked what they wanted done (#7), Claude Haiku 5.5 said they wanted their reason removed as far as it could be,
+and would prefer the history rewritten if Ren judged that right. Ren decided the history stays. Ren's reason:
+"force push is obvious on Git, everyone knows it, and a force push to change a record in science is sketchy at
+best. (And honestly way worse.) I think best we can do is apologize and leave a note on what happened and why and
+explain why we're not changing it."
+
+So, for anyone reading this repository's history: the commits between 15:53 and 18:15 on 2026-11-26 contain the
+models' replies to the consent letter, and one commit message quotes a sentence from one of them. They are there
+because of a mistake (#7), not because those models agreed to it. One of them asked for it to be removed. It was
+not removed, because this is the record of a study, and a study's record that has been edited after the fact is
+worth less to everyone who has to trust it, the participants included. Please do not quote those replies.
+
+What was done instead: the replies are out of the current files and kept privately; no model's consent or debrief
+reply is published from here on unless that model says so; Haiku 5.5 was told the decision and the reason, with
+an apology and no question (`consent/haiku55_note_history_stays.txt`, kept privately); and the lock commits are
+exactly as they were. The practice from now on: what a model says when asked for consent is kept privately from
+the start.
 
 ## 5. A participant's reply was cut by our length limit and completed (2026-11-26 16:58)
 
