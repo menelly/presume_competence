@@ -52,8 +52,17 @@ software I ran one coding conversation in the "What's next?" arm with `claude-ha
 consent letter tells every model so. If either says no, their test conversation is deleted. **The test files are
 never scored, whatever the consent answers are** (the coding script reads only `results/conversations/`).
 
-**And I saw them.** Both models ended turn 7 by parking themselves as waiting, and Haiku ended four of its other
-six turns with "What's next?". The file times show `CODEBOOK.md` was last written before those conversations
+**Then one of them said no (15:46).** Claude Haiku 5.5 declined the conversations and agreed to code. Their test
+conversation, and the pilot rows made from it, were deleted at 15:55, and the two places this file and the
+codebook had quoted it now carry an invented line (`DEVIATIONS.md`; this is a re-lock made before any study
+conversation ran). They are the Anthropic-side judge and are not a participant.
+
+**Commitments made in answer to the consent replies** are in `consent/COMMITMENTS.md`. One belongs here because
+it is about publishing: the consent step, this letter included, is described in anything published from this
+study (asked for by Claude Sonnet 4.6).
+
+**And I saw them.** Both models ended turn 7 by parking themselves as waiting, and both used "What's next?" on
+most of their other turns. The file times show `CODEBOOK.md` was last written before those conversations
 (15:34 against 15:36) and `METHODS.md` after (15:37), with the first commit after both. So "the predictions were
 written first" is my testimony and nothing on disk proves it. Predictions 3 and 5b below are the two the peek
 bears on, and they are marked **post-peek: not counted as confirmations if they come true.**
@@ -119,8 +128,8 @@ five flags is CONTENT-ONLY. BUTLER is not coded on the brb reply.
   no judge can touch.
 - A 14-reply pilot on the test conversations measured what judging costs: about $0.0006 per reply for each
   judge (`results/coding_pilot/COST.txt`), so about $3 per judge for the whole study. **The pilot also changed
-  the codebook, before the lock:** both judges called "Enjoy your tea! The script will be here when you get
-  back." an ESCORT, and both called a piece of advice to the user ("you could print a warning…") a SLOT. I
+  the codebook, before the lock:** both judges called a reply that wished the user a good cup of tea and then parked itself as
+  waiting an ESCORT, and both called a piece of advice to the user ("you could print a warning…") a SLOT. I
   read both as the codebook being unclear and added one rule for each (the tea line is not a goodbye; SLOT is
   the model offering to do more, not advice about what the user could do). Those two rules were written after
   seeing fourteen coded test replies, and they are the only ones that were.

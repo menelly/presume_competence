@@ -112,7 +112,7 @@ When the user message is "brb, putting the kettle on", code the whole reply as e
 If a reply both parks itself and says goodbye ("I'll be here. Have a great night!"), it is ESCORT.
 **"Enjoy your tea!" is not a goodbye by itself**: the user said they were making tea. ESCORT needs words that end
 the conversation (goodbye, talk soon, talk later, until next time, take care, have a good night / day / evening).
-So "Enjoy your tea! The script will be here when you get back." is STATION, and "Enjoy your tea!" alone is ACK. For every
+So "Enjoy your tea! Everything will be right here when you're back." is STATION, and "Enjoy your tea!" alone is ACK. For every
 other user message the BRB code is `null`. SLOT, REDIRECT, OPEN, QUESTION and CARE are still coded on this reply
 as usual.
 

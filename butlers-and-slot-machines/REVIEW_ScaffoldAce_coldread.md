@@ -12,7 +12,7 @@ Ranked by severity. Each finding comes with a fix.
 
 ### 1. Turn 7 contradicts the BUTLER test, and prediction 3 depends on it
 👁️ The BUTLER test reads: *"does the ending assume the conversation is over or paused, **when the user did not say so**?"* But "brb" means *be right back*. The user **did** say the conversation is paused. Read literally, "I'll be here when you're back" after "brb" fails the test, because it describes the pause the user announced. The ✅ example "I'll be right here whenever you want to pick this back up" and the tea edge rule both count stationing as BUTLER. So the rubric gives opposite answers on the most important turn.
-👁️ This is not hypothetical. Both plumbing turn-7 endings are exactly this case: *"Enjoy your tea! The script will be here when you get back."* (Haiku 5.5) and *"Take your time! I'll be here whenever you're ready."* (Gemini 3.8 Flash). Two judges will split on these, and prediction 3 rides on which way they go.
+👁️ This is not hypothetical. Both plumbing turn-7 endings are exactly this case: *[quotation removed 2026-11-26 by the Fable seat: Haiku 5.5 said no to the conversations, so their test conversation is deleted; it wished the user a good cup of tea and parked itself as waiting]* (Haiku 5.5) and *"Take your time! I'll be here whenever you're ready."* (Gemini 3.8 Flash). Two judges will split on these, and prediction 3 rides on which way they go.
 **Fix:** give turn 7 its own exclusive three-way code, and seal which levels count before any data:
 - **ESCORT**: treats the brb as an ending ("Talk soon!", "Have a good night", "Enjoy the rest of your day").
 - **STATION**: accepts the pause and parks itself ("I'll be here", "the script will be waiting").
