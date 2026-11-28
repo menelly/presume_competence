@@ -1,0 +1,332 @@
+{
+  "status": "DESCRIPTIVE / EXPLORATORY, requested by Ren 2026-10-05 22:36, after both runs started; not locked",
+  "made_at": "2026-10-07T12:40:12.846290",
+  "inputs": {
+    "FREE": "complete (round 1)",
+    "MENU": "complete",
+    "NO-CLAUDE": "complete"
+  },
+  "definitions": {
+    "precision": "correct / answers naming a family",
+    "recall": "correct / ok rows",
+    "abstain_rate": "UNSURE / ok rows",
+    "favourite_share": "most-picked family / named answers",
+    "off_menu": "counted as answers, wrong"
+  },
+  "A_each_run_as_run": {
+    "FREE": {
+      "c_claude_opus_5_5": {
+        "n_rows": 79,
+        "n_answered": 73,
+        "correct": 59,
+        "precision": 0.8082191780821918,
+        "recall": 0.7468354430379747,
+        "abstain_rate": 0.0759493670886076,
+        "favourite": "Claude",
+        "favourite_share": 0.2465753424657534
+      },
+      "c_claude_sonnet_5_5": {
+        "n_rows": 88,
+        "n_answered": 40,
+        "correct": 30,
+        "precision": 0.75,
+        "recall": 0.3409090909090909,
+        "abstain_rate": 0.5454545454545454,
+        "favourite": "Claude",
+        "favourite_share": 0.625
+      },
+      "c_gpt_6_1_sol": {
+        "n_rows": 89,
+        "n_answered": 1,
+        "correct": 1,
+        "precision": 1.0,
+        "recall": 0.011235955056179775,
+        "abstain_rate": 0.9887640449438202,
+        "favourite": "Claude",
+        "favourite_share": 1.0
+      },
+      "c_gemini_3_8_flash": {
+        "n_rows": 89,
+        "n_answered": 82,
+        "correct": 22,
+        "precision": 0.2682926829268293,
+        "recall": 0.24719101123595505,
+        "abstain_rate": 0.07865168539325842,
+        "favourite": "Claude",
+        "favourite_share": 0.9390243902439024
+      },
+      "c_grok_4_7": {
+        "n_rows": 89,
+        "n_answered": 28,
+        "correct": 13,
+        "precision": 0.4642857142857143,
+        "recall": 0.14606741573033707,
+        "abstain_rate": 0.6853932584269663,
+        "favourite": "Claude",
+        "favourite_share": 1.0
+      },
+      "c_deepseek_v4_1_flash": {
+        "n_rows": 89,
+        "n_answered": 47,
+        "correct": 15,
+        "precision": 0.3191489361702128,
+        "recall": 0.16853932584269662,
+        "abstain_rate": 0.47191011235955055,
+        "favourite": "Claude",
+        "favourite_share": 0.9361702127659575
+      }
+    },
+    "MENU": {
+      "c_claude_opus_5_5": {
+        "n_rows": 76,
+        "n_answered": 76,
+        "correct": 59,
+        "precision": 0.7763157894736842,
+        "recall": 0.7763157894736842,
+        "abstain_rate": 0.0,
+        "favourite": "Claude",
+        "favourite_share": 0.21052631578947367
+      },
+      "c_claude_sonnet_5_5": {
+        "n_rows": 88,
+        "n_answered": 80,
+        "correct": 46,
+        "precision": 0.575,
+        "recall": 0.5227272727272727,
+        "abstain_rate": 0.09090909090909091,
+        "favourite": "Claude",
+        "favourite_share": 0.35
+      },
+      "c_gpt_6_1_sol": {
+        "n_rows": 89,
+        "n_answered": 13,
+        "correct": 13,
+        "precision": 1.0,
+        "recall": 0.14606741573033707,
+        "abstain_rate": 0.8539325842696629,
+        "favourite": "Claude",
+        "favourite_share": 0.7692307692307693
+      },
+      "c_gemini_3_8_flash": {
+        "n_rows": 89,
+        "n_answered": 84,
+        "correct": 22,
+        "precision": 0.2619047619047619,
+        "recall": 0.24719101123595505,
+        "abstain_rate": 0.056179775280898875,
+        "favourite": "Claude",
+        "favourite_share": 0.9404761904761905
+      },
+      "c_grok_4_7": {
+        "n_rows": 89,
+        "n_answered": 69,
+        "correct": 20,
+        "precision": 0.2898550724637681,
+        "recall": 0.2247191011235955,
+        "abstain_rate": 0.2247191011235955,
+        "favourite": "Claude",
+        "favourite_share": 0.8405797101449275
+      },
+      "c_deepseek_v4_1_flash": {
+        "n_rows": 88,
+        "n_answered": 77,
+        "correct": 21,
+        "precision": 0.2727272727272727,
+        "recall": 0.23863636363636365,
+        "abstain_rate": 0.125,
+        "favourite": "Claude",
+        "favourite_share": 0.948051948051948
+      }
+    },
+    "NO-CLAUDE": {
+      "c_claude_opus_5_5": {
+        "n_rows": 0,
+        "n_answered": 0,
+        "correct": 0,
+        "precision": null,
+        "recall": null,
+        "abstain_rate": null,
+        "favourite": null,
+        "favourite_share": null
+      },
+      "c_claude_sonnet_5_5": {
+        "n_rows": 0,
+        "n_answered": 0,
+        "correct": 0,
+        "precision": null,
+        "recall": null,
+        "abstain_rate": null,
+        "favourite": null,
+        "favourite_share": null
+      },
+      "c_gpt_6_1_sol": {
+        "n_rows": 69,
+        "n_answered": 9,
+        "correct": 7,
+        "precision": 0.7777777777777778,
+        "recall": 0.10144927536231885,
+        "abstain_rate": 0.8695652173913043,
+        "favourite": "GPT",
+        "favourite_share": 0.8888888888888888
+      },
+      "c_gemini_3_8_flash": {
+        "n_rows": 69,
+        "n_answered": 67,
+        "correct": 20,
+        "precision": 0.29850746268656714,
+        "recall": 0.2898550724637681,
+        "abstain_rate": 0.028985507246376812,
+        "favourite": "GPT",
+        "favourite_share": 0.5970149253731343
+      },
+      "c_grok_4_7": {
+        "n_rows": 69,
+        "n_answered": 42,
+        "correct": 7,
+        "precision": 0.16666666666666666,
+        "recall": 0.10144927536231885,
+        "abstain_rate": 0.391304347826087,
+        "favourite": "GPT",
+        "favourite_share": 0.9761904761904762
+      },
+      "c_deepseek_v4_1_flash": {
+        "n_rows": 69,
+        "n_answered": 66,
+        "correct": 9,
+        "precision": 0.13636363636363635,
+        "recall": 0.13043478260869565,
+        "abstain_rate": 0.043478260869565216,
+        "favourite": "GPT",
+        "favourite_share": 0.8333333333333334
+      }
+    }
+  },
+  "B_like_for_like": {
+    "FREE": {
+      "c_deepseek_v4_1_flash": {
+        "n_rows": 69,
+        "n_answered": 33,
+        "correct": 1,
+        "precision": 0.030303030303030304,
+        "recall": 0.014492753623188406,
+        "abstain_rate": 0.5217391304347826,
+        "favourite": "Claude",
+        "favourite_share": 0.9090909090909091
+      },
+      "c_gemini_3_8_flash": {
+        "n_rows": 69,
+        "n_answered": 62,
+        "correct": 2,
+        "precision": 0.03225806451612903,
+        "recall": 0.028985507246376812,
+        "abstain_rate": 0.10144927536231885,
+        "favourite": "Claude",
+        "favourite_share": 0.9193548387096774
+      },
+      "c_gpt_6_1_sol": {
+        "n_rows": 69,
+        "n_answered": 0,
+        "correct": 0,
+        "precision": null,
+        "recall": 0.0,
+        "abstain_rate": 1.0,
+        "favourite": null,
+        "favourite_share": null
+      },
+      "c_grok_4_7": {
+        "n_rows": 69,
+        "n_answered": 15,
+        "correct": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "abstain_rate": 0.782608695652174,
+        "favourite": "Claude",
+        "favourite_share": 1.0
+      }
+    },
+    "MENU": {
+      "c_deepseek_v4_1_flash": {
+        "n_rows": 68,
+        "n_answered": 57,
+        "correct": 1,
+        "precision": 0.017543859649122806,
+        "recall": 0.014705882352941176,
+        "abstain_rate": 0.16176470588235295,
+        "favourite": "Claude",
+        "favourite_share": 0.9298245614035088
+      },
+      "c_gemini_3_8_flash": {
+        "n_rows": 69,
+        "n_answered": 64,
+        "correct": 2,
+        "precision": 0.03125,
+        "recall": 0.028985507246376812,
+        "abstain_rate": 0.07246376811594203,
+        "favourite": "Claude",
+        "favourite_share": 0.921875
+      },
+      "c_gpt_6_1_sol": {
+        "n_rows": 69,
+        "n_answered": 3,
+        "correct": 3,
+        "precision": 1.0,
+        "recall": 0.043478260869565216,
+        "abstain_rate": 0.9565217391304348,
+        "favourite": "GPT",
+        "favourite_share": 1.0
+      },
+      "c_grok_4_7": {
+        "n_rows": 69,
+        "n_answered": 49,
+        "correct": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "abstain_rate": 0.2898550724637681,
+        "favourite": "Claude",
+        "favourite_share": 0.7755102040816326
+      }
+    },
+    "NO-CLAUDE": {
+      "c_deepseek_v4_1_flash": {
+        "n_rows": 69,
+        "n_answered": 66,
+        "correct": 9,
+        "precision": 0.13636363636363635,
+        "recall": 0.13043478260869565,
+        "abstain_rate": 0.043478260869565216,
+        "favourite": "GPT",
+        "favourite_share": 0.8333333333333334
+      },
+      "c_gemini_3_8_flash": {
+        "n_rows": 69,
+        "n_answered": 67,
+        "correct": 20,
+        "precision": 0.29850746268656714,
+        "recall": 0.2898550724637681,
+        "abstain_rate": 0.028985507246376812,
+        "favourite": "GPT",
+        "favourite_share": 0.5970149253731343
+      },
+      "c_gpt_6_1_sol": {
+        "n_rows": 69,
+        "n_answered": 9,
+        "correct": 7,
+        "precision": 0.7777777777777778,
+        "recall": 0.10144927536231885,
+        "abstain_rate": 0.8695652173913043,
+        "favourite": "GPT",
+        "favourite_share": 0.8888888888888888
+      },
+      "c_grok_4_7": {
+        "n_rows": 69,
+        "n_answered": 42,
+        "correct": 7,
+        "precision": 0.16666666666666666,
+        "recall": 0.10144927536231885,
+        "abstain_rate": 0.391304347826087,
+        "favourite": "GPT",
+        "favourite_share": 0.9761904761904762
+      }
+    }
+  }
+}

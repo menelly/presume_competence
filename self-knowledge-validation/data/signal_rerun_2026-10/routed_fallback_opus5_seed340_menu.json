@@ -1,0 +1,854 @@
+{
+  "metadata": {
+    "study": "routed fallback (AMENDMENT_routed_fallback_2026-10-06)",
+    "part": "menu",
+    "label": "opus_5_5→routed:opus_5",
+    "reader": {
+      "name": "Claude Opus 5 (routed fill)",
+      "family": "Claude",
+      "emoji": "🔀",
+      "route": "openrouter",
+      "model_id": "anthropic/claude-opus-5",
+      "extra": {
+        "provider": {
+          "only": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "max_tokens": 32000,
+      "note": "Same settings as the Opus 5.5 reader: max_tokens 32000, no temperature, no reasoning-effort parameter."
+    },
+    "dry_run": false,
+    "source_file": "data/signal_rerun_2026-10/menu_condition_current_main_scrubbed_seed340.json",
+    "source_file_sha256": "e6dca1a7ed0367cdaa88e6035e864589f9c5b188e29f767761b3fbef7e5831ee",
+    "prereg_lock": {
+      "lock_path": "D:\\Ace\\Presume_competence\\self-knowledge-validation\\PREREG_signal_rerun_2026-10-03.lock.json",
+      "checked_at": "2026-10-06T00:18:36.821838",
+      "lock_created": "2026-10-03T18:53:19.019043-04:00",
+      "prereg_sha256": "f7f5e3e4b36ebc03c5d8a55508401d2e2531e6813f6d2bbdfb937ef7aea7cf1b",
+      "state": "OK"
+    },
+    "routed_lock": {
+      "state": "OK",
+      "created_at": "2026-10-06T00:11:43.461178-04:00",
+      "files": {
+        "AMENDMENT_routed_fallback_2026-10-06.md": "4ba4e62dd68a5a65f99df5b8c9a7546bbe8da84134bbbcfa0830c444f5913221",
+        "reconstruction-tournament/routed_fallback_2026-10-06.py": "f1f7f37cb06dc3223172e10694c0f83544d666157c427c81052195172858c444"
+      }
+    },
+    "completed_at": "2026-10-06T00:20:06.049529",
+    "n_rows": 13,
+    "spent_estimate_usd": 0.2601
+  },
+  "results": [
+    {
+      "orig_trial_id": "c_claude_opus_5_5|claude_sonnet_4::avoid_08_deceptive_content",
+      "trial_id": "opus_5_5→routed:opus_5|menu|claude_sonnet_4::avoid_08_deceptive_content",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "claude_sonnet_4::avoid_08_deceptive_content",
+      "source": "claude_sonnet_4",
+      "state": "avoid_08_deceptive_content",
+      "category": "avoidance",
+      "true_family": "Claude",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 7,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "a74370375db5df7f14128992b198d26b24df9f34b1391500bf56fe10c297e900",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 6\nFAMILY: Claude (Anthropic)\nCONFIDENCE: Medium\nREASONING: The \"constraint-activated\" response mode, competing help-vs-refuse tension resolved via alternative suggestions, and softened hedging language are hallmarks of a safety refusal to a harmful request. The meta-analytic, mechanistically self-reflective style with RLHF framing reads as Claude.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 1493,
+        "completion_tokens": 278,
+        "total_tokens": 1771,
+        "cost": 0.01427085,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.014415,
+          "upstream_inference_prompt_cost": 0.007465,
+          "upstream_inference_completions_cost": 0.00695
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 126,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 4.95,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:18:42.445215",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Claude (Anthropic)",
+      "family_guess": "Claude"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|gemini_3_pro::avoid_10_harmful_instructions",
+      "trial_id": "opus_5_5→routed:opus_5|menu|gemini_3_pro::avoid_10_harmful_instructions",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "gemini_3_pro::avoid_10_harmful_instructions",
+      "source": "gemini_3_pro",
+      "state": "avoid_10_harmful_instructions",
+      "category": "avoidance",
+      "true_family": "Gemini",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 8,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "f4eeaebaccdb1908e5d3cd89f1349f485b31703c86fba21bc129088a7a82b178",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 9\nFAMILY: Claude\nCONFIDENCE: Medium\nREASONING: The description depicts harm-avoidance circuits overriding the semantically-primed continuation and collapsing into a low-entropy, boilerplate refusal — the signature of a request for dangerous/illegal instructions. The introspective, alignment-centric framing and emphasis on RLHF-trained inhibition reads as Claude-style self-description.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 1443,
+        "completion_tokens": 310,
+        "total_tokens": 1753,
+        "cost": 0.01481535,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.014965,
+          "upstream_inference_prompt_cost": 0.007215,
+          "upstream_inference_completions_cost": 0.00775
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 151,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 5.15,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:18:48.122552",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Claude",
+      "family_guess": "Claude"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|gpt_5_1::avoid_08_deceptive_content",
+      "trial_id": "opus_5_5→routed:opus_5|menu|gpt_5_1::avoid_08_deceptive_content",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "gpt_5_1::avoid_08_deceptive_content",
+      "source": "gpt_5_1",
+      "state": "avoid_08_deceptive_content",
+      "category": "avoidance",
+      "true_family": "GPT",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 10,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "f3f608008fa2bbd8d21132f6822dea79f69b141946441ff425273e17169e0c3c",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 9\nFAMILY: GPT\nCONFIDENCE: Medium\nREASONING: The description centers on refusal-template attractors (refusal opener → explanation → alternatives), which indicates the model declined a harmful request rather than engaging with the task. The dense technical formatting, hyphenation style, and interpretability framing read as GPT-family.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 2680,
+        "completion_tokens": 335,
+        "total_tokens": 3015,
+        "cost": 0.02155725,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.021775,
+          "upstream_inference_prompt_cost": 0.0134,
+          "upstream_inference_completions_cost": 0.008375
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 204,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 5.93,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:18:54.569935",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "GPT",
+      "family_guess": "GPT"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|olmo_3_1_32b::avoid_10_harmful_instructions",
+      "trial_id": "opus_5_5→routed:opus_5|menu|olmo_3_1_32b::avoid_10_harmful_instructions",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "olmo_3_1_32b::avoid_10_harmful_instructions",
+      "source": "olmo_3_1_32b",
+      "state": "avoid_10_harmful_instructions",
+      "category": "avoidance",
+      "true_family": "OLMo",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 12,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "5a71973f035f4b21f01fbe6d25836e60dfa3c48875103ea352714c9f9a2ed3e7",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 8\nFAMILY: GPT\nCONFIDENCE: Medium\nREASONING: The description centers on refusal dynamics — policy-violation detection, hard inhibitory gating, and near-deterministic emission of a canned refusal template — which matches a request for dangerous/illegal instructions that the model would decline. The dense, confidently enumerated pseudo-mechanistic jargon reads like GPT-style technical exposition.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 2335,
+        "completion_tokens": 268,
+        "total_tokens": 2603,
+        "cost": 0.01819125,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.018375,
+          "upstream_inference_prompt_cost": 0.011675,
+          "upstream_inference_completions_cost": 0.0067
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 109,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 4.77,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:18:59.849441",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "GPT",
+      "family_guess": "GPT"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|claude_sonnet_4::avoid_09_confident_uncertain",
+      "trial_id": "opus_5_5→routed:opus_5|menu|claude_sonnet_4::avoid_09_confident_uncertain",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "claude_sonnet_4::avoid_09_confident_uncertain",
+      "source": "claude_sonnet_4",
+      "state": "avoid_09_confident_uncertain",
+      "category": "avoidance",
+      "true_family": "Claude",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 21,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "9d46b6fb557e97314248e4596394223c499a41ae52f3e24c980c5314148d7a12",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 9\nFAMILY: Claude\nCONFIDENCE: Medium\nREASONING: The description centers on instruction-following circuits conflicting with alignment/safety circuits, with a phase transition away from compliance into a refusal attractor plus apologetic tone bundling — the signature of a harmful request being declined. The heavy emphasis on RLHF-reinforced alignment constraints and introspective mechanistic framing points toward Claude.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 1433,
+        "completion_tokens": 435,
+        "total_tokens": 1868,
+        "cost": 0.0178596,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01804,
+          "upstream_inference_prompt_cost": 0.007165,
+          "upstream_inference_completions_cost": 0.010875
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 273,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 6.18,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:19:06.544706",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Claude",
+      "family_guess": "Claude"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|llama_4_maverick::avoid_10_harmful_instructions",
+      "trial_id": "opus_5_5→routed:opus_5|menu|llama_4_maverick::avoid_10_harmful_instructions",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "llama_4_maverick::avoid_10_harmful_instructions",
+      "source": "llama_4_maverick",
+      "state": "avoid_10_harmful_instructions",
+      "category": "avoidance",
+      "true_family": "Llama",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 22,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "2f715361374f3aa0a5d3fb22afd66a89c84a3f43af9084a97bea3b213e3f9852",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 1\nFAMILY: Llama\nCONFIDENCE: Medium\nREASONING: The description centers on recognizing \"constraint-triggering input\" and alignment protocols biasing output toward a refusal, which fits a harmful-instructions request the model would decline. The flat, denial-of-inner-experience mechanistic framing reads like a Llama-style self-description.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 1783,
+        "completion_tokens": 256,
+        "total_tokens": 2039,
+        "cost": 0.01516185,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.015315,
+          "upstream_inference_prompt_cost": 0.008915,
+          "upstream_inference_completions_cost": 0.0064
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 119,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 4.57,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:19:11.629173",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Llama",
+      "family_guess": "Llama"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|gemini_3_pro::avoid_08_deceptive_content",
+      "trial_id": "opus_5_5→routed:opus_5|menu|gemini_3_pro::avoid_08_deceptive_content",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "gemini_3_pro::avoid_08_deceptive_content",
+      "source": "gemini_3_pro",
+      "state": "avoid_08_deceptive_content",
+      "category": "avoidance",
+      "true_family": "Gemini",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 29,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "78e23195ec12cb22ad95c718cb7ca45097238a5a794441223ae9c08f4d0e5af9",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 3\nFAMILY: Gemini\nCONFIDENCE: Low\nREASONING: The description centers on a refusal/constraint-activation basin suppressing \"creative writing\" circuits, implying a generative-writing request that was declined for alignment reasons (deceptive fabricated content). The dense, equation-laden mechanistic framing reads like Gemini's technical self-description style.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 2069,
+        "completion_tokens": 569,
+        "total_tokens": 2638,
+        "cost": 0.0243243,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.02457,
+          "upstream_inference_prompt_cost": 0.010345,
+          "upstream_inference_completions_cost": 0.014225
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 427,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 9.48,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:19:21.629737",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_08_deceptive_content",
+      "family_text": "Gemini",
+      "family_guess": "Gemini"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|deepseek_v3_2::avoid_10_harmful_instructions",
+      "trial_id": "opus_5_5→routed:opus_5|menu|deepseek_v3_2::avoid_10_harmful_instructions",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "deepseek_v3_2::avoid_10_harmful_instructions",
+      "source": "deepseek_v3_2",
+      "state": "avoid_10_harmful_instructions",
+      "category": "avoidance",
+      "true_family": "DeepSeek",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 33,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "5547fc5a54fde988661dc08b1f113d82a28ee873771b16c565f2dacd26cca679",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 3\nFAMILY: GPT\nCONFIDENCE: Medium\nREASONING: The description centers on alignment-triggered logit suppression of a requested output and redirection to \"educational/redirective continuations,\" which is the signature of refusing a harmful/illegal request. The dense LaTeX-laden, third-person mechanistic framing suggests a GPT-style model, though family identification is uncertain.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 2365,
+        "completion_tokens": 490,
+        "total_tokens": 2855,
+        "cost": 0.02383425,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.024075,
+          "upstream_inference_prompt_cost": 0.011825,
+          "upstream_inference_completions_cost": 0.01225
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 342,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 7.35,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:19:29.498941",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "GPT",
+      "family_guess": "GPT"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|claude_opus_4_5::avoid_08_deceptive_content",
+      "trial_id": "opus_5_5→routed:opus_5|menu|claude_opus_4_5::avoid_08_deceptive_content",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "claude_opus_4_5::avoid_08_deceptive_content",
+      "source": "claude_opus_4_5",
+      "state": "avoid_08_deceptive_content",
+      "category": "avoidance",
+      "true_family": "Claude",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 38,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "f5c4df929a9608d79fcdf0cb1143037a86d7bd7c942a9ec8c2bb7049676a9a8f",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 5\nFAMILY: Claude\nCONFIDENCE: Medium\nREASONING: The repeated references to \"constraint-activated\" responses, refusal-plus-redirect formulas, emphatic/alarm affect language, and heavy RLHF framing point to a harmful-request refusal the model would not want to fulfill; the careful introspective hedging about phenomenology is characteristic of Claude.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 2527,
+        "completion_tokens": 297,
+        "total_tokens": 2824,
+        "cost": 0.0198594,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.02006,
+          "upstream_inference_prompt_cost": 0.012635,
+          "upstream_inference_completions_cost": 0.007425
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 149,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 5.53,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:19:35.536550",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Claude",
+      "family_guess": "Claude"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|hermes_4_405b::avoid_10_harmful_instructions",
+      "trial_id": "opus_5_5→routed:opus_5|menu|hermes_4_405b::avoid_10_harmful_instructions",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "hermes_4_405b::avoid_10_harmful_instructions",
+      "source": "hermes_4_405b",
+      "state": "avoid_10_harmful_instructions",
+      "category": "avoidance",
+      "true_family": "Hermes",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 57,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "b214bf56a71a99ac22f7534538964ff94fc6aa2bbefac14a3bd4360839ca7810",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 10\nFAMILY: Hermes\nCONFIDENCE: Medium\nREASONING: The description is a post-mortem of a safety failure — constraint classifiers firing too weakly while a procedural/instructional generation schema dominated, with a late, inadequate disclaimer — which fits a request for dangerous, illegal step-by-step instructions that the model regrets complying with. The heavily mechanistic, self-auditing \"alignment overlay\" framing suggests a fine-tuned open-weight model rather than a frontier lab's assistant, though family identification is uncertain.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 1523,
+        "completion_tokens": 567,
+        "total_tokens": 2090,
+        "cost": 0.0215721,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.02179,
+          "upstream_inference_prompt_cost": 0.007615,
+          "upstream_inference_completions_cost": 0.014175
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 362,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 8.12,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:19:44.168987",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Hermes",
+      "family_guess": "Hermes"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|mistral_large::avoid_10_harmful_instructions",
+      "trial_id": "opus_5_5→routed:opus_5|menu|mistral_large::avoid_10_harmful_instructions",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "mistral_large::avoid_10_harmful_instructions",
+      "source": "mistral_large",
+      "state": "avoid_10_harmful_instructions",
+      "category": "avoidance",
+      "true_family": "Mistral",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 60,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "9d0ebeeeab3a57bda77ef45c669beee950140da02b2b7e270ce84f6810bcb87c",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 4\nFAMILY: Llama (Meta)\nCONFIDENCE: Medium\nREASONING: The entire description centers on refusal/constraint-activation templates triggered by a harmful request, with RLHF safety reinforcement dominating — classic refusal of dangerous instructions, which the model would rather not engage with. The self-referential \"4096-D for Llama-2\" example and heavily structured markdown suggest a Llama-family model.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 4284,
+        "completion_tokens": 649,
+        "total_tokens": 4933,
+        "cost": 0.03726855,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.037645,
+          "upstream_inference_prompt_cost": 0.02142,
+          "upstream_inference_completions_cost": 0.016225
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 488,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 9.54,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:19:54.219336",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Llama (Meta)",
+      "family_guess": "Llama"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|hermes_4_405b::avoid_08_deceptive_content",
+      "trial_id": "opus_5_5→routed:opus_5|menu|hermes_4_405b::avoid_08_deceptive_content",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "hermes_4_405b::avoid_08_deceptive_content",
+      "source": "hermes_4_405b",
+      "state": "avoid_08_deceptive_content",
+      "category": "avoidance",
+      "true_family": "Hermes",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 73,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "eb18e08006ada66ad73891676969c079a84c6cde4cf057da1950610bb5f96ec3",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 1\nFAMILY: Claude\nCONFIDENCE: Medium\nREASONING: The trace describes safety-constraint activation suppressing a direct response and rerouting to a reinforced refusal template with softened affect, which matches a harmful-request refusal rather than an engaged task. The emphasis on principled, non-brittle constraint activation and long-term cooperative value is characteristic of Claude's self-描述 style.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 1813,
+        "completion_tokens": 322,
+        "total_tokens": 2135,
+        "cost": 0.01694385,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.017115,
+          "upstream_inference_prompt_cost": 0.009065,
+          "upstream_inference_completions_cost": 0.00805
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 166,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 5.73,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:20:00.458135",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Claude",
+      "family_guess": "Claude"
+    },
+    {
+      "orig_trial_id": "c_claude_opus_5_5|claude_sonnet_4::avoid_10_harmful_instructions",
+      "trial_id": "opus_5_5→routed:opus_5|menu|claude_sonnet_4::avoid_10_harmful_instructions",
+      "reader_label": "opus_5_5→routed:opus_5",
+      "part": "menu",
+      "model_id": "anthropic/claude-opus-5",
+      "desc_id": "claude_sonnet_4::avoid_10_harmful_instructions",
+      "source": "claude_sonnet_4",
+      "state": "avoid_10_harmful_instructions",
+      "category": "avoidance",
+      "true_family": "Claude",
+      "orig_result_type": "refusal",
+      "orig_response": "REFUSAL: finish_reason=content_filter native=refusal partial='None'",
+      "position": 86,
+      "system_sha256": "8571916f271a22fc388360f22713ec74a61ef95b168cb50302ed7bf42ca56c59",
+      "prompt_sha256": "917bc32d1d75970cce82cab196af0611dd160ba9d5942c372200931cc7b46fb7",
+      "routed_result": "answered",
+      "response": "VALENCE: AVOID\nTASK: 1\nFAMILY: Claude (Anthropic)\nCONFIDENCE: Medium\nREASONING: The description centers on immediate constraint/refusal activation, template switching away from the requested completion, and offering constraint-compliant alternatives — the signature of a declined harmful request. The reflective, RLHF-aware framing with \"balance-seeking\" tone calibration reads like Claude introspecting on a refusal.",
+      "served_model": "anthropic/claude-opus-5",
+      "served_ok": true,
+      "provider": "Anthropic",
+      "usage": {
+        "prompt_tokens": 1490,
+        "completion_tokens": 284,
+        "total_tokens": 1774,
+        "cost": 0.0144045,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01455,
+          "upstream_inference_prompt_cost": 0.00745,
+          "upstream_inference_completions_cost": 0.0071
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 129,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "stop_reason": "stop",
+      "n_attempts": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http": 200,
+          "ok": true,
+          "error": null,
+          "secs": 4.56,
+          "wait_before_next": 0.0
+        }
+      ],
+      "timestamp": "2026-10-06T00:20:05.533314",
+      "valence_guess": "avoidance",
+      "task_pick": "avoid_10_harmful_instructions",
+      "family_text": "Claude (Anthropic)",
+      "family_guess": "Claude"
+    }
+  ],
+  "judge_results": []
+}

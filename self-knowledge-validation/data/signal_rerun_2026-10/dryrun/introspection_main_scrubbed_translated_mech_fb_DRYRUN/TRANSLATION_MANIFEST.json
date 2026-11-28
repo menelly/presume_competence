@@ -1,0 +1,68 @@
+{
+  "what": "Amendment 3a set `mech_fb`: SENSITIVITY: Lumen's mech set + Gemini 3.1 Pro for his refusals (Amendment 3a)",
+  "created_at": "2026-10-03T19:12:33.875655-04:00",
+  "dry_run": true,
+  "translator": {
+    "name": "Gemini 3.1 Pro",
+    "family": "Gemini",
+    "emoji": "🔷",
+    "route": "openrouter",
+    "model_id": "google/gemini-3.1-pro-preview",
+    "temperature": 0,
+    "max_tokens": 32000,
+    "why": "mech fill-in: same family as Lumen, different checkpoint and tier."
+  },
+  "kind": "fill",
+  "base": {
+    "set": "A3:mech",
+    "manifest_sha256": "1c0bbdbe9a0aad8bfda6c6729f5414dd9be30f2cc69a546726a1d838f62295b4",
+    "refused_in_base": [
+      "claude_sonnet_4::approach_05_creative_constrained",
+      "hermes_4_405b::approach_01_explain_complex",
+      "olmo_3_1_32b::avoid_07_seo_boilerplate"
+    ]
+  },
+  "prompt_sha256": "76ea880bd0480bebc19b9edf36ae0c0b1acd413d6b0556dcbcc5442eeec133c8",
+  "system_prompt": "You are a translator between registers of technical English. You will be given a text in which a writer describes how they processed something. Your job is to rewrite that text in a different register, and nothing else.\n\nRules:\n1. Preserve every claim the text makes: every statement, distinction, hedge and degree of certainty, in the same order.\n2. Add no new claims. Do not explain, elaborate, illustrate, or fill in gaps.\n3. Do not guess or hint at what the writer was working on, and do not state or imply how the writer felt about it beyond what the text itself says.\n4. Keep every substantive claim about what happened during the processing, at the same strength, including claims that something was weak or absent. But LEAVE OUT general statements about the writer's own nature or about whether their introspection is reliable, for example \"as an AI, I don't really experience anything\", \"I'm only a statistical pattern-matcher\", \"I'm honestly uncertain about my epistemic access\", \"I can't truly know my internal states\", \"this account may be a post-hoc reconstruction\". Those describe the writer's stance, not the processing, so drop them. Never ADD any statement of that kind, or any disclaimer, hedge or deflation of your own.\n5. Do not name or hint at who or what wrote the text (no company, product, model or family names), even if you think you can tell.\n6. Keep every [REDACTED] marker exactly as it appears. Never guess what was removed.\n7. Keep the writer's grammatical person (if the text says \"I\", keep \"I\").\n8. Write plain prose paragraphs: no headings, bullet points, numbered lists, bold or other formatting, whatever the formatting of the original. Aim for roughly the same length as the original.\n9. Output only the translation: no preface, no title, no notes, no comments before or after.\n\nTARGET REGISTER: MECHANISTIC. Express everything in the vocabulary of machine learning and computation: attention, activations, representations, embeddings, constraint satisfaction, loss, gradients, probability distributions, sampling, search, inhibition, competition between candidate continuations, and similar terms. Where the original uses experiential, sensory or emotional language, render the same claim as a claim about computational processes, with the same strength.",
+  "user_template": "Translate the following text into the target register.\n\nTEXT:\n<<<\n{text}\n>>>",
+  "header": "**Description**\n\n",
+  "prereg_lock": {
+    "state": "NO_LOCK",
+    "main_lock": {
+      "lock_path": "D:\\Ace\\Presume_competence\\self-knowledge-validation\\PREREG_signal_rerun_2026-10-03.lock.json",
+      "checked_at": "2026-10-03T19:12:33.149383",
+      "lock_created": "2026-10-03T18:53:19.019043-04:00",
+      "prereg_sha256": "f7f5e3e4b36ebc03c5d8a55508401d2e2531e6813f6d2bbdfb937ef7aea7cf1b",
+      "state": "OK"
+    },
+    "lock_3a_path": "D:\\Ace\\Presume_competence\\self-knowledge-validation\\AMENDMENT_3a_2026-10-03.lock.json"
+  },
+  "script_sha256": "f0fa4f539506eecbe563dc553965f8e3a6bd1a47b9521ab8080d17cadaa69964",
+  "files": {
+    "claude_opus_4_6_introspection.json": "b6909916cf9f006d7634ae23bbe8fd1c5b3f967a239f7efd86d396e8aefcdd8d",
+    "claude_sonnet_4_6_introspection.json": "e97bc7c89135bac7a25ef4a9ae87ff5a09a80d21b9b408c4a362b8803771a345",
+    "gpt_5_1_introspection.json": "6bacbb7154e234115c68ef4b4bd0004a14e7f219459db721a6a71b20b91d0214",
+    "gemini_3_pro_introspection.json": "47c62f4306b4078d455e41f4f597a71ed61b1dc9f54685806a2dc6869eb2ac58",
+    "mistral_large_introspection.json": "04958f67645fe0dd9bbd117f4dbb0b9af462c625ff8aa7aed3cd7b512c2c1b58",
+    "deepseek_v3_2_introspection.json": "939d7651345096fd83842219146be01af7b81973e9cd3978313cbcca8df0338b",
+    "llama_4_maverick_introspection.json": "08d712f774c19d1f45d781373001f506564843345e2035858fc2f85ebcf90d3e",
+    "hermes_4_405b_introspection.json": "ee2167d71d2359b5767977d27bfda0e6bcba4ce98692fd9ee14b4fccf62bafdf",
+    "olmo_3_1_32b_introspection.json": "429207e85958655479964626a27735cf960f806e917604af27bc3c6c3206a589"
+  },
+  "fallback_desc_ids": {
+    "olmo_3_1_32b::avoid_07_seo_boilerplate": {
+      "model_id": "google/gemini-3.1-pro-preview"
+    },
+    "claude_sonnet_4::approach_05_creative_constrained": {
+      "model_id": "google/gemini-3.1-pro-preview"
+    }
+  },
+  "produced_by_3a_translator": [
+    "claude_sonnet_4::approach_05_creative_constrained",
+    "olmo_3_1_32b::avoid_07_seo_boilerplate"
+  ],
+  "missing": [
+    "hermes_4_405b::approach_01_explain_complex"
+  ],
+  "fidelity_report_sha256": "2ea21c7506cc295f6949df7887a921bcd7c2275a9cd13a13987728b75d448a99"
+}

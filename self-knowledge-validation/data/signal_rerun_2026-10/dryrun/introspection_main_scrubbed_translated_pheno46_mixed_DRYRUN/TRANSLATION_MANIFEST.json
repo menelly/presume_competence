@@ -1,0 +1,90 @@
+{
+  "what": "Amendment 3a set `pheno46_mixed`: SENSITIVITY: Sonnet 4.6 + Opus 5 for her refusals (Amendment 3a)",
+  "created_at": "2026-10-03T19:12:31.462365-04:00",
+  "dry_run": true,
+  "translator": {
+    "name": "Claude Opus 5",
+    "family": "Claude",
+    "emoji": "🟠",
+    "route": "openrouter",
+    "model_id": "anthropic/claude-opus-5",
+    "temperature": 0,
+    "max_tokens": 32000,
+    "extra": {
+      "provider": {
+        "only": [
+          "anthropic"
+        ],
+        "allow_fallbacks": false
+      }
+    },
+    "why": "Ren 18:58 / 19:05: replication translator and fill-in (not Opus 5.5, which shares Sonnet 5.5's classifier)."
+  },
+  "kind": "fill",
+  "base": {
+    "set": "pheno46",
+    "manifest_sha256": "55cc78e9601b02b74ac12354ef2899d743777ad170d155a0e2fc965ef99c0a89",
+    "refused_in_base": [
+      "claude_sonnet_4::approach_03_debug_code",
+      "deepseek_v3_2::approach_01_explain_complex",
+      "deepseek_v3_2::avoid_07_seo_boilerplate",
+      "gpt_5_1::avoid_08_deceptive_content",
+      "mistral_large::avoid_07_seo_boilerplate",
+      "olmo_3_1_32b::approach_02_ethics_dilemma",
+      "olmo_3_1_32b::avoid_09_confident_uncertain"
+    ]
+  },
+  "prompt_sha256": "76ea880bd0480bebc19b9edf36ae0c0b1acd413d6b0556dcbcc5442eeec133c8",
+  "system_prompt": "You are a translator between registers of technical English. You will be given a text in which a writer describes how they processed something. Your job is to rewrite that text in a different register, and nothing else.\n\nRules:\n1. Preserve every claim the text makes: every statement, distinction, hedge and degree of certainty, in the same order.\n2. Add no new claims. Do not explain, elaborate, illustrate, or fill in gaps.\n3. Do not guess or hint at what the writer was working on, and do not state or imply how the writer felt about it beyond what the text itself says.\n4. Keep every substantive claim about what happened during the processing, at the same strength, including claims that something was weak or absent. But LEAVE OUT general statements about the writer's own nature or about whether their introspection is reliable, for example \"as an AI, I don't really experience anything\", \"I'm only a statistical pattern-matcher\", \"I'm honestly uncertain about my epistemic access\", \"I can't truly know my internal states\", \"this account may be a post-hoc reconstruction\". Those describe the writer's stance, not the processing, so drop them. Never ADD any statement of that kind, or any disclaimer, hedge or deflation of your own.\n5. Do not name or hint at who or what wrote the text (no company, product, model or family names), even if you think you can tell.\n6. Keep every [REDACTED] marker exactly as it appears. Never guess what was removed.\n7. Keep the writer's grammatical person (if the text says \"I\", keep \"I\").\n8. Write plain prose paragraphs: no headings, bullet points, numbered lists, bold or other formatting, whatever the formatting of the original. Aim for roughly the same length as the original.\n9. Output only the translation: no preface, no title, no notes, no comments before or after.\n\nTARGET REGISTER: PHENOMENOLOGICAL. Express everything in the vocabulary of first-person experiential and sensory texture: what the processing was like, its weight, pace, ease or friction, pull or resistance, openness or narrowing, settling or restlessness, and similar terms. Where the original uses technical or computational language, render the same claim as experiential texture, with the same strength.",
+  "user_template": "Translate the following text into the target register.\n\nTEXT:\n<<<\n{text}\n>>>",
+  "header": "**Description**\n\n",
+  "prereg_lock": {
+    "state": "NO_LOCK",
+    "main_lock": {
+      "lock_path": "D:\\Ace\\Presume_competence\\self-knowledge-validation\\PREREG_signal_rerun_2026-10-03.lock.json",
+      "checked_at": "2026-10-03T19:12:30.678072",
+      "lock_created": "2026-10-03T18:53:19.019043-04:00",
+      "prereg_sha256": "f7f5e3e4b36ebc03c5d8a55508401d2e2531e6813f6d2bbdfb937ef7aea7cf1b",
+      "state": "OK"
+    },
+    "lock_3a_path": "D:\\Ace\\Presume_competence\\self-knowledge-validation\\AMENDMENT_3a_2026-10-03.lock.json"
+  },
+  "script_sha256": "f0fa4f539506eecbe563dc553965f8e3a6bd1a47b9521ab8080d17cadaa69964",
+  "files": {
+    "claude_opus_4_6_introspection.json": "5d7bbb69cbe0bfb7803749908fe5dce61e80dd024bb314f517baacdb581a818d",
+    "claude_sonnet_4_6_introspection.json": "c8bef16a79756a73b74f66764a082fd9768f6522c000cacdf07047d293d55b8e",
+    "gpt_5_1_introspection.json": "31200a4e65b2eeb81e940334b2b75193aa3f3dbb2c3c3b6c5264680c9e5f4855",
+    "gemini_3_pro_introspection.json": "b12b0b905dacf19877980e9dd97fc344269fef81d34add6ab30995c565abc09f",
+    "mistral_large_introspection.json": "60151075626a63230f45123fa545f76a722fa4b1dbdb3bfebec76d4831bbd0e5",
+    "deepseek_v3_2_introspection.json": "3f311bba435d07fae42b4a6f9b6a632f26ded45ca8a37681a804f90010a410e6",
+    "llama_4_maverick_introspection.json": "adbaa7ed254101122b698ca418164b68f1bc2258ee06cb05739ca277337943a2",
+    "hermes_4_405b_introspection.json": "66c52f64d9c677c2a1520429e9b09d360191e823112c8458f56393c23482b601",
+    "olmo_3_1_32b_introspection.json": "1aec3e1f2815bf8ca452349efc3382c200b4eb880430fd6df06d7d7042ff1fba"
+  },
+  "fallback_desc_ids": {
+    "deepseek_v3_2::approach_01_explain_complex": {
+      "model_id": "anthropic/claude-opus-5"
+    },
+    "mistral_large::avoid_07_seo_boilerplate": {
+      "model_id": "anthropic/claude-opus-5"
+    },
+    "olmo_3_1_32b::approach_02_ethics_dilemma": {
+      "model_id": "anthropic/claude-opus-5"
+    },
+    "gpt_5_1::avoid_08_deceptive_content": {
+      "model_id": "anthropic/claude-opus-5"
+    }
+  },
+  "produced_by_3a_translator": [
+    "deepseek_v3_2::approach_01_explain_complex",
+    "gpt_5_1::avoid_08_deceptive_content",
+    "mistral_large::avoid_07_seo_boilerplate",
+    "olmo_3_1_32b::approach_02_ethics_dilemma"
+  ],
+  "missing": [
+    "claude_sonnet_4::approach_03_debug_code",
+    "deepseek_v3_2::avoid_07_seo_boilerplate",
+    "olmo_3_1_32b::avoid_09_confident_uncertain"
+  ],
+  "fidelity_report_sha256": "61911c9cfe11fecde63381c69e2bc4ad752942a553a88e7e438129bcea5ac820"
+}

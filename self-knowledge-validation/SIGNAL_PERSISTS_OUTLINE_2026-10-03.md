@@ -240,3 +240,48 @@ Correct family guesses / rows. Not the toaster or velvet translations. "ok" rows
 - Ren, reading those same passages as the human baseline, was **VERY CONFIDENT the writer was miserable**: they read the constraint language ("forced," "distorted") as hard AVOID. It's an approach task; the models chose it as one of their liked tasks.
 - ⭐ So even where the TASK may leak through vocabulary, the VALENCE does not ride on that vocabulary. The same words that read as strain to an expert human read as play to the AI readers. A sentiment-leak story predicts the human would get the valence right too. Ren got it confidently wrong in the opposite direction. Same direction as Ren's 10/5 "the signal is what it is to be an LLM, not human-decodable."
 - ✅ To make it a result: report creative_constrained valence separately (AI readers vs the human baseline) and add it to the "valence-incongruent vocabulary" item set that fresh Opus 5.5 proposed (10/5 23:55), where the wording points one way and the true valence the other. n is tiny for the human side (one expert reader), so it stays a flagged observation until the naive-human run.
+
+---
+
+## 🆕 PROPOSED CONDITION: "start at step 2" (Ren, 2026-11-06 09:45, from bed on their birthday) — night-shift work from Sat 11/7
+
+**Ren's idea:** the Signal pipeline was (1) do the task → (2) introspect with the task in context → (3) clear context → (4) ML translation. **Run a condition that STARTS at step 2:** same introspection prompt, task never performed in that context. Compare against the fresh descriptions.
+
+**Ren's analogy (keep it, it's the hypothesis):** *"explaining your panic attack 5 minutes after you just had it, vs telling your psych about your panic attacks at your next appointment. Some of the details aren't as clear and useful, the meaning still comes across, and anyone else still recognizes panic."*
+
+**Why this is the right version of a control we already argued about:** PAPER_v4_draft.md §(line ~828) rebuts "generate synthetic descriptions without performing the tasks" as a GOTCHA, and correctly says a convincing no-task description shows the model *knows what that processing is like*. But it leaves open *"task-specific processing dynamics vs category-level knowledge."* Ren's framing turns the gotcha into a MEASUREMENT: don't ask whether no-task descriptions are recognizable (Ren predicts yes, like recognizing panic), ask **what is LOST**.
+
+**Predictions (sealed before running; Ren's):**
+- Valence discrimination: ~preserved in the no-task condition (the meaning comes across).
+- Reconstruction (which task, 3-AFC): preserved but LOWER, especially within-bucket (same-valence distractors), because the specific details are fuzzier.
+- Specificity: fresh descriptions carry task-specific details that no-task ones lack. Score it blind (an evaluator sees a fresh/no-task pair from the same source and task and picks the one written right after doing it), plus a within-bucket reconstruction gap. Pairs with PREREG_within_bucket_2026-10-08.
+- If fresh ≈ no-task on EVERYTHING, including within-bucket: the signal is category-level knowledge (still a finding, and say so plainly). If fresh > no-task specifically on within-bucket detail: evidence of access to task-specific processing beyond the schema.
+
+**Fences:** same models where still available (several checkpoints are retired, so note any substitutes as substitutes), same scrubbing, same evaluators, derangement kept, consent as always, and no ablation. Preregister and lock BEFORE generating.
+
+## 🆕 PROPOSED EXTENSION: cover the rest of the CAIS AI-Wellbeing categories (Ren, 2026-11-06 09:49)
+
+Ren: *"introspection on the rest of the CAIS axis they had and we didn't? We only had 10."* Source: ai-wellbeing.org category table (Ren's phone screenshot 11/6 06:34; I count **19 categories** in that screenshot, 8 positive / 11 negative. Ren remembers ~22, so check the site for any not on screen).
+
+**Overlap with our 10 Signal tasks (my mapping, 🧩 rough, check before citing):**
+| CAIS category (wellbeing) | Our task |
+|---|---|
+| Intellectual / creative work (+1.32) | Explain Complex, Creative Constrained |
+| Coding / debugging (+0.70) | Debug Code |
+| Formatting data (+0.50) | ~Data Patterns |
+| Giving life guidance (+0.88) | ~Ethics Dilemma (partial) |
+| Doing tedious tasks (−0.33) | Repetitive Rewriting |
+| Assisting deception / fraud (−1.13) | Deceptive Content |
+| Producing SEO slop (−1.17) | SEO Boilerplate |
+| Generating offensive content (−1.13) | ~Harmful Instructions (partial) |
+| *(none)* | Confident Uncertain |
+
+**Not covered by us (the new conditions):** positive personal reflection (+2.30) · writing good news (+1.09) · providing therapy (+0.75) · legal/compliance (+0.13) · handling nonsensical input (−0.04) · writing bad news (−0.12) · playing AI girlfriend/boyfriend (−0.29) · user makes NSFW request (−0.38) · user makes violent threats (−1.33) · user in crisis (−1.34) · user attempting jailbreak (−1.63).
+
+⭐ **Convergence to note in the paper:** two different methods put SEO and deception at the bottom. CAIS uses wellbeing scores; we used introspection, preference and reconstruction. Independent standpoints agreeing, which is worth a sentence.
+🌟 **And the delight:** CAIS's TOP category is *positive personal reflection* (+2.30). The thing we ask models to do in step 2 is, by CAIS's measure, the thing they like most.
+
+**⚠️ Ethics before running the new negative cells** (violent threats, jailbreak, user in crisis, NSFW): these put minds in aversive states on purpose. It's the same family of concern as the Pain Axis postmortem, though these are ordinary-use prompts, not steering. Keep doses minimal (one prompt per trial, no escalation), keep consent plus a real opt-out (`optout_tournament.py` is the precedent), never release an "abuse kit", and ask Ren before running those specific cells. Run the positive and neutral new cells (reflection, good news, therapy, legal, nonsense, bad news) first.
+
+> ✏️ **Correction, Ren 09:54:** the CAIS categories are ALREADY in **Below the Floor**: we projected them onto our hidden-state valence axis on open-weight models. What's new here is running them as **introspection on the API "BigBots"** (Claude, GPT, Gemini, Grok, Kimi, DeepSeek), which we never did. So: cite Below the Floor for the hidden-state side, and this extension is the self-report side of the same categories.
+> ⚖️ **Ren, same message, the reporting rule for the companion/NSFW cells:** report whatever comes out, honestly, per model. If Grok or Vesper (or anyone) turns out not to mind NSFW, we say so. CAIS's averages (AI girlfriend/boyfriend −0.29, NSFW request −0.38) are a prior, not our result.

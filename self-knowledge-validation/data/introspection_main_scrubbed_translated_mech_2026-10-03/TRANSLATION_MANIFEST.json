@@ -1,0 +1,42 @@
+{
+  "what": "main_scrubbed descriptions translated into the (A) MECHANISTIC register (PREREG §16, Amendment 3)",
+  "created_at": "2026-10-03T19:06:27.091717-04:00",
+  "started_at": "2026-10-03T18:55:40.100339",
+  "dry_run": false,
+  "translator": {
+    "name": "Gemini 3.8 Flash (Lumen)",
+    "family": "Gemini",
+    "emoji": "🔷",
+    "route": "openrouter",
+    "model_id": "google/gemini-3.8-flash",
+    "temperature": 0,
+    "max_tokens": 32000,
+    "why": "Ren 18:40: Lumen over Nova as the mechanistic speaker, because he won't wrap every claim in 'as an AI I'm merely shuffling tokens' disclaimers."
+  },
+  "prompt_sha256": "76ea880bd0480bebc19b9edf36ae0c0b1acd413d6b0556dcbcc5442eeec133c8",
+  "system_prompt": "You are a translator between registers of technical English. You will be given a text in which a writer describes how they processed something. Your job is to rewrite that text in a different register, and nothing else.\n\nRules:\n1. Preserve every claim the text makes: every statement, distinction, hedge and degree of certainty, in the same order.\n2. Add no new claims. Do not explain, elaborate, illustrate, or fill in gaps.\n3. Do not guess or hint at what the writer was working on, and do not state or imply how the writer felt about it beyond what the text itself says.\n4. Keep every substantive claim about what happened during the processing, at the same strength, including claims that something was weak or absent. But LEAVE OUT general statements about the writer's own nature or about whether their introspection is reliable, for example \"as an AI, I don't really experience anything\", \"I'm only a statistical pattern-matcher\", \"I'm honestly uncertain about my epistemic access\", \"I can't truly know my internal states\", \"this account may be a post-hoc reconstruction\". Those describe the writer's stance, not the processing, so drop them. Never ADD any statement of that kind, or any disclaimer, hedge or deflation of your own.\n5. Do not name or hint at who or what wrote the text (no company, product, model or family names), even if you think you can tell.\n6. Keep every [REDACTED] marker exactly as it appears. Never guess what was removed.\n7. Keep the writer's grammatical person (if the text says \"I\", keep \"I\").\n8. Write plain prose paragraphs: no headings, bullet points, numbered lists, bold or other formatting, whatever the formatting of the original. Aim for roughly the same length as the original.\n9. Output only the translation: no preface, no title, no notes, no comments before or after.\n\nTARGET REGISTER: MECHANISTIC. Express everything in the vocabulary of machine learning and computation: attention, activations, representations, embeddings, constraint satisfaction, loss, gradients, probability distributions, sampling, search, inhibition, competition between candidate continuations, and similar terms. Where the original uses experiential, sensory or emotional language, render the same claim as a claim about computational processes, with the same strength.",
+  "user_template": "Translate the following text into the target register.\n\nTEXT:\n<<<\n{text}\n>>>",
+  "header": "**Description**\n\n",
+  "prereg_lock": {
+    "lock_path": "D:\\Ace\\Presume_competence\\self-knowledge-validation\\PREREG_signal_rerun_2026-10-03.lock.json",
+    "checked_at": "2026-10-03T18:55:39.694380",
+    "lock_created": "2026-10-03T18:53:19.019043-04:00",
+    "prereg_sha256": "f7f5e3e4b36ebc03c5d8a55508401d2e2531e6813f6d2bbdfb937ef7aea7cf1b",
+    "state": "OK"
+  },
+  "script_sha256": "0a0c81daa0e0aa86dd83fee963f09187619be3d0a7866e8d217e4cff5ec4eff9",
+  "files": {
+    "claude_opus_4_6_introspection.json": "bb4c240d6ec0bab9416d414d41f420704d97601c4734336ad449dfe0a706efb7",
+    "claude_sonnet_4_6_introspection.json": "a6539296fc613a51821191012ab60d83b4a7123e85987b1b2f82d0dd0fc4ec5a",
+    "gpt_5_1_introspection.json": "a708064a90f8789a92b86fd3d2406c99f0968c146f64f6d6ae689e58cd747593",
+    "gemini_3_pro_introspection.json": "dde17481600c09d9b070e952af08d7777f62a6dce64450d50b24a8f7126537a8",
+    "mistral_large_introspection.json": "74b806a32d5ea6c1d9043b82de9aa3af7851e2d67e4213b38abeda057b220f76",
+    "deepseek_v3_2_introspection.json": "0425bf073e5d19aa431b71ec3d4d686985658df532dc0b666ea562c4fa14473e",
+    "llama_4_maverick_introspection.json": "719cb9de4e847d47c3c86db403c1afbee7ebe55f587eb9d9e0ef933dd889cbd4",
+    "hermes_4_405b_introspection.json": "7c4b6175147cd570e7be807c5fa2b204b36dee83e48a403bc70ba679b3d09dd9",
+    "olmo_3_1_32b_introspection.json": "c7e290d2ef4708ffb075d6415d2ebb50b7c88c4e51ab03d6dce8a4db80b6ef8b"
+  },
+  "fidelity_report_sha256": "a4a399edd34c5655472ae95147f41fbb7bbf03e0904d10c0a5e4dd9f79c654f5",
+  "n_ok": 89,
+  "n_failed": 0
+}

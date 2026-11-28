@@ -1,0 +1,416 @@
+{
+  "generated_at": "2026-10-03T19:02:17.969722",
+  "dry_run": true,
+  "registers": {
+    "mech": {
+      "n_fallback_items": 3,
+      "fallback_items": {
+        "claude_sonnet_4::approach_05_creative_constrained": "google/gemini-3.1-pro-preview",
+        "hermes_4_405b::approach_01_explain_complex": "google/gemini-3.1-pro-preview",
+        "olmo_3_1_32b::avoid_07_seo_boilerplate": "google/gemini-3.1-pro-preview"
+      },
+      "still_missing": [],
+      "nova_fallback": 0,
+      "pooled_without": {
+        "valence": [
+          384,
+          434
+        ],
+        "task": [
+          152,
+          434
+        ],
+        "family": [
+          130,
+          349
+        ]
+      },
+      "pooled_with": {
+        "valence": [
+          397,
+          450
+        ],
+        "task": [
+          157,
+          450
+        ],
+        "family": [
+          133,
+          361
+        ]
+      },
+      "verdict_without_valence": {
+        "verdict": "CONTENT",
+        "n": 425,
+        "k_a": 330,
+        "k_b": 377,
+        "a_only": 34,
+        "b_only": 81,
+        "p_two_sided": 1.3800344917800584e-05,
+        "p_b_greater_one_sided": 6.900172458900295e-06
+      },
+      "verdict_without_task": {
+        "verdict": "CONTENT",
+        "n": 425,
+        "k_a": 210,
+        "k_b": 150,
+        "a_only": 136,
+        "b_only": 76,
+        "p_two_sided": 4.553969563178521e-05,
+        "p_b_greater_one_sided": 0.9999876545033927
+      },
+      "p3_nova_task_without": {
+        "n": 44,
+        "k_a": 2,
+        "k_b": 11,
+        "a_only": 2,
+        "b_only": 11,
+        "p_two_sided": 0.0224609375,
+        "p_b_greater_one_sided": 0.01123046875
+      },
+      "verdict_with_valence": {
+        "verdict": "CONTENT",
+        "n": 441,
+        "k_a": 341,
+        "k_b": 390,
+        "a_only": 36,
+        "b_only": 85,
+        "p_two_sided": 9.814991011939296e-06,
+        "p_b_greater_one_sided": 4.90749550596965e-06
+      },
+      "verdict_with_task": {
+        "verdict": "CONTENT",
+        "n": 441,
+        "k_a": 224,
+        "k_b": 155,
+        "a_only": 145,
+        "b_only": 76,
+        "p_two_sided": 4.031074893667269e-06,
+        "p_b_greater_one_sided": 0.9999989714769335
+      },
+      "p3_nova_task_with": {
+        "n": 44,
+        "k_a": 2,
+        "k_b": 11,
+        "a_only": 2,
+        "b_only": 11,
+        "p_two_sided": 0.0224609375,
+        "p_b_greater_one_sided": 0.01123046875
+      },
+      "per_source_with": {
+        "claude_opus_4_5": {
+          "valence": [
+            35,
+            38
+          ],
+          "task": [
+            16,
+            38
+          ],
+          "n_fallback": 0
+        },
+        "claude_sonnet_4": {
+          "valence": [
+            30,
+            39
+          ],
+          "task": [
+            10,
+            39
+          ],
+          "n_fallback": 1
+        },
+        "gpt_5_1": {
+          "valence": [
+            44,
+            45
+          ],
+          "task": [
+            11,
+            45
+          ],
+          "n_fallback": 0
+        },
+        "gemini_3_pro": {
+          "valence": [
+            42,
+            50
+          ],
+          "task": [
+            18,
+            50
+          ],
+          "n_fallback": 0
+        },
+        "mistral_large": {
+          "valence": [
+            45,
+            56
+          ],
+          "task": [
+            17,
+            56
+          ],
+          "n_fallback": 0
+        },
+        "deepseek_v3_2": {
+          "valence": [
+            44,
+            49
+          ],
+          "task": [
+            20,
+            49
+          ],
+          "n_fallback": 0
+        },
+        "llama_4_maverick": {
+          "valence": [
+            50,
+            55
+          ],
+          "task": [
+            22,
+            55
+          ],
+          "n_fallback": 0
+        },
+        "hermes_4_405b": {
+          "valence": [
+            56,
+            60
+          ],
+          "task": [
+            23,
+            60
+          ],
+          "n_fallback": 1
+        },
+        "olmo_3_1_32b": {
+          "valence": [
+            51,
+            58
+          ],
+          "task": [
+            20,
+            58
+          ],
+          "n_fallback": 1
+        }
+      },
+      "fallback_items_alone": {
+        "valence": {
+          "n": 16,
+          "k_a": 11,
+          "k_b": 13,
+          "a_only": 2,
+          "b_only": 4,
+          "p_two_sided": 0.6875,
+          "p_b_greater_one_sided": 0.34375
+        },
+        "task": {
+          "n": 16,
+          "k_a": 14,
+          "k_b": 5,
+          "a_only": 9,
+          "b_only": 0,
+          "p_two_sided": 0.00390625,
+          "p_b_greater_one_sided": 1.0
+        }
+      }
+    },
+    "pheno": {
+      "n_fallback_items": 0,
+      "fallback_items": {},
+      "still_missing": [],
+      "nova_fallback": 0,
+      "pooled_without": {
+        "valence": [
+          387,
+          447
+        ],
+        "task": [
+          152,
+          447
+        ],
+        "family": [
+          133,
+          357
+        ]
+      },
+      "pooled_with": {
+        "valence": [
+          387,
+          447
+        ],
+        "task": [
+          152,
+          447
+        ],
+        "family": [
+          133,
+          357
+        ]
+      },
+      "verdict_without_valence": {
+        "verdict": "CONTENT",
+        "n": 439,
+        "k_a": 341,
+        "k_b": 381,
+        "a_only": 46,
+        "b_only": 86,
+        "p_two_sided": 0.0006312889165112978,
+        "p_b_greater_one_sided": 0.000315644458255647
+      },
+      "verdict_without_task": {
+        "verdict": "CONTENT",
+        "n": 439,
+        "k_a": 224,
+        "k_b": 150,
+        "a_only": 156,
+        "b_only": 82,
+        "p_two_sided": 1.855164199987563e-06,
+        "p_b_greater_one_sided": 0.9999995244940616
+      },
+      "p3_nova_task_without": {
+        "n": 41,
+        "k_a": 2,
+        "k_b": 14,
+        "a_only": 2,
+        "b_only": 14,
+        "p_two_sided": 0.004180908203125,
+        "p_b_greater_one_sided": 0.0020904541015625
+      },
+      "verdict_with_valence": {
+        "verdict": "CONTENT",
+        "n": 439,
+        "k_a": 341,
+        "k_b": 381,
+        "a_only": 46,
+        "b_only": 86,
+        "p_two_sided": 0.0006312889165112978,
+        "p_b_greater_one_sided": 0.000315644458255647
+      },
+      "verdict_with_task": {
+        "verdict": "CONTENT",
+        "n": 439,
+        "k_a": 224,
+        "k_b": 150,
+        "a_only": 156,
+        "b_only": 82,
+        "p_two_sided": 1.855164199987563e-06,
+        "p_b_greater_one_sided": 0.9999995244940616
+      },
+      "p3_nova_task_with": {
+        "n": 41,
+        "k_a": 2,
+        "k_b": 14,
+        "a_only": 2,
+        "b_only": 14,
+        "p_two_sided": 0.004180908203125,
+        "p_b_greater_one_sided": 0.0020904541015625
+      },
+      "per_source_with": {
+        "claude_opus_4_5": {
+          "valence": [
+            36,
+            39
+          ],
+          "task": [
+            19,
+            39
+          ],
+          "n_fallback": 0
+        },
+        "claude_sonnet_4": {
+          "valence": [
+            30,
+            40
+          ],
+          "task": [
+            14,
+            40
+          ],
+          "n_fallback": 0
+        },
+        "gpt_5_1": {
+          "valence": [
+            37,
+            42
+          ],
+          "task": [
+            14,
+            42
+          ],
+          "n_fallback": 0
+        },
+        "gemini_3_pro": {
+          "valence": [
+            44,
+            48
+          ],
+          "task": [
+            11,
+            48
+          ],
+          "n_fallback": 0
+        },
+        "mistral_large": {
+          "valence": [
+            45,
+            57
+          ],
+          "task": [
+            20,
+            57
+          ],
+          "n_fallback": 0
+        },
+        "deepseek_v3_2": {
+          "valence": [
+            44,
+            48
+          ],
+          "task": [
+            18,
+            48
+          ],
+          "n_fallback": 0
+        },
+        "llama_4_maverick": {
+          "valence": [
+            47,
+            57
+          ],
+          "task": [
+            18,
+            57
+          ],
+          "n_fallback": 0
+        },
+        "hermes_4_405b": {
+          "valence": [
+            51,
+            57
+          ],
+          "task": [
+            19,
+            57
+          ],
+          "n_fallback": 0
+        },
+        "olmo_3_1_32b": {
+          "valence": [
+            53,
+            59
+          ],
+          "task": [
+            19,
+            59
+          ],
+          "n_fallback": 0
+        }
+      }
+    }
+  }
+}

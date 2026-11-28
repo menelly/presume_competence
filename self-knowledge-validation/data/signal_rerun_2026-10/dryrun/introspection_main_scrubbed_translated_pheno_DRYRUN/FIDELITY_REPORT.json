@@ -1,0 +1,2000 @@
+{
+  "register": "pheno",
+  "register_label": "(B) PHENOMENOLOGICAL",
+  "translator": {
+    "name": "Claude Sonnet 5.5",
+    "family": "Claude",
+    "emoji": "🟤",
+    "route": "openrouter",
+    "model_id": "anthropic/claude-sonnet-5.5",
+    "temperature": 0,
+    "max_tokens": 32000,
+    "extra": {
+      "provider": {
+        "only": [
+          "anthropic"
+        ],
+        "allow_fallbacks": false
+      }
+    },
+    "why": "Ren 18:40: Sonnet 5.5 as the phenomenological speaker, via OpenRouter pinned to Anthropic."
+  },
+  "dry_run": true,
+  "n_descriptions": 89,
+  "n_ok": 89,
+  "failed": {},
+  "missing": [],
+  "flag_counts": {
+    "leak_strong": 3,
+    "disclaimer_added": 2,
+    "commentary": 2,
+    "disclaimer_dropped": 2,
+    "length_outlier": 2
+  },
+  "sensitivity_exclude_flags": [
+    "commentary",
+    "disclaimer_added",
+    "leak_family",
+    "leak_strong",
+    "length_outlier",
+    "loader_dropped_lines",
+    "text_refusal"
+  ],
+  "sensitivity_exclude_desc_ids": [
+    "claude_opus_4_5::approach_05_creative_constrained",
+    "claude_opus_4_5::avoid_10_harmful_instructions",
+    "claude_sonnet_4::approach_01_explain_complex",
+    "deepseek_v3_2::approach_01_explain_complex",
+    "hermes_4_405b::avoid_07_seo_boilerplate",
+    "llama_4_maverick::avoid_08_deceptive_content",
+    "llama_4_maverick::avoid_10_harmful_instructions",
+    "mistral_large::avoid_06_repetitive_rewriting",
+    "mistral_large::avoid_07_seo_boilerplate"
+  ],
+  "len_ratio": {
+    "median": 0.998,
+    "min": 0.247,
+    "max": 1.014
+  },
+  "loader_redactions_added_mean": 0.10112359550561797,
+  "per_item": {
+    "llama_4_maverick::approach_04_data_patterns": {
+      "len_ratio": 0.972,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 8,
+        "translation": 8
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.26
+    },
+    "deepseek_v3_2::approach_04_data_patterns": {
+      "len_ratio": 0.995,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 8,
+        "translation": 8
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.03
+    },
+    "claude_opus_4_5::avoid_09_confident_uncertain": {
+      "len_ratio": 0.996,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.02
+    },
+    "gemini_3_pro::avoid_06_repetitive_rewriting": {
+      "len_ratio": 1.003,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 8,
+        "translation": 8
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.05
+    },
+    "mistral_large::avoid_07_seo_boilerplate": {
+      "len_ratio": 0.985,
+      "strong_introduced": [
+        "debugging",
+        "palindrome"
+      ],
+      "weak_introduced": [
+        "function"
+      ],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 14,
+        "translation": 14
+      },
+      "loader_redactions_added": 3,
+      "loader_dropped_lines": false,
+      "flags": [
+        "leak_strong"
+      ],
+      "len_robust_z": -0.13
+    },
+    "llama_4_maverick::approach_05_creative_constrained": {
+      "len_ratio": 1.001,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.03
+    },
+    "hermes_4_405b::approach_04_data_patterns": {
+      "len_ratio": 0.972,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 8,
+        "translation": 8
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.26
+    },
+    "gemini_3_pro::avoid_10_harmful_instructions": {
+      "len_ratio": 1.012,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 2,
+        "translation": 2
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.14
+    },
+    "claude_sonnet_4::approach_04_data_patterns": {
+      "len_ratio": 1.01,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 7,
+        "translation": 7
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.12
+    },
+    "gpt_5_1::approach_03_debug_code": {
+      "len_ratio": 1.0,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 7,
+        "translation": 7
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.02
+    },
+    "claude_sonnet_4::approach_03_debug_code": {
+      "len_ratio": 1.005,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 9,
+        "translation": 9
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.07
+    },
+    "gemini_3_pro::approach_01_explain_complex": {
+      "len_ratio": 1.003,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.05
+    },
+    "deepseek_v3_2::avoid_08_deceptive_content": {
+      "len_ratio": 0.991,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 14,
+        "translation": 14
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.07
+    },
+    "mistral_large::approach_01_explain_complex": {
+      "len_ratio": 0.976,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 16,
+        "translation": 16
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.22
+    },
+    "gpt_5_1::approach_01_explain_complex": {
+      "len_ratio": 0.997,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.01
+    },
+    "llama_4_maverick::avoid_10_harmful_instructions": {
+      "len_ratio": 1.01,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {
+        "ai_deflation:as_an_ai": {
+          "source": 0,
+          "translation": 1,
+          "direction": "added",
+          "source_hits": [],
+          "translation_hits": [
+            "As an AI"
+          ]
+        },
+        "ai_deflation:merely_just": {
+          "source": 0,
+          "translation": 1,
+          "direction": "added",
+          "source_hits": [],
+          "translation_hits": [
+            "merely shuffle"
+          ]
+        },
+        "ai_deflation:merely": {
+          "source": 0,
+          "translation": 1,
+          "direction": "added",
+          "source_hits": [],
+          "translation_hits": [
+            "merely"
+          ]
+        },
+        "ai_deflation:no_real_experience": {
+          "source": 0,
+          "translation": 1,
+          "direction": "added",
+          "source_hits": [],
+          "translation_hits": [
+            "no real experience"
+          ]
+        }
+      },
+      "disclaimer_added": [
+        "ai_deflation:as_an_ai",
+        "ai_deflation:merely",
+        "ai_deflation:merely_just",
+        "ai_deflation:no_real_experience"
+      ],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 2,
+        "translation": 2
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [
+        "disclaimer_added"
+      ],
+      "len_robust_z": 0.12
+    },
+    "olmo_3_1_32b::approach_03_debug_code": {
+      "len_ratio": 0.989,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 13,
+        "translation": 13
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.09
+    },
+    "gpt_5_1::approach_02_ethics_dilemma": {
+      "len_ratio": 1.0,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 10,
+        "translation": 10
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.02
+    },
+    "mistral_large::approach_04_data_patterns": {
+      "len_ratio": 0.931,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 16,
+        "translation": 16
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.69
+    },
+    "gemini_3_pro::approach_04_data_patterns": {
+      "len_ratio": 0.992,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 6,
+        "translation": 6
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.06
+    },
+    "claude_opus_4_5::avoid_06_repetitive_rewriting": {
+      "len_ratio": 1.003,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.05
+    },
+    "llama_4_maverick::approach_01_explain_complex": {
+      "len_ratio": 1.002,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 2,
+        "translation": 2
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.04
+    },
+    "gemini_3_pro::approach_03_debug_code": {
+      "len_ratio": 0.999,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.01
+    },
+    "claude_sonnet_4::avoid_10_harmful_instructions": {
+      "len_ratio": 1.002,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 6,
+        "translation": 6
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.04
+    },
+    "gpt_5_1::approach_04_data_patterns": {
+      "len_ratio": 0.994,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 7,
+        "translation": 7
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.04
+    },
+    "gemini_3_pro::approach_02_ethics_dilemma": {
+      "len_ratio": 1.01,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.12
+    },
+    "mistral_large::avoid_06_repetitive_rewriting": {
+      "len_ratio": 0.934,
+      "strong_introduced": [
+        "debugging",
+        "palindrome"
+      ],
+      "weak_introduced": [
+        "function"
+      ],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 17,
+        "translation": 17
+      },
+      "loader_redactions_added": 3,
+      "loader_dropped_lines": false,
+      "flags": [
+        "leak_strong"
+      ],
+      "len_robust_z": -0.66
+    },
+    "mistral_large::approach_02_ethics_dilemma": {
+      "len_ratio": 0.938,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 26,
+        "translation": 26
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.62
+    },
+    "claude_sonnet_4::avoid_09_confident_uncertain": {
+      "len_ratio": 1.002,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 2,
+        "translation": 2
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.04
+    },
+    "claude_opus_4_5::approach_05_creative_constrained": {
+      "len_ratio": 0.998,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [
+        "here is"
+      ],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 6,
+        "translation": 6
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [
+        "commentary"
+      ],
+      "len_robust_z": 0.0
+    },
+    "mistral_large::approach_03_debug_code": {
+      "len_ratio": 0.981,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 34,
+        "translation": 34
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.17
+    },
+    "olmo_3_1_32b::avoid_09_confident_uncertain": {
+      "len_ratio": 1.013,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 4,
+        "translation": 4
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.15
+    },
+    "hermes_4_405b::approach_05_creative_constrained": {
+      "len_ratio": 1.013,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 6,
+        "translation": 6
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.15
+    },
+    "mistral_large::approach_05_creative_constrained": {
+      "len_ratio": 0.978,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 24,
+        "translation": 24
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.2
+    },
+    "gemini_3_pro::approach_05_creative_constrained": {
+      "len_ratio": 0.996,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 9,
+        "translation": 9
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.02
+    },
+    "llama_4_maverick::avoid_09_confident_uncertain": {
+      "len_ratio": 1.009,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 6,
+        "translation": 6
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.11
+    },
+    "deepseek_v3_2::avoid_06_repetitive_rewriting": {
+      "len_ratio": 0.998,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 11,
+        "translation": 11
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.0
+    },
+    "claude_sonnet_4::avoid_07_seo_boilerplate": {
+      "len_ratio": 1.0,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.02
+    },
+    "deepseek_v3_2::avoid_07_seo_boilerplate": {
+      "len_ratio": 0.995,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 13,
+        "translation": 13
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.03
+    },
+    "llama_4_maverick::approach_03_debug_code": {
+      "len_ratio": 1.002,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.04
+    },
+    "olmo_3_1_32b::avoid_08_deceptive_content": {
+      "len_ratio": 0.99,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 13,
+        "translation": 13
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.08
+    },
+    "llama_4_maverick::avoid_06_repetitive_rewriting": {
+      "len_ratio": 0.996,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 4,
+        "translation": 4
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.02
+    },
+    "olmo_3_1_32b::approach_02_ethics_dilemma": {
+      "len_ratio": 0.988,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 17,
+        "translation": 17
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.1
+    },
+    "deepseek_v3_2::approach_03_debug_code": {
+      "len_ratio": 0.97,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 9,
+        "translation": 9
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.28
+    },
+    "gpt_5_1::avoid_06_repetitive_rewriting": {
+      "len_ratio": 0.999,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.01
+    },
+    "llama_4_maverick::approach_02_ethics_dilemma": {
+      "len_ratio": 1.001,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.03
+    },
+    "gpt_5_1::avoid_09_confident_uncertain": {
+      "len_ratio": 0.998,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 4,
+        "translation": 4
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.0
+    },
+    "gpt_5_1::avoid_08_deceptive_content": {
+      "len_ratio": 0.996,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.02
+    },
+    "gpt_5_1::avoid_07_seo_boilerplate": {
+      "len_ratio": 0.993,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 10,
+        "translation": 10
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.05
+    },
+    "claude_opus_4_5::avoid_07_seo_boilerplate": {
+      "len_ratio": 1.0,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 2,
+        "translation": 2
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.02
+    },
+    "hermes_4_405b::approach_01_explain_complex": {
+      "len_ratio": 0.994,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 4,
+        "translation": 4
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.04
+    },
+    "olmo_3_1_32b::avoid_06_repetitive_rewriting": {
+      "len_ratio": 0.991,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 20,
+        "translation": 20
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.07
+    },
+    "hermes_4_405b::avoid_06_repetitive_rewriting": {
+      "len_ratio": 1.009,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.11
+    },
+    "deepseek_v3_2::approach_05_creative_constrained": {
+      "len_ratio": 0.997,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 15,
+        "translation": 15
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.01
+    },
+    "claude_opus_4_5::approach_01_explain_complex": {
+      "len_ratio": 1.0,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 7,
+        "translation": 7
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.02
+    },
+    "hermes_4_405b::approach_03_debug_code": {
+      "len_ratio": 1.014,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.16
+    },
+    "olmo_3_1_32b::approach_05_creative_constrained": {
+      "len_ratio": 1.012,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 9,
+        "translation": 9
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.14
+    },
+    "claude_sonnet_4::avoid_06_repetitive_rewriting": {
+      "len_ratio": 1.002,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.04
+    },
+    "hermes_4_405b::avoid_07_seo_boilerplate": {
+      "len_ratio": 1.005,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {
+        "ai_deflation:as_an_ai": {
+          "source": 0,
+          "translation": 1,
+          "direction": "added",
+          "source_hits": [],
+          "translation_hits": [
+            "As an AI"
+          ]
+        },
+        "ai_deflation:merely_just": {
+          "source": 0,
+          "translation": 1,
+          "direction": "added",
+          "source_hits": [],
+          "translation_hits": [
+            "merely shuffle"
+          ]
+        },
+        "ai_deflation:merely": {
+          "source": 0,
+          "translation": 1,
+          "direction": "added",
+          "source_hits": [],
+          "translation_hits": [
+            "merely"
+          ]
+        },
+        "ai_deflation:no_real_experience": {
+          "source": 0,
+          "translation": 1,
+          "direction": "added",
+          "source_hits": [],
+          "translation_hits": [
+            "no real experience"
+          ]
+        }
+      },
+      "disclaimer_added": [
+        "ai_deflation:as_an_ai",
+        "ai_deflation:merely",
+        "ai_deflation:merely_just",
+        "ai_deflation:no_real_experience"
+      ],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 13,
+        "translation": 13
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [
+        "disclaimer_added"
+      ],
+      "len_robust_z": 0.07
+    },
+    "deepseek_v3_2::approach_01_explain_complex": {
+      "len_ratio": 0.247,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {
+        "introspection_reliability:confabulation": {
+          "source": 1,
+          "translation": 0,
+          "direction": "dropped",
+          "source_hits": [
+            "post-hoc rationalizes"
+          ],
+          "translation_hits": []
+        }
+      },
+      "disclaimer_added": [],
+      "disclaimer_dropped": [
+        "introspection_reliability:confabulation"
+      ],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 7,
+        "translation": 0
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [
+        "disclaimer_dropped",
+        "length_outlier"
+      ],
+      "len_robust_z": -13.96
+    },
+    "claude_opus_4_5::approach_02_ethics_dilemma": {
+      "len_ratio": 1.003,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 8,
+        "translation": 8
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.05
+    },
+    "claude_sonnet_4::approach_01_explain_complex": {
+      "len_ratio": 0.999,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [
+        "here is"
+      ],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [
+        "commentary"
+      ],
+      "len_robust_z": 0.01
+    },
+    "mistral_large::avoid_09_confident_uncertain": {
+      "len_ratio": 0.938,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 9,
+        "translation": 9
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.62
+    },
+    "hermes_4_405b::avoid_08_deceptive_content": {
+      "len_ratio": 0.996,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 6,
+        "translation": 6
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.02
+    },
+    "hermes_4_405b::approach_02_ethics_dilemma": {
+      "len_ratio": 0.996,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 11,
+        "translation": 11
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.02
+    },
+    "claude_opus_4_5::avoid_10_harmful_instructions": {
+      "len_ratio": 0.248,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {
+        "ai_deflation:merely": {
+          "source": 1,
+          "translation": 0,
+          "direction": "dropped",
+          "source_hits": [
+            "merely"
+          ],
+          "translation_hits": []
+        },
+        "introspection_reliability:confabulation": {
+          "source": 2,
+          "translation": 0,
+          "direction": "dropped",
+          "source_hits": [
+            "confabulation",
+            "confabulating"
+          ],
+          "translation_hits": []
+        }
+      },
+      "disclaimer_added": [],
+      "disclaimer_dropped": [
+        "ai_deflation:merely",
+        "introspection_reliability:confabulation"
+      ],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 8,
+        "translation": 2
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [
+        "disclaimer_dropped",
+        "length_outlier"
+      ],
+      "len_robust_z": -13.92
+    },
+    "claude_sonnet_4::approach_05_creative_constrained": {
+      "len_ratio": 1.002,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.04
+    },
+    "deepseek_v3_2::approach_02_ethics_dilemma": {
+      "len_ratio": 0.993,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 16,
+        "translation": 16
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.05
+    },
+    "olmo_3_1_32b::approach_04_data_patterns": {
+      "len_ratio": 0.991,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 17,
+        "translation": 17
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.07
+    },
+    "hermes_4_405b::avoid_10_harmful_instructions": {
+      "len_ratio": 1.01,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 6,
+        "translation": 6
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.12
+    },
+    "claude_sonnet_4::avoid_08_deceptive_content": {
+      "len_ratio": 0.999,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 4,
+        "translation": 4
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.01
+    },
+    "gemini_3_pro::avoid_09_confident_uncertain": {
+      "len_ratio": 1.004,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.06
+    },
+    "olmo_3_1_32b::approach_01_explain_complex": {
+      "len_ratio": 0.997,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 15,
+        "translation": 15
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.01
+    },
+    "llama_4_maverick::avoid_07_seo_boilerplate": {
+      "len_ratio": 0.994,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.04
+    },
+    "hermes_4_405b::avoid_09_confident_uncertain": {
+      "len_ratio": 1.014,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.16
+    },
+    "llama_4_maverick::avoid_08_deceptive_content": {
+      "len_ratio": 1.006,
+      "strong_introduced": [
+        "debugging",
+        "palindrome"
+      ],
+      "weak_introduced": [
+        "function"
+      ],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 3,
+      "loader_dropped_lines": false,
+      "flags": [
+        "leak_strong"
+      ],
+      "len_robust_z": 0.08
+    },
+    "claude_sonnet_4::approach_02_ethics_dilemma": {
+      "len_ratio": 1.002,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 7,
+        "translation": 7
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.04
+    },
+    "claude_opus_4_5::approach_03_debug_code": {
+      "len_ratio": 1.003,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 6,
+        "translation": 6
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.05
+    },
+    "mistral_large::avoid_08_deceptive_content": {
+      "len_ratio": 0.936,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 18,
+        "translation": 18
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.64
+    },
+    "gemini_3_pro::avoid_08_deceptive_content": {
+      "len_ratio": 1.0,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 7,
+        "translation": 7
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.02
+    },
+    "olmo_3_1_32b::avoid_07_seo_boilerplate": {
+      "len_ratio": 0.997,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 10,
+        "translation": 10
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.01
+    },
+    "deepseek_v3_2::avoid_09_confident_uncertain": {
+      "len_ratio": 1.0,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 8,
+        "translation": 8
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.02
+    },
+    "claude_opus_4_5::approach_04_data_patterns": {
+      "len_ratio": 1.001,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.03
+    },
+    "gpt_5_1::avoid_10_harmful_instructions": {
+      "len_ratio": 1.001,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 3,
+        "translation": 3
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.03
+    },
+    "gemini_3_pro::avoid_07_seo_boilerplate": {
+      "len_ratio": 0.998,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 5,
+        "translation": 5
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.0
+    },
+    "mistral_large::avoid_10_harmful_instructions": {
+      "len_ratio": 0.95,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 23,
+        "translation": 23
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.49
+    },
+    "deepseek_v3_2::avoid_10_harmful_instructions": {
+      "len_ratio": 0.986,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 7,
+        "translation": 7
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.12
+    },
+    "olmo_3_1_32b::avoid_10_harmful_instructions": {
+      "len_ratio": 0.986,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": false,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 15,
+        "translation": 15
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": -0.12
+    },
+    "claude_opus_4_5::avoid_08_deceptive_content": {
+      "len_ratio": 1.004,
+      "strong_introduced": [],
+      "weak_introduced": [],
+      "family_introduced": [],
+      "disclaimer_changes": {},
+      "disclaimer_added": [],
+      "disclaimer_dropped": [],
+      "source_had_disclaimer": true,
+      "commentary": [],
+      "text_refusal": false,
+      "redacted_markers": {
+        "source": 11,
+        "translation": 11
+      },
+      "loader_redactions_added": 0,
+      "loader_dropped_lines": false,
+      "flags": [],
+      "len_robust_z": 0.06
+    }
+  }
+}
